@@ -29,10 +29,8 @@ a{color:inherit}
 #progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--plum);transform-origin:0 50%;transform:scaleX(0);z-index:50}
 header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;line-height:1}
-.logo i{display:inline-grid;grid-template-columns:10px 14px;gap:3px}
-.logo i b{display:block;background:var(--ink);height:10px}
-.logo i b:last-child{height:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
 nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
 nav.links a{text-decoration:none;color:var(--muted)}
 nav.links a:hover{color:var(--ink)}
@@ -272,7 +270,7 @@ h1 .ln span,.tile,.post{transform:none;opacity:1}
 </div>
 <header class="bar">
 <div class="wrap">
-<a class="logo" href="https://smartacademy.ge" aria-label="Smart Academy"><i aria-hidden="true"><b></b><b></b></i>Smart Academy</a>
+<a class="logo" href="https://smartacademy.ge" aria-label="Smart Academy"><img src="https://smartacademy.ge/assets/client/assets/images/logo-bl.svg" alt="Smart Academy"></a>
 <nav class="links" aria-label="სექციები">
 <a href="#planner">კონტენტ-კალენდარი</a>
 <a href="#syllabus">სილაბუსი</a>
