@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>სტრატეგიული HR მენეჯმენტის კურსი | Smart Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+--paper:#EEF2F1;--card:#FFFFFF;--ink:#12241F;--muted:#4B5F59;--line:#CBD9D3;
+--teal:#1F7A5C;--teal-ink:#FFFFFF;--amber:#F2A93B;--amber-ink:#12241F;--soft:#DCEAE3;
+--font:"Bricolage Grotesque","Noto Sans Georgian",system-ui,sans-serif;
+--geo:"Noto Sans Georgian","Bricolage Grotesque",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#0B1613;--card:#132420;--ink:#E7F1EC;--muted:#9DB3AB;--line:#274139;
+--teal:#4FCB9B;--teal-ink:#0B1613;--amber:#F2A93B;--amber-ink:#0B1613;--soft:#1B332C;}}
+:root[data-theme="dark"]{
+--paper:#0B1613;--card:#132420;--ink:#E7F1EC;--muted:#9DB3AB;--line:#274139;
+--teal:#4FCB9B;--teal-ink:#0B1613;--amber:#F2A93B;--amber-ink:#0B1613;--soft:#1B332C;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--teal);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--teal);color:var(--teal-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-amber{background:var(--amber);color:var(--amber-ink)}
+.btn-amber:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+/* hero */
+.hero{padding:60px 0 20px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:48px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin:0 0 20px}
+.tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
+h1{font-family:var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(42px,6.6vw,92px);line-height:.94;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--teal)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:58ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+/* dashboard mockup */
+.dash-stage{position:relative;display:flex;justify-content:center}
+.dash{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:22px 20px;box-shadow:0 40px 70px -35px rgba(18,36,31,.5);position:relative;z-index:2}
+.dash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.dash-head strong{font-family:var(--geo);font-size:16px}
+.dash-head span{font-family:var(--geo);font-size:12px;color:var(--muted)}
+.avrow{display:flex;margin:0 0 18px}
+.avrow span{width:32px;height:32px;border-radius:50%;border:2px solid var(--card);background:var(--teal);color:var(--teal-ink);display:grid;place-items:center;font-family:var(--geo);font-weight:800;font-size:12px;margin-right:-10px}
+.avrow span:nth-child(2){background:var(--amber);color:var(--amber-ink)}
+.avrow span:nth-child(3){background:var(--soft);color:var(--ink)}
+.avrow span:nth-child(4){background:var(--ink);color:var(--paper)}
+.dgauge{display:flex;align-items:center;gap:16px;padding:14px;border-radius:16px;background:var(--soft);margin-bottom:16px}
+.dgauge svg{width:74px;height:74px;transform:rotate(-90deg);flex:none}
+.dgauge circle{fill:none;stroke-width:9}
+.dgauge .bg{stroke:color-mix(in srgb,var(--ink) 12%,transparent)}
+.dgauge .fg{stroke:var(--teal);stroke-linecap:round;transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.2,1)}
+.dgauge .num{font-family:var(--font);font-weight:800;font-size:19px}
+.dgauge .lbl{font-family:var(--geo);font-size:12px;color:var(--muted)}
+.goal-list{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.goal-list li{opacity:0;transform:translateY(8px);animation:gin .5s cubic-bezier(.3,1.3,.5,1) forwards}
+@keyframes gin{to{opacity:1;transform:none}}
+.grow{display:flex;align-items:center;gap:10px;font-family:var(--geo);font-size:13px}
+.gcheck{flex:none;width:18px;height:18px;border-radius:50%;background:var(--teal);color:var(--teal-ink);display:grid;place-items:center}
+.gtrack{flex:1;height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.gfill{height:100%;background:var(--teal);border-radius:99px;transform-origin:0 50%}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-family:var(--geo);font-size:14px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:10px;animation:bob 5s ease-in-out infinite}
+.bubble b{font-family:var(--font)}
+.bubble.b1{left:-10px;top:36px}
+.bubble.b2{right:-16px;top:210px;animation-delay:-1.6s}
+.bubble.b3{left:-4px;bottom:24px;animation-delay:-3.2s;background:var(--teal);color:var(--teal-ink);border-color:var(--teal)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+/* tools strip */
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+section{padding:90px 0}
+h2{font-family:var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+/* smart goal builder */
+.smart{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 14px}
+.inputs{display:grid;gap:14px}
+.inputs label{font-family:var(--geo);font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.inputs input{min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);padding:0 14px;font:600 16px var(--font);width:100%}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:10px 0 0}
+.goalcard{background:var(--ink);color:var(--paper);border-radius:20px;padding:26px;min-height:150px;display:flex;flex-direction:column;justify-content:center}
+.goalcard p{font-family:var(--geo);font-size:19px;line-height:1.5;margin:0}
+.goalcard .ph{color:color-mix(in srgb,var(--paper) 55%,transparent)}
+.goalcard b{color:var(--amber)}
+.checklist{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.checklist li{display:flex;align-items:center;gap:12px;font-family:var(--geo);font-size:14px;color:var(--muted);padding:8px 4px}
+.checklist .ck{flex:none;width:24px;height:24px;border-radius:50%;background:var(--soft);color:var(--muted);display:grid;place-items:center;transition:background .25s,color .25s}
+.checklist li.ok{color:var(--ink);font-weight:700}
+.checklist li.ok .ck{background:var(--teal);color:var(--teal-ink)}
+/* syllabus */
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec .n{font-weight:800;font-size:30px;color:var(--teal);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--amber);border-color:var(--amber);color:#12241F}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--teal)}
+.lec ul li.tk{font-weight:700}
+.lec ul li.tk:before{background:var(--amber);border-radius:2px}
+.lec button:hover .t{color:var(--teal)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+/* outcomes */
+.out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;counter-reset:c;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{counter-increment:c;font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--teal);color:var(--teal-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:var(--amber) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2312241F' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 45s linear infinite}
+.jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--teal)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* lecturers */
+.lects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.lcard{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;display:flex;flex-direction:column}
+.lcard .ini{width:64px;height:64px;border-radius:50%;background:var(--teal);color:var(--teal-ink);display:grid;place-items:center;font-family:var(--geo);font-weight:900;font-size:22px;margin-bottom:16px}
+.lcard:nth-child(2) .ini{background:var(--amber);color:var(--amber-ink)}
+.lcard:nth-child(3) .ini{background:var(--ink);color:var(--paper)}
+.lcard strong{font-family:var(--geo);font-stretch:74%;font-weight:900;font-size:24px;line-height:1.15;display:block;margin-bottom:6px}
+.lcard .role{font-family:var(--geo);color:var(--muted);font-size:14px;margin:0 0 16px}
+.lcard .lstat{display:flex;gap:10px;margin-top:auto;flex-wrap:wrap}
+.lcard .lstat div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;flex:1;min-width:0}
+.lcard .lstat b{display:block;font-family:var(--font);font-weight:800;font-size:20px}
+.lcard .lstat span{font-family:var(--geo);font-size:12px;color:var(--muted)}
+/* final */
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.count{display:flex;gap:10px;margin:0 0 22px}
+.count div{background:color-mix(in srgb,var(--paper) 10%,transparent);border-radius:14px;padding:12px 14px;min-width:78px;text-align:center}
+.count b{display:block;font-size:34px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.count span{font-family:var(--geo);font-size:12px;opacity:.7}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:960px){
+.hero-grid,.smart,.out,.lects,.final{grid-template-columns:1fr}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.count div{min-width:0;flex:1}
+.sched{grid-template-columns:1fr}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span,.goal-list li{transform:none;opacity:1}
+.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" aria-label="Smart Academy"><img src="https://smartacademy.ge/assets/client/assets/images/logo-bl.svg" alt="Smart Academy"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#smart">SMART მიზნები</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturers">ლექტორები</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/377-Strategic-Human-Resource-Management">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 19 სექტემბერს, ფიზიკურად + ონლაინ</p>
+<h1><span class="ln"><span>სტრატეგიული</span></span><span class="ln"><span>HR</span></span><span class="ln"><span>მენეჯმენტი</span></span></h1>
+<p class="lead">მენტორინგის პროგრამა HR სპეციალისტებისა და ბიზნეს ლიდერებისთვის, რომლებსაც სურთ შესრულების მართვის სისტემის აწყობა: მიზნების დასახვიდან და KPI/OKR-ებიდან განვითარებისა და მოტივაციის სქემებამდე. სამი პრაქტიკოსი ლექტორი, რეალური ქეისები და საკუთარი ორგანიზაციისთვის მზა გეგმა.</p>
+<dl class="facts">
+<div><dt>ლექტორები</dt><dd>3 ექსპერტი პრაქტიკოსი</dd></div>
+<div><dt>დაწყება</dt><dd>19 სექტემბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>2.5 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>18 შეხვედრა, 38 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>სამშაბათი, შაბათი</dd></div>
+<div><dt>ფორმატი</dt><dd>ფიზიკურად + ონლაინ</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">1800 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/377-Strategic-Human-Resource-Management">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">18 შეხვედრა</a>
+</div>
+</div>
+<div class="dash-stage">
+<div class="bubble b1">Engagement <b id="engLive">87%</b></div>
+<div class="bubble b2">Goals on track <b>9/12</b></div>
+<div class="bubble b3">1:1s this month <b>24</b></div>
+<div class="dash" aria-label="შესრულების მართვის დეშბორდის მაკეტი">
+<div class="dash-head"><strong>Performance Dashboard</strong><span>Q3 2026</span></div>
+<div class="avrow" aria-hidden="true"><span>ლკ</span><span>ეზ</span><span>ნმ</span><span>+8</span></div>
+<div class="dgauge">
+<svg viewBox="0 0 80 80" aria-hidden="true"><circle class="bg" cx="40" cy="40" r="32"/><circle class="fg" id="dGaugeFg" cx="40" cy="40" r="32"/></svg>
+<div><span class="num" id="dGaugeNum">87%</span><span class="lbl">Engagement Score</span></div>
+</div>
+<ul class="goal-list" id="goalList"></ul>
+</div>
+</div>
+</div>
+<div class="plat"><p>რასაც ისწავლი და გამოიყენებ:</p><span>KPI</span><span>OKR</span><span>MBO</span><span>360° Feedback</span><span>SMART Goals</span><span>IDP</span><span>Engagement Survey</span><span>1:1 Meetings</span></div>
+</div>
+</section>
+<section id="smart">
+<div class="wrap">
+<h2 class="reveal">ააწყვე შენი პირველი SMART მიზანი</h2>
+<p class="sub reveal">Specific, Measurable, Achievable, Relevant, Time-bound. მიზნების დასახვის ეს ჩარჩო ისწავლება მე-6 შეხვედრაზე. შეავსე ველები და ნახე, როგორ იკრიბება ფორმალური SMART მიზანი და რომელი კრიტერიუმებია დაკმაყოფილებული.</p>
+<div class="smart reveal">
+<div class="panel">
+<h3>SMART Goal Builder</h3>
+<div class="inputs">
+<label>მიზნის ფორმულირება<input type="text" id="gStatement" placeholder="მაგ. გუნდის თანამშრომელთა კმაყოფილების გაზრდა"></label>
+<label>სამიზნე მეტრიკა<input type="text" id="gMetric" placeholder="მაგ. eNPS ქულა"></label>
+<label>სამიზნე რიცხვი<input type="number" id="gNumber" placeholder="მაგ. 40"></label>
+<label>ვადა<input type="date" id="gDeadline"></label>
+</div>
+<p class="hint">SMART ჩარჩო და მიზნების კასკადირება ისწავლება მე-6 შეხვედრაზე.</p>
+</div>
+<div class="panel">
+<div class="goalcard" id="goalCard"><p class="ph">შეავსე ველები მარცხნივ, რომ დაინახო შენი SMART მიზნის მზა ფორმულირება.</p></div>
+<ul class="checklist" id="checklist">
+<li data-k="s"><span class="ck">S</span><span>Specific, კონკრეტული ჩამოყალიბება</span></li>
+<li data-k="m"><span class="ck">M</span><span>Measurable, გაზომვადი მეტრიკა</span></li>
+<li data-k="a"><span class="ck">A</span><span>Achievable, მიღწევადი სამიზნე რიცხვი</span></li>
+<li data-k="r"><span class="ck">R</span><span>Relevant, დაკავშირებული მიზანთან და მეტრიკასთან</span></li>
+<li data-k="t"><span class="ck">T</span><span>Time-bound, განსაზღვრული ვადა</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">18 შეხვედრა, ოთხი ეტაპი</h2>
+<p class="sub reveal">24 საათი თეორია და 14 საათი პრაქტიკა, ჯამში 38 საათი. შესრულების მართვის საფუძვლებიდან მიზნებისა და KPI-ების დანერგვამდე, განვითარებისა და მოტივაციის სისტემებამდე და საკუთარი ორგანიზაციისთვის მზა პროექტამდე.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">კურსი განკუთვნილია HR სპეციალისტებისა და ბიზნეს ლიდერებისთვის, რომლებსაც სურთ შეფასებისა და მოტივაციური სისტემების დანერგვა.</p>
+<div class="out">
+<div class="reveal">
+<h3>დაეუფლები</h3>
+<ul class="pill-list">
+<li>შესრულების მართვის სრული ციკლი</li>
+<li>სტრატეგიული მიზნების შესაბამისობა</li>
+<li>KPI, MBO, OKR</li>
+<li>360-გრადუსიანი უკუკავშირი</li>
+<li>SMART ჩარჩო</li>
+<li>განვითარების საჭიროებების შეფასება</li>
+<li>სასწავლო პროგრამების დაგეგმვა</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>მიზნების დასახვის მეთოდოლოგიების (KPI, MBO, OKR) გამოყენებას</li>
+<li>SMART ჩარჩოს გამოყენებას მიზნების ჩამოყალიბებისას</li>
+<li>360-გრადუსიანი უკუკავშირის სისტემის დანერგვას</li>
+<li>კონსტრუქციული უკუკავშირის პროცესების წარმართვას</li>
+<li>განვითარების საჭიროებების შეფასებას</li>
+<li>თანამშრომლის ინდივიდუალური განვითარების გეგმის შედგენას</li>
+<li>სასწავლო პროგრამების დაგეგმვასა და ჩატარებას</li>
+<li>მოტივაციური სქემების შემუშავებას</li>
+<li>თანამშრომელთა ჩართულობის გაზომვას</li>
+<li>პროგრესის მონიტორინგსა და მხარდაჭერის მექანიზმების აწყობას</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="დაკავშირებული პროფესიები">
+<div class="track">
+<span>HR მენეჯერი</span><span>თანამშრომელთა ჩართულობის სპეციალისტი</span><span>HR ბიზნეს პარტნიორი</span><span>L&amp;D სპეციალისტი</span><span>HR მენეჯერი</span><span>თანამშრომელთა ჩართულობის სპეციალისტი</span><span>HR ბიზნეს პარტნიორი</span><span>L&amp;D სპეციალისტი</span>
+<span aria-hidden="true">HR მენეჯერი</span><span aria-hidden="true">თანამშრომელთა ჩართულობის სპეციალისტი</span><span aria-hidden="true">HR ბიზნეს პარტნიორი</span><span aria-hidden="true">L&amp;D სპეციალისტი</span><span aria-hidden="true">HR მენეჯერი</span><span aria-hidden="true">თანამშრომელთა ჩართულობის სპეციალისტი</span><span aria-hidden="true">HR ბიზნეს პარტნიორი</span><span aria-hidden="true">L&amp;D სპეციალისტი</span>
+</div>
+</div>
+</section>
+<section id="lecturers" style="padding-top:20px">
+<div class="wrap">
+<h2 class="reveal">ლექტორები</h2>
+<p class="sub reveal">კურსს უძღვება სამი პრაქტიკოსი, რომელთაც ჯამში 55 წელზე მეტი HR და მენეჯერული გამოცდილება აქვთ.</p>
+<div class="lects reveal">
+<div class="lcard">
+<span class="ini" aria-hidden="true">ლკ</span>
+<strong>ლიკა კოვზირიძე</strong>
+<p class="role">ბიზნეს პარტნიორი, SMART Support</p>
+<div class="lstat">
+<div><b>20</b><span>წელი მომსახურების სექტორში</span></div>
+<div><b>15</b><span>წელი მენეჯერული გამოცდილება</span></div>
+</div>
+</div>
+<div class="lcard">
+<span class="ini" aria-hidden="true">ეზ</span>
+<strong>ეთუნა ზვანია</strong>
+<p class="role">HR &amp; CX-ის ხელმძღვანელი, Archi</p>
+<div class="lstat">
+<div><b>22</b><span>წელი HR გამოცდილება</span></div>
+</div>
+</div>
+<div class="lcard">
+<span class="ini" aria-hidden="true">ნმ</span>
+<strong>ნინო მჭედლიშვილი</strong>
+<p class="role">HR დირექტორი, Lopota Lake Resort &amp; Spa</p>
+<div class="lstat">
+<div><b>13</b><span>წელი HR გამოცდილება</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ნაკადი იწყება 19 სექტემბერს</h2>
+<p class="sub">ფიზიკურად ან ონლაინ, 2.5 თვის განმავლობაში, 18 შეხვედრა.</p>
+<div class="sched">
+<div><b>სამშაბათი</b>20:00-22:00</div>
+<div><b>შაბათი</b>12:00-14:00</div>
+</div>
+<div class="count" aria-label="დარჩენილი დრო დაწყებამდე">
+<div><b id="cD">00</b><span>დღე</span></div>
+<div><b id="cH">00</b><span>საათი</span></div>
+<div><b id="cM">00</b><span>წუთი</span></div>
+<div><b id="cS">00</b><span>წამი</span></div>
+</div>
+<p class="req"><strong>ვისთვის არის კურსი:</strong> HR სპეციალისტები და ბიზნეს ლიდერები, რომლებიც დაინტერესებულნი არიან შეფასებისა და მოტივაციური სისტემების დანერგვით.</p>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო Smart Academy-ის კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">1800 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/377-Strategic-Human-Resource-Management">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/377-Strategic-Human-Resource-Management">სრული პროგრამის დეტალები</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>1800 ₾</b><a class="btn btn-amber btn-sm" href="https://smartacademy.ge/trainings/377-Strategic-Human-Resource-Management">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(id){return document.getElementById(id);};
+/* theme */
+var root=document.documentElement;
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}});
+/* progress + mobile cta */
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* dashboard gauge + goal list */
+var C=2*Math.PI*32,gFg=$('dGaugeFg');gFg.style.strokeDasharray=C;
+function setGauge(p){gFg.style.strokeDashoffset=C*(1-p/100);$('dGaugeNum').textContent=Math.round(p)+'%';}
+setGauge(87);
+var G=[['შესრულების შეფასების ციკლის დანერგვა',100],['KPI დაფის აწყობა გუნდისთვის',80],['IDP-ების შედგენა 12 თანამშრომელზე',65],['ჩართულობის კვლევის ჩატარება',40]];
+var glEl=$('goalList'),h='';
+G.forEach(function(g,i){h+='<li style="animation-delay:'+(i*90)+'ms"><div class="grow"><span class="gcheck" aria-hidden="true">'+(g[1]>=100?'&#10003;':(i+1))+'</span><span style="flex:1">'+g[0]+'</span><span style="font-weight:700">'+g[1]+'%</span></div><div class="gtrack" style="margin-top:6px"><div class="gfill" style="width:'+g[1]+'%"></div></div></li>';});
+glEl.innerHTML=h;
+if(!reduce){
+var eng=87;
+setInterval(function(){eng=Math.max(80,Math.min(94,eng+(Math.random()-.5)*2));setGauge(eng);$('engLive').textContent=Math.round(eng)+'%';},1800);
+}
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+/* SMART goal builder */
+var gS=$('gStatement'),gM=$('gMetric'),gN=$('gNumber'),gD=$('gDeadline'),card=$('goalCard'),cl=$('checklist');
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function fmtDate(v){
+if(!v)return '';
+var d=new Date(v+'T00:00:00');
+if(isNaN(d))return '';
+var months=['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+return d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear();
+}
+function updateSmart(){
+var st=gS.value.trim(),metric=gM.value.trim(),num=gN.value,dl=gD.value;
+var s=st.length>=8,m=!!(metric&&num!==''),a=!!(num!==''&&+num>0),r=!!(st&&metric),t=!!(dl&&new Date(dl)>new Date('2026-01-01'));
+if(!st&&!metric&&!num&&!dl){
+card.innerHTML='<p class="ph">შეავსე ველები მარცხნივ, რომ დაინახო შენი SMART მიზნის მზა ფორმულირება.</p>';
+}else{
+var parts='<p>';
+parts+=st?esc(st):'<span class="ph">[მიზნის ფორმულირება]</span>';
+if(metric||num!==''){
+parts+=', მეტრიკა: <b>'+(metric?esc(metric):'[მეტრიკა]')+(num!==''?' &rarr; '+esc(num):'')+'</b>';
+}
+if(dl){parts+=', ვადა: <b>'+esc(fmtDate(dl))+'</b>';}
+parts+='</p>';
+card.innerHTML=parts;
+}
+var res={s:s,m:m,a:a,r:r,t:t};
+cl.querySelectorAll('li').forEach(function(li){
+var k=li.dataset.k,ok=res[k];
+li.classList.toggle('ok',ok);
+li.querySelector('.ck').innerHTML=ok?'&#10003;':li.dataset.k.toUpperCase();
+});
+}
+[gS,gM,gN,gD].forEach(function(i){i.addEventListener('input',updateSmart);});
+cl.querySelectorAll('li').forEach(function(li){li.querySelector('.ck').textContent=li.dataset.k.toUpperCase();});
+updateSmart();
+/* syllabus */
+var P=[{n:'შესრულების მართვის საფუძვლები',r:[1,4]},{n:'მიზნების დასახვა და KPI',r:[5,9]},{n:'განვითარება და მოტივაცია',r:[10,15]},{n:'პრაქტიკული პროექტი',r:[16,18]}];
+var L=[
+['შესრულების მართვის შესავალი',['შესრულების მართვის ცნება და მისი ადგილი HR სტრატეგიაში','შესრულების მართვის ციკლი: დაგეგმვა, მონიტორინგი, შეფასება, განვითარება','სტრატეგიული მიზნების კავშირი ინდივიდუალურ შესრულებასთან','შესრულების მართვის სისტემების ევოლუცია და თანამედროვე მიდგომები','საქართველოს ბაზრის სპეციფიკა და გამოწვევები']],
+['შესრულების შეფასების მეთოდები',['შეფასების მეთოდების მიმოხილვა: რანჟირება, რეიტინგული სკალები, BARS','360-გრადუსიანი უკუკავშირის მეთოდოლოგია','თვითშეფასება და მენეჯერის შეფასება','შეფასების სიხშირე: წლიური vs უწყვეტი შესრულების მართვა','საერთო შეცდომები შეფასებისას (rating bias-ები)']],
+['შესრულების მართვის პროცესის დიზაინი',['შესრულების მართვის პოლიტიკის შემუშავება','როლები და პასუხისმგებლობები: HR, მენეჯერი, თანამშრომელი','დროის ხაზი და ციკლის დაგეგმვა','ტექნოლოგიური ინსტრუმენტები, HRIS და Performance Management Software','*პრაქტიკული დავალება #1: არსებული პროცესის აუდიტი']],
+['საკომუნიკაციო კულტურა და ნდობა',['გამჭვირვალობისა და ნდობის მნიშვნელობა შეფასების პროცესში','ცვლილებების მენეჯმენტი ახალი სისტემის დანერგვისას','მენეჯერების მომზადება შესრულების საუბრებისთვის','ქვიზი #1']],
+['მიზნების დასახვის მეთოდოლოგიები',['MBO, Management by Objectives მეთოდი','OKR ჩარჩო: Objectives და Key Results','KPI-ების განსაზღვრა და შერჩევის პრინციპები','მეთოდების შედარება და შერჩევა ორგანიზაციის საჭიროებებზე დაყრდნობით']],
+['SMART მიზნების ჩარჩო',['SMART კრიტერიუმები დეტალურად: Specific, Measurable, Achievable, Relevant, Time-bound','მიზნების ჩამოყალიბება პრაქტიკულ მაგალითებზე','მიზნების კასკადირება ორგანიზაციულიდან ინდივიდუალურამდე','*პრაქტიკული დავალება #2: საკუთარი გუნდისთვის SMART მიზნების შედგენა']],
+['KPI-ების დიზაინი და გაზომვა',['KPI-ების ტიპები: შედეგზე და პროცესზე ორიენტირებული','დეპარტამენტებისა და როლების მიხედვით KPI-ების მორგება','მონაცემთა შეგროვება და KPI Dashboard-ების აგება','ქვიზი #2']],
+['360-გრადუსიანი უკუკავშირის სისტემა',['360 feedback-ის დანერგვის ეტაპები','შეფასების წყაროები: მენეჯერი, კოლეგები, ქვეშევრდომები, კლიენტები','კითხვარის შედგენა და ანონიმურობის უზრუნველყოფა','შედეგების ანალიზი და გამოყენება განვითარებისთვის','*პრაქტიკული დავალება #3: 360 კითხვარის შედგენა']],
+['კონსტრუქციული უკუკავშირი და საუბრები',['უკუკავშირის მიწოდების მოდელები, SBI და COIN','რთული საუბრების მართვა','რეგულარული 1:1 შეხვედრების სტრუქტურა','მოსმენისა და კითხვების დასმის ტექნიკები','ქვიზი #3']],
+['განვითარების საჭიროებების შეფასება',['Skills Gap ანალიზი','შესრულების შეფასებიდან განვითარების საჭიროებების იდენტიფიცირება','კომპეტენციების მოდელები','შეფასების ინსტრუმენტები და მეთოდები']],
+['ინდივიდუალური განვითარების გეგმა, IDP',['IDP-ის სტრუქტურა და კომპონენტები','70-20-10 მოდელი სწავლებაში','მიზნებისა და ვადების დასახვა განვითარების გეგმაში','*პრაქტიკული დავალება #4: IDP-ის შედგენა კონკრეტული თანამშრომლისთვის']],
+['სასწავლო პროგრამების დაგეგმვა',['სასწავლო საჭიროებების ანალიზი ორგანიზაციულ დონეზე','ტრენინგ პროგრამების დიზაინი და ფორმატები: in-house, გარე ტრენერები, e-learning','ბიუჯეტირება და ROI შეფასება სწავლებაში','ქვიზი #4']],
+['მოტივაციური სქემები და ჯილდოს სისტემები',['მოტივაციის თეორიები და მათი პრაქტიკული გამოყენება','ანაზღაურებისა და ჯილდოს სისტემების დაკავშირება შესრულებასთან','მატერიალური და არამატერიალური მოტივატორები','ბონუს სქემების დიზაინი']],
+['თანამშრომელთა ჩართულობის გაზომვა',['Engagement-ის კონცეფცია და მისი კავშირი შესრულებასთან','ჩართულობის კვლევები და ინსტრუმენტები, eNPS და სხვა','მონაცემების ანალიზი და ქმედითი გეგმის შედგენა','*პრაქტიკული დავალება #5: ჩართულობის მინი-კვლევის შედგენა']],
+['პროგრესის მონიტორინგი და მხარდაჭერის მექანიზმები',['მიზნების პროგრესის რეგულარული მონიტორინგი','მხარდამჭერი მექანიზმები: მენტორინგი, კოუჩინგი','ადრეული გაფრთხილების სისტემები დაბალი შესრულებისთვის','ქვიზი #5']],
+['ქეის სტადი: შესრულების მართვის სისტემის დანერგვა',['რეალური ქეისების განხილვა და ანალიზი','წარმატებისა და წარუმატებლობის ფაქტორები','*პრაქტიკული დავალება #6: ფინალური პროექტის დაწყება']],
+['ფინალური პროექტის მომზადება',['საკუთარი ორგანიზაციისთვის შესრულების მართვის სისტემის დიზაინი','მენტორული კონსულტაციები ლექტორებთან','პრეზენტაციის მომზადება']],
+['ფინალური პროექტის პრეზენტაცია',['*ფინალური პროექტების პრეზენტაცია','უკუკავშირი ლექტორებისა და ჯგუფისგან']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+var lec=$('lec'),hh='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n;
+hh+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span class="t">'+esc(x[0])+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+x[1].forEach(function(t){var tk=t.charAt(0)==='*';hh+='<li'+(tk?' class="tk"':'')+'>'+esc(tk?t.slice(1):t)+'</li>';});
+hh+='</ul></div></div></li>';
+});
+lec.innerHTML=hh;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var ph=$('phases'),active=-1;
+function setPhase(k){
+active=k;
+ph.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?'18 შეხვედრა':c+' შეხვედრა ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button data-k="-1">ყველა<b>18</b></button>';
+P.forEach(function(p,i){hb+='<button data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+ph.innerHTML=hb;
+ph.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+/* countdown */
+var start=new Date('2026-09-19T20:00:00+04:00').getTime();
+function pad(n){return String(n).padStart(2,'0');}
+function tick(){var s=Math.floor(Math.max(0,start-Date.now())/1000);$('cD').textContent=pad(Math.floor(s/86400));$('cH').textContent=pad(Math.floor(s%86400/3600));$('cM').textContent=pad(Math.floor(s%3600/60));$('cS').textContent=pad(s%60);}
+tick();setInterval(tick,1000);
+/* payment */
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>1800 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(1800/4).toFixed(1)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(1800/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>
