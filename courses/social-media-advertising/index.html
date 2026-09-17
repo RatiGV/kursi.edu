@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="16x16" href="https://smartacademy.ge/assets/client/favicon/favicon-16x16.png">
 <style>
+@font-face{font-display:swap;font-family:NeueCaps;src:url('https://smartacademy.ge/assets/client/assets/fonts/helvetica-neue-lt-geo-75-bold-caps.woff2') format('woff2'),url('https://smartacademy.ge/assets/client/assets/fonts/helvetica-neue-lt-geo-75-bold-caps.woff') format('woff');font-weight:400;font-style:normal}
 :root{
 --paper:#EDF0F5;--card:#FFFFFF;--ink:#0F1B35;--muted:#4A5672;--line:#CCD3E0;
 --cobalt:#2B50D0;--cobalt-ink:#FFFFFF;--flash:#FFD440;--flash-ink:#0F1B35;--soft:#DCE3F3;
@@ -54,7 +55,7 @@ nav.links a:hover{color:var(--ink)}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin-bottom:22px}
 .tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
-h1{font-family:var(--geo);font-stretch:70%;font-weight:900;font-size:clamp(46px,7.2vw,98px);line-height:.94;letter-spacing:-.01em;margin:0 0 26px;text-transform:uppercase}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:70%;font-weight:900;font-size:clamp(46px,7.2vw,98px);line-height:.94;letter-spacing:-.01em;margin:0 0 26px}
 h1 .ln{display:block;overflow:hidden}
 h1 .ln span{display:inline-block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
 h1 .ln:nth-child(2) span{animation-delay:.12s}
@@ -100,7 +101,7 @@ h1 .ln:nth-child(3){color:var(--cobalt)}
 .ticker span:nth-child(odd){color:var(--ink)}
 @keyframes scroll{to{transform:translateX(-50%)}}
 section{padding:90px 0}
-h2{font-family:var(--geo);font-stretch:75%;font-weight:900;font-size:clamp(34px,4.6vw,58px);line-height:1;margin:0 0 16px;letter-spacing:-.005em;text-transform:uppercase}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:75%;font-weight:900;font-size:clamp(34px,4.6vw,58px);line-height:1;margin:0 0 16px;letter-spacing:-.005em}
 .sub{font-family:var(--geo);color:var(--muted);max-width:60ch;margin:0 0 40px;font-size:18px}
 /* calculator */
 .calc{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:stretch}
@@ -165,7 +166,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
 .portrait{aspect-ratio:4/5;border-radius:26px;background:var(--cobalt);color:var(--cobalt-ink);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
 .portrait .ini{position:absolute;top:10px;left:20px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:200px;line-height:1;opacity:.18}
-.portrait h2{font-family:var(--geo);font-stretch:75%;font-size:40px;line-height:1;font-weight:900}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:75%;font-size:40px;line-height:1;font-weight:900}
 .portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
 .stat{display:flex;gap:26px;margin:22px 0 0;flex-wrap:wrap}
 .stat div b{display:block;font-size:44px;font-weight:800;line-height:1}
@@ -259,7 +260,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 <div class="wrap hero-grid">
 <div>
 <p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 29 სექტემბერს, ონლაინ</p>
-<h1><span class="ln"><span>ᲡᲝᲪᲘᲐᲚᲣᲠᲘ</span></span><span class="ln"><span>ᲛᲔᲓᲘᲐ</span></span><span class="ln"><span>ᲔᲓᲕᲔᲠᲗᲐᲘᲖᲘᲜᲒᲘ</span></span></h1>
+<h1><span class="ln"><span>სოციალური</span></span><span class="ln"><span>მედია</span></span><span class="ln"><span>ედვერთაიზინგი</span></span></h1>
 <p class="lead">კურსი მათთვის, ვისაც უკვე აქვს შეხება სოციალურ მედიასთან და სურს რეკლამის მიმართულებით ცოდნის გაღრმავება. დაგეგმავ სარეკლამო სტრატეგიას, შექმნი რეკლამას Meta-ზე, TikTok-სა და LinkedIn-ზე, გაზომავ შედეგებს და გააუმჯობესებ მათ.</p>
 <dl class="facts">
 <div><dt>ლექტორი</dt><dd>ნათია ზარნაძე</dd></div>
@@ -306,7 +307,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 </section>
 <section id="calc">
 <div class="wrap">
-<h2 class="reveal">ᲘᲗᲕᲚᲔ ᲘᲡᲔ, ᲠᲝᲒᲝᲠᲪ ᲔᲓᲕᲔᲠᲗᲐᲘᲖᲔᲠᲘ</h2>
+<h2 class="reveal">ითვლე ისე, როგორც ედვერთაიზერი</h2>
 <p class="sub reveal">CPM, CTR, Reach, Impressions. კურსის პირველ ლექციაზე ისწავლი ამ პარამეტრებს. შეცვალე ბიუჯეტი და მაჩვენებლები და ნახე, როგორ იცვლება კამპანიის შედეგი.</p>
 <div class="calc reveal">
 <div class="panel">
@@ -355,7 +356,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 </section>
 <section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
 <div class="wrap">
-<h2 class="reveal">8 ᲨᲔᲮᲕᲔᲓᲠᲐ, ᲔᲠᲗᲘ ᲡᲐᲠᲔᲙᲚᲐᲛᲝ ᲡᲢᲠᲐᲢᲔᲒᲘᲐ</h2>
+<h2 class="reveal">8 შეხვედრა, ერთი სარეკლამო სტრატეგია</h2>
 <p class="sub reveal">თეორიიდან რეალურ დროში რეკლამის შექმნამდე. ყოველ ეტაპს ახლავს ქვიზი ან საშინაო დავალება, ბოლო შეხვედრაზე კი საკუთარ სტრატეგიას წარადგენ.</p>
 <div class="syl reveal">
 <ol class="steps" role="tablist" aria-label="ლექციები" id="steps"><div class="rail" id="rail"></div></ol>
@@ -365,7 +366,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 </section>
 <section id="outcomes">
 <div class="wrap">
-<h2 class="reveal">ᲙᲣᲠᲡᲘᲡ ᲑᲝᲚᲝᲡ</h2>
+<h2 class="reveal">კურსის ბოლოს</h2>
 <p class="sub reveal">12 კონკრეტული შედეგი, სილაბუსის მიხედვით.</p>
 <div class="out">
 <div class="reveal">
@@ -398,7 +399,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 <div class="wrap lect">
 <div class="portrait reveal">
 <span class="ini" aria-hidden="true">ნზ</span>
-<h2>ᲜᲐᲗᲘᲐ<br>ᲖᲐᲠᲜᲐᲫᲔ</h2>
+<h2>ნათია<br>ზარნაძე</h2>
 <p>ციფრული რეკლამისა და ანალიტიკის ხელმძღვანელი, Windfor's</p>
 <div class="stat">
 <div><b data-count="9">0</b><span>წელზე მეტი გამოცდილება</span></div>
@@ -406,7 +407,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio reveal">
-<h2>ᲚᲔᲥᲢᲝᲠᲘ</h2>
+<h2>ლექტორი</h2>
 <p>ნათია სოციალური და ციფრული მედიის მარკეტერია. ამჟამად ხელმძღვანელობს კრეატიული სააგენტო Windfor's-ის ციფრული რეკლამისა და ანალიტიკის მიმართულებას.</p>
 <ol class="path">
 <li><b>2017-2019</b><span>Gingers, სოციალური მედიის ხელმძღვანელი</span></li>
@@ -425,7 +426,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 <div class="wrap">
 <div class="final reveal">
 <div>
-<h2>ᲐᲓᲒᲘᲚᲘᲡ ᲓᲐᲯᲐᲕᲨᲜᲐ</h2>
+<h2>ადგილის დაჯავშნა</h2>
 <p class="sub">სამშაბათობით, 20:00-22:00, ონლაინ. 2 თვე, 8 შეხვედრა.<br>ადგილები შეზღუდულია.</p>
 <p class="req"><strong>მოთხოვნები:</strong> სოციალური მედია მარკეტინგის საბაზისო ცოდნა, ინგლისური B1 დონეზე, ლეპტოპი და ინტერნეტი.</p>
 <p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო Smart Academy-ის კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>

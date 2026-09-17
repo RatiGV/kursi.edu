@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="16x16" href="https://smartacademy.ge/assets/client/favicon/favicon-16x16.png">
 <style>
+@font-face{font-display:swap;font-family:NeueCaps;src:url('https://smartacademy.ge/assets/client/assets/fonts/helvetica-neue-lt-geo-75-bold-caps.woff2') format('woff2'),url('https://smartacademy.ge/assets/client/assets/fonts/helvetica-neue-lt-geo-75-bold-caps.woff') format('woff');font-weight:400;font-style:normal}
 :root{
 --paper:#EFF3F1;--card:#FFFFFF;--ink:#122420;--muted:#4F6158;--line:#CFDAD3;
 --teal:#0E7A5F;--teal-ink:#FFFFFF;--amber:#F0A93B;--amber-ink:#221705;--soft:#DCE9E2;
@@ -57,7 +58,7 @@ nav.links a:hover{color:var(--ink)}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin:0 0 20px}
 .tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
-h1{font-family:var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(42px,6.6vw,92px);line-height:.94;margin:0 0 26px;text-transform:uppercase}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(42px,6.6vw,92px);line-height:.94;margin:0 0 26px}
 h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
 h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
 h1 .ln:nth-child(2) span{animation-delay:.12s}
@@ -111,7 +112,7 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--teal)}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
 .plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
 section{padding:90px 0}
-h2{font-family:var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px;text-transform:uppercase}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px}
 .sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
 /* vacation calculator */
 .plan{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
@@ -173,7 +174,7 @@ h2{font-family:var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,
 .lects{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .lcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px}
 .lcard .lav{width:54px;height:54px;border-radius:16px;background:var(--teal);color:var(--teal-ink);display:grid;place-items:center;font-family:var(--geo);font-weight:800;font-size:19px;flex:none}
-.lcard h2{font-family:var(--geo);font-size:20px;font-weight:800;display:block}
+.lcard h2{font-family:"NeueCaps",var(--geo);font-size:20px;font-weight:800;display:block}
 .lcard .role{font-family:var(--geo);color:var(--teal);font-size:13.5px;font-weight:700;margin-top:2px}
 .lcard p{font-family:var(--geo);margin:0;font-size:14.5px;color:var(--muted);line-height:1.55}
 /* final */
@@ -258,7 +259,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 <div class="hero-grid">
 <div>
 <p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 21 სექტემბერს, ფიზიკურად + ონლაინ</p>
-<h1><span class="ln"><span>HR</span></span><span class="ln"><span>ᲐᲓᲛᲘᲜᲘᲡᲢᲠᲘᲠᲔᲑᲐ</span></span><span class="ln"><span>ᲞᲠᲐᲥᲢᲘᲙᲐᲨᲘ</span></span></h1>
+<h1><span class="ln"><span>HR</span></span><span class="ln"><span>ადმინისტრირება</span></span><span class="ln"><span>პრაქტიკაში</span></span></h1>
 <p class="lead">ისწავლე HR ადმინისტრირების სრული ციკლის მართვა: პოლიტიკისა და პროცედურების შემუშავებიდან შრომითი ხელშეკრულებებისა და პერსონალური საქმეების ადმინისტრირებამდე, დოკუმენტბრუნვიდან Excel-სა და HRIS ხელსაწყოებში მუშაობამდე. კურსს უძღვება 4 პრაქტიკოსი ექსპერტი.</p>
 <dl class="facts">
 <div><dt>ლექტორები</dt><dd>4 პრაქტიკოსი</dd></div>
@@ -305,7 +306,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 </section>
 <section id="planner">
 <div class="wrap">
-<h2 class="reveal">ᲒᲐᲛᲝᲗᲕᲐᲚᲔ ᲨᲔᲜᲘ ᲨᲕᲔᲑᲣᲚᲔᲑᲘᲡ ᲓᲦᲔᲔᲑᲘ</h2>
+<h2 class="reveal">გამოთვალე შენი შვებულების დღეები</h2>
 <p class="sub reveal">შვებულებებისა და დასწრების აღრიცხვა კურსის ერთ-ერთი ძირითადი პრაქტიკული უნარია (ლექცია 7). შეავსე დასაქმების დაწყების თარიღი, გამოყენებული დღეები და წლიური ნორმა, კალკულატორი დაგითვლის დარჩენილ და დღემდე დაგროვილ დღეებს.</p>
 <div class="plan reveal">
 <div class="panel">
@@ -340,7 +341,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 </section>
 <section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
 <div class="wrap">
-<h2 class="reveal">15 ᲨᲔᲮᲕᲔᲓᲠᲐ, ᲡᲐᲛᲘ ᲔᲢᲐᲞᲘ</h2>
+<h2 class="reveal">15 შეხვედრა, სამი ეტაპი</h2>
 <p class="sub reveal">21 საათი ლექცია და 17 საათი პრაქტიკა. ფუნდამენტიდან, დოკუმენტაციასა და შრომის სამართალში, ავტომატიზაციასა და რეალურ პრაქტიკამდე. კურსი მოიცავს რამდენიმე პრაქტიკულ სემინარს, საშინაო დავალებებსა და ქვიზებს.</p>
 <div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
 <div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
@@ -349,7 +350,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 </section>
 <section id="outcomes">
 <div class="wrap">
-<h2 class="reveal">ᲙᲣᲠᲡᲘᲡ ᲑᲝᲚᲝᲡ</h2>
+<h2 class="reveal">კურსის ბოლოს</h2>
 <p class="sub reveal">11 კონკრეტული შედეგი, პროცესების მართვიდან HR მონაცემების ავტომატიზაციამდე.</p>
 <div class="out">
 <div class="reveal">
@@ -385,27 +386,27 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 </section>
 <section id="lecturers" style="padding-top:20px">
 <div class="wrap">
-<h2 class="reveal">ᲚᲔᲥᲢᲝᲠᲔᲑᲘ</h2>
+<h2 class="reveal">ლექტორები</h2>
 <p class="sub reveal">4 პრაქტიკოსი, თითოეული საკუთარი მიმართულებით: HR მენეჯმენტი, რეკრუტმენტი, პროფესიული განვითარება და შრომის სამართალი.</p>
 <div class="lects reveal">
 <div class="lcard">
 <span class="lav" aria-hidden="true">ლკ</span>
-<div><h2>ᲚᲘᲙᲐ ᲙᲝᲕᲖᲘᲠᲘᲫᲔ</h2><span class="role">მმართველი პარტნიორი, SMART Support</span></div>
+<div><h2>ლიკა კოვზირიძე</h2><span class="role">მმართველი პარტნიორი, SMART Support</span></div>
 <p>20 წლის გამოცდილება მომსახურების სექტორში და 15 წლის მენეჯერული გამოცდილება. წარსულში მუშაობდა Taylor Nelson Sofres-ში, საქართველოს ბანკში და Japan Tobacco International-ში.</p>
 </div>
 <div class="lcard">
 <span class="lav" aria-hidden="true">სკ</span>
-<div><h2>ᲡᲝᲤᲘᲐ ᲙᲐᲭᲐᲠᲐᲕᲐ</h2><span class="role">განვითარების გუნდის ლიდერი, SMART Support</span></div>
+<div><h2>სოფია კაჭარავა</h2><span class="role">განვითარების გუნდის ლიდერი, SMART Support</span></div>
 <p>5 წლის HR რეკრუტმენტის გამოცდილება, IT & Tech მიმართულების რეკრუტმენტის ექსპერტიზით.</p>
 </div>
 <div class="lcard">
 <span class="lav" aria-hidden="true">ლკ</span>
-<div><h2>ᲚᲔᲚᲐ ᲙᲔᲙᲣᲐ</h2><span class="role">HR მენეჯერი, IBA IT Georgia</span></div>
+<div><h2>ლელა კეკუა</h2><span class="role">HR მენეჯერი, IBA IT Georgia</span></div>
 <p>15 წლის HR და პროფესიული განვითარების გამოცდილება. წარსულში მუშაობდა Caucasus Online-ში, ICR-ში და საქართველოს რკინიგზაში.</p>
 </div>
 <div class="lcard">
 <span class="lav" aria-hidden="true">გჩ</span>
-<div><h2>ᲒᲔᲚᲐ ᲩᲘᲒᲝᲨᲕᲘᲚᲘ</h2><span class="role">იურისტი, Liberty Bank</span></div>
+<div><h2>გელა ჩიგოშვილი</h2><span class="role">იურისტი, Liberty Bank</span></div>
 <p>10 წლის შრომის სამართლის ექსპერტიზა, სახელმწიფო და კერძო სექტორის იურიდიული გამოცდილებით.</p>
 </div>
 </div>
@@ -415,7 +416,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 <div class="wrap">
 <div class="final reveal">
 <div>
-<h2>ᲐᲓᲒᲘᲚᲘᲡ ᲓᲐᲯᲐᲕᲨᲜᲐ</h2>
+<h2>ადგილის დაჯავშნა</h2>
 <p class="sub">ფიზიკურად ან ონლაინ, 1.5 თვის განმავლობაში, 15 შეხვედრა.<br>ადგილები შეზღუდულია.</p>
 <div class="sched">
 <div><b>ორშ, ოთხ</b>20:00-22:00</div>
