@@ -28,14 +28,16 @@ sort($courses);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Academy | კურსები</title>
 <link rel="icon" type="image/png" href="https://smartacademy.ge/assets/client/favicon/favicon-16x16.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/800.css">
 <style>
 :root{--bg1:#0b1220;--bg2:#1b1240;--bg3:#3a1d5c;--glass:rgba(255,255,255,0.08);--glass-border:rgba(255,255,255,0.18);--glass-hi:rgba(255,255,255,0.35);--ink:#f5f6fb;--muted:rgba(245,246,251,0.68);--accent:#7c5cff;--accent2:#33d1c9}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Noto Sans Georgian","Bricolage Grotesque",sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(1200px 800px at 10% -10%,var(--bg3),transparent),radial-gradient(1000px 700px at 110% 10%,#0e3b52,transparent),linear-gradient(160deg,var(--bg1),var(--bg2) 60%,var(--bg1));overflow-x:hidden;position:relative}
+body{font-family:"FiraGO",sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(1200px 800px at 10% -10%,var(--bg3),transparent),radial-gradient(1000px 700px at 110% 10%,#0e3b52,transparent),linear-gradient(160deg,var(--bg1),var(--bg2) 60%,var(--bg1));overflow-x:hidden;position:relative}
 body::before{content:"";position:fixed;inset:0;background:radial-gradient(600px 400px at 20% 30%,rgba(124,92,255,0.25),transparent 60%),radial-gradient(700px 500px at 85% 75%,rgba(51,209,201,0.18),transparent 60%);pointer-events:none;z-index:0}
 .orb{position:fixed;border-radius:50%;filter:blur(60px);opacity:0.55;pointer-events:none;z-index:0;animation:float 18s ease-in-out infinite}
 .orb1{width:420px;height:420px;background:radial-gradient(circle,#7c5cff,transparent 70%);top:-120px;left:-100px}
@@ -53,15 +55,15 @@ nav.pill a:hover{background:rgba(255,255,255,0.12);opacity:1}
 .hero{padding:60px 0 40px;text-align:center}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);font-size:13px;font-weight:600;color:var(--muted);margin-bottom:24px}
 .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 10px var(--accent2)}
-h1{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(36px,6vw,64px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;background:linear-gradient(180deg,#fff,rgba(255,255,255,0.75));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:20px}
+h1{font-family:"FiraGO",sans-serif;font-size:clamp(36px,6vw,64px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;background:linear-gradient(180deg,#fff,rgba(255,255,255,0.75));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:20px}
 .hero p{max-width:620px;margin:0 auto;color:var(--muted);font-size:18px;line-height:1.6}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:56px}
 .card{position:relative;border-radius:28px;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05));border:1px solid var(--glass-border);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 8px 32px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.25);overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:18px;min-height:190px;transition:transform 0.35s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.35s,border-color 0.35s;opacity:0;transform:translateY(24px);animation:rise 0.7s cubic-bezier(0.2,0.8,0.2,1) forwards}
 .card::before{content:"";position:absolute;top:-60%;left:-20%;width:60%;height:220%;background:linear-gradient(120deg,rgba(255,255,255,0.35),transparent 60%);transform:rotate(20deg);opacity:0.5;pointer-events:none;transition:opacity 0.35s}
 .card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 20px 50px rgba(124,92,255,0.28),inset 0 1px 0 rgba(255,255,255,0.35);border-color:var(--glass-hi)}
 .card:hover::before{opacity:0.85}
-.card .num{font-family:"Bricolage Grotesque",sans-serif;font-size:13px;font-weight:700;color:var(--accent2);letter-spacing:0.06em}
-.card h3{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-0.01em}
+.card .num{font-family:"FiraGO",sans-serif;font-size:13px;font-weight:700;color:var(--accent2);letter-spacing:0.06em}
+.card h3{font-family:"FiraGO",sans-serif;font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-0.01em}
 .card .meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12)}
 .card .domain{font-size:13px;color:var(--muted);font-weight:500}
 .card .go{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.12);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;transition:background 0.3s,transform 0.3s}
