@@ -556,7 +556,7 @@ var CH=[
 var chanEl=$('chan'),stackEl=$('stack'),legendEl=$('legend'),sumEl=$('sumPct'),totalInput=$('totalBudget'),hintEl=$('allocHint');
 var chH='';
 CH.forEach(function(c){
-chH+='<div class="channel" data-id="'+c.id+'"><div class="row"><span><span class="sw" style="background:'+c.color+'"></span>'+c.name+'</span><b class="pctLabel">'+c.pct+'%</b></div><input type="range" min="0" max="100" step="1" value="'+c.pct+'" data-id="'+c.id+'"><div class="amt"></div></div>';
+chH+='<div class="channel" data-id="'+c.id+'"><div class="row"><span><span class="sw" style="background:'+c.color+'"></span>'+c.name+'</span><b class="pctLabel">'+c.pct+'%</b></div><input type="range" min="0" max="100" step="1" value="'+c.pct+'" data-id="'+c.id+'" aria-label="'+c.name+' პროცენტი"><div class="amt"></div></div>';
 });
 chanEl.innerHTML=chH;
 var legH='';

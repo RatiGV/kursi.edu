@@ -404,12 +404,12 @@ h1 .ln span,.tile{transform:none;opacity:1}
 <div class="panel">
 <h3>ტიპის სკალა</h3>
 <div class="range-row">
-<div class="rv"><span>საბაზისო ზომა</span><b id="baseSizeVal">16px</b></div>
-<input type="range" id="baseSize" min="12" max="24" value="16" step="1">
+<div class="rv"><label for="baseSize" id="lblBaseSize">საბაზისო ზომა</label><b id="baseSizeVal">16px</b></div>
+<input type="range" id="baseSize" min="12" max="24" value="16" step="1" aria-labelledby="lblBaseSize baseSizeVal">
 </div>
 <div class="range-row">
-<div class="rv"><span>სკალის კოეფიციენტი</span><b id="ratioVal">1.25</b></div>
-<input type="range" id="ratio" min="1.10" max="1.80" value="1.25" step="0.05">
+<div class="rv"><label for="ratio" id="lblRatio">სკალის კოეფიციენტი</label><b id="ratioVal">1.25</b></div>
+<input type="range" id="ratio" min="1.10" max="1.80" value="1.25" step="0.05" aria-labelledby="lblRatio ratioVal">
 </div>
 <p class="hint">ტიპოგრაფია და ვიზუალური იერარქია, ლექცია 7.</p>
 <hr class="hr">
