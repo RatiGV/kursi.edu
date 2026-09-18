@@ -18,22 +18,20 @@
 <meta name="twitter:title" content="HR ადმინისტრირება პრაქტიკაში | Smart Academy">
 <meta name="twitter:description" content="ისწავლე HR ადმინისტრირების სრული ციკლის მართვა: პოლიტიკისა და პროცედურების შემუშავებიდან შრომითი ხელშეკრულებებისა და პერსონალური საქმეების ადმინისტრირებამდე,…">
 <meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/400.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/500.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/600.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/700.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/800.css">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="16x16" href="https://smartacademy.ge/assets/client/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
 <style>
-@font-face{font-display:swap;font-family:NeueCaps;src:url('https://smartacademy.ge/assets/client/assets/fonts/helvetica-neue-lt-geo-75-bold-caps.woff2') format('woff2'),url('https://smartacademy.ge/assets/client/assets/fonts/helvetica-neue-lt-geo-75-bold-caps.woff') format('woff');font-weight:400;font-style:normal}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
 :root{
 --paper:#EFF3F1;--card:#FFFFFF;--ink:#122420;--muted:#4F6158;--line:#CFDAD3;
 --teal:#0E7A5F;--teal-ink:#FFFFFF;--amber:#F0A93B;--amber-ink:#221705;--soft:#DCE9E2;
---font:"FiraGO","Bricolage Grotesque","Noto Sans Georgian",system-ui,sans-serif;
---geo:"Noto Sans Georgian","Bricolage Grotesque",system-ui,sans-serif;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
 --paper:#0B1613;--card:#132420;--ink:#E7F1EC;--muted:#9BB0A6;--line:#24382F;
@@ -339,7 +337,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 <div id="progress" aria-hidden="true"></div>
 <header class="bar">
 <div class="wrap">
-<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="https://smartacademy.ge/assets/client/assets/images/logo-bl.svg" alt="Smart Academy"></a>
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
 <nav class="links" aria-label="სექციები">
 <a href="#planner">შვებულების კალკულატორი</a>
 <a href="#syllabus">სილაბუსი</a>
@@ -551,7 +549,7 @@ var fmt=function(n,d){return Number(n).toLocaleString('en-US',{minimumFractionDi
 var $=function(id){return document.getElementById(id);};
 /* theme */
 var root=document.documentElement;
-var LOGO_LIGHT='https://smartacademy.ge/assets/client/assets/images/logo-bl.svg',LOGO_DARK='https://smartacademy.ge/assets/client/assets/images/logo-wt.svg';
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
 function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
 try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
 syncLogo();

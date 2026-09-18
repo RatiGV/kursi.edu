@@ -82,13 +82,13 @@ $schemaGraph = [
 <meta name="twitter:description" content="<?php echo htmlspecialchars($metaDesc, ENT_QUOTES, 'UTF-8'); ?>">
 <meta name="twitter:image" content="<?php echo $ogImage; ?>">
 <script type="application/ld+json"><?php echo json_encode($schemaGraph, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
-<link rel="icon" type="image/png" href="https://smartacademy.ge/assets/client/favicon/favicon-16x16.png">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/400.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/500.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/600.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/700.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/800.css">
+<link rel="icon" type="image/png" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-800.woff2" crossorigin>
 <style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
 :root{--bg1:#0b1220;--bg2:#1b1240;--bg3:#3a1d5c;--glass:rgba(255,255,255,0.08);--glass-border:rgba(255,255,255,0.18);--glass-hi:rgba(255,255,255,0.35);--ink:#f5f6fb;--muted:rgba(245,246,251,0.68);--accent:#7c5cff;--accent2:#33d1c9}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -120,7 +120,7 @@ h1{font-family:"FiraGO",sans-serif;font-size:clamp(36px,6vw,64px);font-weight:80
 .card .num{font-family:"FiraGO",sans-serif;font-size:13px;font-weight:700;color:var(--accent2);letter-spacing:0.06em}
 .card h3{font-family:"FiraGO",sans-serif;font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-0.01em}
 .card .meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,0.12)}
-.card .domain{font-size:13px;color:var(--muted);font-weight:500}
+.card .domain{font-size:13px;color:var(--muted);font-weight:600}
 .card .go{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.12);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;transition:background 0.3s,transform 0.3s}
 .card:hover .go{background:var(--accent);transform:rotate(45deg)}
 .card .go svg{width:16px;height:16px;stroke:#fff}
@@ -137,7 +137,7 @@ footer{text-align:center;padding:50px 0 10px;color:var(--muted);font-size:13px}
 <div class="wrap">
 <header class="top">
 <div class="brand">
-<img src="https://smartacademy.ge/assets/client/assets/images/logo-wt.svg" alt="Smart Academy">
+<img src="assets/images/logo-wt.svg" alt="Smart Academy" width="125" height="30">
 </div>
 <nav class="pill">
 <a href="https://smartacademy.ge" target="_blank" rel="noopener">smartacademy.ge</a>
