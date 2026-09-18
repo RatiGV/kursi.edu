@@ -21,12 +21,67 @@ if (is_dir($coursesDir)) {
     }
 }
 sort($courses);
+$siteUrl = 'https://kursi.edu.ge';
+$pageTitle = 'Smart Academy | ონლაინ და ფიზიკური კურსები';
+$metaDesc = 'Smart Academy-ის პროფესიული კურსების კატალოგი: HR, მარკეტინგი, დიზაინი და IT მიმართულებები. აირჩიე კურსი და დარეგისტრირდი პრაქტიკოს ლექტორებთან.';
+$ogImage = 'https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2';
+$itemListElements = [];
+foreach ($courses as $i => $course) {
+    $itemListElements[] = [
+        '@type' => 'ListItem',
+        'position' => $i + 1,
+        'url' => $course['link'],
+        'name' => $course['name'],
+    ];
+}
+$schemaGraph = [
+    '@context' => 'https://schema.org',
+    '@graph' => [
+        [
+            '@type' => 'Organization',
+            '@id' => $siteUrl . '/#organization',
+            'name' => 'Smart Academy',
+            'url' => 'https://smartacademy.ge',
+            'logo' => 'https://smartacademy.ge/assets/client/assets/images/logo-bl.svg',
+            'sameAs' => ['https://smartacademy.ge'],
+        ],
+        [
+            '@type' => 'WebSite',
+            '@id' => $siteUrl . '/#website',
+            'name' => 'Smart Academy | კურსები',
+            'url' => $siteUrl . '/',
+            'publisher' => ['@id' => $siteUrl . '/#organization'],
+            'inLanguage' => 'ka',
+        ],
+        [
+            '@type' => 'ItemList',
+            '@id' => $siteUrl . '/#courses',
+            'name' => 'Smart Academy კურსები',
+            'itemListElement' => $itemListElements,
+        ],
+    ],
+];
 ?><!DOCTYPE html>
 <html lang="ka">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Smart Academy | კურსები</title>
+<title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($metaDesc, ENT_QUOTES, 'UTF-8'); ?>">
+<link rel="canonical" href="<?php echo $siteUrl; ?>/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="<?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:description" content="<?php echo htmlspecialchars($metaDesc, ENT_QUOTES, 'UTF-8'); ?>">
+<meta property="og:url" content="<?php echo $siteUrl; ?>/">
+<meta property="og:image" content="<?php echo $ogImage; ?>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?>">
+<meta name="twitter:description" content="<?php echo htmlspecialchars($metaDesc, ENT_QUOTES, 'UTF-8'); ?>">
+<meta name="twitter:image" content="<?php echo $ogImage; ?>">
+<script type="application/ld+json"><?php echo json_encode($schemaGraph, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
 <link rel="icon" type="image/png" href="https://smartacademy.ge/assets/client/favicon/favicon-16x16.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/400.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/firago@5.3.0/500.css">
