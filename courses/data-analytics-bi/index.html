@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Analytics & BI Development (SQL & Power BI) | Smart Academy</title>
+<meta name="description" content="ისწავლე SQL და Power BI: მონაცემთა ბაზის მოთხოვნებიდან დაშბორდების აგებამდე და DAX ფორმულებამდე. 17 შეხვედრა, ლექტორი BI Developer, Paysera. 4.8/5 რეიტინგი.">
+<link rel="canonical" href="https://data-analytics-bi.kursi.edu.ge/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="Data Analytics & BI Development (SQL & Power BI) | Smart Academy">
+<meta property="og:description" content="ისწავლე SQL და Power BI: მონაცემთა ბაზის მოთხოვნებიდან დაშბორდების აგებამდე და DAX ფორმულებამდე. 17 შეხვედრა, ლექტორი BI Developer, Paysera. 4.8/5 რეიტინგი.">
+<meta property="og:url" content="https://data-analytics-bi.kursi.edu.ge/">
+<meta property="og:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Data Analytics & BI Development (SQL & Power BI) | Smart Academy">
+<meta name="twitter:description" content="ისწავლე SQL და Power BI: მონაცემთა ბაზის მოთხოვნებიდან დაშბორდების აგებამდე და DAX ფორმულებამდე. 17 შეხვედრა, ლექტორი BI Developer, Paysera. 4.8/5 რეიტინგი.">
+<meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
+<style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
+:root{
+--paper:#F0F1F8;--card:#FFFFFF;--ink:#171335;--muted:#57567B;--line:#DBDCEC;
+--indigo2:#4A3AFF;--indigo2-ink:#FFFFFF;--cyan2:#17C3B2;--cyan2-ink:#052420;--soft:#E2E3F5;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#0D0B1C;--card:#161329;--ink:#EAE9F6;--muted:#A19FC0;--line:#262242;
+--indigo2:#8A7AFF;--indigo2-ink:#0D0B1C;--cyan2:#3FE0CE;--cyan2-ink:#0D0B1C;--soft:#1E1A38;}}
+:root[data-theme="dark"]{
+--paper:#0D0B1C;--card:#161329;--ink:#EAE9F6;--muted:#A19FC0;--line:#262242;
+--indigo2:#8A7AFF;--indigo2-ink:#0D0B1C;--cyan2:#3FE0CE;--cyan2-ink:#0D0B1C;--soft:#1E1A38;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--cyan2);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--indigo2);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--indigo2);color:var(--indigo2-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-amber{background:var(--cyan2);color:var(--cyan2-ink)}
+.btn-amber:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.hero{padding:60px 0 24px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:48px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin:0 0 20px}
+.tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:54%;font-weight:900;font-size:clamp(26px,4.2vw,56px);line-height:1.04;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--indigo2)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+.phone-stage{position:relative;display:flex;justify-content:center}
+.ide{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:0;box-shadow:0 40px 70px -35px rgba(23,19,53,.5);position:relative;z-index:2;overflow:hidden}
+.ide-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--paper)}
+.ide-bar span{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.ide-tabs{display:flex;gap:6px;padding:10px 12px 0}
+.ide-tabs b{font-family:var(--geo);font-size:11.5px;font-weight:600;color:var(--muted);padding:7px 12px;border-radius:9px 9px 0 0;background:var(--paper)}
+.ide-tabs b.on{color:var(--ink);background:var(--card);border:1px solid var(--line);border-bottom:1px solid var(--card);margin-bottom:-1px}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;line-height:1.75;padding:16px 18px;white-space:pre;overflow:hidden}
+.code .k{color:#4A3AFF}.code .t{color:#B5592F}.code .s{color:#0E7A5F}.code .c{color:var(--muted)}
+.code .ln{opacity:0;transform:translateX(-8px);animation:codein .4s ease forwards}
+@keyframes codein{to{opacity:1;transform:none}}
+.termbar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--line);background:var(--paper);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
+.termbar .ok{color:var(--indigo2);font-weight:700}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
+.bubble b{font-family:var(--font)}
+.bubble.b1{left:-14px;top:36px}
+.bubble.b2{right:-16px;top:210px;animation-delay:-1.6s;background:var(--indigo2);color:var(--indigo2-ink);border-color:var(--indigo2)}
+.bubble.b3{left:-4px;bottom:10px;animation-delay:-3.2s;background:var(--cyan2);color:var(--cyan2-ink);border-color:var(--cyan2)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+section{padding:90px 0}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+.plan{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 14px}
+.vfield{margin-bottom:18px}
+.vfield label{display:block;font-family:var(--geo);font-size:13px;color:var(--muted);margin-bottom:6px}
+.vfield input{min-height:46px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);padding:0 14px;font:600 16px var(--font);width:100%}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:10px 0 0}
+.vresults{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px}
+.vstat{border:1px solid var(--line);border-radius:16px;padding:14px}
+.vstat span{display:block;font-family:var(--geo);font-size:12.5px;color:var(--muted)}
+.vstat b{display:block;font-size:26px;font-weight:800;font-variant-numeric:tabular-nums}
+.vbar{position:relative;height:22px;border-radius:999px;background:var(--soft);overflow:hidden}
+.vbar .fill{position:absolute;inset:0;background:var(--indigo2);transform-origin:0 50%;transform:scaleX(0);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.vlegend{display:flex;justify-content:space-between;font-family:var(--geo);font-size:13px;color:var(--muted);margin-top:8px}
+.inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec .n{font-weight:800;font-size:30px;color:var(--indigo2);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--cyan2);border-color:var(--cyan2);color:var(--cyan2-ink)}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--indigo2)}
+.lec ul li.tk{font-weight:700}
+.lec ul li.tk:before{background:var(--cyan2);border-radius:2px}
+.lec button:hover .t{color:var(--indigo2)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+.out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;counter-reset:c;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{counter-increment:c;font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--indigo2);color:var(--indigo2-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:var(--cyan2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23052420' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 45s linear infinite}
+.jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--indigo2)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.lects{display:grid;grid-template-columns:1fr;gap:18px}
+.lcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.lcard .lav{width:54px;height:54px;border-radius:16px;background:var(--indigo2);color:var(--indigo2-ink);display:grid;place-items:center;font-family:var(--geo);font-weight:800;font-size:19px;flex:none}
+.lcard h2{font-family:"NeueCaps",var(--geo);font-size:20px;font-weight:800;display:block}
+.lcard .role{font-family:var(--geo);color:var(--indigo2);font-size:13.5px;font-weight:700;margin-top:2px}
+.lcard p{font-family:var(--geo);margin:0;font-size:14.5px;color:var(--muted);line-height:1.55}
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:960px){
+.hero-grid,.plan,.out,.final{grid-template-columns:1fr}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.vresults{grid-template-columns:1fr}
+.sched{grid-template-columns:1fr}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+.inputs{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span,.code .ln{transform:none;opacity:1}
+.reveal{opacity:1;transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://data-analytics-bi.kursi.edu.ge/#course",
+      "name": "Data Analytics & BI Development (SQL & Power BI)",
+      "description": "ისწავლე SQL და Power BI: მონაცემთა ბაზის მოთხოვნებიდან დაშბორდების აგებამდე და DAX ფორმულებამდე.",
+      "url": "https://data-analytics-bi.kursi.edu.ge/",
+      "inLanguage": "ka",
+      "provider": {"@type": "Organization","name": "Smart Academy","sameAs": "https://smartacademy.ge"},
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "PT42.5H",
+        "instructor": {"@type": "Person","name": "გეგა ჯღარკავა"}
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "31"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/344-Data-Analytics-&-BI-Development-SQL-Power-BI",
+        "price": "2200",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock",
+        "category": "Paid"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://data-analytics-bi.kursi.edu.ge/#product",
+      "name": "Data Analytics & BI Development (SQL & Power BI)",
+      "description": "ისწავლე SQL და Power BI: მონაცემთა ბაზის მოთხოვნებიდან დაშბორდების აგებამდე.",
+      "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
+      "brand": {"@type": "Brand","name": "Smart Academy"},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "31"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/344-Data-Analytics-&-BI-Development-SQL-Power-BI",
+        "price": "2200",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem","position": 1,"name": "Smart Academy კურსები","item": "https://kursi.edu.ge/"},
+        {"@type": "ListItem","position": 2,"name": "Data Analytics & BI Development (SQL & Power BI)","item": "https://data-analytics-bi.kursi.edu.ge/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#planner">ავტომატიზაციის კალკულატორი</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturers">ლექტორი</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/344-Data-Analytics-&-BI-Development-SQL-Power-BI" target="_blank" rel="noopener">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 16 ოქტომბერს, ონლაინ · 4.8/5 (31 შეფასება)</p>
+<h1><span class="ln"><span>Data Analytics</span></span><span class="ln"><span>& BI Development</span></span><span class="ln"><span>(SQL & Power BI)</span></span></h1>
+<p class="lead">ისწავლე მონაცემთა ანალიტიკა და BI რეპორტინგი: SQL მოთხოვნებიდან მონაცემთა ბაზის დიზაინამდე, Power BI-ში დაშბორდების აგებამდე და DAX ფორმულებამდე. კურსს უძღვება Report/BI Developer, Paysera-დან.</p>
+<dl class="facts">
+<div><dt>ლექტორი</dt><dd>Report/BI Developer, Paysera</dd></div>
+<div><dt>ფორმატი</dt><dd>ონლაინ</dd></div>
+<div><dt>დაწყება</dt><dd>16 ოქტომბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>2 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>17 შეხვედრა, 42.5 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>სამშ, პარ</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">2200 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/344-Data-Analytics-&-BI-Development-SQL-Power-BI" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">17 შეხვედრა</a>
+</div>
+</div>
+<div class="phone-stage" id="phoneStage">
+<div class="bubble b1">Query <b id="bRows">14.2K rows</b></div>
+<div class="bubble b2">Dashboard <b>Published</b></div>
+<div class="bubble b3">Paysera <b>BI Team</b></div>
+<div class="ide" aria-label="SQL კოდის რედაქტორის მაკეტი">
+<div class="ide-bar"><span></span><span></span><span></span></div>
+<div class="ide-tabs"><b class="on">sales_report.sql</b><b>dashboard.pbix</b></div>
+<div class="code" id="codeBlock"></div>
+<div class="termbar"><span>▸ RUN QUERY</span><span class="ok">✓ 14,208 rows returned</span></div>
+</div>
+</div>
+</div>
+<div class="plat"><p>ინსტრუმენტები, რომლებიც ისწავლება:</p><span>SQL</span><span>Power BI</span><span>DAX</span></div>
+</div>
+</section>
+<section id="planner">
+<div class="wrap">
+<h2 class="reveal">გამოთვალე დაზოგილი დრო</h2>
+<p class="sub reveal">ხელით შედგენილი Excel რეპორტების ავტომატიზაცია Power BI დაშბორდებით BI დეველოპერის ძირითადი ღირებულებაა (ლექცია 14). შეიყვანე რეპორტების რაოდენობა და დრო თითოზე, კალკულატორი დაგითვლის ყოველთვიურ დაზოგვას.</p>
+<div class="plan reveal">
+<div class="panel">
+<h3>რეპორტინგის რუტინა</h3>
+<div class="vfield">
+<label for="bReports">რეპორტების რაოდენობა თვეში</label>
+<input type="number" id="bReports" min="1" step="1" value="12">
+</div>
+<div class="vfield">
+<label for="bManual">დრო ხელით შედგენაზე (წუთი)</label>
+<input type="number" id="bManual" min="1" step="5" value="90">
+</div>
+<div class="vfield">
+<label for="bAuto">დრო Power BI დაშბორდის განახლებაზე (წუთი)</label>
+<input type="number" id="bAuto" min="1" step="1" value="5">
+</div>
+</div>
+<div class="panel">
+<h3>შედეგი</h3>
+<div class="vresults">
+<div class="vstat"><span>ხელით, თვეში</span><b id="bManualH">0 სთ</b></div>
+<div class="vstat"><span>BI-ით, თვეში</span><b id="bAutoH">0 სთ</b></div>
+<div class="vstat"><span>დაზოგილი დრო</span><b id="bSaved">0 სთ</b></div>
+</div>
+<div class="vbar" aria-hidden="true"><div class="fill" id="bFill"></div></div>
+<div class="vlegend"><span>BI ავტომატიზაცია</span><span>ხელით შედგენა</span></div>
+<p class="hint" id="bNote">გამოთვლა მარტივი მოდელია და გამოიყენება საგანმანათლებლო მიზნით.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">17 შეხვედრა, სამი ეტაპი</h2>
+<p class="sub reveal">42.5 საათი, SQL საფუძვლებიდან მონაცემთა დამუშავებამდე და Power BI დაშბორდების აგებამდე.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">SQL მოთხოვნების წერიდან სრულფასოვან BI დაშბორდებამდე.</p>
+<div class="out">
+<div class="reveal">
+<h3>ეცოდინება</h3>
+<ul class="pill-list">
+<li>SQL (MSSQL) მოთხოვნების წერა</li>
+<li>მონაცემთა ბაზის პრინციპები</li>
+<li>მონაცემთა გაწმენდისა და მოდელირების ტექნიკები</li>
+<li>Power BI-ისა და DAX-ის საფუძვლები</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>მონაცემთა ბაზიდან ინფორმაციის მოპოვებას და დამუშავებას</li>
+<li>ვიზუალიზაციების შექმნას BI ხელსაწყოებით</li>
+<li>ინტერაქტიული დაშბორდების აგებას</li>
+<li>Junior/Middle Reporting Developer პოზიციაზე განაცხადის შეტანას</li>
+<li>Upwork-სა და საერთაშორისო პროექტებზე მუშაობას</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="დაკავშირებული პროფესიები">
+<div class="track">
+<span>Data Analyst</span><span>BI Developer</span><span>Reporting Developer</span><span>Data Scientist</span>
+<span aria-hidden="true">Data Analyst</span><span aria-hidden="true">BI Developer</span><span aria-hidden="true">Reporting Developer</span><span aria-hidden="true">Data Scientist</span>
+<span aria-hidden="true">Data Analyst</span><span aria-hidden="true">BI Developer</span><span aria-hidden="true">Reporting Developer</span><span aria-hidden="true">Data Scientist</span>
+</div>
+</div>
+</section>
+<section id="lecturers" style="padding-top:20px">
+<div class="wrap">
+<h2 class="reveal">ლექტორი</h2>
+<p class="sub reveal">4+ წლის გამოცდილება მონაცემთა ანალიტიკასა და BI რეპორტინგში, საერთაშორისო ფინანსურ ინსტიტუტებში.</p>
+<div class="lects reveal">
+<div class="lcard">
+<span class="lav" aria-hidden="true">გჯ</span>
+<div><h2>გეგა ჯღარკავა</h2><span class="role">Report/BI Developer, Paysera</span></div>
+<p>4+ წლის გამოცდილება მონაცემთა ანალიტიკასა და BI რეპორტინგში, მუშაობდა Data Analyst-იდან Senior Data Analyst-სა და Reporting/BI Developer-ის პოზიციამდე. მუშაობდა ქართულ კომერციულ ბანკებში და საერთაშორისო ფინანსურ ინსტიტუტებში, მათ შორის TBI Bank Bulgaria და Paysera Lithuania.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ადგილის დაჯავშნა</h2>
+<p class="sub">ონლაინ, 2 თვის განმავლობაში, 17 შეხვედრა.<br>ადგილები შეზღუდულია.</p>
+<div class="sched">
+<div><b>სამშაბათი</b>20:00-22:30</div>
+<div><b>პარასკევი</b>20:00-22:30</div>
+</div>
+<p class="req"><strong>მოთხოვნები:</strong> Windows ოპერაციული სისტემის მქონე კომპიუტერი/ლეპტოპი ლოკალური ადმინისტრატორის უფლებებით.</p>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">2200 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/344-Data-Analytics-&-BI-Development-SQL-Power-BI" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/344-Data-Analytics-&-BI-Development-SQL-Power-BI" target="_blank" rel="noopener">სრული პროგრამის ნახვა</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="tel:+995322121025">0322 12 10 25</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>2200 ₾</b><a class="btn btn-amber btn-sm" href="https://smartacademy.ge/trainings/344-Data-Analytics-&-BI-Development-SQL-Power-BI" target="_blank" rel="noopener">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fmt=function(n,d){return Number(n).toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
+var $=function(id){return document.getElementById(id);};
+var root=document.documentElement;
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
+function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+syncLogo();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!root.getAttribute('data-theme'))syncLogo();});}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}syncLogo();});
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+var codeLines=[
+'<span class="k">SELECT</span> region, <span class="k">SUM</span>(revenue) <span class="k">AS</span> total',
+'<span class="k">FROM</span> sales_fact',
+'<span class="k">JOIN</span> dim_date <span class="k">ON</span> sales_fact.date_id = dim_date.id',
+'<span class="k">WHERE</span> dim_date.year = <span class="s">2026</span>',
+'<span class="k">GROUP BY</span> region',
+'<span class="k">ORDER BY</span> total <span class="k">DESC</span>;',
+'',
+'<span class="c">-- 14,208 rows, 0.42s</span>'
+];
+var cb=$('codeBlock'),ch='';
+codeLines.forEach(function(l,i){ch+='<div class="ln" style="animation-delay:'+(.25+i*.09)+'s">'+(l||'&nbsp;')+'</div>';});
+cb.innerHTML=ch;
+var rows=14208;
+if(!reduce)setInterval(function(){rows+=Math.random()>.5?12:0;$('bRows').textContent=fmt(Math.round(rows/1000*10)/10,1)+'K rows';},2800);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+var bReports=$('bReports'),bManual=$('bManual'),bAuto=$('bAuto');
+function calcBI(){
+var reports=Math.max(1,+bReports.value||1),manual=Math.max(1,+bManual.value||1);
+var auto=Math.max(1,+bAuto.value||1);
+var manualH=(reports*manual)/60;
+var autoH=(reports*auto)/60;
+var saved=manualH-autoH;
+$('bManualH').textContent=manualH.toFixed(1)+' სთ';
+$('bAutoH').textContent=autoH.toFixed(1)+' სთ';
+$('bSaved').textContent=saved.toFixed(1)+' სთ';
+var pct=manualH>0?autoH/manualH:0;
+$('bFill').style.transform='scaleX('+pct+')';
+}
+[bReports,bManual,bAuto].forEach(function(i){i.addEventListener('input',calcBI);});
+calcBI();
+var P=[{n:'SQL საფუძვლები',r:[1,7]},{n:'მონაცემთა ბაზები და დამუშავება',r:[8,12]},{n:'Power BI და ვიზუალიზაცია',r:[13,17]}];
+var L=[
+['Data Analytics-ის შესავალი და BI-ის როლი',['BI-ის მნიშვნელობა ბიზნეს გადაწყვეტილებებში']],
+['SQL საფუძვლები',['SELECT, WHERE, ORDER BY']],
+['SQL: JOIN-ები',['INNER, LEFT, RIGHT JOIN-ების გამოყენება']],
+['SQL: აგრეგაცია და GROUP BY',['SUM, COUNT, AVG ფუნქციები']],
+['SQL: ქვემოთხოვნები და CTE',['რთული მოთხოვნების სტრუქტურირება']],
+['*პრაქტიკული დავალება #1',['*SQL მოთხოვნების წერა რეალურ მონაცემებზე']],
+['*ქვიზი #1',['*ცოდნის შემოწმება']],
+['მონაცემთა ბაზის პრინციპები',['ცხრილების სტრუქტურა და ურთიერთკავშირები']],
+['მონაცემთა გაწმენდა და ტრანსფორმაცია',['Data Cleaning ტექნიკები']],
+['მონაცემთა მოდელირება ანალიტიკისთვის',['Star Schema და Fact/Dimension ცხრილები']],
+['*პრაქტიკული სემინარი: მონაცემთა მომზადება',['*რეპორტინგისთვის მზა მონაცემთა ნაკრები']],
+['*ქვიზი #2',['*ცოდნის შემოწმება']],
+['Power BI შესავალი',['მონაცემთა იმპორტი და კავშირები']],
+['Power BI: ვიზუალიზაციები და დაშბორდები',['გრაფიკების და დაშბორდის ელემენტების შექმნა']],
+['Power BI: DAX ფორმულები',['გამოთვლადი სვეტები და ზომები']],
+['*პრაქტიკული დავალება #2',['*სრული დაშბორდის აგება']],
+['*ფინალური პროექტი',['*ბიზნეს რეპორტის პრეზენტაცია','უკუკავშირი ლექტორისგან']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+var lec=$('lec'),h='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n;
+h+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span class="t">'+esc(x[0])+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+x[1].forEach(function(t){var tk=t.charAt(0)==='*';h+='<li'+(tk?' class="tk"':'')+'>'+esc(tk?t.slice(1):t)+'</li>';});
+h+='</ul></div></div></li>';
+});
+lec.innerHTML=h;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var ph=$('phases'),active=-1;
+function setPhase(k){
+active=k;
+ph.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?'17 შეხვედრა':c+' შეხვედრა ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button data-k="-1">ყველა<b>17</b></button>';
+P.forEach(function(p,i){hb+='<button data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+ph.innerHTML=hb;
+ph.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>2200 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(2200/4).toFixed(1)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(2200/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>
