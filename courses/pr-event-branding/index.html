@@ -69,6 +69,9 @@ nav.links a:hover{color:var(--ink)}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin:0 0 20px}
 .tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
 h1{font-family:"NeueCaps",var(--geo);font-stretch:64%;font-weight:900;font-size:clamp(34px,5.4vw,74px);line-height:.98;margin:0 0 26px}
 h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
 h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
@@ -262,6 +265,11 @@ h1 .ln span,.docrow{transform:none;opacity:1}
           {"@type": "Person","name": "გიორგი თაქთაქიშვილი"}
         ]
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "4"
+      },
       "offers": {
         "@type": "Offer",
         "url": "https://smartacademy.ge/trainings/595-PR,-EVENT-BRANDING-&-MANAGEMENT",
@@ -278,6 +286,11 @@ h1 .ln span,.docrow{transform:none;opacity:1}
       "description": "ისწავლე PR სტრატეგია, კრიზისული კომუნიკაცია და ივენთების ბრენდინგი და მართვა.",
       "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
       "brand": {"@type": "Brand","name": "Smart Academy"},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "4"
+      },
       "offers": {
         "@type": "Offer",
         "url": "https://smartacademy.ge/trainings/595-PR,-EVENT-BRANDING-&-MANAGEMENT",
@@ -320,7 +333,7 @@ h1 .ln span,.docrow{transform:none;opacity:1}
 <div class="wrap">
 <div class="hero-grid">
 <div>
-<p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 24 სექტემბერს, ფიზიკურად + ონლაინ</p>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>5.0</b> / 5, 4 შეფასება</span></p>
 <h1><span class="ln"><span>PR, ივენთ</span></span><span class="ln"><span>ბრენდინგი</span></span><span class="ln"><span>და მენეჯმენტი</span></span></h1>
 <p class="lead">ისწავლე კომუნიკაციის სტრატეგია, კრიზისული PR, მედია ურთიერთობები და ივენთების კონცეფცია, ბრენდინგი და ლოჯისტიკური მართვა. კურსს უძღვება 2 პრაქტიკოსი ლექტორი: PhD კომუნიკაციებში და მარკეტინგის სტრატეგი.</p>
 <dl class="facts">

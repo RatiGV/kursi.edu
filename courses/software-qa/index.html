@@ -69,6 +69,9 @@ nav.links a:hover{color:var(--ink)}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin:0 0 20px}
 .tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
 h1{font-family:"NeueCaps",var(--geo);font-stretch:58%;font-weight:900;font-size:clamp(30px,4.8vw,64px);line-height:1.02;margin:0 0 26px}
 h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
 h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
@@ -325,7 +328,7 @@ h1 .ln span,.run,.run .bar i{transform:none;opacity:1}
 <div class="wrap">
 <div class="hero-grid">
 <div>
-<p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 25 სექტემბერს, ონლაინ · 4.9/5 (36 შეფასება)</p>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5, 36 შეფასება</span></p>
 <h1><span class="ln"><span>პროგრამული</span></span><span class="ln"><span>უზრუნველყოფის</span></span><span class="ln"><span>ხარისხის ინჟინერია</span></span></h1>
 <p class="lead">ისწავლე Software Testing-ის სრული პროცესი: მოთხოვნების ანალიზიდან და ტესტ დიზაინიდან ვებ, მობილურ და API ტესტირებამდე, SDLC/Agile მეთოდოლოგიებამდე და ავტომატიზაციის საფუძვლებამდე. კურსს უძღვება Quality Engineering Manager, EPAM-იდან.</p>
 <dl class="facts">

@@ -70,6 +70,9 @@ nav.links a:hover{color:var(--ink)}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin:0 0 20px}
 .tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
 h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(42px,6.6vw,92px);line-height:.94;margin:0 0 26px}
 h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
 h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
@@ -288,6 +291,11 @@ h1 .ln span,.goal-list li{transform:none;opacity:1}
           }
         ]
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "12"
+      },
       "offers": {
         "@type": "Offer",
         "url": "https://smartacademy.ge/trainings/377-Strategic-Human-Resource-Management",
@@ -306,6 +314,11 @@ h1 .ln span,.goal-list li{transform:none;opacity:1}
       "brand": {
         "@type": "Brand",
         "name": "Smart Academy"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "12"
       },
       "offers": {
         "@type": "Offer",
@@ -359,7 +372,7 @@ h1 .ln span,.goal-list li{transform:none;opacity:1}
 <div class="wrap">
 <div class="hero-grid">
 <div>
-<p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 19 სექტემბერს, ფიზიკურად + ონლაინ</p>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.8</b> / 5, 12 შეფასება</span></p>
 <h1><span class="ln"><span>სტრატეგიული</span></span><span class="ln"><span>HR</span></span><span class="ln"><span>მენეჯმენტი</span></span></h1>
 <p class="lead">მენტორინგის პროგრამა HR სპეციალისტებისა და ბიზნეს ლიდერებისთვის, რომლებსაც სურთ შესრულების მართვის სისტემის აწყობა: მიზნების დასახვიდან და KPI/OKR-ებიდან განვითარებისა და მოტივაციის სქემებამდე. სამი პრაქტიკოსი ლექტორი, რეალური ქეისები და საკუთარი ორგანიზაციისთვის მზა გეგმა.</p>
 <dl class="facts">
