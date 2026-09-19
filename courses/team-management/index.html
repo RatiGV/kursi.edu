@@ -167,12 +167,19 @@ h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:
 .jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
 .jobs span:nth-child(even){color:var(--slate)}
 @keyframes scroll{to{transform:translateX(-50%)}}
-.lects{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.lcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px}
-.lcard .lav{width:54px;height:54px;border-radius:16px;background:var(--slate);color:var(--slate-ink);display:grid;place-items:center;font-family:var(--geo);font-weight:800;font-size:19px;flex:none}
-.lcard h2{font-family:"NeueCaps",var(--geo);font-size:20px;font-weight:800;display:block}
-.lcard .role{font-family:var(--geo);color:var(--slate);font-size:13.5px;font-weight:700;margin-top:2px}
-.lcard p{font-family:var(--geo);margin:0;font-size:14.5px;color:var(--muted);line-height:1.55}
+.lects{display:flex;flex-direction:column;gap:56px}
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:26px;background:var(--slate);color:var(--slate-ink);position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px}
+.lect:nth-child(2) .portrait{background:var(--amber3);color:var(--amber3-ink)}
+.lect:nth-child(3) .portrait{background:var(--ink);color:var(--paper)}
+.lect:nth-child(4) .portrait{background:var(--slate);color:var(--slate-ink)}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:160px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:32px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:22px;margin:18px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:34px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:13px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0;max-width:62ch}
 .final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
 .final h2{color:var(--paper)}
 .final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
@@ -196,7 +203,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .reveal.on{opacity:1;transform:none}
 .mobile-cta{display:none}
 @media (max-width:960px){
-.hero-grid,.plan,.out,.lects,.final{grid-template-columns:1fr}
+.hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 nav.links{display:none}
 .bubble.b1{left:0}.bubble.b2{right:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
@@ -218,7 +225,6 @@ header .btn-sm{display:none}
 .lec ul{padding-left:20px}
 .oc-row2{grid-template-columns:1fr;justify-items:center}
 .inputs{grid-template-columns:1fr}
-.lects{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -435,16 +441,30 @@ h1 .ln span,.oc-node{transform:none;opacity:1}
 <div class="wrap">
 <h2 class="reveal">ლექტორები</h2>
 <p class="sub reveal">2 პრაქტიკოსი მენეჯერი, HR და ორგანიზაციული მართვის რეალური გამოცდილებით.</p>
-<div class="lects reveal">
-<div class="lcard">
-<span class="lav" aria-hidden="true">ლკ</span>
-<div><h2>ლიკა კოვზირიძე</h2><span class="role">Business Partner, SMART Support</span></div>
-<p>20 წლის გამოცდილება მომსახურების სექტორში და 15 წლის მენეჯერული გამოცდილება. წარსულში მუშაობდა კვლევით, საბანკო და მრავალეროვნულ კომპანიებში.</p>
+<div class="lects">
+<div class="lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">ლკ</span>
+<h2>ლიკა<br>კოვზირიძე</h2>
+<p>Business Partner, SMART Support</p>
+<div class="stat">
+<div><b data-count="20">0</b><span>წლის გამოცდილება მომსახურების სექტორში</span></div>
+<div><b data-count="15">0</b><span>წლის მენეჯერული გამოცდილება</span></div>
 </div>
-<div class="lcard">
-<span class="lav" aria-hidden="true">ონ</span>
-<div><h2>ოლგა ნებიერიძე</h2><span class="role">Chief People Officer, Cubicon</span></div>
+</div>
+<div class="bio2 reveal">
+<p>წარსულში მუშაობდა კვლევით, საბანკო და მრავალეროვნულ კომპანიებში.</p>
+</div>
+</div>
+<div class="lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">ონ</span>
+<h2>ოლგა<br>ნებიერიძე</h2>
+<p>Chief People Officer, Cubicon</p>
+</div>
+<div class="bio2 reveal">
 <p>წარმოშობით აუდიტისა და ბუღალტრული სერვისების სფეროდან, პროექტების მართვის გამოცდილებით. ACCA სერტიფიცირებული, ექსპერტიზა ქცევით მეცნიერებასა და კოგნიტურ მიკერძოებებში.</p>
+</div>
 </div>
 </div>
 </div>
@@ -509,7 +529,8 @@ ringFg.style.strokeDashoffset=C*(1-Math.min(ringPct,ringTarget)/100);
 if(ringPct<ringTarget&&!reduce)requestAnimationFrame(ringTick);
 }
 requestAnimationFrame(ringTick);
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 var tSize=$('tSize'),tTasks=$('tTasks'),tCap=$('tCap');
 function calcLoad(){
