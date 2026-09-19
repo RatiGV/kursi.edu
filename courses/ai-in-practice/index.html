@@ -163,12 +163,20 @@ h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:
 .jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
 .jobs span:nth-child(even){color:var(--violet)}
 @keyframes scroll{to{transform:translateX(-50%)}}
-.lects{display:grid;grid-template-columns:1fr;gap:18px}
-.lcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px}
-.lcard .lav{width:54px;height:54px;border-radius:16px;background:var(--violet);color:var(--violet-ink);display:grid;place-items:center;font-family:var(--geo);font-weight:800;font-size:19px;flex:none}
-.lcard h2{font-family:"NeueCaps",var(--geo);font-size:20px;font-weight:800;display:block}
-.lcard .role{font-family:var(--geo);color:var(--violet);font-size:13.5px;font-weight:700;margin-top:2px}
-.lcard p{font-family:var(--geo);margin:0;font-size:14.5px;color:var(--muted);line-height:1.55}
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:28px;background:var(--violet);color:var(--violet-ink);position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:220px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:42px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:26px;margin:22px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:44px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:14px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.path{list-style:none;padding:0;margin:24px 0}
+.path li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
 .final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
 .final h2{color:var(--paper)}
 .final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
@@ -192,7 +200,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .reveal.on{opacity:1;transform:none}
 .mobile-cta{display:none}
 @media (max-width:960px){
-.hero-grid,.plan,.out,.final{grid-template-columns:1fr}
+.hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
+.path li{grid-template-columns:1fr;gap:2px}
 nav.links{display:none}
 .bubble.b1{left:0}.bubble.b2{right:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
@@ -413,14 +422,26 @@ h1 .ln span,.msg,.typing{transform:none;opacity:1}
 </div>
 </section>
 <section id="lecturers" style="padding-top:20px">
-<div class="wrap">
-<h2 class="reveal">ლექტორი</h2>
-<p class="sub reveal">25+ წლის ტექნოლოგიური გამოცდილება, საერთაშორისო კვლევებითა და პარტნიორობებით.</p>
-<div class="lects reveal">
-<div class="lcard">
-<span class="lav" aria-hidden="true">გბ</span>
-<div><h2>გიორგი ბასილაია</h2><span class="role">ასოცირებული პროფესორი, თავისუფალი უნივერსიტეტი</span></div>
-<p>25+ წლის გამოცდილება ტექნოლოგიების სფეროში, მკვლევარიდან უნივერსიტეტის პროფესორამდე და IT დეპარტამენტის ხელმძღვანელამდე. თანამშრომლობდა Google, Microsoft, Amazon, IBM, Dell, HP-Enterprise და VMware-თან. 14 სამეცნიერო სტატიის ავტორია (3388 ციტირება Google Scholar-ის მიხედვით) და 18 საერთაშორისო კვლევითი პროექტის მონაწილე.</p>
+<div class="wrap lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">გბ</span>
+<h2>გიორგი<br>ბასილაია</h2>
+<p>ასოცირებული პროფესორი, თავისუფალი უნივერსიტეტი</p>
+<div class="stat">
+<div><b data-count="25">0</b><span>+ წლის გამოცდილება ტექნოლოგიებში</span></div>
+<div><b data-count="18">0</b><span>საერთაშორისო კვლევითი პროექტი</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<h2>ლექტორი</h2>
+<p>გიორგი 25+ წლის გამოცდილებით გაიარა გზა მკვლევარიდან უნივერსიტეტის პროფესორამდე და IT დეპარტამენტის ხელმძღვანელამდე. 14 სამეცნიერო სტატიის ავტორია, 3388 ციტირებით Google Scholar-ის მიხედვით.</p>
+<ol class="path">
+<li><b>კვლევა</b><span>14 სამეცნიერო სტატია, 18 საერთაშორისო კვლევითი პროექტი</span></li>
+<li><b>თავისუფალი უნივერსიტეტი</b><span>ასოცირებული პროფესორი, IT დეპარტამენტის ხელმძღვანელი</span></li>
+</ol>
+<p style="color:var(--muted);margin-bottom:10px">კომპანიები, რომლებთანაც თანამშრომლობდა:</p>
+<div class="brands">
+<span>Google</span><span>Microsoft</span><span>Amazon</span><span>IBM</span><span>Dell HP-Enterprise</span><span>VMware</span>
 </div>
 </div>
 </div>
@@ -471,7 +492,8 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12});
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 var aTasks=$('aTasks'),aMin=$('aMin'),aAuto=$('aAuto'),aRate=$('aRate');
 function calcAI(){
