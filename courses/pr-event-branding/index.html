@@ -181,7 +181,13 @@ h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:
 .stat{display:flex;gap:22px;margin:18px 0 0;flex-wrap:wrap}
 .stat b{display:block;font-size:34px;font-weight:800;line-height:1}
 .stat span{font-family:var(--geo);font-size:13px;opacity:.85}
-.bio2 p{font-family:var(--geo);margin:0;max-width:62ch}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.bio2 p:last-child{margin-bottom:0}
+.path{list-style:none;padding:0;margin:16px 0}
+.path li{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
 .final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
 .final h2{color:var(--paper)}
 .final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
@@ -219,6 +225,7 @@ section{padding:64px 0}
 .mobile-cta b{font-size:20px}
 }
 @media (max-width:560px){
+.path li{grid-template-columns:1fr;gap:2px}
 .facts{grid-template-columns:1fr 1fr}
 .can{grid-template-columns:1fr}
 .vresults{grid-template-columns:1fr}
@@ -452,7 +459,13 @@ h1 .ln span,.docrow{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio2 reveal">
-<p>17 წლის გამოცდილება კომუნიკაციების სფეროში. ტრენერთა ასოციაციის ასოცირებული წევრი, ლექტორი PR School-ში.</p>
+<p>17 წლის გამოცდილება კომუნიკაციების სფეროში სხვადასხვა პოზიციაზე (PR მენეჯერი, პროექტის მენეჯერი, კომუნიკაციების სტრატეგი). ტრენერთა ასოციაციის ასოცირებული წევრი.</p>
+<ol class="path">
+<li><b>Personal Branding Agency</b><span>დამფუძნებელი და კონსულტანტი</span></li>
+<li><b>PR School</b><span>ლექტორი</span></li>
+<li><b>კავკასიის უნივერსიტეტი, GIPA, თსსხა, უნივერსიტეტი ალტერბრიჯი</b><span>ასოცირებული პროფესორი და მოწვეული ლექტორი</span></li>
+<li><b>creatives.ge</b><span>თანადამფუძნებელი და დირექტორი</span></li>
+</ol>
 </div>
 </div>
 <div class="lect">
@@ -465,7 +478,17 @@ h1 .ln span,.docrow{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio2 reveal">
-<p>ბრენდ სტრატეგი, მარკეტოლოგი და სპიკერი საჯარო და კერძო სექტორის მართვაში. ფართო გამოცდილება საერთაშორისო ივენთებისა და კონფერენციების ორგანიზებაში.</p>
+<p>10+ წლის გამოცდილება კერძო და საჯარო სექტორის ტოპ მენეჯმენტში. აქვს მრავალწლიანი გამოცდილება საერთაშორისო და ადგილობრივი ღონისძიებების (ფორუმები, სამიტები, კონფერენციები) დაგეგმვასა და მართვაში, 10+ წელია სპიკერია ბრენდინგისა და მარკეტინგის თემებზე.</p>
+<ol class="path">
+<li><b>დაავადებათა კონტროლის ეროვნული ცენტრი</b><span>მარკეტინგის სამსახურის ხელმძღვანელი</span></li>
+<li><b>საქართველოს პარლამენტი</b><span>მედიასთან ურთიერთობის მენეჯერი</span></li>
+<li><b>„კანტის აკადემია“</b><span>თანადამფუძნებელი და აღმასრულებელი დირექტორი</span></li>
+<li><b>საქართველო-ამერიკის უნივერსიტეტი</b><span>Head of Marketing</span></li>
+</ol>
+<p style="color:var(--muted);margin-bottom:10px">აღიარება:</p>
+<div class="brands">
+<span>ევროკავშირის საპატიო ჯილდო სამოქალაქო განათლებაში წვლილისთვის</span>
+</div>
 </div>
 </div>
 </div>

@@ -195,7 +195,13 @@ h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:
 .stat{display:flex;gap:22px;margin:18px 0 0;flex-wrap:wrap}
 .stat b{display:block;font-size:34px;font-weight:800;line-height:1}
 .stat span{font-family:var(--geo);font-size:13px;opacity:.85}
-.bio2 p{font-family:var(--geo);margin:0;max-width:62ch}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.bio2 p:last-child{margin-bottom:0}
+.path{list-style:none;padding:0;margin:16px 0}
+.path li{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
 /* final */
 .final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
 .final h2{color:var(--paper)}
@@ -238,6 +244,7 @@ section{padding:64px 0}
 .mobile-cta b{font-size:20px}
 }
 @media (max-width:560px){
+.path li{grid-template-columns:1fr;gap:2px}
 .facts{grid-template-columns:1fr 1fr}
 .can{grid-template-columns:1fr}
 .vresults{grid-template-columns:1fr}
@@ -280,7 +287,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
           },
           {
             "@type": "Person",
-            "name": "სოფია კაჭარავა"
+            "name": "სოფიო კაჭარავა"
           },
           {
             "@type": "Person",
@@ -288,7 +295,7 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
           },
           {
             "@type": "Person",
-            "name": "გელა ჩიგოშვილი"
+            "name": "გელა ჩიღოშვილი"
           }
         ]
       },
@@ -505,20 +512,31 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio2 reveal">
-<p>წარსულში მუშაობდა Taylor Nelson Sofres-ში, საქართველოს ბანკში და Japan Tobacco International-ში.</p>
+<p>20 წლის გამოცდილება მომსახურების სექტორში და 15 წლის მენეჯერული გამოცდილება. კარიერა დაიწყო კვლევით ინდუსტრიაში, შემდეგ განაგრძო ბიზნესის მხარეს, ხოლო 2015 წლიდან მუშაობს HR აუთსორსინგისა და კვლევის მიმართულებით მმართველ პოზიციებზე.</p>
+<ol class="path">
+<li><b>Taylor Nelson Sofres</b><span>კვლევითი კომპანია, კარიერის დასაწყისი</span></li>
+<li><b>საქართველოს ბანკი</b><span>თანამშრომელთა მართვა და სტრატეგიული დაგეგმვა</span></li>
+<li><b>Japan Tobacco International</b><span>თანამშრომელთა მართვა და სტრატეგიული დაგეგმვა</span></li>
+<li><b>SMART Support</b><span>დამფუძნებელი და მმართველი პარტნიორი (2023-დღემდე)</span></li>
+</ol>
+<p>CU MBA და CIMA სერტიფიცირებული, დამატებით გავლილი აქვს Strategic Leadership Simulation (Michael Kouly), The Science of Well-Being (Yale University) და Certified Coach (Erickson Coaching International) პროგრამები.</p>
 </div>
 </div>
 <div class="lect">
 <div class="portrait reveal">
 <span class="ini" aria-hidden="true">სკ</span>
-<h2>სოფია<br>კაჭარავა</h2>
+<h2>სოფიო<br>კაჭარავა</h2>
 <p>განვითარების გუნდის ლიდერი, SMART Support</p>
 <div class="stat">
 <div><b data-count="5">0</b><span>წლის HR რეკრუტმენტის გამოცდილება</span></div>
 </div>
 </div>
 <div class="bio2 reveal">
-<p>IT &amp; Tech მიმართულების რეკრუტმენტის ექსპერტიზით გამოირჩევა.</p>
+<p>5 წლის HR რეკრუტმენტის გამოცდილება, IT &amp; Tech მიმართულების რეკრუტმენტის ექსპერტიზით. მუშაობდა სხვადასხვა ინდუსტრიის კომპანიებთან და მონაწილეობდა პროცესების გაციფრულებასა და ოპტიმიზაციაში.</p>
+<ol class="path">
+<li><b>SMART Support</b><span>პარტნიორი, განვითარების მიმართულების ლიდი</span></li>
+</ol>
+<p>მართვისა და საზოგადოებრივ მეცნიერებათა სკოლის ბაკალავრის ხარისხი.</p>
 </div>
 </div>
 <div class="lect">
@@ -531,20 +549,32 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio2 reveal">
-<p>წარსულში მუშაობდა Caucasus Online-ში, ICR-ში და საქართველოს რკინიგზაში.</p>
+<p>15 წლის HR და პროფესიული განვითარების გამოცდილება. „საქართველოს რკინიგზა“-ში მუშაობის პერიოდში კურირებდა პროფესიული განათლების პროექტს სარკინიგზო ტრანსპორტის კოლეჯთან თანამშრომლობით.</p>
+<ol class="path">
+<li><b>Caucasus Online</b><span>შერჩევის მენეჯერი</span></li>
+<li><b>ICR</b><span>ტრენინგებისა და კარიერული განვითარების მენეჯერი</span></li>
+<li><b>საქართველოს რკინიგზა</b><span>ადამიანური რესურსების დეპარტამენტის ხელმძღვანელი</span></li>
+<li><b>აჭარა ჯგუფი</b><span>HR მართვის კონსულტანტი</span></li>
+<li><b>IBA Group</b><span>HR მენეჯერი, საქართველოს ოფისი</span></li>
+</ol>
 </div>
 </div>
 <div class="lect">
 <div class="portrait reveal">
 <span class="ini" aria-hidden="true">გჩ</span>
-<h2>გელა<br>ჩიგოშვილი</h2>
+<h2>გელა<br>ჩიღოშვილი</h2>
 <p>იურისტი, Liberty Bank</p>
 <div class="stat">
 <div><b data-count="10">0</b><span>წლის შრომის სამართლის ექსპერტიზა</span></div>
 </div>
 </div>
 <div class="bio2 reveal">
-<p>სახელმწიფო და კერძო სექტორის იურიდიული გამოცდილებით.</p>
+<p>10 წლის შრომის სამართლის ექსპერტიზა, სახელმწიფო და კერძო სექტორის იურიდიული გამოცდილებით. აქტიურად იყო ჩართული შრომის კოდექსში შესატანი საკანონმდებლო ცვლილებებისა და კანონქვემდებარე ნორმატიული აქტების შემუშავებაში.</p>
+<ol class="path">
+<li><b>სახელმწიფო უწყებები</b><span>იურისტი, კანონშემოქმედებითი პროცესები</span></li>
+<li><b>იურიდიული ფირმა</b><span>სამართლებრივი მხარდაჭერა ბიზნესისა და შრომის სამართლის მიმართულებით</span></li>
+<li><b>Liberty Bank</b><span>იურიდიული დეპარტამენტი</span></li>
+</ol>
 </div>
 </div>
 </div>

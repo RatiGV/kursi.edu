@@ -181,7 +181,13 @@ h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:
 .stat{display:flex;gap:22px;margin:18px 0 0;flex-wrap:wrap}
 .stat b{display:block;font-size:34px;font-weight:800;line-height:1}
 .stat span{font-family:var(--geo);font-size:13px;opacity:.85}
-.bio2 p{font-family:var(--geo);margin:0;max-width:62ch}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.bio2 p:last-child{margin-bottom:0}
+.path{list-style:none;padding:0;margin:16px 0}
+.path li{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
 .final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
 .final h2{color:var(--paper)}
 .final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
@@ -219,6 +225,7 @@ section{padding:64px 0}
 .mobile-cta b{font-size:20px}
 }
 @media (max-width:560px){
+.path li{grid-template-columns:1fr;gap:2px}
 .facts{grid-template-columns:1fr 1fr}
 .can{grid-template-columns:1fr}
 .vresults{grid-template-columns:1fr}
@@ -256,7 +263,7 @@ h1 .ln span,.docrow{transform:none;opacity:1}
         "instructor": [
           {"@type": "Person","name": "თიკო ჩარკვიანი"},
           {"@type": "Person","name": "დავით გორდიაშვილი"},
-          {"@type": "Person","name": "ნინო გათენიძე"}
+          {"@type": "Person","name": "ნინო გათენაძე"}
         ]
       },
       "aggregateRating": {
@@ -463,7 +470,15 @@ h1 .ln span,.docrow{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio2 reveal">
-<p>5+ წლის გამოცდილება 10-ზე მეტ სექტორსა და 55-ზე მეტ კომპანიაში ბუღალტრული და საგადასახადო კონსულტირების მიმართულებით.</p>
+<p>5+ წლის გამოცდილება 10-ზე მეტ სექტორსა და 55-ზე მეტ კომპანიაში ბუღალტრული და აუდიტორული სერვისების მიმართულებით. მონაწილეობს კომპანიების ბუღალტრული და აუდიტორული ოპერაციების დაგეგმვასა და მართვაში, ასევე უძღვება სტაჟიორების, უმცროსი და მთავარი ბუღალტრების მენტორობას.</p>
+<ol class="path">
+<li><b>Fino Audit &amp; Accounting</b><span>პარტნიორებზე ზრუნვის ლიდი</span></li>
+</ol>
+<p>ბიზნეს ადმინისტრირების ბაკალავრის ხარისხი მიღებული აქვს თბილისის სახელმწიფო უნივერსიტეტში.</p>
+<p style="color:var(--muted);margin-bottom:10px">სერტიფიკატები:</p>
+<div class="brands">
+<span>ბუღალტერთა და აუდიტორთა ფედერაციის სერტიფიკატი, დონე 2</span>
+</div>
 </div>
 </div>
 <div class="lect">
@@ -476,13 +491,21 @@ h1 .ln span,.docrow{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio2 reveal">
-<p>8 წლის გამოცდილება საგადასახადო აუდიტისა და ბუღალტრული აღრიცხვის სფეროში.</p>
+<p>8 წლის გამოცდილება საგადასახადო აუდიტის, ბუღალტრული აღრიცხვისა და პროექტების მენეჯმენტის მიმართულებით. ტრენერია საგადასახადო კოდექსის მიმართულებით.</p>
+<ol class="path">
+<li><b>Fino Audit &amp; Accounting</b><span>საგადასახადო აუდიტის მენეჯერი</span></li>
+</ol>
+<p>ბაკალავრისა და მაგისტრის ხარისხი აღრიცხვისა და აუდიტის მიმართულებით, ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი.</p>
+<p style="color:var(--muted);margin-bottom:10px">სერტიფიკატები:</p>
+<div class="brands">
+<span>ACCA, დონე 1-2 (9 წიგნი)</span>
+</div>
 </div>
 </div>
 <div class="lect">
 <div class="portrait reveal">
 <span class="ini" aria-hidden="true">ნგ</span>
-<h2>ნინო<br>გათენიძე</h2>
+<h2>ნინო<br>გათენაძე</h2>
 <p>Portfolio Manager, Fino</p>
 <div class="stat">
 <div><b data-count="10">0</b><span>წლის აუდიტის გამოცდილება</span></div>
@@ -490,7 +513,15 @@ h1 .ln span,.docrow{transform:none;opacity:1}
 </div>
 </div>
 <div class="bio2 reveal">
-<p>10 წლის აუდიტის გამოცდილება, მათ შორის 4 წელი მთავარი ბუღალტრის პოზიციაზე.</p>
+<p>10 წლის გამოცდილება აუდიტორულ კომპანიაში, მათ შორის 4 წელი მთავარი ბუღალტრის და 2 წელი ბუღალტრული პროექტების მენეჯერის პოზიციაზე. გავლილი აქვს პროფესიული ტრენინგები საგადასახადო და ფინანსური აღრიცხვის მიმართულებით.</p>
+<ol class="path">
+<li><b>Fino Audit &amp; Accounting</b><span>პორტფელის მენეჯერი</span></li>
+</ol>
+<p>ეკონომიკურ მეცნიერებათა ბაკალავრისა და მაგისტრის ხარისხი, აგრარული უნივერსიტეტი.</p>
+<p style="color:var(--muted);margin-bottom:10px">სერტიფიკატები:</p>
+<div class="brands">
+<span>ACCA, დონე 1 (4 წიგნი)</span>
+</div>
 </div>
 </div>
 </div>
