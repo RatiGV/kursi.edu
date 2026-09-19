@@ -66,6 +66,9 @@ nav.links a:hover{color:var(--ink)}
 .hero-grid{display:grid;grid-template-columns:1.5fr .5fr;gap:32px;align-items:center}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:13px;color:var(--muted);margin-bottom:12px}
 .tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
 h1{font-family:"NeueCaps",var(--geo);font-stretch:70%;font-weight:900;font-size:clamp(34px,4.6vw,58px);line-height:.98;letter-spacing:-.01em;margin:0 0 14px}
 h1 .ln{display:block;overflow:hidden}
@@ -345,7 +348,7 @@ h1 .ln span,.lesson li{transform:none;opacity:1}
 <section class="hero" style="padding-top:56px">
 <div class="wrap hero-grid">
 <div>
-<p class="tag"><span class="dot" aria-hidden="true"></span>ნაკადი იწყება 29 სექტემბერს, ონლაინ</p>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5</span></p>
 <h1><span class="ln"><span>სოციალური</span></span><span class="ln"><span>მედია</span></span><span class="ln"><span>ედვერთაიზინგი</span></span></h1>
 <p class="lead">კურსი მათთვის, ვისაც უკვე აქვს შეხება სოციალურ მედიასთან და სურს რეკლამის მიმართულებით ცოდნის გაღრმავება. დაგეგმავ სარეკლამო სტრატეგიას, შექმნი რეკლამას Meta-ზე, TikTok-სა და LinkedIn-ზე, გაზომავ შედეგებს და გააუმჯობესებ მათ.</p>
 <dl class="facts">

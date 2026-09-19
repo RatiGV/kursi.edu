@@ -68,6 +68,9 @@ nav.links a:hover{color:var(--ink)}
 .hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:48px;align-items:center}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--geo);font-size:14px;color:var(--muted);margin:0 0 20px}
 .tag .dot{width:9px;height:9px;border-radius:50%;background:#1FB36B;box-shadow:0 0 0 0 rgba(31,179,107,.6);animation:ping 2s infinite}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
 @keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,179,107,0)}100%{box-shadow:0 0 0 0 rgba(31,179,107,0)}}
 h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(42px,6.6vw,92px);line-height:.94;margin:0 0 26px}
 h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
@@ -302,7 +305,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 <div class="wrap">
 <div class="hero-grid">
 <div>
-<p class="tag"><span class="dot" aria-hidden="true"></span>ონლაინ, ახალი ნაკადები რეგულარულად</p>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5</span></p>
 <h1><span class="ln"><span>Python</span></span><span class="ln"><span>დეველოპმენტის</span></span><span class="ln"><span>კურსი</span></span></h1>
 <p class="lead">ისწავლე Python პროგრამირება ნულიდან: სინტაქსიდან და მონაცემთა სტრუქტურებიდან ობიექტზე ორიენტირებულ პროგრამირებამდე, SQL ბაზებამდე და Git-ის გამოყენებამდე. კურსს უძღვება Computer Engineer, Fablab Iliauni-დან.</p>
 <dl class="facts">
