@@ -102,14 +102,22 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--teal)}
 .tag-pill{flex:none;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
 .tag-done{background:var(--teal);color:var(--teal-ink)}
 .tag-prog{background:var(--amber);color:var(--amber-ink)}
+.okr-row{padding:9px 11px;border-radius:11px;background:var(--paper);font-family:var(--geo);font-size:12px;opacity:0;transform:translateX(-12px);animation:slidein .5s cubic-bezier(.3,1.2,.5,1) forwards}
+.okr-row .okr-top{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px}
+.okr-row .okr-top b{font-family:var(--font);font-weight:700;color:var(--ink)}
+.okr-bar{position:relative;height:7px;border-radius:999px;background:var(--soft);overflow:hidden}
+.okr-bar i{position:absolute;inset:0;display:block;background:var(--teal);border-radius:999px;transform-origin:0 50%;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .hf-row2{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;align-items:center}
-.attn{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.attn span{aspect-ratio:1;border-radius:5px;background:var(--soft);opacity:0;animation:pop .35s cubic-bezier(.3,1.4,.5,1) forwards}
-.attn span.p{background:var(--teal)}
-.attn span.l{background:var(--amber)}
-.attn span.w{background:transparent;border:1px dashed var(--line)}
+.orgchart{display:flex;flex-direction:column;align-items:center;gap:5px}
+.org-node{font-family:var(--geo);font-size:10.5px;font-weight:700;padding:6px 9px;border-radius:8px;background:var(--soft);color:var(--ink);white-space:nowrap;opacity:0;animation:pop .35s cubic-bezier(.3,1.4,.5,1) forwards}
+.org-node.top{background:var(--teal);color:var(--teal-ink);animation-delay:.3s}
+.org-link{width:1px;height:12px;background:var(--line)}
+.org-row{display:flex;gap:6px}
+.org-row .org-node:nth-child(1){animation-delay:.5s}
+.org-row .org-node:nth-child(2){animation-delay:.62s}
+.org-row .org-node:nth-child(3){animation-delay:.74s}
 @keyframes pop{to{opacity:1}}
-.attn-label{font-family:var(--geo);font-size:11px;color:var(--muted);margin-top:6px}
+.vis-label{font-family:var(--geo);font-size:11px;color:var(--muted);margin-top:6px;text-align:center}
 .ring-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
 .ring-wrap svg{width:84px;height:84px;transform:rotate(-90deg);display:block}
 .ring-wrap circle{fill:none;stroke-width:9}
@@ -406,26 +414,34 @@ h1 .ln span,.docrow,.attn span{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">საქმეები <b id="bCases">148</b></div>
-<div class="bubble b2">შვებულებები <b>12 აქტიური</b></div>
-<div class="bubble b3">შესაბამისობა <b>100%</b></div>
-<div class="hrfile" aria-label="HR პერსონალური ფაილების მაკეტი">
-<div class="hf-head"><b>HR ფაილების მართვა</b><span>2026</span></div>
+<div class="bubble b1">ჩართულობა <b id="bEngage">+8%</b></div>
+<div class="bubble b2">შეფასება <b>Q3 დასრულდა</b></div>
+<div class="bubble b3">OKR-ები <b>6 აქტიური</b></div>
+<div class="hrfile" aria-label="შესრულების მართვის დაშბორდის მაკეტი">
+<div class="hf-head"><b>შესრულების დაშბორდი</b><span>2026</span></div>
 <div class="hf-nums">
-<div><b>148</b>საქმე</div>
-<div><b>12</b>შვებულება</div>
-<div><b>100%</b>შესაბამისობა</div>
+<div><b>6</b>აქტიური OKR</div>
+<div><b>24</b>თანამშრომელი</div>
+<div><b>+12%</b>ჩართულობა</div>
 </div>
 <div class="doclist" id="doclist"></div>
 <div class="hf-row2">
 <div>
-<div class="attn" id="attn"></div>
-<p class="attn-label">დასწრების კალენდარი, ოქტომბერი</p>
+<div class="orgchart" id="orgchart">
+<div class="org-node top">HR დირექტორი</div>
+<div class="org-link" aria-hidden="true"></div>
+<div class="org-row">
+<div class="org-node">რეკრუტმენტი</div>
+<div class="org-node">L&amp;D</div>
+<div class="org-node">კომპენს.</div>
+</div>
+</div>
+<p class="vis-label">ორგანიზაციული სტრუქტურა</p>
 </div>
 <div class="ring-wrap">
 <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="40"/><circle class="fg" id="ringFg" cx="50" cy="50" r="40"/></svg>
 <b id="ringVal">0%</b>
-<span>მიღწეული KPI/OKR მიზნები</span>
+<span>OKR მიღწევის საშუალო</span>
 </div>
 </div>
 </div>
@@ -666,14 +682,19 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-/* hero: hr file mockup */
-var docs=[['შრომითი ხელშეკრულება, ნ. ბერიძე','done'],['დათხოვნის ბრძანება, მ. ხმალაძე','prog'],['შვებულების განაცხადი, ლ. ცქიტიშვილი','done'],['პერსონალური საქმე, გ. ონიანი','prog'],['ცნობა სამუშაო ადგილიდან, თ. მამულაშვილი','done']];
+/* hero: performance dashboard mockup */
+var okrs=[['გაყიდვების გუნდის OKR',82],['ონბორდინგის KPI',91],['ჩართულობის ინდექსი',76],['L&D მიზნების შესრულება',68]];
 var dl=$('doclist');
-docs.forEach(function(d,i){var row=document.createElement('div');row.className='docrow';row.style.animationDelay=(.3+i*.12)+'s';row.innerHTML='<span class="nm">'+d[0]+'</span><span class="tag-pill tag-'+d[1]+'">'+(d[1]==='done'?'ხელმოწერილია':'მიმდინარეობს')+'</span>';dl.appendChild(row);});
-var attn=$('attn'),pattern='pppppwwpppppwwpppppwwppppp';
-pattern.split('').forEach(function(c,i){var s=document.createElement('span');s.className=c==='w'?'w':(i===11||i===18?'l':'p');s.style.animationDelay=(.4+i*.02)+'s';attn.appendChild(s);});
+okrs.forEach(function(o,i){
+var row=document.createElement('div');row.className='okr-row';row.style.animationDelay=(.3+i*.12)+'s';
+var fid='okrfill'+i;
+row.innerHTML='<div class="okr-top"><span>'+o[0]+'</span><b>'+o[1]+'%</b></div><div class="okr-bar"><i id="'+fid+'"></i></div>';
+dl.appendChild(row);
+var pct=o[1];
+setTimeout(function(){var f=$(fid);if(f)f.style.transform='scaleX('+(reduce?1:pct/100)+')';},reduce?0:450+i*150);
+});
 var C=2*Math.PI*40,ringFg=$('ringFg');ringFg.style.strokeDasharray=C;ringFg.style.strokeDashoffset=C;
-var ringPct=0,ringTarget=76;
+var ringPct=0,ringTarget=82;
 function ringTick(){
 if(reduce){ringPct=ringTarget;}else if(ringPct<ringTarget){ringPct+=2;}
 $('ringVal').textContent=Math.min(ringPct,ringTarget)+'%';
@@ -681,8 +702,8 @@ ringFg.style.strokeDashoffset=C*(1-Math.min(ringPct,ringTarget)/100);
 if(ringPct<ringTarget&&!reduce)requestAnimationFrame(ringTick);
 }
 requestAnimationFrame(ringTick);
-var cases=148;
-if(!reduce)setInterval(function(){cases+=Math.random()>.5?1:0;$('bCases').textContent=fmt(cases);},2600);
+var engage=8;
+if(!reduce)setInterval(function(){engage=Math.min(16,engage+(Math.random()>.5?1:0));$('bEngage').textContent='+'+engage+'%';},2600);
 /* reveal + counters */
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});

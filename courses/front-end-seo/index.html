@@ -99,11 +99,25 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--blue)}
 @keyframes codein{to{opacity:1;transform:none}}
 .termbar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--line);background:var(--paper);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
 .termbar .ok{color:var(--blue);font-weight:700}
+.stack{width:min(400px,100%);display:flex;flex-direction:column;gap:14px;position:relative;z-index:2}
+.seo-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 20px;box-shadow:0 30px 60px -32px rgba(14,27,44,.45);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.seo-serp{flex:1;min-width:0}
+.seo-serp .surl{display:block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;color:#1FB36B;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seo-serp .stitle{display:block;font-family:var(--geo);font-weight:700;font-size:14.5px;color:var(--blue);margin:0 0 4px}
+.seo-serp .sdesc{display:block;font-family:var(--geo);font-size:12px;color:var(--muted);line-height:1.4}
+.seo-serp .srank{display:flex;align-items:center;gap:5px;font-family:var(--geo);font-size:11.5px;color:var(--muted);margin-top:8px}
+.seo-serp .srank b{color:#1FB36B;font-family:var(--font)}
+.ring-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:0;flex:none}
+.ring-wrap svg{width:72px;height:72px;transform:rotate(-90deg);display:block}
+.ring-wrap circle{fill:none;stroke-width:9}
+.ring-wrap .bg{stroke:var(--soft)}
+.ring-wrap .fg{stroke:var(--cyan);stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+.ring-wrap b{position:absolute;top:0;left:0;width:72px;height:72px;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--font);font-size:15px;font-variant-numeric:tabular-nums}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-14px;top:36px}
-.bubble.b2{right:-16px;top:210px;animation-delay:-1.6s;background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
-.bubble.b3{left:-4px;bottom:10px;animation-delay:-3.2s;background:var(--cyan);color:var(--cyan-ink);border-color:var(--cyan)}
+.bubble.b1{left:-14px;top:26px}
+.bubble.b2{right:-16px;top:250px;animation-delay:-1.6s;background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.bubble.b3{left:-4px;bottom:6px;animation-delay:-3.2s;background:var(--cyan);color:var(--cyan-ink);border-color:var(--cyan)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -361,13 +375,27 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 </div>
 <div class="phone-stage" id="phoneStage">
 <div class="bubble b1">კომპონენტი <b id="bComp">24</b></div>
-<div class="bubble b2">Build <b>წარმატებული</b></div>
-<div class="bubble b3">SEO Score <b>98</b></div>
+<div class="bubble b2">Meta Tags <b>✓</b></div>
+<div class="bubble b3">Core Web Vitals <b>✓</b></div>
+<div class="stack">
 <div class="ide" aria-label="React კოდის რედაქტორის მაკეტი">
 <div class="ide-bar"><span></span><span></span><span></span></div>
 <div class="ide-tabs"><b class="on">CourseCard.jsx</b><b>App.jsx</b></div>
 <div class="code" id="codeBlock"></div>
 <div class="termbar"><span>▸ npm run build</span><span class="ok">✓ compiled</span></div>
+</div>
+<div class="seo-card" aria-label="SEO ძებნის შედეგის მაკეტი">
+<div class="seo-serp">
+<span class="surl">smartacademy.ge › front-end-seo</span>
+<b class="stitle">React.js კურსი | Smart Academy</b>
+<span class="sdesc">42 შეხვედრა · on-page SEO · React.js</span>
+<span class="srank">Google TOP <b id="rankVal">#12</b></span>
+</div>
+<div class="ring-wrap">
+<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="40"/><circle class="fg" id="ringFg" cx="50" cy="50" r="40"/></svg>
+<b id="ringVal">0</b>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -590,6 +618,33 @@ codeLines.forEach(function(l,i){ch+='<div class="ln" style="animation-delay:'+(.
 cb.innerHTML=ch;
 var comp=24;
 if(!reduce)setInterval(function(){comp+=Math.random()>.6?1:0;$('bComp').textContent=fmt(comp);},2800);
+var ringFg=$('ringFg'),ringVal=$('ringVal'),rankVal=$('rankVal');
+if(ringFg){
+  var Cr=2*Math.PI*40,scoreTo=98,rankFrom=12,rankTo=1;
+  ringFg.style.strokeDasharray=Cr;
+  if(reduce){
+    ringFg.style.strokeDashoffset=Cr*(1-scoreTo/100);
+    ringVal.textContent=scoreTo;
+    rankVal.textContent='#'+rankTo;
+  }else{
+    ringFg.style.strokeDashoffset=Cr;
+    setTimeout(function(){
+      var t0=null;
+      function step(t){
+        if(!t0)t0=t;
+        var p=Math.min((t-t0)/1400,1);
+        var eased=1-Math.pow(1-p,3);
+        var score=Math.round(scoreTo*eased);
+        ringVal.textContent=score;
+        ringFg.style.strokeDashoffset=Cr*(1-score/100);
+        var rank=Math.round(rankFrom-(rankFrom-rankTo)*eased);
+        rankVal.textContent='#'+rank;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    },400);
+  }
+}
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
