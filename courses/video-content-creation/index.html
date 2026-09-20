@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ვიდეო კონტენტის შექმნის კურსი | Smart Academy</title>
+<meta name="description" content="პრაქტიკული კურსი მაღალხარისხიანი, ეფექტური მოკლემეტრაჟიანი ვიდეო კონტენტის შესაქმნელად სოციალური მედიისთვის — სმარტფონით გადაღებიდან CapCut-ში მონტაჟამდე და რეალური კონტენტ-სტრატეგიის აგებამდე…">
+<link rel="canonical" href="https://video-content.kursi.edu.ge/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="ვიდეო კონტენტის შექმნის კურსი | Smart Academy">
+<meta property="og:description" content="პრაქტიკული კურსი მაღალხარისხიანი, ეფექტური მოკლემეტრაჟიანი ვიდეო კონტენტის შესაქმნელად სოციალური მედიისთვის — სმარტფონით გადაღებიდან CapCut-ში მონტაჟამდე და რეალური კონტენტ-სტრატეგიის აგებამდე…">
+<meta property="og:url" content="https://video-content.kursi.edu.ge/">
+<meta property="og:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ვიდეო კონტენტის შექმნის კურსი | Smart Academy">
+<meta name="twitter:description" content="პრაქტიკული კურსი მაღალხარისხიანი, ეფექტური მოკლემეტრაჟიანი ვიდეო კონტენტის შესაქმნელად სოციალური მედიისთვის — სმარტფონით გადაღებიდან CapCut-ში მონტაჟამდე და რეალური კონტენტ-სტრატეგიის აგებამდე…">
+<meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
+<style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
+:root{
+--paper:#F1EFEA;--card:#FFFFFF;--ink:#1A1712;--muted:#655C50;--line:#DCD4C4;
+--violet:#4E33D6;--violet-ink:#FFFFFF;--amber:#FFA82E;--amber-ink:#1A1712;--cyan:#1FB8A8;--cyan-ink:#08201D;--soft:#E9E3D6;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#131019;--card:#1C1826;--ink:#EFEAF7;--muted:#B0A7C2;--line:#332C46;
+--violet:#9E8CFF;--violet-ink:#131019;--amber:#FFC168;--amber-ink:#131019;--cyan:#4FE0CF;--cyan-ink:#0A2622;--soft:#241F35;}}
+:root[data-theme="dark"]{
+--paper:#131019;--card:#1C1826;--ink:#EFEAF7;--muted:#B0A7C2;--line:#332C46;
+--violet:#9E8CFF;--violet-ink:#131019;--amber:#FFC168;--amber-ink:#131019;--cyan:#4FE0CF;--cyan-ink:#0A2622;--soft:#241F35;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--violet);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--violet);color:var(--violet-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-amber{background:var(--amber);color:var(--amber-ink)}
+.btn-amber:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+/* hero */
+.hero{padding:60px 0 20px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:48px;align-items:center}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(44px,7vw,98px);line-height:.94;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--violet)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+/* editor timeline mockup */
+.edit-stage{position:relative;display:flex;justify-content:center}
+.edit{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 40px 70px -35px rgba(20,15,10,.5);position:relative;z-index:2}
+.edit-head{display:flex;align-items:center;gap:8px;padding:2px 4px 14px}
+.edit-head .dots{display:flex;gap:5px}
+.edit-head .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.edit-head span{margin-left:auto;font-family:var(--geo);font-size:12px;color:var(--muted)}
+.preview{aspect-ratio:16/9;border-radius:12px;background:linear-gradient(135deg,var(--violet),var(--cyan));position:relative;overflow:hidden;margin-bottom:14px;display:flex;align-items:flex-end;padding:12px}
+.preview .pill{font-family:var(--geo);font-weight:700;font-size:12px;background:rgba(0,0,0,.4);color:#fff;padding:5px 10px;border-radius:999px}
+.preview .rec{position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:6px;font-family:var(--geo);font-size:11px;font-weight:700;color:#fff}
+.preview .rec i{width:7px;height:7px;border-radius:50%;background:#FF5470;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.tracks{position:relative;display:grid;gap:6px}
+.trow{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:8px}
+.trow .tl{font-family:var(--geo);font-size:10px;color:var(--muted);text-align:right}
+.tline{position:relative;height:26px;border-radius:7px;background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.clip{position:absolute;top:2px;bottom:2px;border-radius:5px;opacity:0;transform:scale(.7);animation:pop .5s cubic-bezier(.3,1.4,.5,1) forwards;display:flex;align-items:center;padding:0 8px;font-family:var(--geo);font-weight:700;font-size:10px;overflow:hidden;white-space:nowrap}
+@keyframes pop{to{opacity:1;transform:none}}
+.c1{background:var(--violet);color:var(--violet-ink)}
+.c2{background:var(--amber);color:var(--amber-ink)}
+.c3{background:var(--soft);color:var(--ink)}
+.wave{height:30px;border-radius:7px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;gap:2px;padding:0 6px;overflow:hidden}
+.wave b{display:block;width:3px;border-radius:2px;background:var(--cyan);flex:none;animation:wv 1.6s ease-in-out infinite}
+@keyframes wv{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.playhead{position:absolute;top:0;bottom:0;width:2px;background:var(--amber);left:38%;z-index:3;animation:ph 6s linear infinite}
+.playhead:before{content:"";position:absolute;top:-4px;left:-4px;width:10px;height:10px;border-radius:2px;background:var(--amber)}
+@keyframes ph{0%{left:6%}50%{left:82%}100%{left:6%}}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-family:var(--geo);font-size:14px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:10px;animation:bob 5s ease-in-out infinite}
+.bubble b{font-family:var(--font)}
+.bubble.b1{left:-10px;top:34px}
+.bubble.b2{right:-16px;top:200px;animation-delay:-1.6s}
+.bubble.b3{left:2px;bottom:14px;animation-delay:-3.2s;background:var(--cyan);color:var(--cyan-ink);border-color:var(--cyan)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+/* tools strip */
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+section{padding:90px 0}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(34px,4.6vw,58px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+/* estimator */
+.est{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 14px}
+.inputs{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:6px}
+.inputs label{font-family:var(--geo);font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.inputs input,.inputs select{min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);padding:0 14px;font:600 16px var(--font);width:100%}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:12px 0 0}
+.est-results{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+.rescard{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:var(--paper)}
+.rescard span{display:block;font-family:var(--geo);font-size:13px;color:var(--muted);margin-bottom:4px}
+.rescard b{font-size:28px;font-variant-numeric:tabular-nums}
+.bars{display:grid;gap:10px}
+.bar-row{display:grid;grid-template-columns:90px 1fr 90px;align-items:center;gap:12px;font-family:var(--geo);font-size:14px}
+.bar-track{height:16px;border-radius:8px;background:var(--soft);overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;background:var(--violet);width:0;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.bar-row.active .bar-fill{background:var(--amber)}
+.bar-row .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+/* syllabus */
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec .n{font-weight:800;font-size:30px;color:var(--violet);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--amber);border-color:var(--amber);color:#1A1712}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--violet)}
+.lec ul li.tk{font-weight:700}
+.lec ul li.tk:before{background:var(--amber);border-radius:2px}
+.lec button:hover .t{color:var(--violet)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+/* outcomes */
+.out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;counter-reset:c;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{counter-increment:c;font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--violet);color:var(--violet-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:var(--cyan) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2308201D' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 45s linear infinite}
+.jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--violet)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* lecturer */
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:28px;background:var(--violet);color:var(--violet-ink);position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:220px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:42px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:26px;margin:22px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:44px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:14px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.path{list-style:none;padding:0;margin:24px 0}
+.path li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
+/* final */
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.count{display:flex;gap:10px;margin:0 0 22px}
+.count div{background:color-mix(in srgb,var(--paper) 10%,transparent);border-radius:14px;padding:12px 14px;min-width:78px;text-align:center}
+.count b{display:block;font-size:34px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.count span{font-family:var(--geo);font-size:12px;opacity:.7}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:960px){
+.hero-grid,.est,.out,.lect,.final{grid-template-columns:1fr}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+h1{font-size:57px}
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.count div{min-width:0;flex:1}
+.path li{grid-template-columns:1fr;gap:2px}
+.sched{grid-template-columns:1fr}
+.est-results{grid-template-columns:1fr}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+.bar-row{grid-template-columns:70px 1fr 70px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span,.clip{transform:none;opacity:1}
+.reveal{opacity:1;transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://video-content.kursi.edu.ge/#course",
+      "name": "ვიდეო კონტენტის შექმნის კურსი",
+      "description": "პრაქტიკული კურსი მაღალხარისხიანი, ეფექტური მოკლემეტრაჟიანი ვიდეო კონტენტის შესაქმნელად სოციალური მედიისთვის — სმარტფონით გადაღებიდან CapCut-ში მონტაჟამდე და რეალური კონტენტ-სტრატეგიის აგებამდე.",
+      "url": "https://video-content.kursi.edu.ge/",
+      "inLanguage": "ka",
+      "provider": {
+        "@type": "Organization",
+        "name": "Smart Academy",
+        "sameAs": "https://smartacademy.ge"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Blended",
+        "courseWorkload": "PT32H",
+        "instructor": [
+          {
+            "@type": "Person",
+            "name": "მარიამ მეტრეველი"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "6"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/430-VIDEO-CONTENT-CREATION",
+        "price": "1090",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock",
+        "category": "Paid"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://video-content.kursi.edu.ge/#product",
+      "name": "ვიდეო კონტენტის შექმნის კურსი",
+      "description": "პრაქტიკული კურსი მაღალხარისხიანი, ეფექტური მოკლემეტრაჟიანი ვიდეო კონტენტის შესაქმნელად სოციალური მედიისთვის — სმარტფონით გადაღებიდან CapCut-ში მონტაჟამდე და რეალური კონტენტ-სტრატეგიის აგებამდე.",
+      "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
+      "brand": {
+        "@type": "Brand",
+        "name": "Smart Academy"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "6"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/430-VIDEO-CONTENT-CREATION",
+        "price": "1090",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Smart Academy კურსები",
+          "item": "https://kursi.edu.ge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ვიდეო კონტენტის შექმნის კურსი",
+          "item": "https://video-content.kursi.edu.ge/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#estimator">ექსპორტის კალკულატორი</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturer">ლექტორი</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/430-VIDEO-CONTENT-CREATION" target="_blank" rel="noopener">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.8</b> / 5, 6 შეფასება</span></p>
+<h1><span class="ln"><span>ვიდეო</span></span><span class="ln"><span>კონტენტის</span></span><span class="ln"><span>შექმნა</span></span></h1>
+<p class="lead">პრაქტიკული კურსი მაღალხარისხიანი, ეფექტური მოკლემეტრაჟიანი ვიდეო კონტენტის შესაქმნელად სოციალური მედიისთვის: სმარტფონით გადაღებიდან CapCut-ში მონტაჟამდე და საკუთარი კონტენტ-სტრატეგიის აგებამდე.</p>
+<dl class="facts">
+<div><dt>ლექტორი</dt><dd>მარიამ მეტრეველი</dd></div>
+<div><dt>ფორმატი</dt><dd>ფიზიკურად + ონლაინ</dd></div>
+<div><dt>დაწყება</dt><dd>12 ოქტომბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>2 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>16 შეხვედრა, 32 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>ორშაბათი, ხუთშაბათი</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">1090 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/430-VIDEO-CONTENT-CREATION" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
+</div>
+</div>
+<div class="edit-stage">
+<div class="bubble b1"><span aria-hidden="true">⬆</span><b>Export 4K</b></div>
+<div class="bubble b2">Timeline <b id="tlTime">02:14</b></div>
+<div class="bubble b3">Clips <b>24</b></div>
+<div class="edit" aria-label="სამონტაჟო თაიმლაინის მაკეტი">
+<div class="edit-head"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>reel_final.capcut</span></div>
+<div class="preview">
+<span class="rec" aria-hidden="true"><i></i>REC</span>
+<span class="pill" id="tcPill">00:02:14:08</span>
+</div>
+<div class="tracks">
+<div class="playhead" aria-hidden="true"></div>
+<div class="trow"><span class="tl">V2</span><div class="tline"><div class="clip c2" style="left:4%;width:20%;animation-delay:.1s">B-roll</div><div class="clip c2" style="left:52%;width:26%;animation-delay:.35s">Overlay</div></div></div>
+<div class="trow"><span class="tl">V1</span><div class="tline"><div class="clip c1" style="left:2%;width:34%;animation-delay:.2s">Hook</div><div class="clip c1" style="left:40%;width:22%;animation-delay:.45s">Cutaway</div><div class="clip c1" style="left:66%;width:30%;animation-delay:.6s">CTA</div></div></div>
+<div class="trow"><span class="tl">A1</span><div class="wave" aria-hidden="true"></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="plat"><p>ინსტრუმენტები:</p><span>CapCut</span><span>Smartphone (iOS/Android)</span><span>Canva</span></div>
+</div>
+</section>
+<section id="estimator">
+<div class="wrap">
+<h2 class="reveal">გამოთვალე ექსპორტის დრო და ფაილის ზომა</h2>
+<p class="sub reveal">ბიტრეიტი, რეზოლუცია და ხარისხის პრესეტი განსაზღვრავს საბოლოო ფაილის წონას და ექსპორტის ხანგრძლივობას. ეს ცოდნა გამოგადგება ლექცია 13-ზე, სადაც სხვადასხვა პლატფორმისთვის კონტენტის ადაპტაციას ისწავლი.</p>
+<div class="est reveal">
+<div class="panel">
+<h3>პარამეტრები</h3>
+<div class="inputs">
+<label>ვიდეოს ხანგრძლივობა (წუთი)<input type="number" id="expDur" min="1" max="180" value="1"></label>
+<label>რეზოლუცია
+<select id="expRes">
+<option value="1080">1080p (Full HD)</option>
+<option value="2k">2K</option>
+<option value="4k">4K</option>
+</select>
+</label>
+<label>ხარისხის პრესეტი
+<select id="expQ">
+<option value="draft">Draft</option>
+<option value="standard" selected>Standard</option>
+<option value="high">High</option>
+</select>
+</label>
+</div>
+<p class="hint">გამარტივებული მოდელი საგანმანათლებლო მიზნებისთვის. რეალური შედეგი დამოკიდებულია კოდეკზე, მოწყობილობის სიმძლავრესა და პროექტის სირთულეზე.</p>
+</div>
+<div class="panel">
+<div class="est-results">
+<div class="rescard"><span>სავარაუდო ფაილის ზომა</span><b id="outSize">0 MB</b></div>
+<div class="rescard"><span>სავარაუდო ექსპორტის დრო</span><b id="outTime">0 წთ</b></div>
+</div>
+<h3>ფაილის ზომა პრესეტების მიხედვით</h3>
+<div class="bars" id="bars"></div>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">16 შეხვედრა, სამი ეტაპი</h2>
+<p class="sub reveal">კონტენტის სტრატეგიის საფუძვლებიდან საკუთარი ვიდეო კონტენტის სრულ ციკლამდე. კურსი მოიცავს პრაქტიკულ დავალებებსა და ქვიზებს ყოველ ეტაპზე.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">კონკრეტული ცოდნა და უნარები, რომელსაც სილაბუსის მიხედვით მიიღებ.</p>
+<div class="out">
+<div class="reveal">
+<h3>ეცოდინება</h3>
+<ul class="pill-list">
+<li>კონტენტის სტრატეგიისა და აუდიტორიის ანალიზის პრინციპები</li>
+<li>სმარტფონით პროფესიონალური გადაღების ტექნიკები</li>
+<li>CapCut-ის მონტაჟის ინსტრუმენტები</li>
+<li>სცენარისა და სთორითელინგის საფუძვლები</li>
+<li>პლატფორმების სპეციფიკა: Reels, TikTok, Shorts, Facebook</li>
+<li>ინფლუენსერ მარკეტინგისა და თანამშრომლობის საფუძვლები</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>დამოუკიდებლად შეიმუშაოს კონტენტ-სტრატეგია და კონტენტ-გეგმა</li>
+<li>სმარტფონით პროფესიონალურად გადაიღოს ვიდეო კონტენტი</li>
+<li>სტრუქტურირებული სცენარისა და სკრიპტის დაწერას</li>
+<li>CapCut-ში სრულფასოვან მონტაჟს, ტიტრებსა და ეფექტებს</li>
+<li>კონტენტის ადაპტაციას სხვადასხვა სოციალური პლატფორმისთვის</li>
+<li>ინფლუენსერებთან თანამშრომლობის სტრატეგიების დაგეგმვას</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="დაკავშირებული პროფესიები">
+<div class="track">
+<span>ვიდეოგრაფი</span><span>კონტენტ კრეატორი</span><span>ინფლუენსერ მარკეტინგის მენეჯერი</span><span>ვიდეო მარკეტინგის სპეციალისტი</span>
+<span aria-hidden="true">ვიდეოგრაფი</span><span aria-hidden="true">კონტენტ კრეატორი</span><span aria-hidden="true">ინფლუენსერ მარკეტინგის მენეჯერი</span><span aria-hidden="true">ვიდეო მარკეტინგის სპეციალისტი</span>
+</div>
+</div>
+</section>
+<section id="lecturer" style="padding-top:20px">
+<div class="wrap lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">მმ</span>
+<h2>მარიამ<br>მეტრეველი</h2>
+<p>კონტენტ კრეატორი, Smart Academy</p>
+<div class="stat">
+<div><b data-count="5">0</b><span>წლის გამოცდილება კონტენტის შექმნაში</span></div>
+<div><b data-count="16">0</b><span>ლექცია კურსში</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<h2>ლექტორი</h2>
+<p>მარიამი კონტენტ კრეატორია 5 წლის გამოცდილებით სოციალური მედიისთვის ვიდეო კონტენტის შექმნაში, პარალელურად ფლობს სწავლების გამოცდილებას. მუშაობდა ისეთ ბრენდებთან, როგორებიცაა Baskin Robbins, Socar და TBC Bank, ასევე თანამშრომლობდა FactCheck.ge-სა და Sapari-სთან სოციალური კამპანიების ვიდეო კონტენტზე.</p>
+<ol class="path">
+<li><b>Baskin Robbins</b><span>სოციალური მედიის ვიდეო კონტენტის შექმნა და სტრატეგია</span></li>
+<li><b>Socar</b><span>ბრენდის ვიდეო კონტენტის წარმოება</span></li>
+<li><b>TBC Bank</b><span>საკომუნიკაციო კამპანიების ვიდეო მასალები</span></li>
+<li><b>FactCheck.ge, Sapari</b><span>სოციალური კამპანიების კონტენტი არასამთავრობო სექტორში</span></li>
+</ol>
+<p style="color:var(--muted);margin-bottom:10px">ინსტრუმენტები, რომლებსაც ყოველდღიურად იყენებს:</p>
+<div class="brands">
+<span>CapCut</span><span>Instagram Reels</span><span>TikTok</span>
+</div>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ადგილის დაჯავშნა</h2>
+<p class="sub">ფიზიკურად ან ონლაინ, კვირაში ორჯერ, 2 თვის განმავლობაში. შემდეგი ჯგუფი 12 ოქტომბერს.<br>ადგილები შეზღუდულია.</p>
+<div class="sched">
+<div><b>ორშაბათი</b>20:00-22:00</div>
+<div><b>ხუთშაბათი</b>20:00-22:00</div>
+</div>
+<p class="req"><strong>მოთხოვნები:</strong> სმარტფონი კამერით, CapCut აპლიკაციის ინსტალაციის შესაძლებლობა და ინტერნეტი.</p>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო Smart Academy-ის კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">1090 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/430-VIDEO-CONTENT-CREATION" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/430-VIDEO-CONTENT-CREATION" target="_blank" rel="noopener">კურსის დეტალები</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>1090 ₾</b><a class="btn btn-amber btn-sm" href="https://smartacademy.ge/trainings/430-VIDEO-CONTENT-CREATION" target="_blank" rel="noopener">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fmt=function(n,d){return Number(n).toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
+var $=function(id){return document.getElementById(id);};
+/* theme */
+var root=document.documentElement;
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
+function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+syncLogo();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!root.getAttribute('data-theme'))syncLogo();});}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}syncLogo();});
+/* progress + mobile cta */
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* hero timeline waveform bars */
+var waveEl=document.querySelector('.wave');
+if(waveEl){
+for(var i=0;i<40;i++){var b=document.createElement('b');var h=8+Math.round(Math.random()*16);b.style.height=h+'px';b.style.animationDelay=(-Math.random()*1.6)+'s';waveEl.appendChild(b);}
+}
+/* hero live timecode */
+var secs=134;
+function tick2(){
+if(!reduce)secs+=1;
+var m=Math.floor(secs/60),s=secs%60,f=Math.floor(Math.random()*24);
+$('tcPill').textContent='00:'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+':'+String(f).padStart(2,'0');
+$('tlTime').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+}
+tick2();if(!reduce)setInterval(tick2,1000);
+/* reveal + counters */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+/* export estimator */
+var BITRATE={1080:{draft:8,standard:16,high:35},'2k':{draft:14,standard:28,high:60},'4k':{draft:25,standard:50,high:100}};
+var SPEED={1080:{draft:.3,standard:.5,high:.9},'2k':{draft:.5,standard:.8,high:1.4},'4k':{draft:.9,standard:1.4,high:2.2}};
+var QLABEL={draft:'Draft',standard:'Standard',high:'High'};
+var dur=$('expDur'),res=$('expRes'),qsel=$('expQ'),barsEl=$('bars');
+function sizeMB(resKey,qKey,minutes){var br=BITRATE[resKey][qKey];return br*60*minutes/8;}
+function timeMin(resKey,qKey,minutes){return SPEED[resKey][qKey]*minutes;}
+function calcEst(){
+var minutes=Math.max(1,+dur.value||1),resKey=res.value,qKey=qsel.value;
+var mb=sizeMB(resKey,qKey,minutes),tm=timeMin(resKey,qKey,minutes);
+$('outSize').textContent=mb>=1024?fmt(mb/1024,2)+' GB':fmt(mb,0)+' MB';
+$('outTime').textContent=tm<1?fmt(tm*60,0)+' წმ':fmt(tm,1)+' წთ';
+var sizes={draft:sizeMB(resKey,'draft',minutes),standard:sizeMB(resKey,'standard',minutes),high:sizeMB(resKey,'high',minutes)};
+var max=Math.max(sizes.draft,sizes.standard,sizes.high)||1;
+var order=['draft','standard','high'],h='';
+order.forEach(function(k){
+var w=Math.max(4,Math.round(sizes[k]/max*100));
+var valTxt=sizes[k]>=1024?fmt(sizes[k]/1024,1)+' GB':fmt(sizes[k],0)+' MB';
+h+='<div class="bar-row'+(k===qKey?' active':'')+'"><span>'+QLABEL[k]+'</span><div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div><span class="val">'+valTxt+'</span></div>';
+});
+barsEl.innerHTML=h;
+}
+[dur,res,qsel].forEach(function(el){el.addEventListener('input',calcEst);});
+calcEst();
+/* syllabus */
+var P=[{n:'სტრატეგია და დაგეგმვა',r:[1,5]},{n:'გადაღება და მონტაჟი CapCut-ში',r:[6,12]},{n:'პლატფორმები და დანერგვა',r:[13,16]}];
+var L=[
+['კონტენტის სტრატეგიის საფუძვლები',['კონტენტის მიზნები და KPI-ები','საკონტენტო სვეტები (content pillars)','კონკურენტების ანალიზი','ბრენდის ხმის ტონი']],
+['აუდიტორიის კვლევა და პოზიციონირება',['სამიზნე აუდიტორიის კვლევა და პერსონები','პლატფორმების სპეციფიკა და აუდიტორიის ქცევა','პოზიციონირება კონკურენტულ ბაზარზე','*პრაქტიკული დავალება #1']],
+['კონტენტ-გეგმისა და საკონტენტო კალენდარი',['კონტენტის ტიპების მიქსი','საკონტენტო კალენდრის შედგენა','რესურსების დაგეგმვა და ვადები']],
+['სცენარისა და სკრიპტის წერა',['სტრუქტურირებული სცენარის ფორმატი','ჰუკი პირველ წამებში','სთორითელინგის ტექნიკები მოკლე ვიდეოში','*ქვიზი #1']],
+['გადაღების დაგეგმვა',['შუთინგ-ლისტისა და რაკურსების დაგეგმვა','ლოკაციისა და რეკვიზიტის მომზადება','გადაღების დღის ორგანიზება']],
+['სმარტფონის ვიდეოგრაფიის საფუძვლები',['კამერის პარამეტრები და ფოკუსი','სტაბილიზაცია და ხელის ტექნიკა','გადაღების რეჟიმები და კადრირების ფორმატები','*პრაქტიკული დავალება #2']],
+['განათება და კომპოზიცია',['ბუნებრივი და ხელოვნური განათება','კადრის კომპოზიციის წესები','ფონისა და გარემოს შერჩევა']],
+['ხმის ჩაწერა სმარტფონზე',['გარე მიკროფონები და აქსესუარები','ხმის დონეების კონტროლი გადაღებისას','ხმის ხარისხის გაუმჯობესება']],
+['CapCut-ის ინტერფეისი და საფუძვლები',['CapCut-ის workspace და ინსტრუმენტები','ფუთეჯის იმპორტი და ორგანიზება','საბაზისო ჭრა და თანმიმდევრობა','*ქვიზი #2']],
+['მონტაჟი, გადასვლები და ტემპი',['გადასვლებისა და ტემპის შერჩევა','რიტმის შეჯერება მუსიკასთან','ვიდეოს ტემპის დინამიკის მართვა']],
+['ტიტრები, ეფექტები და ანიმაცია',['ტექსტისა და ტიტრების დამატება','ტრენდული ეფექტები და გადასვლები','ტემპლეიტების გამოყენება','*პრაქტიკული დავალება #3']],
+['მუსიკა და ხმის მიქსი',['ტრენდული აუდიოს შერჩევა','ხმის მიქსი და ბალანსი','საავტორო უფლებების საკითხები']],
+['პლატფორმებისთვის ადაპტაცია',['Instagram Reels-ის ფორმატი და სპეციფიკა','TikTok-ისა და YouTube Shorts-ის თავისებურებები','Facebook-ის ვიდეო ფორმატები','*ქვიზი #3']],
+['ინფლუენსერებთან თანამშრომლობა',['ინფლუენსერ მარკეტინგის საფუძვლები','თანამშრომლობის ფორმატები და ხელშეკრულებები','ბრიფის მომზადება ინფლუენსერისთვის']],
+['ხშირი შეცდომები კონტენტში',['გავრცელებული შეცდომები გადაღებასა და მონტაჟში','ალგორითმებთან მუშაობის შეცდომები','*პრაქტიკული დავალება #4']],
+['ფინალური პროექტის შექმნა და პრეზენტაცია',['საკუთარი კონტენტის სრული ციკლი, სტრატეგიიდან პუბლიკაციამდე','*ფინალური პროექტის პრეზენტაცია']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+var lec=$('lec'),h='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n;
+h+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span class="t">'+esc(x[0])+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+x[1].forEach(function(t){var tk=t.charAt(0)==='*';h+='<li'+(tk?' class="tk"':'')+'>'+esc(tk?t.slice(1):t)+'</li>';});
+h+='</ul></div></div></li>';
+});
+lec.innerHTML=h;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var ph=$('phases'),active=-1;
+function setPhase(k){
+active=k;
+ph.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?'16 ლექცია':c+' ლექცია ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button data-k="-1">ყველა<b>16</b></button>';
+P.forEach(function(p,i){hb+='<button data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+ph.innerHTML=hb;
+ph.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+/* payment */
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>1090 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(1090/4).toFixed(1)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(1090/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>
