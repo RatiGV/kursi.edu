@@ -84,11 +84,13 @@ $schemaGraph = [
 <script type="application/ld+json"><?php echo json_encode($schemaGraph, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
 <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-800.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
 <style>
 @font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
 @font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
 @font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
 @font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
 :root{--bg1:#0b1220;--bg2:#1b1240;--bg3:#3a1d5c;--glass:rgba(255,255,255,0.08);--glass-border:rgba(255,255,255,0.18);--glass-hi:rgba(255,255,255,0.35);--ink:#f5f6fb;--muted:rgba(245,246,251,0.68);--accent:#7c5cff;--accent2:#33d1c9}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -110,7 +112,7 @@ nav.pill a:hover{background:rgba(255,255,255,0.12);opacity:1}
 .hero{padding:60px 0 40px;text-align:center}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);font-size:13px;font-weight:600;color:var(--muted);margin-bottom:24px}
 .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 10px var(--accent2)}
-h1{font-family:"FiraGO",sans-serif;font-size:clamp(36px,6vw,64px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;background:linear-gradient(180deg,#fff,rgba(255,255,255,0.75));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:20px}
+h1{font-family:"NeueCaps","FiraGO",sans-serif;font-stretch:68%;font-weight:900;font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-0.03em;background:linear-gradient(180deg,#fff,rgba(255,255,255,0.75));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:20px}
 .hero p{max-width:620px;margin:0 auto;color:var(--muted);font-size:18px;line-height:1.6}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:56px}
 .card{position:relative;border-radius:28px;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05));border:1px solid var(--glass-border);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:0 8px 32px rgba(0,0,0,0.35),inset 0 1px 0 rgba(255,255,255,0.25);overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:18px;min-height:190px;transition:transform 0.35s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.35s,border-color 0.35s;opacity:0;transform:translateY(24px);animation:rise 0.7s cubic-bezier(0.2,0.8,0.2,1) forwards}
