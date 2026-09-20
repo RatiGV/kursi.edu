@@ -83,13 +83,11 @@ $schemaGraph = [
 <meta name="twitter:image" content="<?php echo $ogImage; ?>">
 <script type="application/ld+json"><?php echo json_encode($schemaGraph, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
 <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png">
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-800.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
 <style>
 @font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
 @font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
 @font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
-@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
 @font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
 :root{--bg1:#0b1220;--bg2:#1b1240;--bg3:#3a1d5c;--glass:rgba(255,255,255,0.08);--glass-border:rgba(255,255,255,0.18);--glass-hi:rgba(255,255,255,0.35);--ink:#f5f6fb;--muted:rgba(245,246,251,0.68);--accent:#7c5cff;--accent2:#33d1c9}
 *{box-sizing:border-box;margin:0;padding:0}
