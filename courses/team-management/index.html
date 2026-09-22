@@ -573,7 +573,7 @@ var normalPct=Math.min(1,perHead/optimal);
 var overPct=overloaded?Math.min(1,(perHead-optimal)/optimal):0;
 $('tFill').style.transform='scaleX('+(overloaded?1:normalPct)+')';
 $('tOver').style.transform='scaleX('+overPct+')';
-$('tNote').textContent=overloaded?'გუნდი გადატვირთულია — განიხილე დამატებითი დელეგირება ან რესურსის გაზრდა.':'დატვირთვა ბალანსშია ოპტიმალურ მაჩვენებელთან.';
+$('tNote').textContent=overloaded?'გუნდი გადატვირთულია - განიხილე დამატებითი დელეგირება ან რესურსის გაზრდა.':'დატვირთვა ბალანსშია ოპტიმალურ მაჩვენებელთან.';
 }
 [tSize,tTasks,tCap].forEach(function(i){i.addEventListener('input',calcLoad);});
 calcLoad();

@@ -546,7 +546,7 @@ $('bMargin').textContent=marginPct.toFixed(0)+'%';
 var cap=Math.max(revenue*1.4,1000);
 $('bFill').style.transform='scaleX('+Math.min(1,revenue/cap)+')';
 $('bScaleTxt').textContent=fmt(cap,0)+' ₾';
-$('bNote').textContent=margin<=0?'ცვლადი ხარჯი აღემატება ფასს — ამ ფასად ბიზნესი ვერასდროს გახდება მომგებიანი.':'გამოთვლა ეფუძნება მარტივ Break-even მოდელს (ფიქსირებული ხარჯები / marginal contribution) და გამოიყენება საგანმანათლებლო მიზნით.';
+$('bNote').textContent=margin<=0?'ცვლადი ხარჯი აღემატება ფასს - ამ ფასად ბიზნესი ვერასდროს გახდება მომგებიანი.':'გამოთვლა ეფუძნება მარტივ Break-even მოდელს (ფიქსირებული ხარჯები / marginal contribution) და გამოიყენება საგანმანათლებლო მიზნით.';
 }
 [bFixed,bPrice,bVar].forEach(function(i){i.addEventListener('input',calcBE);});
 calcBE();

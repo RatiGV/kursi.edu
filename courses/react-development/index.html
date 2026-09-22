@@ -551,7 +551,7 @@ $('pVerdict').textContent=verdict;
 var pct=Math.min(1,total/cap),over=total>cap?Math.min(1,(total-cap)/cap):0;
 $('pFill').style.transform='scaleX('+pct+')';
 $('pOver').style.transform='scaleX('+over+')';
-$('pNote').textContent=total<500?'შესანიშნავი შედეგი — მომხმარებელი გვერდს დაინახავს თითქმის მყისიერად.':total<1000?'კარგი შედეგი, თუმცა სურათების lazy-loading კიდევ დააჩქარებდა ჩატვირთვას.':'გვერდი მძიმეა — გაანაწილე კოდი (code splitting), შეამცირე სურათების ზომა და გადახედე npm დამოკიდებულებებს.';
+$('pNote').textContent=total<500?'შესანიშნავი შედეგი - მომხმარებელი გვერდს დაინახავს თითქმის მყისიერად.':total<1000?'კარგი შედეგი, თუმცა სურათების lazy-loading კიდევ დააჩქარებდა ჩატვირთვას.':'გვერდი მძიმეა - გაანაწილე კოდი (code splitting), შეამცირე სურათების ზომა და გადახედე npm დამოკიდებულებებს.';
 }
 [pImgs,pImgSize,pPkgs,pPkgSize].forEach(function(i){i.addEventListener('input',calcPerf);});
 calcPerf();
