@@ -83,37 +83,145 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--plum)}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
 .price small{font-size:20px}
-/* design-tool mockup (was phone mockup) */
+/* hero: wireframe to prototype */
 .phone-stage{position:relative;display:flex;justify-content:center}
-.phone{width:min(360px,100%);background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 14px 20px;box-shadow:0 40px 70px -35px rgba(28,20,50,.55);position:relative;z-index:2}
-.prof{display:flex;align-items:center;gap:14px;padding:4px 6px 12px}
-.prof .av{width:44px;height:44px;border-radius:12px;padding:3px;background:conic-gradient(var(--plum),var(--sun),var(--mint),var(--plum));flex:none}
-.prof .av span{display:grid;place-items:center;width:100%;height:100%;border-radius:9px;background:var(--ink);border:3px solid var(--card)}
-.prof .av i{display:grid;grid-template-columns:8px 11px;gap:2px}
-.prof .av b{background:var(--paper);height:8px;display:block}
-.prof .av b:last-child{height:11px}
-.prof .nums{display:flex;gap:14px;flex:1;justify-content:space-around;text-align:center;font-size:12px;color:var(--muted)}
-.prof .nums b{display:block;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
-.handle{font-weight:700;padding:0 6px;font-size:14px}
-.bio{font-family:var(--geo);font-size:13px;color:var(--muted);padding:0 6px 12px}
-.hl{display:flex;gap:10px;padding:0 6px 12px}
-.hl span{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:10px;font-weight:700;color:var(--muted)}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:12px;overflow:hidden}
-.tile{aspect-ratio:4/5;position:relative;overflow:hidden;opacity:0;transform:scale(.7);animation:pop .5s cubic-bezier(.3,1.4,.5,1) forwards;display:flex;align-items:flex-end;padding:8px;font-family:var(--geo);font-weight:800;font-size:12px;line-height:1.1}
-.tile svg{position:absolute;top:7px;right:7px}
-@keyframes pop{to{opacity:1;transform:none}}
-.t1{background:var(--plum);color:var(--plum-ink)}
-.t2{background:var(--mint);color:var(--mint-ink)}
-.t3{background:var(--sun);color:#1C1432}
-.t4{background:var(--ink);color:var(--paper)}
-.t5{background:var(--soft);color:var(--ink)}
-.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-family:var(--geo);font-size:14px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:10px;animation:bob 5s ease-in-out infinite}
+.wp-wrap{position:relative;width:min(400px,100%)}
+.wp{--wf:color-mix(in srgb,var(--muted) 20%,var(--card));--wfs:color-mix(in srgb,var(--muted) 45%,var(--card));background:var(--card);border:1px solid var(--line);border-radius:24px;padding:12px 14px 14px;box-shadow:0 40px 70px -35px rgba(28,20,50,.55);position:relative;z-index:2;font-family:var(--geo)}
+.wp-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 2px 10px}
+.wp-top .dots{display:flex;gap:5px}
+.wp-top .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.wp-top .fn{font-size:12px;color:var(--muted)}
+.wp-play{justify-self:end;width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:var(--soft);color:var(--muted);transition:background .3s,color .3s}
+.wp.s-proto .wp-play{background:var(--plum);color:var(--plum-ink)}
+.wp-steps{display:flex;justify-content:space-between;gap:4px}
+.wp-steps span{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;line-height:1;padding:4px 9px 4px 4px;border-radius:999px;background:var(--soft);color:var(--muted);white-space:nowrap;transition:background .3s,color .3s}
+.wp-steps i{font-style:normal;width:17px;height:17px;border-radius:50%;display:grid;place-items:center;background:var(--card);font-size:10px;font-weight:700;transition:background .3s,color .3s}
+.wp-steps .on{background:var(--ink);color:var(--paper)}
+.wp-steps .on i{background:var(--sun);color:#1C1432}
+.wp-steps .ok i{background:var(--mint);color:var(--mint-ink)}
+.wp-stage{position:relative;display:grid;grid-template-columns:54% 1fr;column-gap:10%;align-items:start;margin-top:12px}
+.wp-scr{position:relative;height:342px;border:1.5px solid var(--line);border-radius:22px;background:var(--paper);overflow:hidden;transition:opacity .4s}
+.wp-sb{position:absolute;top:7px;left:14px;right:14px;display:flex;justify-content:space-between;font-size:9px;font-weight:700;color:var(--muted);z-index:4}
+.wp-sb i{width:16px;height:8px;border-radius:2px;border:1.2px solid currentColor;display:block}
+.wp-home,.wp-det{position:absolute;inset:0;padding:25px 11px 10px;display:flex;flex-direction:column;gap:12px;transition:transform .6s cubic-bezier(.6,0,.2,1),opacity .6s,box-shadow .3s}
+.wp .row{opacity:0;transform:translateX(var(--mx,0)) scale(.94);transition:opacity .35s,transform .5s cubic-bezier(.3,1.5,.5,1)}
+.wp.s-wire .row{opacity:1;transform:translateX(var(--mx,0));transition-delay:calc(var(--r)*90ms)}
+.wp.s-al .row{transform:none;transition-delay:calc(var(--r)*60ms)}
+.wp.s-g .wp-home{box-shadow:inset 0 0 0 1.5px var(--plum)}
+.wp-g{position:absolute;left:50%;width:1.5px;margin-left:-.75px;background:var(--plum);opacity:0;transition:opacity .25s}
+.wp-g:before,.wp-g:after{content:"";position:absolute;left:-4px;width:9.5px;height:1.5px;background:var(--plum)}
+.wp-g:before{top:0}.wp-g:after{bottom:0}
+.wp-g em{position:absolute;left:6px;top:50%;transform:translateY(-50%);font-style:normal;font-size:8.5px;font-weight:700;line-height:1.35;padding:0 4px;border-radius:4px;background:var(--plum);color:var(--plum-ink)}
+.wp.s-g .wp-g{opacity:1;transition-delay:calc(var(--r)*70ms)}
+.wp .c{transition:background-color .3s,color .3s,border-color .3s}
+.wp .ic{transition:opacity .3s}
+.wp.wp:not(.s-ui) .c{background:var(--wf);color:transparent;border-color:transparent}
+.wp:not(.s-ui) .rt:first-letter{color:transparent}
+.wp.wp:not(.s-ui) .c.box{background:transparent;border-style:dashed;border-color:var(--wfs)}
+.wp:not(.s-ui) .ic{opacity:0}
+.wp.s-ui .c{animation:wpSnap .55s calc(var(--i)*110ms) cubic-bezier(.3,1.5,.5,1) backwards;transition-delay:calc(var(--i)*110ms)}
+.wp.s-ui .ic{transition-delay:calc(var(--i)*110ms)}
+@keyframes wpSnap{0%{transform:none}35%{transform:scale(.88);box-shadow:0 0 0 2px var(--plum)}100%{transform:none;box-shadow:0 0 0 2px transparent}}
+.wp-hd{display:flex;align-items:center;gap:8px}
+.wp-av{width:28px;height:28px;border-radius:50%;flex:none;display:grid;place-items:center;background:linear-gradient(135deg,var(--plum),var(--sun));color:#fff;font-size:12px;font-weight:800}
+.wp-hi{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.wp .t{display:inline-block;line-height:1.2;border-radius:4px}
+.wp-hi .t:first-child{font-size:9.5px;color:var(--muted)}
+.wp-hi .t:last-child{font-size:13px;font-weight:800}
+.wp-bell{margin-left:auto;width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.wp-srch{height:30px;border-radius:9px;display:flex;align-items:center;gap:6px;padding:0 9px;background:var(--card);border:1px solid var(--line);color:var(--muted);font-size:10px}
+.wp-chips{display:flex;gap:5px}
+.wp-chip{font-size:9.5px;font-weight:600;line-height:1;padding:5px 10px;border-radius:999px;background:var(--soft);color:var(--ink)}
+.wp-chip.on{background:var(--ink);color:var(--paper)}
+.wp-card{padding:6px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.wp-mt{position:relative;overflow:hidden;background:linear-gradient(180deg,color-mix(in srgb,var(--sun) 55%,#fff),var(--sun))}
+.wp-mt:before{content:"";position:absolute;right:18%;top:16%;width:16%;aspect-ratio:1;border-radius:50%;background:#fff;opacity:.85}
+.wp-mt:after{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;background:color-mix(in srgb,var(--plum) 62%,#1C1432);clip-path:polygon(0 100%,0 62%,22% 22%,38% 50%,60% 0,80% 44%,100% 26%,100% 100%)}
+.wp-img{height:78px;border-radius:8px}
+.wp.wp:not(.s-ui) .wp-img.c{background:var(--wf)}
+.wp-img:before,.wp-img:after{transition:opacity .3s;transition-delay:inherit}
+.wp:not(.s-ui) .wp-img:before,.wp:not(.s-ui) .wp-img:after{opacity:0}
+.wp-img .x{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .3s}
+.wp-img .x line{stroke:var(--wfs);stroke-width:1.5}
+.wp:not(.s-ui) .wp-img .x{opacity:1}
+.wp-meta{display:flex;justify-content:space-between;align-items:flex-end;padding:7px 3px 2px}
+.wp-meta div{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.wp-meta .ttl{font-size:11px;font-weight:800}
+.wp-meta .rt{font-size:9.5px;color:var(--muted)}
+.wp-meta .rt:first-letter{color:#E8A400}
+.wp-meta .pr{font-size:12.5px;font-weight:800}
+.wp-btn{position:relative;overflow:hidden;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum);color:var(--plum-ink);font-size:11.5px;font-weight:700}
+.wp-btn:after{content:"";position:absolute;left:62%;top:55%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--plum-ink);opacity:0}
+.wp.s-click .wp-btn{animation:wpPress .3s ease-out}
+@keyframes wpPress{45%{transform:scale(.92)}}
+.wp.s-click .wp-btn:after{animation:wpRip .6s ease-out}
+@keyframes wpRip{from{opacity:.6;transform:scale(1)}to{opacity:0;transform:scale(16)}}
+.wp.s-go .wp-home{transform:translateX(-32%) scale(.96);opacity:0}
+.wp-det{transform:translateX(102%);background:var(--paper);box-shadow:-12px 0 24px -12px rgba(28,20,50,.4);gap:9px}
+.wp.s-go .wp-det{transform:none}
+.wp-dtop{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800}
+.wp-dtop svg:last-child{margin-left:auto;color:var(--plum)}
+.wp-hero{height:96px;border-radius:12px;transform:scale(.62);transform-origin:50% 0;opacity:.4;transition:transform .7s .25s cubic-bezier(.3,1.3,.5,1),opacity .5s .25s}
+.wp.s-go .wp-hero{transform:none;opacity:1}
+.wp-det .ttl{font-size:13px;font-weight:800;line-height:1.2}
+.wp-det .rt{font-size:9.5px;color:var(--muted);margin-top:-5px}
+.wp-det .lb{font-size:9.5px;font-weight:700;color:var(--muted)}
+.wp-dates{display:flex;gap:5px}
+.wp-dates span{position:relative;flex:1;text-align:center;font-size:9.5px;font-weight:700;padding:6px 0;border-radius:8px;background:var(--card);border:1px solid var(--line)}
+.wp-dates .on{background:var(--mint);color:var(--mint-ink);border-color:var(--mint)}
+.wp-qty{display:flex;align-items:center;justify-content:space-between;padding:7px 8px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:10px;font-weight:600}
+.wp-qty .q{display:flex;align-items:center;gap:8px}
+.wp-qty i{font-style:normal;width:18px;height:18px;border-radius:6px;display:grid;place-items:center;background:var(--soft);font-weight:700;line-height:1}
+.wp-qty b{font-size:11px}
+.wp-cta{margin-top:auto;position:relative;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--plum);color:var(--plum-ink);font-size:11px;font-weight:700}
+.wp-heat{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--plum) 70%,transparent) 0 20%,color-mix(in srgb,var(--sun) 60%,transparent) 46%,transparent 70%);opacity:0;transform:scale(.2);pointer-events:none;z-index:2}
+.wp-heat.sm{width:22px;height:22px;margin:-11px 0 0 -11px}
+.wp.s-test .wp-heat{animation:wpHeat .45s var(--d) cubic-bezier(.3,1.6,.5,1) forwards,wpPulse 1.6s calc(var(--d) + .45s) ease-in-out infinite}
+@keyframes wpHeat{to{opacity:.92;transform:none}}
+@keyframes wpPulse{50%{transform:scale(1.18)}}
+.wp-toast{position:absolute;top:22px;left:9px;right:9px;z-index:3;display:flex;align-items:center;gap:6px;padding:7px 9px;border-radius:10px;background:var(--mint);color:var(--mint-ink);font-size:10px;font-weight:700;box-shadow:0 10px 20px -10px rgba(0,0,0,.4);transform:translateY(-160%);opacity:0;transition:transform .45s cubic-bezier(.3,1.4,.5,1),opacity .3s}
+.wp.s-done .wp-toast{transform:none;opacity:1}
+.wp-b{position:relative;margin-top:14px;opacity:0;transform:translateY(10px) scale(.92);transition:opacity .45s,transform .5s cubic-bezier(.3,1.4,.5,1)}
+.wp.s-proto .wp-b{opacity:1;transform:none}
+.wp-fl{position:absolute;bottom:100%;left:2px;margin-bottom:4px;font-size:10px;font-weight:600;color:var(--muted);white-space:nowrap}
+.wp-mini{aspect-ratio:9/15;border:1.5px solid var(--line);border-radius:14px;background:var(--paper);padding:14px 7px 8px;display:flex;flex-direction:column;gap:5px;transition:border-color .3s,box-shadow .3s}
+.wp.s-go .wp-mini{border-color:var(--plum);box-shadow:0 0 0 3px color-mix(in srgb,var(--plum) 28%,transparent)}
+.wp-mini i{display:block;height:5px;border-radius:3px}
+.wp-mini i:not(.m-hero){background:var(--line)}
+.wp-mini .m-hero{height:34%;border-radius:7px}
+.wp-mini .m-l1{width:70%;height:6px;background:var(--ink)}
+.wp-mini .m-l2{width:45%}
+.wp-mini .m-ch{display:flex;gap:3px}
+.wp-mini .m-ch i{flex:1;height:9px;border-radius:3px}
+.wp-mini .m-ch i:nth-child(2){background:var(--mint)}
+.wp-mini .m-q{height:10px;border-radius:3px;background:var(--card)!important;border:1px solid var(--line)}
+.wp-mini .m-btn{margin-top:auto;height:12px;border-radius:4px;background:var(--plum)}
+.wp-nd{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:3;transition:opacity .4s}
+.wp-nd path.ln{fill:none;stroke:var(--plum);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .8s .35s cubic-bezier(.5,0,.2,1)}
+.wp-nd circle,.wp-nd path.ar{fill:var(--plum);stroke:var(--card);stroke-width:1.5;opacity:0;transition:opacity .25s}
+.wp.s-proto .wp-nd path.ln{stroke-dashoffset:0}
+.wp.s-proto .wp-nd circle{opacity:1;transition-delay:.3s}
+.wp.s-proto .wp-nd path.ar{opacity:1;transition-delay:1.1s}
+.wp.s-go .wp-nd{opacity:.3}
+.wp-cur{position:absolute;left:0;top:0;z-index:5;opacity:0;transform:translate(var(--sx,300px),var(--sy,300px));transition:transform 1s cubic-bezier(.5,0,.2,1),opacity .3s;pointer-events:none}
+.wp-cur svg{display:block;transition:transform .15s;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.wp-cur path{fill:var(--ink);stroke:var(--card);stroke-width:1.4;stroke-linejoin:round}
+.wp.s-proto .wp-cur{opacity:1;transition-delay:0s,.5s}
+.wp.s-aim .wp-cur{transform:translate(var(--tx,0),var(--ty,0))}
+.wp.s-click .wp-cur svg{transform:scale(.8)}
+.wp.s-go .wp-cur,.wp.still .wp-cur{opacity:0}
+.wp.s-out .wp-scr,.wp.s-out .wp-b,.wp.s-out .wp-nd{opacity:0}
+.wp.nt,.wp.nt *,.wp.nt *:before,.wp.nt *:after{transition:none!important;animation:none!important}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:14px;line-height:1.2;white-space:nowrap;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite;transition:background .3s,color .3s,border-color .3s}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-8px;top:90px}
-.bubble.b2{right:-14px;top:250px;animation-delay:-1.6s}
-.bubble.b3{left:0;bottom:40px;animation-delay:-3.2s;background:var(--mint);color:var(--mint-ink);border-color:var(--mint)}
-@keyframes bob{50%{transform:translateY(-10px)}}
-.cursor-dot{width:10px;height:10px;border-radius:50% 50% 50% 0;background:var(--plum);transform:rotate(45deg);flex:none}
+.bubble b:empty{display:none}
+.bubble svg{flex:none}
+.bubble.on{background:var(--plum);color:var(--plum-ink);border-color:var(--plum)}
+.bubble.b3.on{background:var(--mint);color:var(--mint-ink);border-color:var(--mint)}
+.bubble.b1{left:-26px;top:-18px}
+.bubble.b2{right:-28px;bottom:62px;animation-delay:-1.6s}
+.bubble.b3{right:-20px;bottom:-20px;animation-delay:-3.2s}
+@keyframes bob{50%{transform:translateY(-8px)}}
 /* platforms strip */
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -235,7 +343,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media (max-width:960px){
 .hero-grid,.plan,.out,.lect,.final,.er{grid-template-columns:1fr}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:-8px}.bubble.b2{right:-8px}.bubble.b3{right:-8px}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -256,10 +364,16 @@ h1{font-size:60px}
 header .btn-sm{display:none}
 .lec ul{padding-left:20px}
 .color-row{grid-template-columns:1fr}
+.bubble{font-size:12.5px;padding:7px 10px;gap:6px}
+.bubble.b1{left:-4px;top:-20px}.bubble.b2{right:-4px;bottom:64px}.bubble.b3{right:-4px}
+.wp{padding:12px 12px 12px}
+.wp-steps span{font-size:10.5px;padding:3px 7px 3px 3px;gap:4px}
+.wp-steps i{width:15px;height:15px;font-size:9px}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.tile{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
+.wp .row{opacity:1;transform:none}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -388,19 +502,41 @@ h1 .ln span,.tile{transform:none;opacity:1}
 <a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
 </div>
 </div>
-<div class="phone-stage">
-<div class="bubble b1"><span class="cursor-dot" aria-hidden="true"></span><b>დავითი</b></div>
-<div class="bubble b2">Components <b id="comps">24</b></div>
-<div class="bubble b3">Contrast <b id="contrLive">4.8:1 ✓</b></div>
-<div class="phone" aria-label="დიზაინის ინსტრუმენტის მაკეტი">
-<div class="prof">
-<span class="av" aria-hidden="true"><span><i><b></b><b></b></i></span></span>
-<div class="nums"><div><b>24</b>components</div><div><b>12</b>screens</div><div><b>42</b>hours</div></div>
+<div class="phone-stage" aria-hidden="true">
+<div class="wp-wrap">
+<div class="bubble b1"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="1.5" width="12" height="4" rx="1.2"/><rect x="2" y="10.5" width="12" height="4" rx="1.2"/><path d="M8 6.5v3"/></svg>Auto Layout <b>gap 12</b></div>
+<div class="bubble b2"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>Smart Animate</div>
+<div class="bubble b3"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>Usability ტესტი <b id="wpScore"></b></div>
+<div class="wp" id="wp">
+<div class="wp-top"><span class="dots"><i></i><i></i><i></i></span><span class="fn">booking-app.fig</span><span class="wp-play"><svg width="10" height="10" viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span></div>
+<div class="wp-steps"><span><i>1</i>Wireframe</span><span><i>2</i>UI</span><span><i>3</i>პროტოტიპი</span><span><i>4</i>ტესტი</span></div>
+<div class="wp-stage">
+<div class="wp-scr">
+<div class="wp-sb"><span>9:41</span><i></i></div>
+<div class="wp-home">
+<div class="row" style="--r:0;--mx:7px"><div class="wp-hd"><span class="c wp-av" style="--i:0">ნ</span><span class="wp-hi"><span class="c t" style="--i:1">გამარჯობა,</span><span class="c t" style="--i:1">ნინო</span></span><span class="c wp-bell" style="--i:2"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/></svg></span></div></div>
+<div class="row" style="--r:1;--mx:-6px"><div class="c wp-srch" style="--i:3"><svg class="ic" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>სად მივდივართ?</div></div>
+<div class="row" style="--r:2;--mx:10px"><div class="wp-chips"><span class="c wp-chip on" style="--i:4">ყველა</span><span class="c wp-chip" style="--i:5">მთა</span><span class="c wp-chip" style="--i:6">ზღვა</span></div></div>
+<div class="row" style="--r:3;--mx:-4px"><div class="c box wp-card" style="--i:7"><div class="c wp-img wp-mt" style="--i:8"><svg class="x" preserveAspectRatio="none" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100"/><line x1="100" y1="0" x2="0" y2="100"/></svg></div><div class="wp-meta"><div><span class="c t ttl" style="--i:9">ყაზბეგი, 1 დღე</span><span class="c t rt" style="--i:10">★ 4.9 (128)</span></div><span class="c t pr" style="--i:10">45 ₾</span></div></div></div>
+<div class="row" style="--r:4;--mx:8px"><div class="c wp-btn" id="wpBtn" style="--i:11">დაჯავშნა</div></div>
 </div>
-<div class="handle">smartacademy.ge/ux-ui</div>
-<div class="bio">UX/UI დიზაინერი 2.5 თვეში</div>
-<div class="hl" aria-hidden="true"><span>Research</span><span>Wireframe</span><span>UI Kit</span><span>Prototype</span><span>Test</span></div>
-<div class="grid3" id="tiles"></div>
+<div class="wp-det">
+<div class="wp-dtop"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>ყაზბეგი<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg></div>
+<div class="wp-hero wp-mt"><i class="wp-heat sm" style="left:30%;top:60%;--d:.2s"></i></div>
+<div class="ttl">ყაზბეგი, 1 დღე</div>
+<div class="rt">★ 4.9, გიდით და ტრანსფერით</div>
+<div class="lb">აირჩიე თარიღი</div>
+<div class="wp-dates"><span>12 ოქტ</span><span class="on">13 ოქტ<i class="wp-heat" style="left:50%;top:50%;--d:.55s"></i></span><span>14 ოქტ</span></div>
+<div class="wp-qty"><span>სტუმრები</span><span class="q"><i>−</i><b>2</b><i>+</i></span></div>
+<div class="wp-cta">დადასტურება, 45 ₾<i class="wp-heat" style="left:58%;top:48%;--d:.95s"></i><i class="wp-heat sm" style="left:36%;top:60%;--d:1.25s"></i></div>
+<div class="wp-toast"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>წარმატება 12/13</div>
+</div>
+</div>
+<div class="wp-b"><span class="wp-fl">დეტალები</span><div class="wp-mini"><i class="m-hero wp-mt"></i><i class="m-l1"></i><i class="m-l2"></i><span class="m-ch"><i></i><i></i><i></i></span><i class="m-q"></i><i class="m-btn"></i></div></div>
+<svg class="wp-nd" id="wpNd"><path class="ln" pathLength="1" d="M0 0"/><circle r="4" cx="0" cy="0"/><path class="ar" d="M0 0"/></svg>
+<span class="wp-cur" id="wpCur"><svg width="18" height="21" viewBox="0 0 18 21"><path d="M2 1.5V16.5L6 13L8.8 19L11.8 17.7L9 11.8H14.6Z"/></svg></span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -575,13 +711,55 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-/* hero tiles (mock design-tool canvas) */
-var icon={comp:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>',frame:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16"/></svg>',none:''};
-var T=[['t1','Nav Bar','frame'],['t4','Button Set','comp'],['t2','Card Grid','frame'],['t3','Color Palette','none'],['t5','Type Scale','none'],['t1','Onboarding','frame'],['t4','Checkout Flow','frame'],['t2','Dashboard UI','comp'],['t3','Component Library','comp']];
-var tiles=$('tiles');
-T.forEach(function(t,i){var d=document.createElement('div');d.className='tile '+t[0];d.style.animationDelay=(.5+i*.09)+'s';d.innerHTML=(icon[t[2]]||'')+'<span>'+t[1]+'</span>';tiles.appendChild(d);});
-var comps=24,contrasts=['4.6:1 ✓','4.8:1 ✓','5.1:1 ✓','5.4:1 ✓'];
-if(!reduce)setInterval(function(){comps+=Math.round(Math.random()*2);$('comps').textContent=comps;$('contrLive').textContent=contrasts[Math.floor(Math.random()*contrasts.length)];},1800);
+/* hero: wireframe to prototype loop */
+(function(){
+var wp=$('wp');if(!wp)return;
+var stage=wp.querySelector('.wp-stage'),home=wp.querySelector('.wp-home'),btn=$('wpBtn'),fb=wp.querySelector('.wp-b'),nd=$('wpNd'),cur=$('wpCur'),score=$('wpScore');
+var steps=wp.querySelectorAll('.wp-steps span'),bubs=document.querySelectorAll('.phone-stage .bubble');
+var ST=['s-wire','s-al','s-g','s-ui','s-proto','s-aim','s-click','s-go','s-test','s-done','s-out'];
+function off(el){var x=0,y=0;while(el&&el!==stage){x+=el.offsetLeft;y+=el.offsetTop;el=el.offsetParent;if(el&&el!==stage){x+=el.clientLeft;y+=el.clientTop;}}return {x:x,y:y};}
+function guides(){
+[].forEach.call(home.querySelectorAll('.wp-g'),function(g){g.remove();});
+var rows=home.querySelectorAll('.row'),gap=parseInt(getComputedStyle(home).rowGap,10)||12;
+for(var i=0;i<rows.length-1;i++){var a=rows[i],t=a.offsetTop+a.offsetHeight,h=rows[i+1].offsetTop-t;if(h<4)continue;
+var g=document.createElement('span');g.className='wp-g';g.style.cssText='top:'+t+'px;height:'+h+'px;--r:'+i;g.innerHTML='<em>'+gap+'</em>';home.appendChild(g);}
+}
+function place(){
+var b=off(btn),f=off(fb),sx=b.x+btn.offsetWidth,sy=b.y+btn.offsetHeight/2,ex=f.x-3,ey=f.y+Math.min(46,fb.offsetHeight*.3),dx=Math.max(26,(ex-sx)*1.1);
+nd.querySelector('.ln').setAttribute('d','M'+sx+' '+sy+'C'+(sx+dx)+' '+sy+' '+(ex-dx)+' '+ey+' '+ex+' '+ey);
+var c=nd.querySelector('circle');c.setAttribute('cx',sx);c.setAttribute('cy',sy);
+nd.querySelector('.ar').setAttribute('d','M'+(ex-8)+' '+(ey-5.5)+'L'+(ex+1)+' '+ey+'L'+(ex-8)+' '+(ey+5.5)+'Z');
+cur.style.setProperty('--sx',(stage.offsetWidth-26)+'px');cur.style.setProperty('--sy',(stage.offsetHeight-10)+'px');
+cur.style.setProperty('--tx',(b.x+btn.offsetWidth*.62-2)+'px');cur.style.setProperty('--ty',(b.y+btn.offsetHeight*.55-2)+'px');
+}
+function step(k){[].forEach.call(steps,function(s,i){s.classList.toggle('on',i===k);s.classList.toggle('ok',i<k);s.firstChild.textContent=i<k?'✓':i+1;});}
+function bub(k){[].forEach.call(bubs,function(b,i){b.classList.toggle('on',i===k);});}
+function add(c){wp.classList.add(c);}
+function count(){var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/900,1);score.textContent=Math.round(92*(1-Math.pow(1-p,3)))+'%';if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+addEventListener('resize',function(){guides();place();});
+if(reduce){['s-wire','s-al','s-ui','s-proto','still'].forEach(add);guides();place();step(4);score.textContent='92%';return;}
+var tm=[];
+function at(ms,fn){tm.push(setTimeout(fn,ms));}
+function cycle(){
+tm.forEach(clearTimeout);tm=[];
+wp.classList.add('nt');ST.forEach(function(c){wp.classList.remove(c);});
+score.textContent='';step(0);bub(-1);guides();place();
+void wp.offsetWidth;wp.classList.remove('nt');add('s-wire');
+at(1300,function(){guides();add('s-al');bub(0);});
+at(1750,function(){add('s-g');});
+at(3000,function(){wp.classList.remove('s-g');add('s-ui');step(1);});
+at(4800,function(){place();add('s-proto');step(2);bub(1);});
+at(5400,function(){add('s-aim');});
+at(6500,function(){add('s-click');});
+at(6800,function(){add('s-go');});
+at(8300,function(){add('s-test');step(3);bub(2);});
+at(9900,function(){add('s-done');step(4);count();});
+at(12800,function(){add('s-out');});
+at(13400,cycle);
+}
+cycle();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){guides();place();});
+})();
 /* reveal + counters */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
