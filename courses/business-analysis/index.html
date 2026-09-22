@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT ბიზნეს ანალიზის კურსი | Smart Academy</title>
+<meta name="description" content="ისწავლე IT ბიზნეს ანალიზი: მოთხოვნების მოპოვება და მართვა, user story, BPMN და Use case დიაგრამები, SQL, API. 23 შეხვედრა, ლექტორი EPAM-ის Lead Business Analyst.">
+<link rel="canonical" href="https://business-analysis.kursi.edu.ge/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="IT ბიზნეს ანალიზის კურსი | Smart Academy">
+<meta property="og:description" content="ისწავლე IT ბიზნეს ანალიზი: მოთხოვნების მოპოვება და მართვა, user story, BPMN და Use case დიაგრამები, SQL, API. 23 შეხვედრა, ლექტორი EPAM-ის Lead Business Analyst.">
+<meta property="og:url" content="https://business-analysis.kursi.edu.ge/">
+<meta property="og:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IT ბიზნეს ანალიზის კურსი | Smart Academy">
+<meta name="twitter:description" content="ისწავლე IT ბიზნეს ანალიზი: მოთხოვნების მოპოვება და მართვა, user story, BPMN და Use case დიაგრამები, SQL, API. 23 შეხვედრა, ლექტორი EPAM-ის Lead Business Analyst.">
+<meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
+<style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
+:root{
+--paper:#F5F2EA;--card:#FFFFFF;--ink:#221B10;--muted:#665C4B;--line:#E2DAC9;
+--ochre:#A65C0B;--ochre-ink:#FFFFFF;--sky:#9BD0EE;--sky-ink:#0C1B26;--soft:#F0E6D3;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#15120D;--card:#201B13;--ink:#F2EBDD;--muted:#B5A993;--line:#3A3224;
+--ochre:#F0AD4E;--ochre-ink:#1A1307;--sky:#80C4EA;--sky-ink:#0B1822;--soft:#2A2318;}}
+:root[data-theme="dark"]{
+--paper:#15120D;--card:#201B13;--ink:#F2EBDD;--muted:#B5A993;--line:#3A3224;
+--ochre:#F0AD4E;--ochre-ink:#1A1307;--sky:#80C4EA;--sky-ink:#0B1822;--soft:#2A2318;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--ochre);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--ochre);color:var(--ochre-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-sky{background:var(--sky);color:var(--sky-ink)}
+.btn-sky:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.hero{padding:60px 0 24px}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(42px,6.6vw,92px);line-height:.94;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--ochre)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+.stage{position:relative;display:flex;justify-content:center}
+.bpm{width:min(410px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:18px 18px 20px;box-shadow:0 40px 70px -35px rgba(34,27,16,.5);position:relative;z-index:2}
+.bpm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px}
+.bpm-head b{font-family:var(--geo);font-size:14px;display:flex;align-items:center;gap:8px}
+.bpm-head b:before{content:"";width:10px;height:10px;border-radius:3px;background:var(--ochre)}
+.bpm-head span{font-family:var(--geo);font-size:12px;color:var(--muted)}
+.flow{display:block;width:100%;height:auto;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.flow text{font-family:var(--geo);fill:var(--ink)}
+.flow .lane{fill:var(--card)}
+.flow .lane.alt{fill:var(--paper)}
+.flow .lane-t{font-size:10.5px;font-weight:700;fill:var(--muted)}
+.flow .sep{stroke:var(--line);stroke-width:1}
+.flow .con{fill:none;stroke:var(--muted);stroke-width:1.4}
+.flow .ah{fill:var(--muted)}
+.flow .task rect{fill:var(--card);stroke:var(--muted);stroke-width:1.4;transition:fill .3s,stroke .3s}
+.flow .task text{font-size:11.5px;font-weight:600;text-anchor:middle;dominant-baseline:central;transition:fill .3s}
+.flow .task.done rect{stroke:var(--ochre);stroke-width:2}
+.flow .task.on rect{fill:var(--ochre);stroke:var(--ochre)}
+.flow .task.on text{fill:var(--ochre-ink)}
+.flow .gw{fill:var(--card);stroke:var(--muted);stroke-width:1.4;transition:fill .3s,stroke .3s}
+.flow .gw.on{fill:var(--sky);stroke:var(--sky)}
+.flow .gx{stroke:var(--ink);stroke-width:1.6;stroke-linecap:round}
+.flow .ev{fill:var(--card);stroke:var(--muted);stroke-width:1.6}
+.flow .ev.end{stroke:var(--ink);stroke-width:3.2}
+.flow .ev.end.on{fill:var(--ochre);stroke:var(--ochre)}
+.flow .small{font-size:10px;fill:var(--muted)}
+.flow .tok{fill:var(--ochre);stroke:var(--card);stroke-width:2}
+.flow .halo{fill:var(--ochre);opacity:.25}
+.story{margin-top:14px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--paper)}
+.story-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px}
+.story-top span{font-family:var(--geo);font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--soft);color:var(--ink)}
+.story-top em{font-style:normal;font-family:var(--geo);font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--ochre);color:var(--ochre-ink);opacity:0;transform:scale(.8);transition:opacity .4s,transform .4s}
+.story-top em.on{opacity:1;transform:none}
+.us{font-family:var(--geo);font-size:14px;line-height:1.5;margin:0 0 10px;min-height:63px}
+.us .k{font-weight:800;color:var(--ochre)}
+.us .caret{display:inline-block;width:2px;height:1em;background:var(--ink);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ac{list-style:none;margin:0;padding:10px 0 0;border-top:1px dashed var(--line);display:grid;gap:6px}
+.ac-t{font-family:var(--geo);font-size:11px;color:var(--muted);font-weight:700;margin:0 0 2px;letter-spacing:.02em}
+.ac li{display:flex;align-items:center;gap:9px;font-family:var(--geo);font-size:12.5px;color:var(--muted);transition:color .3s}
+.ac li i{flex:none;width:17px;height:17px;border-radius:5px;border:1.5px solid var(--line);display:grid;place-items:center;transition:background .3s,border-color .3s}
+.ac li i svg{opacity:0;transform:scale(.4);transition:opacity .3s,transform .3s}
+.ac li.ok{color:var(--ink)}
+.ac li.ok i{background:var(--ochre);border-color:var(--ochre);color:var(--ochre-ink)}
+.ac li.ok i svg{opacity:1;transform:none}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
+.bubble b{font-family:var(--font)}
+.bubble.b1{left:-18px;top:34px}
+.bubble.b2{right:-18px;top:262px;animation-delay:-1.6s;background:var(--ochre);color:var(--ochre-ink);border-color:var(--ochre)}
+.bubble.b3{left:-12px;bottom:18px;animation-delay:-3.2s;background:var(--sky);color:var(--sky-ink);border-color:var(--sky)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+section{padding:90px 0}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+.plan{display:grid;grid-template-columns:380px 1fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 14px}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:10px 0 0}
+.rq{border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px;background:var(--paper)}
+.rq-n{display:flex;gap:10px;align-items:flex-start;font-family:var(--geo);font-weight:700;font-size:14.5px;line-height:1.35;margin-bottom:8px}
+.rq-n i{flex:none;font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:12px;font-family:var(--font)}
+.sl{display:grid;grid-template-columns:96px 1fr 22px;align-items:center;gap:10px;font-family:var(--geo);font-size:12.5px;color:var(--muted)}
+.sl output{font-family:var(--font);font-weight:800;color:var(--ink);text-align:right;font-size:15px}
+input[type=range]{width:100%;accent-color:var(--ochre);min-height:28px;margin:0}
+.cap{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.cap .sl{grid-template-columns:1fr 34px}
+.cap label{grid-column:1/-1;font-size:13px}
+.vresults{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px}
+.vstat{border:1px solid var(--line);border-radius:16px;padding:14px}
+.vstat span{display:block;font-family:var(--geo);font-size:12.5px;color:var(--muted)}
+.vstat b{display:block;font-size:26px;font-weight:800;font-variant-numeric:tabular-nums}
+.mx-wrap{display:grid;grid-template-columns:22px 1fr;gap:6px;margin-bottom:20px}
+.mx-y{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--geo);font-size:12px;color:var(--muted);text-align:center}
+.mx{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;aspect-ratio:1.7/1;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.mx div{padding:8px 10px;font-family:var(--geo);font-size:12px;font-weight:700;color:var(--muted)}
+.mx .q1{background:color-mix(in srgb,var(--ochre) 16%,var(--card))}
+.mx .q2{background:color-mix(in srgb,var(--sky) 22%,var(--card));text-align:right}
+.mx .q3{background:var(--card);align-self:stretch;display:flex;align-items:flex-end}
+.mx .q4{background:var(--paper);display:flex;align-items:flex-end;justify-content:flex-end}
+.mx-x{grid-column:2;font-family:var(--geo);font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.dot{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-weight:800;font-size:13px;transition:left .45s cubic-bezier(.2,.8,.2,1),top .45s cubic-bezier(.2,.8,.2,1);box-shadow:0 4px 10px -4px rgba(0,0,0,.5)}
+.dot.in{background:var(--ochre);color:var(--ochre-ink)}
+.rank{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rank li{display:grid;grid-template-columns:26px 1fr auto;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:14px;font-family:var(--geo);font-size:14.5px}
+.rank li.in{border-color:var(--ochre);box-shadow:inset 3px 0 0 var(--ochre)}
+.rank li i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:800;font-size:12px}
+.rank small{display:block;color:var(--muted);font-size:12.5px}
+.mc{font-weight:800;font-size:12px;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.mc.m{background:var(--ochre);color:var(--ochre-ink)}
+.mc.s{background:var(--sky);color:var(--sky-ink)}
+.mc.c{background:var(--soft);color:var(--ink)}
+.mc.w{background:transparent;color:var(--muted);border:1px dashed var(--line)}
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec button:focus-visible{outline:3px solid var(--sky);outline-offset:-3px;border-radius:18px}
+.lec .n{font-weight:800;font-size:30px;color:var(--ochre);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--sky);border-color:var(--sky);color:var(--sky-ink)}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--ochre)}
+.lec ul li.tk{font-weight:700}
+.lec ul li.tk:before{background:var(--sky);border-radius:2px}
+.lec button:hover .t{color:var(--ochre)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+.out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--ochre);color:var(--ochre-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C1B26' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 40s linear infinite}
+.jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--ochre)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:28px;background:var(--ochre);color:var(--ochre-ink);position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:220px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:42px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:26px;margin:22px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:44px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:14px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.path{list-style:none;padding:0;margin:24px 0}
+.path li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.req ul{margin:8px 0 0;padding-left:20px}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:960px){
+.hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
+.path li{grid-template-columns:1fr;gap:2px}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+h1{font-size:55px}
+.wrap{padding:0 16px}
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.vresults{grid-template-columns:1fr 1fr 1fr;gap:8px}
+.vstat{padding:10px}
+.vstat b{font-size:22px}
+.sched{grid-template-columns:1fr}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+.panel{padding:20px 16px}
+.bpm{padding:14px 12px 16px}
+.bubble{font-size:12px;padding:7px 11px}
+.bubble.b1{top:-16px}
+.bubble.b2{top:-16px;right:0}
+.bubble.b3{bottom:-18px}
+.mx{aspect-ratio:1.25/1}
+.sl{grid-template-columns:84px 1fr 20px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span{transform:none;opacity:1}
+.reveal{opacity:1;transform:none}
+.story-top em{opacity:1;transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://business-analysis.kursi.edu.ge/#course",
+      "name": "IT ბიზნეს ანალიზის კურსი",
+      "description": "ისწავლე IT ბიზნეს ანალიზი: ბიზნეს ანალიტიკოსის როლი Waterfall და Agile პროექტებში, მოთხოვნების მოპოვება, მართვა და პრიორიტეტიზაცია, user story-ები, BPMN, Use case და swim lane დიაგრამები, SQL და API საფუძვლები. კურსს უძღვება EPAM-ის Lead Business Analyst ციცი აბჟანდაძე.",
+      "url": "https://business-analysis.kursi.edu.ge/",
+      "inLanguage": "ka",
+      "provider": {
+        "@type": "Organization",
+        "name": "Smart Academy",
+        "sameAs": "https://smartacademy.ge"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "PT63H",
+        "instructor": [
+          {
+            "@type": "Person",
+            "name": "ციცი აბჟანდაძე",
+            "jobTitle": "Lead Business Analyst"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "26"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/241-IT_Business_Analysis",
+        "price": "2200",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock",
+        "category": "Paid"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://business-analysis.kursi.edu.ge/#product",
+      "name": "IT ბიზნეს ანალიზის კურსი",
+      "description": "ისწავლე IT ბიზნეს ანალიზი: მოთხოვნების მოპოვება და მართვა, user story-ები, BPMN და Use case დიაგრამები, SQL და API საფუძვლები. 23 შეხვედრა, 63 საათი.",
+      "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
+      "brand": {
+        "@type": "Brand",
+        "name": "Smart Academy"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "26"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/241-IT_Business_Analysis",
+        "price": "2200",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Smart Academy კურსები",
+          "item": "https://kursi.edu.ge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "IT ბიზნეს ანალიზის კურსი",
+          "item": "https://business-analysis.kursi.edu.ge/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#planner">პრიორიტეტიზაცია</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturers">ლექტორი</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/241-IT_Business_Analysis" target="_blank" rel="noopener">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5, 26 შეფასება</span></p>
+<h1><span class="ln"><span>IT ბიზნეს</span></span><span class="ln"><span>ანალიზის</span></span><span class="ln"><span>კურსი</span></span></h1>
+<p class="lead">ისწავლე, როგორ აქცევს ბიზნეს ანალიტიკოსი ბიზნესის საჭიროებას გუნდისთვის გასაგებ მოთხოვნებად: მოთხოვნების მოპოვება და პრიორიტეტიზაცია, user story-ები, BPMN და Use case დიაგრამები, SQL და API საფუძვლები. კურსს უძღვება ციცი აბჟანდაძე, Lead Business Analyst EPAM-ში.</p>
+<dl class="facts">
+<div><dt>ლექტორი</dt><dd>Lead BA, EPAM</dd></div>
+<div><dt>ფორმატი</dt><dd>ონლაინ</dd></div>
+<div><dt>დაწყება</dt><dd>13 ოქტომბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>3 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>23 შეხვედრა, 63 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>სამშაბათი, შაბათი</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">2200 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/241-IT_Business_Analysis" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
+</div>
+</div>
+<div class="stage" aria-hidden="true">
+<div class="bubble b1">RTM <b>✓</b></div>
+<div class="bubble b2">DoR / DoD</div>
+<div class="bubble b3">PMI-ACP</div>
+<div class="bpm">
+<div class="bpm-head"><b>order-status.bpmn</b><span>swim lane დიაგრამა</span></div>
+<svg class="flow" viewBox="0 0 372 234" role="presentation">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker></defs>
+<rect class="lane" x="0" y="0" width="372" height="78"/>
+<rect class="lane alt" x="0" y="78" width="372" height="78"/>
+<rect class="lane" x="0" y="156" width="372" height="78"/>
+<line class="sep" x1="0" y1="78" x2="372" y2="78"/>
+<line class="sep" x1="0" y1="156" x2="372" y2="156"/>
+<text class="lane-t" x="8" y="14">მომხმარებელი</text>
+<text class="lane-t" x="8" y="92">სისტემა</text>
+<text class="lane-t" x="8" y="170">ოპერატორი</text>
+<path class="con" d="M53 39H64" marker-end="url(#ah)"/>
+<path class="con" d="M140 39H149V98" marker-end="url(#ah)"/>
+<path class="con" d="M186 117H200" marker-end="url(#ah)"/>
+<path class="con" d="M234 117H248" marker-end="url(#ah)"/>
+<path class="con" d="M218 133V176" marker-end="url(#ah)"/>
+<path class="con" d="M255 195H287V136" marker-end="url(#ah)"/>
+<path class="con" d="M287 100V39H324" marker-end="url(#ah)"/>
+<text class="small" x="236" y="108">კი</text>
+<text class="small" x="222" y="152">არა</text>
+<text class="small" x="218" y="95" text-anchor="middle">ვალიდურია?</text>
+<path id="pA" d="M44 39H103H149V117H218H287V39H338" fill="none" stroke="none"/>
+<path id="pB" d="M44 39H103H149V117H218V195H287V117V39H338" fill="none" stroke="none"/>
+<circle class="halo" id="halo" cx="44" cy="39" r="11"/>
+<circle class="tok" id="tok" cx="44" cy="39" r="6"/>
+<circle class="ev" cx="44" cy="39" r="9"/>
+<g class="task" id="tk0"><rect x="66" y="22" width="74" height="34" rx="8"/><text x="103" y="39">შეკვეთა</text></g>
+<g class="task" id="tk1"><rect x="112" y="100" width="74" height="34" rx="8"/><text x="149" y="117">ვალიდაცია</text></g>
+<polygon class="gw" id="gw" points="218,101 234,117 218,133 202,117"/>
+<path class="gx" d="M213 112l10 10M223 112l-10 10"/>
+<g class="task" id="tk2"><rect x="250" y="100" width="74" height="34" rx="8"/><text x="287" y="117">განახლება</text></g>
+<g class="task" id="tk3"><rect x="181" y="178" width="74" height="34" rx="8"/><text x="218" y="195">შემოწმება</text></g>
+<circle class="ev end" id="evEnd" cx="338" cy="39" r="11"/>
+</svg>
+<div class="story">
+<div class="story-top"><span>User Story · BA-12</span><em id="usTag">MoSCoW: Must</em></div>
+<p class="us" id="us"></p>
+<p class="ac-t">ACCEPTANCE CRITERIA</p>
+<ul class="ac" id="ac">
+<li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></i>სტატუსი ჩანს პირად კაბინეტში</li>
+<li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></i>სტატუსის ცვლილებისას იგზავნება SMS</li>
+<li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></i>არავალიდურ შეკვეთას ამოწმებს ოპერატორი</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="plat"><p>ნოტაციები და არტეფაქტები, რომლებიც ისწავლება:</p><span>User Story</span><span>BPMN</span><span>Use Case</span><span>RTM</span><span>SQL</span><span>API</span></div>
+</div>
+</section>
+<section id="planner">
+<div class="wrap">
+<h2 class="reveal">დაალაგე Backlog პრიორიტეტებით</h2>
+<p class="sub reveal">მოთხოვნების პრიორიტეტიზაცია და მისი ტექნიკები ლექცია 9-ის თემაა. შეაფასე ხუთი სანიმუშო მოთხოვნის ბიზნეს ღირებულება და შრომატევადობა: ინსტრუმენტი მათ Value/Effort მატრიცაზე განალაგებს, MoSCoW კატეგორიას მიანიჭებს და გაჩვენებს, რა ეტევა მომდევნო რელიზში.</p>
+<div class="plan reveal">
+<div class="panel">
+<h3>მოთხოვნები</h3>
+<div id="rqList"></div>
+<div class="cap">
+<div class="sl"><label for="capIn">რელიზის capacity (შრომის ერთეული)</label><input type="range" id="capIn" min="3" max="20" step="1" value="8"><output id="capOut" for="capIn">8</output></div>
+</div>
+</div>
+<div class="panel">
+<h3>შედეგი</h3>
+<div class="vresults">
+<div class="vstat"><span>Must Have</span><b id="rMust">0</b></div>
+<div class="vstat"><span>რელიზში შედის</span><b id="rIn">0</b></div>
+<div class="vstat"><span>capacity</span><b id="rCap">0</b></div>
+</div>
+<div class="mx-wrap" aria-hidden="true">
+<div class="mx-y">ბიზნეს ღირებულება ↑</div>
+<div class="mx" id="mx"><div class="q1">Quick win</div><div class="q2">დიდი ინვესტიცია</div><div class="q3">Fill-in</div><div class="q4">ამჯერად არა</div></div>
+<div class="mx-x"><span>ნაკლები შრომა</span><span>მეტი შრომა →</span></div>
+</div>
+<ol class="rank" id="rank" aria-live="polite"></ol>
+<p class="hint">წესი გამარტივებულია: Must = მაღალი ღირებულება და ზომიერი შრომა, Should = მაღალი ღირებულება დიდი შრომით, Could = საშუალო ღირებულება, Won't = ამ რელიზში არა. ინსტრუმენტი საგანმანათლებლო მიზნით შეიქმნა: რეალურ პროექტში პრიორიტეტს მონაწილე მხარეებთან ერთად ადგენ.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">23 შეხვედრა, სამი ეტაპი</h2>
+<p class="sub reveal">63 საათი: ბიზნეს ანალიტიკოსის როლიდან მოთხოვნების მართვამდე, დიაგრამებიდან SQL-მდე, API-მდე და ფინალური პროექტის პრეზენტაციამდე.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">ბიზნესის საჭიროებიდან მკაფიო, შეფასებად და მიკვლევად მოთხოვნებამდე.</p>
+<div class="out">
+<div class="reveal">
+<h3>გეცოდინება</h3>
+<ul class="pill-list">
+<li>ბიზნეს ანალიტიკოსის როლი IT პროექტებში</li>
+<li>SDLC, Waterfall და Agile ფრეიმვორქები</li>
+<li>ფუნქციური და არაფუნქციური მოთხოვნები</li>
+<li>მოთხოვნების სასიცოცხლო ციკლი და RTM</li>
+<li>DoR, DoD და UAT</li>
+<li>რელაციური და არარელაციური ბაზები, SQL</li>
+<li>API და მისი ტესტირება</li>
+<li>AI ინსტრუმენტები ბიზნეს ანალიზში</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>ეფექტური user story-ების წერას და საჭირო არტეფაქტების შერჩევას</li>
+<li>მოთხოვნების მოპოვებას სხვადასხვა ტექნიკით</li>
+<li>მონაწილე მხარეების იდენტიფიკაციას, ანალიზს და მათთან თანამშრომლობას</li>
+<li>BPMN, Use case და swim lane დიაგრამების აგებას</li>
+<li>მოთხოვნების პრიორიტეტიზაციას და ცვლილებების მართვას</li>
+<li>ბიზნეს ანალიზის სამუშაოს შეფასებას და რისკების მართვას</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="დაკავშირებული პროფესიები">
+<div class="track">
+<span>IT ბიზნეს ანალიტიკოსი</span><span>ბიზნეს ინტელექტის ანალიტიკოსი</span><span>IT ბიზნეს ანალიტიკოსი</span><span>ბიზნეს ინტელექტის ანალიტიკოსი</span>
+<span aria-hidden="true">IT ბიზნეს ანალიტიკოსი</span><span aria-hidden="true">ბიზნეს ინტელექტის ანალიტიკოსი</span><span aria-hidden="true">IT ბიზნეს ანალიტიკოსი</span><span aria-hidden="true">ბიზნეს ინტელექტის ანალიტიკოსი</span>
+</div>
+</div>
+</section>
+<section id="lecturers" style="padding-top:20px">
+<div class="wrap lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">ცა</span>
+<h2>ციცი<br>აბჟანდაძე</h2>
+<p>Lead Business Analyst, EPAM</p>
+<div class="stat">
+<div><b data-count="7">0</b><span>+ წლის გამოცდილება IT-ში</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<h2>ლექტორი</h2>
+<p>ციცის 7+ წლიანი სამუშაო გამოცდილება აქვს IT სფეროში სხვადასხვა როლში: Product Owner, SME, ERP consultant და Business Analyst. ამჟამად EPAM-ში Lead Business Analyst-ის პოზიციაზე მუშაობს. ციცი არის PMI-ACP, Technical interviewer, Resource Manager და მენტორი.</p>
+<ol class="path">
+<li><b>EPAM</b><span>Lead Business Analyst (ამჟამად)</span></li>
+<li><b>როლები IT-ში</b><span>Product Owner, SME, ERP consultant, Business Analyst</span></li>
+<li><b>დომეინები</b><span>ადამიანური რესურსების მართვის, დროის მენეჯმენტის, ფინანსური და იურიდიული მიმართულების ანალიტიკა</span></li>
+<li><b>გუნდში</b><span>Technical interviewer, Resource Manager და მენტორი</span></li>
+</ol>
+<p style="color:var(--muted);margin-bottom:10px">სერტიფიკატი:</p>
+<div class="brands">
+<span>PMI-ACP</span>
+</div>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ადგილის დაჯავშნა</h2>
+<p class="sub">ონლაინ, 3 თვის განმავლობაში, 23 შეხვედრა (63 საათი).<br>დაწყება: 13 ოქტომბერი.</p>
+<div class="sched">
+<div><b>სამშაბათი</b>19:00-22:00</div>
+<div><b>შაბათი</b>09:30-12:30</div>
+</div>
+<div class="req"><strong>მოთხოვნები:</strong>
+<ul>
+<li>სასურველია გქონდეს სამუშაო გამოცდილება</li>
+<li>ინგლისური იმ დონეზე, რომ ინგლისურენოვანი მასალის წაკითხვა და გარჩევა შეძლო</li>
+</ul>
+</div>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">2200 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/241-IT_Business_Analysis" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/241-IT_Business_Analysis" target="_blank" rel="noopener">სრული პროგრამის ნახვა</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="tel:+995322121025">0322 12 10 25</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>2200 ₾</b><a class="btn btn-sky btn-sm" href="https://smartacademy.ge/trainings/241-IT_Business_Analysis" target="_blank" rel="noopener">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(id){return document.getElementById(id);};
+var root=document.documentElement;
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
+function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+syncLogo();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!root.getAttribute('data-theme'))syncLogo();});}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}syncLogo();});
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* hero: BPMN token + user story */
+var tasks=[{el:$('tk0'),x:103,y:39},{el:$('tk1'),x:149,y:117},{el:$('tk2'),x:287,y:117},{el:$('tk3'),x:218,y:195}];
+var gw=$('gw'),evEnd=$('evEnd'),tok=$('tok'),halo=$('halo');
+var paths=[$('pA'),$('pB')],route=0;
+function placeTok(p){tok.setAttribute('cx',p.x);tok.setAttribute('cy',p.y);halo.setAttribute('cx',p.x);halo.setAttribute('cy',p.y);}
+function resetFlow(){tasks.forEach(function(t){t.el.classList.remove('on','done');});gw.classList.remove('on');evEnd.classList.remove('on');}
+function markAt(p){
+tasks.forEach(function(t){var near=Math.abs(p.x-t.x)<=37&&Math.abs(p.y-t.y)<=17;if(near){t.el.classList.add('on');}else if(t.el.classList.contains('on')){t.el.classList.remove('on');t.el.classList.add('done');}});
+gw.classList.toggle('on',Math.abs(p.x-218)<=16&&Math.abs(p.y-117)<=16);
+if(Math.abs(p.x-338)<3&&Math.abs(p.y-39)<3)evEnd.classList.add('on');
+}
+if(reduce){
+var endP=paths[0].getPointAtLength(paths[0].getTotalLength());placeTok(endP);
+tasks.forEach(function(t,i){if(i!==3)t.el.classList.add('done');});evEnd.classList.add('on');
+}else{
+var t0=null,speed=70,pause=900,len=paths[0].getTotalLength();
+function step(ts){
+if(t0===null){t0=ts;resetFlow();len=paths[route].getTotalLength();}
+var d=(ts-t0)/1000*speed;
+if(d<=len){var p=paths[route].getPointAtLength(d);placeTok(p);markAt(p);}
+else if(ts-t0>len/speed*1000+pause){t0=null;route=1-route;}
+requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+}
+var US=[['k','როგორც '],['t','მომხმარებელი, '],['k','მსურს '],['t','ვხედავდე შეკვეთის სტატუსს, '],['k','რათა '],['t','ვიცოდე, როდის მივიღებ მას.']];
+var usEl=$('us'),acItems=document.querySelectorAll('#ac li'),usTag=$('usTag');
+var total=US.reduce(function(a,s){return a+s[1].length;},0);
+function renderUS(n,caret){var h='',left=n;US.forEach(function(s){if(left<=0)return;var part=s[1].slice(0,left);left-=part.length;h+=s[0]==='k'?'<span class="k">'+part+'</span>':part;});usEl.innerHTML=h+(caret?'<span class="caret"></span>':'');}
+function tickAC(i){if(i<acItems.length){acItems[i].classList.add('ok');setTimeout(function(){tickAC(i+1);},650);}else{usTag.classList.add('on');}}
+function storyLoop(){
+acItems.forEach(function(li){li.classList.remove('ok');});usTag.classList.remove('on');
+var n=0;renderUS(0,true);
+var iv=setInterval(function(){n++;renderUS(n,true);if(n>=total){clearInterval(iv);renderUS(total,false);setTimeout(function(){tickAC(0);},350);setTimeout(storyLoop,9000);}},34);
+}
+if(reduce){renderUS(total,false);acItems.forEach(function(li){li.classList.add('ok');});usTag.classList.add('on');}
+else{setTimeout(storyLoop,700);}
+
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var s0=null;function f(t){if(!s0)s0=t;var p=Math.min((t-s0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* planner: value vs effort + MoSCoW */
+var RQ=[
+{n:'შეკვეთის სტატუსის ნახვა პირად კაბინეტში',v:5,e:2},
+{n:'SMS შეტყობინება სტატუსის ცვლილებისას',v:4,e:3},
+{n:'ოპერატორის პანელი ხელით შემოწმებისთვის',v:4,e:5},
+{n:'შეკვეთების ისტორიის ექსპორტი PDF-ში',v:2,e:2},
+{n:'ანიმაციური ეკრანი აპის გახსნისას',v:1,e:3}
+];
+var MC={m:'Must',s:'Should',c:'Could',w:"Won't"},ORD={m:0,s:1,c:2,w:3};
+function cls(r){if(r.v>=4&&r.e<=3)return'm';if(r.v>=4||(r.v===3&&r.e<=2))return's';if(r.v===3||(r.v===2&&r.e<=3))return'c';return'w';}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+var rqList=$('rqList'),rh='';
+RQ.forEach(function(r,i){
+rh+='<div class="rq"><div class="rq-n"><i>'+(i+1)+'</i><span>'+esc(r.n)+'</span></div>'+
+'<div class="sl"><label for="rv'+i+'">ღირებულება</label><input type="range" id="rv'+i+'" min="1" max="5" step="1" value="'+r.v+'" data-i="'+i+'" data-k="v"><output id="ov'+i+'">'+r.v+'</output></div>'+
+'<div class="sl"><label for="re'+i+'">შრომა</label><input type="range" id="re'+i+'" min="1" max="5" step="1" value="'+r.e+'" data-i="'+i+'" data-k="e"><output id="oe'+i+'">'+r.e+'</output></div></div>';
+});
+rqList.innerHTML=rh;
+var mx=$('mx'),dots=[];
+RQ.forEach(function(r,i){var d=document.createElement('span');d.className='dot';d.textContent=i+1;mx.appendChild(d);dots.push(d);});
+var capIn=$('capIn'),XP=[10,26,42,66,88],YP=[86,70,56,36,20];
+function calc(){
+var cap=+capIn.value;$('capOut').textContent=cap;
+var list=RQ.map(function(r,i){return{i:i,r:r,c:cls(r),s:r.v/r.e};});
+list.sort(function(a,b){return ORD[a.c]-ORD[b.c]||b.s-a.s||a.i-b.i;});
+var used=0,inCount=0,must=0;
+list.forEach(function(x){x.in=false;if(x.c==='m')must++;if(x.c!=='w'&&used+x.r.e<=cap){x.in=true;used+=x.r.e;inCount++;}});
+var seen={};
+list.forEach(function(x){
+var key=x.r.v+'_'+x.r.e,k=seen[key]||0;seen[key]=k+1;
+var left=XP[x.r.e-1]+k*5,top=YP[x.r.v-1]+k*5;
+dots[x.i].style.left=left+'%';dots[x.i].style.top=top+'%';dots[x.i].classList.toggle('in',x.in);
+});
+var h='';
+list.forEach(function(x){h+='<li class="'+(x.in?'in':'')+'"><i>'+(x.i+1)+'</i><span>'+esc(x.r.n)+'<small>Value/Effort '+x.s.toFixed(1)+(x.in?' · რელიზში':'')+'</small></span><span class="mc '+x.c+'">'+MC[x.c]+'</span></li>';});
+$('rank').innerHTML=h;
+$('rMust').textContent=must;$('rIn').textContent=inCount+'/'+RQ.length;$('rCap').textContent=used+'/'+cap;
+}
+rqList.addEventListener('input',function(e){var t=e.target;if(!t.dataset||t.dataset.i===undefined)return;var i=+t.dataset.i;RQ[i][t.dataset.k]=+t.value;$('o'+t.dataset.k+i).textContent=t.value;calc();});
+capIn.addEventListener('input',calc);
+calc();
+
+/* syllabus */
+var P=[{n:'როლი და მოთხოვნები',r:[1,6]},{n:'მხარეები, არტეფაქტები, მოდელირება',r:[7,14]},{n:'ტექნიკური უნარები და ფინალი',r:[15,23]}];
+var L=[
+['ბიზნეს ანალიტიკოსი: როლი, ფუნქციები და გამოწვევები',['რა არის ბიზნესის ანალიზი?','ბიზნეს ანალიტიკოსის როლი და პროექტში შეტანილი ღირებულება (Value)','ბიზნეს ანალიტიკოსის აზროვნება (Mindset) და პოზიციები, რომლებიც ბიზნეს ანალიზს ითავსებენ','ბიზნეს ანალიზის ძირითადი ცნებები','კომპეტენციები და ცოდნის არეალი','ბიზნეს ანალიტიკოსის არტეფაქტები და გამოწვევები','*ქვიზი #1']],
+['სამუშაო ფრეიმვორქები და ბიზნეს ანალიტიკოსის აქტივობები',['პროგრამული უზრუნველყოფის განვითარების სასიცოცხლო ციკლი (SDLC)','Waterfall ფრეიმვორქი და ბიზნეს ანალიტიკოსის როლი','Agile ფრეიმვორქი და ბიზნეს ანალიტიკოსის როლი','ბიზნეს ანალიტიკოსის აქტივობები','ბიზნეს საჭიროების განსაზღვრა სხვადასხვა მეთოდით','*ქვიზი #2','*დავალება #1']],
+['ციფრული სამყაროს მუშაობის პრინციპები',[]],
+['პროდუქტის მოთხოვნები და ტიპები, მოთხოვნების მოპოვების პროცესი',['რა არის მოთხოვნა და რა ტიპის მოთხოვნები არსებობს','ფუნქციური და არაფუნქციური მოთხოვნები და კლასიფიკაციის მინიჭება','კარგი მოთხოვნის მახასიათებლები, SMART კრიტერიუმი','DoR და DoD','მოთხოვნის მოპოვების პროცესი და ეტაპები','*ქვიზი #3','*დავალება #2']],
+['მოთხოვნების მოპოვების ტექნიკები',['მოთხოვნების შეგროვებასა და მოპოვებას შორის სხვაობა','მოპოვების ტექნიკების მიმოხილვა და გამოყენების მაგალითები','*სიმულაციური თამაში','*დავალება #3']],
+['*ტესტი #1',['*ცოდნის შემოწმება']],
+['პროექტის მონაწილე მხარეები',['მონაწილე მხარეების იდენტიფიკაცია და მეთოდები','მონაწილე მხარეების ტიპები','ანალიზი და დამხმარე ხელსაწყოები','მონაწილე მხარეების მართვა','*ქვიზი #4','*დავალება #4']],
+['ბიზნეს ანალიტიკოსის არტეფაქტები',['რა არის არტეფაქტები და მათი ტიპები','Vision & scope document, Software requirements specification','User story, User story map, Use case, diagrams: მიზანი, ღირებულება და მაგალითები','*დავალება #5']],
+['მოთხოვნების სასიცოცხლო ციკლის მართვა',['მოთხოვნების სასიცოცხლო ციკლის მიმოხილვა','ბიზნეს ანალიტიკოსის ამოცანები ციკლის მართვისას','მოთხოვნების მიკვლევადობის მატრიცა (RTM)','მოთხოვნების პრიორიტეტიზაცია და ტექნიკები','მოთხოვნების ეფექტური მართვის რეკომენდაციები','*ქვიზი #5']],
+['*ტესტი #2',['*ცოდნის შემოწმება']],
+['UX/UI Basics',['რა არის UX/UI დიზაინი','Low Fidelity Wireframes','Mockups']],
+['პროდუქტის მოთხოვნების მოდელირება #1',['მოთხოვნების მოდელირება: ბენეფიტები და შეზღუდვები','მოთხოვნების მოდელირების გამოყენება','Context diagram, Mind map, Process flow diagrams','*დავალება #6']],
+['პროდუქტის მოთხოვნების მოდელირება #2',['Use-case და swim lane დიაგრამები: გამოყენება და მაგალითები','BPMN დიაგრამის კომპონენტები, გამოყენება და მაგალითები','ეფექტური დიაგრამის აგების რეკომენდაციები და ინსტრუმენტების მიმოხილვა','*დავალება #7']],
+['*ტესტი #3',['*ცოდნის შემოწმება']],
+['რელაციური და არარელაციური ბაზები',['რა არის რელაციური და არარელაციური ბაზები','SQL Queries']],
+['API',['რა არის API','API მოთხოვნების ჩამოყალიბება','API ტესტირება']],
+['ფუნქციონალური დანაწევრება და პროექტის შინაარსის მართვა',['რა არის ფუნქციონალური დანაწევრება','რატომ არის საჭირო პროექტის შინაარსის მართვა და რას იწვევს მისი უმართაობა','დანაწევრების ამოცანები, დონეები და მეთოდები','*პრაქტიკული ამოცანა ლექციაზე','*დავალება #8']],
+['ბიზნეს ანალიზის სამუშაოს შეფასება, რისკები და ცვლილებების მართვა',['შეფასების საჭიროება, ღირებულება და მეთოდები','რისკები ანალიზის პროცესში და გამკლავების მეთოდები','მოთხოვნის ცვლილების ტიპები, ცვლილებების სია და მართვის გეგმა','*ქვიზი #6']],
+['პროდუქტის დეველოპმენტის ტერმინოლოგია',['Backlog და მისი მართვა','Spike, POC და პროტოტიპები','User acceptance testing (UAT): Pre & Post conditions','ბიზნეს ანალიტიკოსის ტერმინოლოგია','*ქვიზი #7']],
+['ხელოვნური ინტელექტი IT ბიზნეს ანალიზში',['რა არის AI და როგორ მუშაობს','AI-ის ძირითადი გამოყენება ბიზნეს ანალიზში','AI Tools ბიზნეს ანალიტიკოსებისთვის','გამოწვევები AI-ის გამოყენებაში']],
+['*ტესტი #4',['*ცოდნის შემოწმება']],
+['შემაჯამებელი ლექცია',['ბიზნეს ანალიტიკოსისთვის საჭირო უნარები','ბიზნეს ანალიტიკოსისთვის საჭირო პლატფორმები','ფინალური პროექტის მიმოხილვა']],
+['*ფინალური პროექტების პრეზენტაცია',['*საკუთარი ფინალური პროექტის წარდგენა']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+var lec=$('lec'),h='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n,t=x[0],tk=t.charAt(0)==='*';
+h+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span class="t">'+esc(tk?t.slice(1):t)+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+var items=x[1].length?x[1]:['ციფრული სამყაროს მუშაობის პრინციპები'];
+items.forEach(function(s){var k=s.charAt(0)==='*';h+='<li'+(k?' class="tk"':'')+'>'+esc(k?s.slice(1):s)+'</li>';});
+h+='</ul></div></div></li>';
+});
+lec.innerHTML=h;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var ph=$('phases');
+function setPhase(k){
+ph.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?'23 შეხვედრა':c+' შეხვედრა ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button data-k="-1">ყველა<b>23</b></button>';
+P.forEach(function(p,i){hb+='<button data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+ph.innerHTML=hb;
+ph.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+
+/* payment tabs */
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>2200 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(2200/4).toFixed(0)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(2200/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>

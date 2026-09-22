@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft Excel: საბაზისოდან მონაცემთა ანალიზამდე | Smart Academy</title>
+<meta name="description" content="ისწავლე Excel ნულიდან ანალიზამდე: ფორმულები, IF, VLOOKUP, INDEX/MATCH, Pivot Tables, Goal Seek, Solver და სტატისტიკა. 17 შეხვედრა, ლექტორი BDO Georgia-დან.">
+<link rel="canonical" href="https://microsoft-excel.kursi.edu.ge/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="Microsoft Excel: საბაზისოდან მონაცემთა ანალიზამდე | Smart Academy">
+<meta property="og:description" content="ისწავლე Excel ნულიდან ანალიზამდე: ფორმულები, IF, VLOOKUP, INDEX/MATCH, Pivot Tables, Goal Seek, Solver და სტატისტიკა. 17 შეხვედრა, ლექტორი BDO Georgia-დან.">
+<meta property="og:url" content="https://microsoft-excel.kursi.edu.ge/">
+<meta property="og:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Microsoft Excel: საბაზისოდან მონაცემთა ანალიზამდე | Smart Academy">
+<meta name="twitter:description" content="ისწავლე Excel ნულიდან ანალიზამდე: ფორმულები, IF, VLOOKUP, INDEX/MATCH, Pivot Tables, Goal Seek, Solver და სტატისტიკა. 17 შეხვედრა, ლექტორი BDO Georgia-დან.">
+<meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
+<style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
+:root{
+--paper:#F1F3F8;--card:#FFFFFF;--ink:#131A26;--muted:#515B6B;--line:#D4DBE8;
+--azure:#1665B0;--azure-ink:#FFFFFF;--rose:#C23A66;--rose-ink:#FFFFFF;--soft:#DFE8F6;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#0B0F17;--card:#131A24;--ink:#E6ECF6;--muted:#98A3B5;--line:#232C3B;
+--azure:#6FAEF2;--azure-ink:#0B0F17;--rose:#F28DAE;--rose-ink:#1A0710;--soft:#16213A;}}
+:root[data-theme="dark"]{
+--paper:#0B0F17;--card:#131A24;--ink:#E6ECF6;--muted:#98A3B5;--line:#232C3B;
+--azure:#6FAEF2;--azure-ink:#0B0F17;--rose:#F28DAE;--rose-ink:#1A0710;--soft:#16213A;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--azure);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--azure);color:var(--azure-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-rose{background:var(--rose);color:var(--rose-ink)}
+.btn-rose:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.hero{padding:60px 0 24px}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(34px,5.4vw,74px);line-height:.94;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--azure)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+/* hero: pivot table assembling itself */
+.pv-stage{position:relative;display:flex;justify-content:center;padding:18px 0}
+.pv{width:min(410px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px 16px 18px;box-shadow:0 40px 70px -35px rgba(23,29,16,.5);position:relative;z-index:2;font-family:var(--geo)}
+.pv-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.pv-top b{font-size:14px;display:flex;align-items:center;gap:8px}
+.pv-top b:before{content:"";width:18px;height:18px;border-radius:5px;background:var(--azure) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.4'%3E%3Cpath d='M4 4h16v16H4zM4 10h16M4 15h16M10 4v16'/%3E%3C/svg%3E") center/12px no-repeat}
+.pv-top span{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 9px;white-space:nowrap}
+.pv-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:10px;margin-bottom:12px}
+.raw{border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:11px}
+.raw .rw{display:grid;grid-template-columns:1.25fr .6fr .95fr;gap:4px;padding:4px 8px;border-top:1px solid var(--line);align-items:center;transition:background .4s,box-shadow .4s}
+.raw .rw:first-child{border-top:0;background:var(--soft);font-weight:700;color:var(--muted);font-size:10.5px}
+.raw .rw span:last-child{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font)}
+.pv.s1 .raw .rw.t{box-shadow:inset 3px 0 0 var(--azure)}
+.pv.s1 .raw .rw.b{box-shadow:inset 3px 0 0 var(--rose)}
+.pv.s1 .raw .rw.k{box-shadow:inset 3px 0 0 #D69A1C}
+.pv.s3 .raw .rw:not(:first-child){animation:fly 1s cubic-bezier(.5,0,.3,1) forwards}
+.raw .rw:nth-child(3){animation-delay:.05s!important}.raw .rw:nth-child(4){animation-delay:.1s!important}.raw .rw:nth-child(5){animation-delay:.15s!important}.raw .rw:nth-child(6){animation-delay:.2s!important}.raw .rw:nth-child(7){animation-delay:.25s!important}.raw .rw:nth-child(8){animation-delay:.3s!important}
+@keyframes fly{0%{transform:none;opacity:1}55%{transform:translate(8px,70px) scale(.7);opacity:0}56%{transform:none;opacity:0}100%{transform:none;opacity:.42}}
+.fields{border:1px solid var(--line);border-radius:12px;padding:8px 9px;font-size:10.5px;display:flex;flex-direction:column;gap:5px}
+.fields>b{font-size:11px}
+.fl{display:flex;align-items:center;gap:6px;color:var(--muted)}
+.fl i{width:11px;height:11px;border:1.5px solid var(--muted);border-radius:3px;flex:none;transition:background .3s,border-color .3s}
+.pv.s1 .fl.f1 i,.pv.s3 .fl.f2 i,.pv.s2 .fl.f3 i{background:var(--azure);border-color:var(--azure)}
+.pv.s1 .fl.f1,.pv.s3 .fl.f2,.pv.s2 .fl.f3{color:var(--ink);font-weight:600}
+.zone{border:1.5px dashed var(--line);border-radius:8px;padding:3px 5px;min-height:28px;display:flex;align-items:center;gap:6px}
+.zone em{font-style:normal;color:var(--muted);font-size:9.5px;width:32px;flex:none}
+.chip{display:inline-block;padding:2px 7px;border-radius:6px;font-weight:700;font-size:10px;background:var(--azure);color:var(--azure-ink);opacity:0;transform:translate(-26px,-22px) scale(.8);transition:opacity .45s,transform .55s cubic-bezier(.2,.9,.3,1.3);white-space:nowrap}
+.chip.cv{background:var(--rose);color:var(--rose-ink)}
+.chip.cf{background:var(--ink);color:var(--paper)}
+.pv.s1 .chip.cr,.pv.s2 .chip.cv,.pv.s3 .chip.cf{opacity:1;transform:none}
+.pv-bot{display:grid;grid-template-columns:1.12fr 1fr;gap:10px;align-items:stretch}
+.pt{border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:11px}
+.pt .pr{display:grid;grid-template-columns:1fr auto;gap:6px;padding:4px 8px;border-top:1px solid var(--line);opacity:0;transform:translateX(-10px);transition:opacity .45s,transform .45s}
+.pt .pr:first-child{border-top:0;background:var(--soft);font-weight:700;color:var(--muted);font-size:10.5px;opacity:1;transform:none}
+.pt .pr span:last-child{font-variant-numeric:tabular-nums;font-family:var(--font);font-weight:700}
+.pt .pr.tot{background:color-mix(in srgb,var(--azure) 14%,transparent)}
+.pt .pr.tot span{font-weight:800}
+.pv.s3 .pt .pr{opacity:1;transform:none}
+.pv.s3 .pt .pr:nth-child(2){transition-delay:.55s}.pv.s3 .pt .pr:nth-child(3){transition-delay:.7s}.pv.s3 .pt .pr:nth-child(4){transition-delay:.85s}.pv.s3 .pt .pr:nth-child(5){transition-delay:1s}
+.ch{border:1px solid var(--line);border-radius:12px;padding:8px 8px 6px;display:flex;flex-direction:column}
+.ch small{font-size:9.5px;color:var(--muted);line-height:1.2}
+.bars{flex:1;display:flex;align-items:flex-end;gap:8px;min-height:66px;padding:6px 2px 0;border-bottom:1.5px solid var(--line)}
+.bars i{flex:1;border-radius:4px 4px 0 0;transform:scaleY(0);transform-origin:50% 100%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.bars i:nth-child(1){height:100%;background:var(--azure)}
+.bars i:nth-child(2){height:36%;background:var(--rose);transition-delay:.12s}
+.bars i:nth-child(3){height:24%;background:#D69A1C;transition-delay:.24s}
+.pv.s4 .bars i{transform:none}
+.bl{display:flex;gap:8px;font-size:9px;color:var(--muted);padding-top:3px}
+.bl span{flex:1;text-align:center}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite;white-space:nowrap}
+.bubble b{font-family:var(--font)}
+.bubble.b1{left:-18px;top:8px}
+.bubble.b1 b{color:var(--azure)}
+.bubble.b2{right:-18px;bottom:92px;animation-delay:-1.6s;background:var(--azure);color:var(--azure-ink);border-color:var(--azure);font-family:var(--mono);font-size:12.5px}
+.bubble.b3{left:-6px;bottom:0;animation-delay:-3.2s;background:var(--rose);color:var(--rose-ink);border-color:var(--rose)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+section{padding:90px 0}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+/* planner: VLOOKUP + IF sandbox */
+.plan{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;min-width:0}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 14px}
+.vfield{margin-bottom:18px}
+.vfield label{display:block;font-family:var(--geo);font-size:13px;color:var(--muted);margin-bottom:6px}
+.vfield label code{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--soft);padding:1px 5px;border-radius:5px}
+.vfield input{min-height:46px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);padding:0 14px;font:600 16px var(--font);width:100%}
+.vfield input:focus{border-color:var(--azure);outline:none}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:10px 0 0}
+.vresults{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
+.vstat{border:1px solid var(--line);border-radius:16px;padding:14px;min-width:0}
+.vstat span{display:block;font-family:var(--geo);font-size:12.5px;color:var(--muted)}
+.vstat b{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;line-height:1.25}
+.vstat.hl{background:var(--azure);border-color:var(--azure);color:var(--azure-ink)}
+.vstat.hl span{color:inherit;opacity:.85}
+.sheet{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;font-variant-numeric:tabular-nums}
+.sheet th,.sheet td{border:1px solid var(--line);padding:6px 10px;text-align:left}
+.sheet thead th{background:var(--soft);color:var(--muted);font-weight:600;font-size:12px;text-align:center}
+.sheet th[scope=row]{background:var(--soft);color:var(--muted);font-weight:600;font-size:12px;width:34px;text-align:center}
+.sheet td:last-child{text-align:right}
+.sheet tr.head td{font-family:var(--geo);font-weight:700}
+.sheet tr.hit td{background:color-mix(in srgb,var(--azure) 18%,transparent);font-weight:700}
+.sheet tr.hit td:first-child{box-shadow:inset 3px 0 0 var(--azure)}
+.fx{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.fx li{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px 12px;min-width:0}
+.fx .cell{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:700}
+.fx code{font-family:var(--mono);font-size:12.5px;overflow-wrap:anywhere;min-width:0}
+.fx code em{font-style:normal;color:var(--azure);font-weight:700}
+.fx b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec button:focus-visible{outline:3px solid var(--rose);outline-offset:-3px;border-radius:18px}
+.lec .n{font-weight:800;font-size:30px;color:var(--azure);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--rose);border-color:var(--rose);color:var(--rose-ink)}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:2px;background:var(--azure)}
+.lec button:hover .t{color:var(--azure)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+.out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;counter-reset:c;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{counter-increment:c;font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--azure);color:var(--azure-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:var(--rose) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 45s linear infinite}
+.jobs span{font-family:var(--mono);font-weight:700;font-size:21px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--azure)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.lects{display:flex;flex-direction:column;gap:56px}
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:26px;background:var(--azure);color:var(--azure-ink);position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px}
+.lect:nth-child(2) .portrait{background:var(--rose);color:var(--rose-ink)}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:160px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:34px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:22px;margin:18px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:40px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:13px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.bio2 p:last-child{margin-bottom:0}
+.path{list-style:none;padding:0;margin:16px 0}
+.path li{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:960px){
+.hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
+.path li{grid-template-columns:1fr;gap:2px}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+h1{font-size:44px}
+.wrap{padding:0 16px}
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.vresults{grid-template-columns:1fr}
+.sched{grid-template-columns:1fr}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+.panel{padding:20px 16px}
+.pv{padding:14px 12px 16px}
+.pv-grid,.pv-bot{gap:8px}
+.raw,.pt{font-size:10.5px}
+.raw .rw,.pt .pr{padding:4px 6px}
+.fields{padding:7px}
+.zone em{width:28px}
+.chip{font-size:9.5px;padding:2px 6px}
+.bubble{font-size:12px;padding:7px 11px}
+.bubble.b2{font-size:11px;right:-4px;bottom:74px;padding:6px 9px}
+.bubble.b3{bottom:-10px}
+.sheet{font-size:13px}
+.sheet th,.sheet td{padding:5px 7px}
+.fx li{grid-template-columns:28px 1fr;gap:4px 8px}
+.fx b{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span,.chip,.pt .pr,.bars i{transform:none;opacity:1}
+.raw .rw{opacity:1!important}
+.reveal{opacity:1;transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://microsoft-excel.kursi.edu.ge/#course",
+      "name": "Microsoft Excel: საბაზისოდან მონაცემთა ანალიზამდე",
+      "description": "ისწავლე Excel ნულიდან ანალიზამდე: ფორმულები, IF, VLOOKUP, INDEX/MATCH, Pivot Tables, ფინანსური ფუნქციები, Goal Seek, Solver და აღწერითი სტატისტიკა.",
+      "url": "https://microsoft-excel.kursi.edu.ge/",
+      "inLanguage": "ka",
+      "provider": {"@type": "Organization","name": "Smart Academy","sameAs": "https://smartacademy.ge"},
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Blended",
+        "courseWorkload": "PT34H",
+        "instructor": [
+          {"@type": "Person","name": "თეიმურაზ სულუაშვილი"},
+          {"@type": "Person","name": "სოფიო კაჭარავა"}
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/602-MICROSOFT-EXCEL",
+        "price": "1240",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock",
+        "category": "Paid"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://microsoft-excel.kursi.edu.ge/#product",
+      "name": "Microsoft Excel: საბაზისოდან მონაცემთა ანალიზამდე",
+      "description": "Excel-ის სრული კურსი: საბაზისო ფორმულებიდან Pivot Tables-ამდე, Solver-ამდე და მონაცემთა ანალიზამდე.",
+      "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
+      "brand": {"@type": "Brand","name": "Smart Academy"},
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/602-MICROSOFT-EXCEL",
+        "price": "1240",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem","position": 1,"name": "Smart Academy კურსები","item": "https://kursi.edu.ge/"},
+        {"@type": "ListItem","position": 2,"name": "Microsoft Excel: საბაზისოდან მონაცემთა ანალიზამდე","item": "https://microsoft-excel.kursi.edu.ge/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#planner">ფორმულის სავარჯიშო</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturers">ლექტორები</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/602-MICROSOFT-EXCEL" target="_blank" rel="noopener">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5</span></p>
+<h1><span class="ln"><span>Microsoft Excel:</span></span><span class="ln"><span>საბაზისოდან</span></span><span class="ln"><span>ანალიზამდე</span></span></h1>
+<p class="lead">გაიარე Excel-ის სრული გზა: ინტერფეისიდან და პირველი ფორმულებიდან IF, VLOOKUP და INDEX/MATCH ფუნქციებამდე, შემდეგ Pivot Tables, Pivot Charts და Slicer-ები, ფინანსური ფუნქციები, Goal Seek, Solver და აღწერითი სტატისტიკა. კურსს უძღვებიან BDO Georgia-ს ფინანსისტი და SMART Support-ის განვითარების ლიდი.</p>
+<dl class="facts">
+<div><dt>ლექტორები</dt><dd>2 პრაქტიკოსი</dd></div>
+<div><dt>ფორმატი</dt><dd>ფიზიკურად + ონლაინ</dd></div>
+<div><dt>დაწყება</dt><dd>12 ოქტომბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>2 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>17 შეხვედრა, 34 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>ორშ, ოთხ</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">1240 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/602-MICROSOFT-EXCEL" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
+</div>
+</div>
+<div class="pv-stage">
+<div class="bubble b1" aria-hidden="true">PivotTable <b>✓</b></div>
+<div class="bubble b2" aria-hidden="true">=INDEX(MATCH)</div>
+<div class="bubble b3" aria-hidden="true">Slicer <b>Q1</b></div>
+<div class="pv" id="pv" aria-hidden="true">
+<div class="pv-top"><b>გაყიდვები_Q1.xlsx</b><span>Insert › PivotTable</span></div>
+<div class="pv-grid">
+<div class="raw">
+<div class="rw"><span>რეგიონი</span><span>თვე</span><span>გაყიდვები</span></div>
+<div class="rw t"><span>თბილისი</span><span>იან</span><span>4,200</span></div>
+<div class="rw b"><span>ბათუმი</span><span>იან</span><span>2,100</span></div>
+<div class="rw k"><span>ქუთაისი</span><span>იან</span><span>1,600</span></div>
+<div class="rw t"><span>თბილისი</span><span>თებ</span><span>3,900</span></div>
+<div class="rw b"><span>ბათუმი</span><span>მარ</span><span>2,500</span></div>
+<div class="rw t"><span>თბილისი</span><span>მარ</span><span>4,600</span></div>
+<div class="rw k"><span>ქუთაისი</span><span>მარ</span><span>1,400</span></div>
+</div>
+<div class="fields">
+<b>PivotTable Fields</b>
+<span class="fl f1"><i></i>რეგიონი</span>
+<span class="fl f2"><i></i>თვე</span>
+<span class="fl f3"><i></i>გაყიდვები</span>
+<div class="zone"><em>Filters</em><span class="chip cf">თვე: Q1</span></div>
+<div class="zone"><em>Rows</em><span class="chip cr">რეგიონი</span></div>
+<div class="zone"><em>Values</em><span class="chip cv">Σ გაყიდვები</span></div>
+</div>
+</div>
+<div class="pv-bot">
+<div class="pt">
+<div class="pr"><span>Row Labels</span><span>Sum</span></div>
+<div class="pr"><span>თბილისი</span><span>12,700</span></div>
+<div class="pr"><span>ბათუმი</span><span>4,600</span></div>
+<div class="pr"><span>ქუთაისი</span><span>3,000</span></div>
+<div class="pr tot"><span>Grand Total</span><span>20,300</span></div>
+</div>
+<div class="ch">
+<small>PivotChart, ₾</small>
+<div class="bars"><i></i><i></i><i></i></div>
+<div class="bl"><span>თბ.</span><span>ბათ.</span><span>ქუთ.</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="plat"><p>ინსტრუმენტები, რომლებიც ისწავლება:</p><span>Microsoft Excel</span><span>PivotTable</span><span>Goal Seek</span><span>Solver</span></div>
+</div>
+</section>
+<section id="planner">
+<div class="wrap">
+<h2 class="reveal">ფორმულის სავარჯიშო: VLOOKUP + IF</h2>
+<p class="sub reveal">საძიებო და ლოგიკური ფუნქციების ერთად გამოყენება კურსის პირველივე ეტაპზე ისწავლება (ლექციები 4 და 7). შეიყვანე პროდუქტის კოდი და რაოდენობა: VLOOKUP იპოვის ფასს ცხრილში, IFERROR დაიჭერს არარსებულ კოდს, ხოლო IF გადაწყვეტს, ეკუთვნის თუ არა შეკვეთას ფასდაკლება.</p>
+<div class="plan reveal">
+<div class="panel">
+<h3>შემავალი უჯრედები</h3>
+<div class="vfield">
+<label for="xCode"><code>B1</code> პროდუქტის კოდი</label>
+<input type="text" id="xCode" value="A-103" autocomplete="off" spellcheck="false" maxlength="12">
+</div>
+<div class="vfield">
+<label for="xQty"><code>B2</code> რაოდენობა</label>
+<input type="number" id="xQty" min="0" step="1" value="3">
+</div>
+<div class="vfield">
+<label for="xMin"><code>B3</code> ფასდაკლების ზღვარი (₾)</label>
+<input type="number" id="xMin" min="0" step="50" value="1000">
+</div>
+<div class="vfield">
+<label for="xDisc"><code>B4</code> ფასდაკლება (%)</label>
+<input type="number" id="xDisc" min="0" max="100" step="1" value="10">
+</div>
+<p class="hint">სცადე კოდი A-109, რომ ნახო, როგორ მუშაობს IFERROR, როცა VLOOKUP მნიშვნელობას ვერ პოულობს.</p>
+</div>
+<div class="panel">
+<h3>ფურცელი და შედეგი</h3>
+<table class="sheet" aria-label="პროდუქტების ცხრილი E1:G6">
+<thead><tr><th scope="col"></th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead>
+<tbody id="xSheet"></tbody>
+</table>
+<div class="vresults">
+<div class="vstat"><span>B6 ფასი (VLOOKUP)</span><b id="xPrice">0</b></div>
+<div class="vstat"><span>B7 ჯამი</span><b id="xSum">0</b></div>
+<div class="vstat hl"><span>B8 გადასახდელი (IF)</span><b id="xPay">0</b></div>
+</div>
+<ul class="fx">
+<li><span class="cell">B6</span><code><em>=IFERROR(VLOOKUP(</em>B1,$E$2:$G$6,3,FALSE<em>)</em>,"ვერ მოიძებნა"<em>)</em></code><b id="fx1"></b></li>
+<li><span class="cell">B7</span><code>=IFERROR(B6*B2,0)</code><b id="fx2"></b></li>
+<li><span class="cell">B8</span><code><em>=IF(</em>B7&gt;=B3,B7*(1-B4),B7<em>)</em></code><b id="fx3"></b></li>
+</ul>
+<p class="hint" id="xNote" aria-live="polite"></p>
+<p class="hint">ფასები პირობითია, სავარჯიშო განკუთვნილია მხოლოდ საგანმანათლებლო მიზნით.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">17 შეხვედრა, ოთხი ეტაპი</h2>
+<p class="sub reveal">34 საათი: საბაზისო ფორმულებიდან საძიებო და პირობით ფუნქციებამდე, შემდეგ ფინანსურ და What-if ანალიზამდე, ბოლოს Pivot Tables-ამდე, Solver-ამდე და სტატისტიკამდე.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">ცარიელი ფურცლიდან მონაცემებზე დაფუძნებულ დასკვნებამდე: ფორმულები, ანალიზი, ვიზუალიზაცია და ოპტიმიზაცია ერთ ხელსაწყოში.</p>
+<div class="out">
+<div class="reveal">
+<h3>გეცოდინება</h3>
+<ul class="pill-list">
+<li>ადრესაცია და ფუნქციები კატეგორიების მიხედვით</li>
+<li>ლოგიკური ფუნქციები: IF, IFS, IFERROR, IFNA</li>
+<li>VLOOKUP, INDEX, MATCH, OFFSET, INDIRECT</li>
+<li>SUMIFS, COUNTIFS და Database ფუნქციები</li>
+<li>ფინანსური ფუნქციები: FV, PV, PMT, IPMT, PPMT</li>
+<li>Data Tables, Goal Seek, Scenario Manager</li>
+<li>SORT, SORTBY, UNIQUE, TEXTJOIN</li>
+<li>აღწერითი სტატისტიკა და ჰისტოგრამები</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>მონაცემების სისტემატიზაციას, დამუშავებასა და რაოდენობრივ ანალიზს</li>
+<li>Pivot Tables-ით, Pivot Charts-ით და Slicer-ებით ინტერაქტიული რეპორტების აწყობას</li>
+<li>გრაფიკების, ჰისტოგრამებისა და სხვა ფუნქციონალური ფორმების შექმნას</li>
+<li>პროგნოზირებას, ჰიპოტეზების ტესტირებასა და სტატისტიკური დასკვნების გაკეთებას</li>
+<li>Solver-ით მოგების მაქსიმიზაციისა და ხარჯების მინიმიზაციის ამოცანების გადაწყვეტას</li>
+<li>ოპტიმალურ არჩევანს შეზღუდული რესურსების პირობებსა და ფინანსური პორტფოლიოს მართვაში</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="კურსზე ნასწავლი ფუნქციები და ხელსაწყოები">
+<div class="track">
+<span>=VLOOKUP</span><span>=INDEX/MATCH</span><span>=SUMIFS</span><span>PivotTable</span><span>Goal Seek</span><span>Solver</span><span>=UNIQUE</span><span>Histogram</span>
+<span aria-hidden="true">=VLOOKUP</span><span aria-hidden="true">=INDEX/MATCH</span><span aria-hidden="true">=SUMIFS</span><span aria-hidden="true">PivotTable</span><span aria-hidden="true">Goal Seek</span><span aria-hidden="true">Solver</span><span aria-hidden="true">=UNIQUE</span><span aria-hidden="true">Histogram</span>
+</div>
+</div>
+</section>
+<section id="lecturers" style="padding-top:20px">
+<div class="wrap">
+<h2 class="reveal">ლექტორები</h2>
+<p class="sub reveal">2 პრაქტიკოსი: ფინანსური ანალიზი და ეკონომიკური მოდელირება, პროცესების გაციფრულება და ოპტიმიზაცია.</p>
+<div class="lects">
+<div class="lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">თს</span>
+<h2>თეიმურაზ<br>სულუაშვილი</h2>
+<p>ფინანსისტი, BDO Georgia</p>
+<div class="stat">
+<div><b data-count="4">0</b><span>პროგრამა (Word, PPT, Excel, IBM SPSS), რომლებსაც უნივერსიტეტში ასწავლიდა</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<p>თემო სულუაშვილი ფინანსისტია, რომელიც მონაწილეობს სხვადასხვა კომპანიის ფინანსური ანალიზისა და ეკონომიკური მოდელირების პროცესებში. დღემდე ფინანსურ და საგადასახადო თემებზე კონსულტაციას უწევს კომპანიებს, მათ შორის „ავტოდახმარება ჯუბას“ და „KAMERTON TRAVEL“-ს.</p>
+<ol class="path">
+<li><b>SunBreath Corp. Legal Services</b><span>ფინანსისტი, აუდიტორული კომპანია</span></li>
+<li><b>კავკასიის უნივერსიტეტი</b><span>ლექტორის ასისტენტი, საინფორმაციო ტექნოლოგიები: Word, PPT, Excel, IBM SPSS (2022-2023)</span></li>
+<li><b>BDO Georgia</b><span>Associate, Business Service &amp; Outsourcing</span></li>
+</ol>
+</div>
+</div>
+<div class="lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">სკ</span>
+<h2>სოფიო<br>კაჭარავა</h2>
+<p>განვითარების გუნდის ლიდერი, SMART Support</p>
+<div class="stat">
+<div><b data-count="5">0</b><span>წლის HR რეკრუტმენტის გამოცდილება</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<p>5 წლის HR რეკრუტმენტის გამოცდილება, IT &amp; Tech მიმართულების რეკრუტმენტის ექსპერტიზით. მუშაობდა სხვადასხვა ინდუსტრიის კომპანიებთან და მონაწილეობდა პროცესების გაციფრულებასა და ოპტიმიზაციაში.</p>
+<ol class="path">
+<li><b>SMART Support</b><span>ბიზნეს საკონსულტაციო და მომსახურების კომპანიის პარტნიორი, განვითარების მიმართულების ლიდი</span></li>
+</ol>
+<p>მართვისა და საზოგადოებრივ მეცნიერებათა სკოლის ბაკალავრის ხარისხი.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ადგილის დაჯავშნა</h2>
+<p class="sub">ფიზიკურად + ონლაინ, 2 თვის განმავლობაში, 17 შეხვედრა (34 საათი).<br>შემდეგი ნაკადი: 12 ოქტომბერი.</p>
+<div class="sched">
+<div><b>ორშაბათი</b>20:00-22:00</div>
+<div><b>ოთხშაბათი</b>20:00-22:00</div>
+</div>
+<p class="req"><strong>მოთხოვნები:</strong> კურსი იწყება Excel-ის ინტერფეისიდან და საბაზისო ფორმულებიდან, ამიტომ წინასწარი გამოცდილება სავალდებულო არ არის.</p>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">1240 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/602-MICROSOFT-EXCEL" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/602-MICROSOFT-EXCEL" target="_blank" rel="noopener">სრული პროგრამის ნახვა</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="tel:+995322121025">0322 12 10 25</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>1240 ₾</b><a class="btn btn-rose btn-sm" href="https://smartacademy.ge/trainings/602-MICROSOFT-EXCEL" target="_blank" rel="noopener">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fmt=function(n,d){return Number(n).toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
+var $=function(id){return document.getElementById(id);};
+var root=document.documentElement;
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
+function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+syncLogo();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!root.getAttribute('data-theme'))syncLogo();});}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}syncLogo();});
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* hero: pivot table assembles itself, then loops */
+var pv=$('pv');
+function setStage(s){var c='pv';for(var i=1;i<=s;i++)c+=' s'+i;pv.className=c;}
+if(reduce){setStage(4);}else{
+var steps=[[400,1],[900,2],[1400,3],[2200,4],[8200,0]],cyc=9000;
+var run=function(){steps.forEach(function(x){setTimeout(function(){setStage(x[1]);},x[0]);});};
+run();setInterval(run,cyc);
+}
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+/* planner: VLOOKUP + IFERROR + IF sandbox */
+var PROD=[['A-101','მაუსი',35],['A-102','კლავიატურა',60],['A-103','მონიტორი',420],['A-104','ყურსასმენი',90],['A-105','ვებკამერა',120]];
+var xCode=$('xCode'),xQty=$('xQty'),xMin=$('xMin'),xDisc=$('xDisc'),xSheet=$('xSheet');
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function calcLookup(){
+var code=xCode.value.trim().toUpperCase(),qty=Math.max(0,Math.floor(+xQty.value||0));
+var min=Math.max(0,+xMin.value||0),disc=Math.min(100,Math.max(0,+xDisc.value||0))/100;
+var hit=-1;PROD.forEach(function(p,i){if(p[0]===code)hit=i;});
+var sh='<tr class="head"><th scope="row">1</th><td>კოდი</td><td>პროდუქტი</td><td>ფასი ₾</td></tr>';
+PROD.forEach(function(p,i){sh+='<tr'+(i===hit?' class="hit"':'')+'><th scope="row">'+(i+2)+'</th><td>'+p[0]+'</td><td>'+esc(p[1])+'</td><td>'+p[2]+'</td></tr>';});
+xSheet.innerHTML=sh;
+var price=hit>=0?PROD[hit][2]:null;
+var sum=price===null?0:price*qty;
+var pay=sum>=min&&sum>0?sum*(1-disc):sum;
+var ok=price!==null&&sum>=min&&sum>0;
+$('xPrice').textContent=price===null?'ვერ მოიძებნა':fmt(price)+' ₾';
+$('xSum').textContent=fmt(sum)+' ₾';
+$('xPay').textContent=fmt(pay,pay%1?2:0)+' ₾';
+$('fx1').textContent=price===null?'"ვერ მოიძებნა"':price;
+$('fx2').textContent=fmt(sum);
+$('fx3').textContent=fmt(pay,pay%1?2:0);
+var note;
+if(price===null){note='VLOOKUP-მა კოდი "'+(code||'(ცარიელი)')+'" E სვეტში ვერ იპოვა და #N/A დააბრუნა, IFERROR-მა კი შეცდომა ტექსტით ჩაანაცვლა.';}
+else if(ok){note='IF: '+fmt(sum)+' ₾ ≥ '+fmt(min)+' ₾, პირობა TRUE-ა, ამიტომ '+Math.round(disc*100)+'% ფასდაკლება ამოქმედდა ('+PROD[hit][1]+', რიგი '+(hit+2)+').';}
+else{note='IF: '+fmt(sum)+' ₾ < '+fmt(min)+' ₾, პირობა FALSE-ა, ამიტომ B8 უბრალოდ B7-ის მნიშვნელობას იმეორებს ('+PROD[hit][1]+', რიგი '+(hit+2)+').';}
+$('xNote').textContent=note;
+}
+[xCode,xQty,xMin,xDisc].forEach(function(i){i.addEventListener('input',calcLookup);});
+calcLookup();
+/* syllabus */
+var P=[{n:'საფუძვლები',r:[1,5]},{n:'ფუნქციები და Pivot',r:[6,9]},{n:'ანალიზი და ფინანსები',r:[10,13]},{n:'ოპტიმიზაცია და სტატისტიკა',r:[14,17]}];
+var L=[
+['Excel-ის ინტერფეისი და მონაცემების შეყვანა',['ინტერფეისის მიმოხილვა, შედარება Office-ის სხვა პროგრამებთან','მონაცემების შეყვანა და ფორმატირება (Format Cells)']],
+['ფორმულები და ადრესაცია',['ფორმულები და ფუნქციები კატეგორიების მიხედვით','ადრესაცია და მისი თავისებურებები','მონაცემების გავრცობა, Paste Special ბრძანება']],
+['საბაზისო ფუნქციები',['Sum, Average, Count, Max, Min','თარიღის ფუნქციები: Date, Now, Today','შემთხვევითი რიცხვები: Rand, Randbetween','დამრგვალება: Round, Roundup, Rounddown, Trunc']],
+['ლოგიკური და საძიებო ფუნქციები',['IF, AND, OR, IFERROR, IFNA','VLOOKUP და HLOOKUP','ნასწავლი ფუნქციების გაერთიანება ლოგიკურ ფუნქციებთან']],
+['პირობითი დაფორმატება და ცხრილები',['Conditional Formatting ფორმულების დახმარებით','ცხრილთან მუშაობა: გაფილტვრა, ზრდადობა-კლებადობით დალაგება, სორტირება']],
+['ტექსტური ფუნქციები',['Find, Right, Left, Mid','CONCATENATE, Upper, Lower']],
+['Lookup & Reference ფუნქციები',['Lookup, HLookup, VLookup','Match და Index','პრაქტიკული მაგალითები ფუნქციათა კომბინაციით']],
+['პირობითი გამოთვლები და მონაცემთა კონტროლი',['Sumif, Sumifs, Averageif, Averageifs','Countif, Countifs','Data Validation']],
+['დიაგრამები და Pivot Tables',['ცხრილებსა და დიაგრამებზე მუშაობა','Pivot Tables და Pivot Charts, ველების სორტირება და ფილტრი','Slicers და Timeline','PivotTable რამდენიმე წყაროს მონაცემებზე']],
+['მონაცემთა ანალიზის შესავალი',['მონაცემთა ანალიზის საწყისები','მონაცემების შეყვანისა და ფორმატირების დამუშავების ხერხები','Go To Special: უჯრედების მონიშვნა კრიტერიუმებით']],
+['საძიებო და თარიღის ფუნქციები ანალიზისთვის',['Lookup, Index, Match','Today, Now, Date, Day, Month, Year, Hour, Minute','EDATE, EOMONTH, NETWORKDAYS, WEEKNUM, WORKDAY','Sequence ფორმულა']],
+['ფინანსური ანალიზი',['FV, PV, Rate, Nper, Pmt','IPMT და PPMT: სარგებელი და ძირი კონკრეტული გადახდისას','ამორტიზაციის სქემა (Personal Finance)']],
+['What-if ანალიზი',['IF, AND, OR, IFERROR, IFNA, IFS','Data Tables','Goal Seek: ერთი პარამეტრის გადათვლა','Scenario Manager']],
+['Tables და Database ფუნქციები',['Tables ბრძანება','Database ფუნქციების შედარება Sumifs, Averageifs, Countifs-თან','Conditional Formatting და დახარისხება ფორმატით']],
+['OFFSET, INDIRECT და მართვის ელემენტები',['OFFSET, INDIRECT და შედარება VLOOKUP, INDEX, MATCH-თან','Spin Buttons, Scroll Bars, Option Buttons, Check Boxes','Combo Boxes და List Boxes','Data Validation']],
+['Pivot Tables სიღრმისეულად და კონსოლიდაცია',['Group Items, GetPivotData, PivotTable რამდენიმე დიაპაზონიდან','ფილტრაცია ფორმულით და მონაცემთა კონსოლიდაცია','Subtotal ბრძანება და ფუნქცია','Advanced Filter და ცხრილის ფილტრთან შედარება']],
+['Solver, სტატისტიკა და დინამიური ფორმულები',['Solver: მოგების მაქსიმიზაცია, ხარჯების მინიმიზაცია, ფინანსური დაგეგმვა','Solver და Goal Seek-ის შედარება','სიხშირული ცხრილი და ჰისტოგრამა, აღწერითი სტატისტიკა','Sort, Sortby, Unique, TextJoin და OFFSET-ის კომბინაციები']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+var lec=$('lec'),h='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n;
+h+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span class="t">'+esc(x[0])+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+x[1].forEach(function(t){h+='<li>'+esc(t)+'</li>';});
+h+='</ul></div></div></li>';
+});
+lec.innerHTML=h;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var ph=$('phases');
+function setPhase(k){
+ph.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?'17 შეხვედრა':c+' შეხვედრა ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button data-k="-1">ყველა<b>17</b></button>';
+P.forEach(function(p,i){hb+='<button data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+ph.innerHTML=hb;
+ph.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+/* payment tabs */
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>1240 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(1240/4).toFixed(1)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(1240/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>

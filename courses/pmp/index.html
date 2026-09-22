@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>პროექტების მართვა - PMP | Smart Academy</title>
+<meta name="description" content="მოემზადე PMP გამოცდისთვის: Waterfall, Agile, Hybrid, People, Process და Business Environment დომენები. 17 შეხვედრა, ლექტორი PMI Certified Instructor.">
+<link rel="canonical" href="https://pmp.kursi.edu.ge/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="პროექტების მართვა - PMP | Smart Academy">
+<meta property="og:description" content="მოემზადე PMP გამოცდისთვის: Waterfall, Agile, Hybrid, People, Process და Business Environment დომენები. 17 შეხვედრა, ლექტორი PMI Certified Instructor.">
+<meta property="og:url" content="https://pmp.kursi.edu.ge/">
+<meta property="og:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="პროექტების მართვა - PMP | Smart Academy">
+<meta name="twitter:description" content="მოემზადე PMP გამოცდისთვის: Waterfall, Agile, Hybrid, People, Process და Business Environment დომენები. 17 შეხვედრა, ლექტორი PMI Certified Instructor.">
+<meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
+<style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
+:root{
+--paper:#F2F2F8;--card:#FFFFFF;--ink:#171A2B;--muted:#565B70;--line:#D8DBEA;--soft:#E1E4F7;
+--indigo:#2F45B5;--indigo-ink:#FFFFFF;--sun:#F2C230;--sun-ink:#231C02;--warn:#B63A22;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#0D0F1A;--card:#151827;--ink:#E9EBF8;--muted:#A0A5BD;--line:#282C42;--soft:#1C2140;
+--indigo:#8C9EFF;--indigo-ink:#0D0F1A;--sun:#F5CF55;--sun-ink:#0D0F1A;--warn:#FF8A70;}}
+:root[data-theme="dark"]{
+--paper:#0D0F1A;--card:#151827;--ink:#E9EBF8;--muted:#A0A5BD;--line:#282C42;--soft:#1C2140;
+--indigo:#8C9EFF;--indigo-ink:#0D0F1A;--sun:#F5CF55;--sun-ink:#0D0F1A;--warn:#FF8A70;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--indigo);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--indigo);color:var(--indigo-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-sun{background:var(--sun);color:var(--sun-ink)}
+.btn-sun:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.hero{padding:60px 0 24px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:48px;align-items:center}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(38px,5.8vw,80px);line-height:.94;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--indigo)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+.sim-stage{position:relative;display:flex;justify-content:center;padding:24px 0}
+.sim{width:min(410px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:18px 18px 20px;box-shadow:0 40px 70px -35px rgba(27,31,18,.5);position:relative;z-index:2;font-family:var(--geo)}
+.sim-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.sim-head b{font-size:14px;display:flex;align-items:center;gap:8px}
+.sim-head b:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--indigo)}
+.timer{display:inline-flex;align-items:center;gap:6px;font-family:var(--font);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;padding:4px 10px;border-radius:999px;background:var(--soft)}
+.timer svg{flex:none}
+.qmeta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px}
+.qmeta b{color:var(--ink);font-family:var(--font);font-variant-numeric:tabular-nums}
+.dchip{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sun);color:var(--sun-ink)}
+.qbar{height:6px;border-radius:999px;background:var(--soft);overflow:hidden;margin-bottom:14px}
+.qbar i{display:block;height:100%;background:var(--indigo);border-radius:999px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.qtext{font-size:13.5px;font-weight:600;line-height:1.45;min-height:58px;margin:0 0 10px;transition:opacity .3s}
+.opts{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:6px;transition:opacity .3s}
+.opts li{display:grid;grid-template-columns:24px 1fr 18px;align-items:center;gap:9px;min-height:38px;padding:6px 10px;border:1.5px solid var(--line);border-radius:11px;font-size:12.5px;line-height:1.3;transition:border-color .3s,background .3s,color .3s}
+.opts li .k{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--soft);font-weight:700;font-size:12px;font-family:var(--font);transition:background .3s,color .3s}
+.opts li .ck{opacity:0;transform:scale(.4);transition:opacity .3s,transform .3s;color:var(--indigo)}
+.opts li.pick{border-color:var(--sun);background:color-mix(in srgb,var(--sun) 16%,var(--card))}
+.opts li.pick .k{background:var(--sun);color:var(--sun-ink)}
+.opts li.ok{border-color:var(--indigo);background:color-mix(in srgb,var(--indigo) 14%,var(--card))}
+.opts li.ok .k{background:var(--indigo);color:var(--indigo-ink)}
+.opts li.ok .ck{opacity:1;transform:none}
+.fade{opacity:0}
+.dom{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:8px}
+.dom p{margin:0 0 2px;font-size:11.5px;color:var(--muted);display:flex;justify-content:space-between}
+.drow{display:grid;grid-template-columns:118px 1fr 38px;align-items:center;gap:10px;font-size:12px}
+.drow span{font-weight:600}
+.drow .tr{height:8px;border-radius:999px;background:var(--soft);overflow:hidden}
+.drow .tr i{display:block;height:100%;width:0;border-radius:999px;background:var(--indigo);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.drow:nth-child(3) .tr i{background:var(--sun)}
+.drow b{font-family:var(--font);font-variant-numeric:tabular-nums;text-align:right}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
+.bubble b{font-family:var(--font)}
+.bubble.b1{left:-18px;top:6px}
+.bubble.b2{right:-20px;bottom:0;animation-delay:-1.6s;background:var(--indigo);color:var(--indigo-ink);border-color:var(--indigo)}
+.bubble.b3{left:-14px;bottom:0;animation-delay:-3.2s;background:var(--sun);color:var(--sun-ink);border-color:var(--sun)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+section{padding:90px 0}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+.plan{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 14px}
+.vfield{margin-bottom:16px}
+.vfield label{display:block;font-family:var(--geo);font-size:13px;color:var(--muted);margin-bottom:6px}
+.vfield label b{color:var(--ink);font-family:var(--font)}
+.vfield input{min-height:46px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);padding:0 14px;font:600 16px var(--font);width:100%}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:10px 0 0}
+.vresults{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px}
+.vstat{border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.vstat span{display:block;font-family:var(--geo);font-size:12.5px;color:var(--muted)}
+.vstat b{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.3}
+.vstat em{display:block;font-style:normal;font-family:var(--geo);font-size:12px;font-weight:700}
+.good{color:var(--indigo)}
+.bad{color:var(--warn)}
+.gauges{display:grid;gap:14px;margin-bottom:18px}
+.gauge p{margin:0 0 6px;font-family:var(--geo);font-size:13px;color:var(--muted);display:flex;justify-content:space-between}
+.gauge p b{color:var(--ink);font-family:var(--font)}
+.gtrack{position:relative;height:14px;border-radius:999px;background:linear-gradient(90deg,color-mix(in srgb,var(--warn) 30%,var(--soft)) 0 50%,color-mix(in srgb,var(--indigo) 30%,var(--soft)) 50% 100%)}
+.gtrack:after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--ink);opacity:.5}
+.gtrack i{position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:var(--ink);border:3px solid var(--card);transform:translate(-50%,-50%);transition:left .5s cubic-bezier(.2,.8,.2,1)}
+.gscale{display:flex;justify-content:space-between;font-family:var(--font);font-size:11px;color:var(--muted);margin-top:4px}
+.verdict{font-family:var(--geo);background:var(--soft);border-radius:16px;padding:14px 16px;margin:0;font-size:15px}
+.verdict p{margin:0 0 6px}
+.verdict p:last-child{margin:0}
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec button:focus-visible{outline:3px solid var(--sun);outline-offset:-3px;border-radius:18px}
+.lec .n{font-weight:800;font-size:30px;color:var(--indigo);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--indigo)}
+.lec ul li.tk{font-weight:700}
+.lec ul li.tk:before{background:var(--sun);border-radius:2px}
+.lec button:hover .t{color:var(--indigo)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+.out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--indigo);color:var(--indigo-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:#F2C230 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23231C02' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 45s linear infinite}
+.jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--indigo)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:28px;background:var(--indigo);color:var(--indigo-ink);position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:220px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:42px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:26px;margin:22px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:44px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:14px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.path{list-style:none;padding:0;margin:24px 0}
+.path li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:960px){
+.hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
+.path li{grid-template-columns:1fr;gap:2px}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+h1{font-size:49px}
+.wrap{padding:0 16px}
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.vresults{grid-template-columns:1fr 1fr}
+.sched{grid-template-columns:1fr}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+.sim{padding:16px 14px 18px}
+.drow{grid-template-columns:104px 1fr 36px;gap:8px}
+.bubble{font-size:12px;padding:7px 11px}
+.bubble.b3{left:4px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span{transform:none;opacity:1}
+.reveal{opacity:1;transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://pmp.kursi.edu.ge/#course",
+      "name": "პროექტების მართვა - PMP",
+      "description": "PMP გამოცდისთვის მოსამზადებელი კურსი: Waterfall, Agile და Hybrid მიდგომები, პროექტის ციკლის ფაზები და გამოცდის სამი დომენი: People, Process და Business Environment.",
+      "url": "https://pmp.kursi.edu.ge/",
+      "inLanguage": "ka",
+      "provider": {"@type": "Organization","name": "Smart Academy","sameAs": "https://smartacademy.ge"},
+      "instructor": [{"@type": "Person","name": "მერი ჯანგავაძე","jobTitle": "PMP, PMI Certified Instructor"}],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "PT35H",
+        "courseSchedule": {"@type": "Schedule","repeatFrequency": "P1W","byDay": ["https://schema.org/Tuesday","https://schema.org/Thursday"],"startTime": "19:00","endTime": "21:00"},
+        "instructor": [{"@type": "Person","name": "მერი ჯანგავაძე"}]
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/467-PROJECT-MANAGEMENT-PMP-EXAM-PREPARATION-COURSE",
+        "price": "1600",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock",
+        "category": "Paid"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://pmp.kursi.edu.ge/#product",
+      "name": "პროექტების მართვა - PMP",
+      "description": "PMP გამოცდისთვის მოსამზადებელი ონლაინ კურსი, 17 შეხვედრა, 35 საათი.",
+      "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
+      "brand": {"@type": "Brand","name": "Smart Academy"},
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/467-PROJECT-MANAGEMENT-PMP-EXAM-PREPARATION-COURSE",
+        "price": "1600",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem","position": 1,"name": "Smart Academy კურსები","item": "https://kursi.edu.ge/"},
+        {"@type": "ListItem","position": 2,"name": "პროექტების მართვა - PMP","item": "https://pmp.kursi.edu.ge/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#planner">EVM კალკულატორი</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturers">ლექტორი</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/467-PROJECT-MANAGEMENT-PMP-EXAM-PREPARATION-COURSE" target="_blank" rel="noopener">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5</span></p>
+<h1><span class="ln"><span>პროექტების</span></span><span class="ln"><span>მართვა</span></span><span class="ln"><span>PMP</span></span></h1>
+<p class="lead">მოემზადე PMP გამოცდისთვის სისტემურად: Waterfall, Agile და Hybrid მიდგომები, პროექტის ციკლის ყველა ფაზა და გამოცდის სამი დომენი: ადამიანები, პროცესები და ბიზნეს გარემო. კურსს უძღვება PMP სერტიფიცირებული, PMI-ს მიერ ავტორიზებული ინსტრუქტორი.</p>
+<dl class="facts">
+<div><dt>ლექტორი</dt><dd>მერი ჯანგავაძე, PMP</dd></div>
+<div><dt>ფორმატი</dt><dd>ონლაინ</dd></div>
+<div><dt>დაწყება</dt><dd>6 ოქტომბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>2 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>17 შეხვედრა, 35 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>სამ, ხუთ 19:00</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">1600 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/467-PROJECT-MANAGEMENT-PMP-EXAM-PREPARATION-COURSE" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
+</div>
+</div>
+<div class="sim-stage" aria-hidden="true">
+<div class="bubble b1">Waterfall · Agile · <b>Hybrid</b></div>
+<div class="bubble b2">PMI <b>Instructor</b></div>
+<div class="bubble b3"><b>35</b> საათი</div>
+<div class="sim">
+<div class="sim-head"><b>PMP სავარჯიშო ტესტი</b><span class="timer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><span id="tmr">01:12:08</span></span></div>
+<div class="qmeta"><span>კითხვა <b id="qNum">47</b> / 60</span><span class="dchip" id="qDom">People</span></div>
+<div class="qbar"><i id="qBar" style="width:78%"></i></div>
+<p class="qtext" id="qText"></p>
+<ol class="opts" id="opts"></ol>
+<div class="dom" id="dom">
+<p><span>შედეგი დომენების მიხედვით</span><span>სწორი პასუხები</span></p>
+<div class="drow"><span>People</span><div class="tr"><i id="d0"></i></div><b id="v0">0%</b></div>
+<div class="drow"><span>Process</span><div class="tr"><i id="d1"></i></div><b id="v1">0%</b></div>
+<div class="drow"><span>Business Env.</span><div class="tr"><i id="d2"></i></div><b id="v2">0%</b></div>
+</div>
+</div>
+</div>
+</div>
+<div class="plat"><p>მიდგომები, რომლებიც ისწავლება:</p><span>Waterfall</span><span>Agile</span><span>Hybrid</span></div>
+</div>
+</section>
+<section id="planner">
+<div class="wrap">
+<h2 class="reveal">Earned Value კალკულატორი</h2>
+<p class="sub reveal">Earned Value Management PMP გამოცდის კლასიკური თემაა და ეყრდნობა ბიუჯეტის დაგეგმვასა (ლექცია 9) და პროექტის შედეგიანობის მონიტორინგს (ლექცია 14). შეიყვანე BAC, PV, EV და AC, კალკულატორი დაგითვლის გადახრებს, ინდექსებს და პროგნოზს, და ახსნის რას ნიშნავს თითოეული.</p>
+<div class="plan reveal">
+<div class="panel">
+<h3>პროექტის მონაცემები (₾)</h3>
+<div class="vfield">
+<label for="eBac"><b>BAC</b> - მთლიანი დამტკიცებული ბიუჯეტი</label>
+<input type="number" id="eBac" min="1" step="100" value="120000">
+</div>
+<div class="vfield">
+<label for="ePv"><b>PV</b> - დღემდე დაგეგმილი სამუშაოს ღირებულება</label>
+<input type="number" id="ePv" min="0" step="100" value="60000">
+</div>
+<div class="vfield">
+<label for="eEv"><b>EV</b> - რეალურად შესრულებული სამუშაოს ღირებულება</label>
+<input type="number" id="eEv" min="0" step="100" value="54000">
+</div>
+<div class="vfield">
+<label for="eAc"><b>AC</b> - დღემდე ფაქტობრივად დახარჯული თანხა</label>
+<input type="number" id="eAc" min="0" step="100" value="58000">
+</div>
+<p class="hint">მაგალითი: 120 000 ₾-იანი პროექტი, სადაც განრიგით ნახევარი უნდა ყოფილიყო შესრულებული.</p>
+</div>
+<div class="panel" aria-live="polite">
+<h3>შედეგი</h3>
+<div class="vresults">
+<div class="vstat"><span>CV = EV - AC</span><b id="rCv">0</b><em id="sCv"></em></div>
+<div class="vstat"><span>SV = EV - PV</span><b id="rSv">0</b><em id="sSv"></em></div>
+<div class="vstat"><span>EAC = BAC / CPI</span><b id="rEac">0</b><em id="sEac"></em></div>
+<div class="vstat"><span>CPI = EV / AC</span><b id="rCpi">0</b><em id="sCpi"></em></div>
+<div class="vstat"><span>SPI = EV / PV</span><b id="rSpi">0</b><em id="sSpi"></em></div>
+<div class="vstat"><span>VAC = BAC - EAC</span><b id="rVac">0</b><em id="sVac"></em></div>
+</div>
+<div class="gauges" aria-hidden="true">
+<div class="gauge"><p><span>CPI, ხარჯის ეფექტიანობა</span><b id="gCpiT">1.00</b></p><div class="gtrack"><i id="gCpi" style="left:50%"></i></div><div class="gscale"><span>0.5</span><span>1.0</span><span>1.5</span></div></div>
+<div class="gauge"><p><span>SPI, განრიგის ეფექტიანობა</span><b id="gSpiT">1.00</b></p><div class="gtrack"><i id="gSpi" style="left:50%"></i></div><div class="gscale"><span>0.5</span><span>1.0</span><span>1.5</span></div></div>
+</div>
+<div class="verdict" id="verdict"></div>
+<p class="hint">EAC აქ გამოითვლება ფორმულით BAC / CPI, ანუ ვარაუდით, რომ მიმდინარე ხარჯის ეფექტიანობა შენარჩუნდება. კურსზე განიხილავ სხვა სცენარებსაც. კალკულატორი საგანმანათლებლო მიზნისთვისაა.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">17 შეხვედრა, ოთხი ეტაპი</h2>
+<p class="sub reveal">35 საათი, Project Economy-დან და ინიცირებიდან დაგეგმვამდე, ლიდერობამდე, პროექტის დახურვამდე და საბოლოო ცოდნის შემოწმებამდე.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">მყარი თეორიული საფუძველი PMP სერტიფიცირებისთვის: საკვანძო კონცეფციები, პროცესები და საუკეთესო პრაქტიკები.</p>
+<div class="out">
+<div class="reveal">
+<h3>გეცოდინება</h3>
+<ul class="pill-list">
+<li>Waterfall, Agile და Hybrid მიდგომების სპეციფიკა</li>
+<li>პროექტის ციკლის თითოეული ფაზა</li>
+<li>თითოეულ ფაზაზე შექმნილი დოკუმენტები და ინსტრუმენტები</li>
+<li>PMP გამოცდის 3 დომენი: People, Process, Business Environment</li>
+<li>Project Economy, სარგებელი და ღირებულება</li>
+<li>Project Governance და ორგანიზაციული კულტურა</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>დაინტერესებული მხარეების იდენტიფიცირებასა და გუნდის ფორმირებას</li>
+<li>Project Charter-ის შედგენასა და პროექტის მიდგომის შერჩევას</li>
+<li>Scope, განრიგის, რესურსებისა და ბიუჯეტის დაგეგმვას</li>
+<li>რისკების მართვასა და ხარისხის კონტროლს</li>
+<li>გუნდის ლიდერობასა და კონფლიქტების მართვას</li>
+<li>შედეგიანობის მონიტორინგს, ცვლილებების მართვასა და პროექტის დახურვას</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="დაკავშირებული პროფესიები">
+<div class="track">
+<span>პროექტის მენეჯერი</span><span>Project Manager</span><span>პროექტის კოორდინატორი</span><span>PMO სპეციალისტი</span>
+<span aria-hidden="true">პროექტის მენეჯერი</span><span aria-hidden="true">Project Manager</span><span aria-hidden="true">პროექტის კოორდინატორი</span><span aria-hidden="true">PMO სპეციალისტი</span>
+<span aria-hidden="true">პროექტის მენეჯერი</span><span aria-hidden="true">Project Manager</span><span aria-hidden="true">პროექტის კოორდინატორი</span><span aria-hidden="true">PMO სპეციალისტი</span>
+</div>
+</div>
+</section>
+<section id="lecturers" style="padding-top:20px">
+<div class="wrap lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">მჯ</span>
+<h2>მერი<br>ჯანგავაძე</h2>
+<p>PMP, PMI Certified Instructor</p>
+<div class="stat">
+<div><b data-count="7">0</b><span>წლის გამოცდილება პროექტების მართვაში</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<h2>ლექტორი</h2>
+<p>მერი პროექტის მართვის პროფესიონალია (PMP) და პროექტის მართვის ინსტიტუტის (PMI) მიერ ავტორიზებული ტრენინგ ინსტრუქტორი. აქვს საერთაშორისო სამართლის, თავდაცვისა და უსაფრთხოების სფეროში პროექტების მართვის 7-წლიანი გამოცდილება. ის საქართველოში განვითარებული, PMI-ს მიერ აკრედიტებული პირველი "PMP Exam Preparation" კურსის თანაავტორია.</p>
+<ol class="path">
+<li><b>PMI</b><span>ავტორიზებული ტრენინგ ინსტრუქტორი, PMP სერტიფიკატის მფლობელი</span></li>
+<li><b>PMP Exam Prep</b><span>საქართველოში PMI-ს მიერ აკრედიტებული პირველი PMP მოსამზადებელი კურსის თანაავტორი</span></li>
+<li><b>CIPD, UK</b><span>სწავლისა და განვითარების მენეჯერი (Chartered Institute of Personnel and Development)</span></li>
+<li><b>NATO</b><span>სერტიფიცირებული სტრატეგიული კომუნიკაციების ტრენერი</span></li>
+<li><b>განათლება</b><span>საერთაშორისო სამართლის მაგისტრი, დიპლომატი</span></li>
+</ol>
+<p style="color:var(--muted);margin-bottom:10px">კვალიფიკაციები:</p>
+<div class="brands">
+<span>PMP</span><span>PMI Certified Instructor</span><span>CIPD</span><span>NATO StratCom Trainer</span>
+</div>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ადგილის დაჯავშნა</h2>
+<p class="sub">ონლაინ, 2 თვის განმავლობაში, 17 შეხვედრა, 35 საათი.<br>შემდეგი ნაკადი: 6 ოქტომბერი.</p>
+<div class="sched">
+<div><b>სამშაბათი</b>19:00-21:00</div>
+<div><b>ხუთშაბათი</b>19:00-21:00</div>
+</div>
+<p class="req"><strong>მოთხოვნები:</strong> ინგლისური ენის ცოდნა იმ დონეზე, რომ შეძლო ინგლისურენოვანი სასწავლო მასალის გაცნობა და გააზრება.</p>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">1600 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/467-PROJECT-MANAGEMENT-PMP-EXAM-PREPARATION-COURSE" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/467-PROJECT-MANAGEMENT-PMP-EXAM-PREPARATION-COURSE" target="_blank" rel="noopener">სრული პროგრამის ნახვა</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="tel:+995322121025">0322 12 10 25</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>1600 ₾</b><a class="btn btn-sun btn-sm" href="https://smartacademy.ge/trainings/467-PROJECT-MANAGEMENT-PMP-EXAM-PREPARATION-COURSE" target="_blank" rel="noopener">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fmt=function(n,d){return Number(n).toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
+var $=function(id){return document.getElementById(id);};
+var root=document.documentElement;
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
+function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+syncLogo();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!root.getAttribute('data-theme'))syncLogo();});}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}syncLogo();});
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+/* hero: PMP practice exam simulator */
+var Q=[
+{d:0,q:'გუნდის ორ წევრს შორის კონფლიქტი სამუშაოს აფერხებს. რა უნდა გააკეთოს პროექტის მენეჯერმა პირველ რიგში?',o:['საკითხის სპონსორთან ესკალაცია','ორივესთან ერთად პრობლემის მიზეზის განხილვა','ერთ-ერთი წევრის სხვა დავალებაზე გადაყვანა','დალოდება, სანამ კონფლიქტი თავად მოგვარდება'],a:1},
+{d:1,q:'კრიტიკულ გზაზე მყოფი აქტივობა 3 დღით იგვიანებს. რა არის საუკეთესო პირველი ნაბიჯი?',o:['დასრულების თარიღის მაშინვე გადაწევა','გუნდისთვის ზეგანაკვეთური სამუშაოს დაწესება','გავლენის ანალიზი და compression ვარიანტების შეფასება','აქტივობის scope-დან ამოღება'],a:2},
+{d:2,q:'ახალი რეგულაცია პროექტის საბოლოო პროდუქტზე აისახება. რას გააკეთებ?',o:['გააგრძელებ მუშაობას დამტკიცებული გეგმით','შეაფასებ გავლენას და წარადგენ change request-ს','პროექტს დაუყოვნებლივ შეაჩერებ','ცვლილებას ჩუმად შეიტანი scope-ში'],a:1}
+];
+var DT=['People','Process','Business Env.'],DS=[[74,78,81],[66,70,73],[58,63,67]];
+var qi=0,qn=47,step=0,qText=$('qText'),opts=$('opts');
+function renderQ(){
+var x=Q[qi],h='';
+qText.textContent=x.q;
+x.o.forEach(function(t,i){h+='<li><span class="k">'+'ABCD'.charAt(i)+'</span><span>'+esc(t)+'</span><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></li>';});
+opts.innerHTML=h;
+$('qNum').textContent=qn;$('qDom').textContent=DT[x.d];
+$('qBar').style.width=(qn/60*100).toFixed(1)+'%';
+}
+function setDom(k){for(var i=0;i<3;i++){var v=DS[i][Math.min(k,2)];$('d'+i).style.width=v+'%';$('v'+i).textContent=v+'%';}}
+function mark(cls){var li=opts.children[Q[qi].a];if(li)li.classList.add(cls);}
+renderQ();
+if(reduce){mark('pick');mark('ok');setDom(0);}
+else{
+setTimeout(function(){setDom(0);},500);
+var round=0;
+var loop=function(){
+setTimeout(function(){mark('pick');},1300);
+setTimeout(function(){mark('ok');},2100);
+setTimeout(function(){qText.classList.add('fade');opts.classList.add('fade');},4200);
+setTimeout(function(){round++;qi=(qi+1)%Q.length;qn=qn>=58?47:qn+1;renderQ();setDom(round%3);qText.classList.remove('fade');opts.classList.remove('fade');loop();},4600);
+};
+loop();
+var secs=1*3600+12*60+8;
+setInterval(function(){secs=secs>60?secs-1:4328;var h=Math.floor(secs/3600),m=Math.floor(secs%3600/60),s=secs%60;$('tmr').textContent='0'+h+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');},1000);
+}
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+/* planner: earned value calculator */
+var eBac=$('eBac'),ePv=$('ePv'),eEv=$('eEv'),eAc=$('eAc');
+function money(n){return (n<0?'-':'')+fmt(Math.abs(Math.round(n)))+' ₾';}
+function tag(id,ok,t){var el=$(id);el.textContent=t;el.className=ok?'good':'bad';}
+function gpos(v){return Math.max(0,Math.min(100,(v-.5)*100));}
+function calcEvm(){
+var bac=Math.max(1,+eBac.value||0),pv=Math.max(0,+ePv.value||0),ev=Math.max(0,+eEv.value||0),ac=Math.max(0,+eAc.value||0);
+var cv=ev-ac,sv=ev-pv;
+var cpi=ac>0?ev/ac:0,spi=pv>0?ev/pv:0;
+var eac=cpi>0?bac/cpi:0,vac=bac-eac;
+$('rCv').textContent=money(cv);tag('sCv',cv>=0,cv>=0?'ბიუჯეტის ფარგლებში':'ხარჯი აჭარბებს');
+$('rSv').textContent=money(sv);tag('sSv',sv>=0,sv>=0?'განრიგზე წინ ან დროზე':'განრიგს ჩამორჩება');
+$('rCpi').textContent=cpi?cpi.toFixed(2):'-';tag('sCpi',cpi>=1,cpi>=1?'1-ზე მეტი ან ტოლი':'1-ზე ნაკლები');
+$('rSpi').textContent=spi?spi.toFixed(2):'-';tag('sSpi',spi>=1,spi>=1?'1-ზე მეტი ან ტოლი':'1-ზე ნაკლები');
+$('rEac').textContent=eac?money(eac):'-';tag('sEac',eac&&eac<=bac,eac?(eac<=bac?'BAC-ზე ნაკლები ან ტოლი':'BAC-ზე მეტი'):'საჭიროა EV და AC');
+$('rVac').textContent=eac?money(vac):'-';tag('sVac',vac>=0,eac?(vac>=0?'დანაზოგი დასრულებისას':'გადახარჯვა დასრულებისას'):'');
+$('gCpi').style.left=gpos(cpi||.5)+'%';$('gCpiT').textContent=cpi?cpi.toFixed(2):'-';
+$('gSpi').style.left=gpos(spi||.5)+'%';$('gSpiT').textContent=spi?spi.toFixed(2):'-';
+var v='';
+if(cpi){v+='<p><b>ხარჯი:</b> ყოველ დახარჯულ 1 ₾-ზე იღებ '+cpi.toFixed(2)+' ₾-ის ღირებულების სამუშაოს. '+(cpi>=1?'პროექტი ბიუჯეტს ეფექტიანად იყენებს.':'პროექტი დაგეგმილზე ძვირი ჯდება, თუ ტენდენცია გაგრძელდა, სრული ბიუჯეტი დაახლოებით '+money(eac)+' იქნება.')+'</p>';}
+if(spi){v+='<p><b>განრიგი:</b> '+(spi>=1?'სამუშაო დაგეგმილზე სწრაფად ან დროზე მიდის ('+Math.round(spi*100)+'% დაგეგმილი ტემპის).':'შესრულებულია დაგეგმილი სამუშაოს '+Math.round(spi*100)+'%, პროექტი განრიგს ჩამორჩება.')+'</p>';}
+if(!v)v='<p>შეიყვანე PV, EV და AC, რომ მიიღო ინტერპრეტაცია.</p>';
+$('verdict').innerHTML=v;
+}
+[eBac,ePv,eEv,eAc].forEach(function(i){i.addEventListener('input',calcEvm);});
+calcEvm();
+/* syllabus */
+var P=[{n:'საფუძვლები და ინიცირება',r:[1,4]},{n:'დაგეგმვა',r:[5,10]},{n:'ლიდერობა',r:[11,13]},{n:'შესრულება და დახურვა',r:[14,17]}];
+var L=[
+['შესავალი და Project Economy',['Introduction','Project Economy','Foundation']],
+['ბიზნეს გარემო',['Project Benefits and Value','Organizational Culture and Change Management','Project Governance']],
+['პროექტის ინიცირება, ნაწილი 1',['Stakeholders','Team formation']],
+['პროექტის ინიცირება, ნაწილი 2',['Project charter','Project approach']],
+['დაგეგმვა, ნაწილი 1: სასიცოცხლო ციკლები და მოთხოვნები',['Planning across life cycles','Scope: Requirements']],
+['დაგეგმვა, ნაწილი 2: Scope',['Scope statement','Scope planning']],
+['დაგეგმვა, ნაწილი 3: განრიგი',['Schedule']],
+['დაგეგმვა, ნაწილი 4: რესურსები',['Resources']],
+['დაგეგმვა, ნაწილი 5: ბიუჯეტი და რისკები',['Budget','Risk management']],
+['დაგეგმვა, ნაწილი 6: ხარისხი და გეგმების ინტეგრაცია',['Quality control','Integrate Plans']],
+['ლიდერობა პროექტის მართვაში, ნაწილი 1',['Leadership skills & competencies','Collaborative team environment']],
+['ლიდერობა პროექტის მართვაში, ნაწილი 2',['Empowering Teams for High Performance','Continuous learning']],
+['ლიდერობა პროექტის მართვაში, ნაწილი 3',['Conflict management']],
+['გუნდის შედეგიანობის გაუმჯობესება, ნაწილი 1',['Continuous improvement','Enhance performance','Monitor Project Performance']],
+['გუნდის შედეგიანობის გაუმჯობესება, ნაწილი 2',['Manage Project Issues and Impediments','Manage project changes']],
+['პროექტის ან ფაზის დახურვა',['Close the project/phase','Benefits','Knowledge transfer']],
+['*ცოდნის შემოწმება',['*Knowledge test: საბოლოო ტესტი']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+var lec=$('lec'),h='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n,tt=x[0].charAt(0)==='*'?x[0].slice(1):x[0];
+h+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span class="t">'+esc(tt)+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+x[1].forEach(function(t){var tk=t.charAt(0)==='*';h+='<li'+(tk?' class="tk"':'')+'>'+esc(tk?t.slice(1):t)+'</li>';});
+h+='</ul></div></div></li>';
+});
+lec.innerHTML=h;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var ph=$('phases');
+function setPhase(k){
+ph.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?'17 შეხვედრა':c+' შეხვედრა ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button data-k="-1">ყველა<b>17</b></button>';
+P.forEach(function(p,i){hb+='<button data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+ph.innerHTML=hb;
+ph.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+/* payment tabs */
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>1600 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(1600/4).toFixed(0)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(1600/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DATA ANALYTICS WITH PYTHON | Smart Academy</title>
+<meta name="description" content="ისწავლე მონაცემთა ანალიზი Python-ით: pandas, ფილტრაცია, დაჯგუფება, Matplotlib ვიზუალიზაცია და ETL. 18 შეხვედრა, ლექტორი Report/BI Developer, Paysera.">
+<link rel="canonical" href="https://data-python.kursi.edu.ge/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="DATA ANALYTICS WITH PYTHON | Smart Academy">
+<meta property="og:description" content="ისწავლე მონაცემთა ანალიზი Python-ით: pandas, ფილტრაცია, დაჯგუფება, Matplotlib ვიზუალიზაცია და ETL. 18 შეხვედრა, ლექტორი Report/BI Developer, Paysera.">
+<meta property="og:url" content="https://data-python.kursi.edu.ge/">
+<meta property="og:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DATA ANALYTICS WITH PYTHON | Smart Academy">
+<meta name="twitter:description" content="ისწავლე მონაცემთა ანალიზი Python-ით: pandas, ფილტრაცია, დაჯგუფება, Matplotlib ვიზუალიზაცია და ETL. 18 შეხვედრა, ლექტორი Report/BI Developer, Paysera.">
+<meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
+<style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
+:root{
+--paper:#F7F3EC;--card:#FFFFFF;--ink:#231A12;--muted:#6A5E52;--line:#E6DDD0;--soft:#F0E7DA;
+--rust:#B7420B;--rust-ink:#FFFFFF;--lime:#C3DA3A;--lime-ink:#1D2206;
+--str:#2E7A34;--num:#7A3FB0;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#15110D;--card:#1E1914;--ink:#F2ECE4;--muted:#B3A698;--line:#342B22;--soft:#2A221B;
+--rust:#FF8C4F;--rust-ink:#15110D;--lime:#CFE55A;--lime-ink:#15110D;
+--str:#9FD67A;--num:#C9A2F2;}}
+:root[data-theme="dark"]{
+--paper:#15110D;--card:#1E1914;--ink:#F2ECE4;--muted:#B3A698;--line:#342B22;--soft:#2A221B;
+--rust:#FF8C4F;--rust-ink:#15110D;--lime:#CFE55A;--lime-ink:#15110D;
+--str:#9FD67A;--num:#C9A2F2;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--rust);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--rust);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--rust);color:var(--rust-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-lime{background:var(--lime);color:var(--lime-ink)}
+.btn-lime:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.hero{padding:60px 0 24px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:48px;align-items:center}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(29px,4.6vw,64px);line-height:.94;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--rust)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+.nb-stage{position:relative;display:flex;justify-content:center}
+.nb{width:min(410px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 40px 70px -35px rgba(35,26,18,.5);position:relative;z-index:2;overflow:hidden}
+.nb-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 16px;background:var(--paper);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px}
+.nb-top .fn{display:flex;align-items:center;gap:8px;font-weight:700}
+.nb-top .fn i{width:14px;height:14px;border-radius:4px;background:var(--rust);display:inline-block}
+.kern{display:flex;align-items:center;gap:7px;color:var(--muted)}
+.kdot{width:11px;height:11px;border-radius:50%;border:2px solid var(--muted);transition:background .2s,border-color .2s}
+.nb.busy .kdot{background:var(--rust);border-color:var(--rust)}
+.nb-menu{display:flex;gap:14px;padding:6px 16px;border-bottom:1px solid var(--line);font-family:var(--geo);font-size:11.5px;color:var(--muted)}
+.nb-menu b{font-weight:600;color:var(--ink);margin-left:auto;font-family:var(--mono);font-size:11px}
+.cells{padding:8px 0 10px}
+.cell{display:grid;grid-template-columns:50px 1fr;column-gap:8px;padding:6px 14px 6px 6px;border-left:3px solid transparent;transition:border-color .2s}
+.cell.run{border-left-color:var(--rust)}
+.pr{font-family:var(--mono);font-size:10.5px;color:var(--rust);text-align:right;padding-top:7px;white-space:nowrap}
+.pr.o{color:var(--muted)}
+.src{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 12px 6px 14px;font-family:var(--mono);font-size:11.2px;line-height:1.6;white-space:pre}
+.src .k{color:var(--rust);font-weight:700}.src .s{color:var(--str)}.src .n{color:var(--num)}
+.st{position:absolute;left:-8px;top:-6px;width:15px;height:15px;border-radius:50%;opacity:0;background:var(--card)}
+.cell.run .st{opacity:1;border:2px solid var(--line);border-top-color:var(--rust);animation:spin .6s linear infinite}
+.cell.done .st{opacity:1;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D2206' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/9px no-repeat}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ow{grid-column:1/-1;display:grid;grid-template-rows:0fr;opacity:0}
+.cell.done .ow{grid-template-rows:1fr;opacity:1;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.owi{overflow:hidden;display:grid;grid-template-columns:50px 1fr;column-gap:8px}
+.out{padding:6px 0 2px;min-width:0}
+.df{border-collapse:collapse;font-family:var(--mono);font-size:10.8px;width:100%;font-variant-numeric:tabular-nums}
+.df th,.df td{padding:3px 7px;text-align:right;border-bottom:1px solid var(--line)}
+.df th{font-weight:700}
+.df tbody tr:nth-child(odd){background:var(--soft)}
+.df td.ix,.df th.ix{color:var(--muted);text-align:left;font-weight:700}
+.desc{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 12px;font-family:var(--mono);font-size:10.8px;font-variant-numeric:tabular-nums}
+.desc span{display:flex;justify-content:space-between;gap:6px;border-bottom:1px dashed var(--line);padding:1px 0}
+.desc em{font-style:normal;color:var(--muted)}
+.chart{display:block;width:100%;height:auto}
+.chart .ax{stroke:var(--muted);stroke-width:1}
+.chart .gr{stroke:var(--line);stroke-width:1}
+.chart text{font-family:var(--mono);font-size:8.5px;fill:var(--muted)}
+.chart .dot{fill:var(--rust);fill-opacity:.8;transform-box:fill-box;transform-origin:center;transform:scale(0)}
+.chart .trend{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300}
+.cell.done .chart .dot{transform:none;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.cell.done .chart .trend{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s ease .55s}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
+.bubble b{font-family:var(--font)}
+.bubble.b1{left:-8px;top:-32px}
+.bubble.b2{right:-18px;top:250px;animation-delay:-1.6s;background:var(--rust);color:var(--rust-ink);border-color:var(--rust)}
+.bubble.b3{left:-12px;bottom:-30px;animation-delay:-3.2s;background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.diff{margin:18px 0 0;font-family:var(--geo);font-size:15px;color:var(--muted);max-width:90ch}
+.diff b{color:var(--ink)}
+section{padding:90px 0}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(32px,4.4vw,54px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+.plan{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 6px}
+.panel .cap{font-family:var(--mono);font-size:13px;color:var(--muted);margin:0 0 16px}
+.series{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.series div{display:grid;grid-template-columns:30px 1fr;align-items:center;gap:6px}
+.series label{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.series input{min-height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);padding:0 12px;font:600 16px var(--font);width:100%;font-variant-numeric:tabular-nums}
+.series input.outl{border-color:var(--rust);box-shadow:0 0 0 3px color-mix(in srgb,var(--rust) 22%,transparent)}
+.ctrls{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;align-items:center}
+.chk{display:flex;align-items:center;gap:10px;font-family:var(--geo);font-size:14px;min-height:44px;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--rust)}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:12px 0 0}
+.vresults{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.vstat{border:1px solid var(--line);border-radius:16px;padding:14px}
+.vstat span{display:block;font-family:var(--geo);font-size:12.5px;color:var(--muted)}
+.vstat b{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.3}
+.vstat.hot{background:var(--rust);color:var(--rust-ink);border-color:var(--rust)}
+.vstat.hot span{color:inherit;opacity:.85}
+.dtable{font-family:var(--mono);font-size:14px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 16px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px 18px;font-variant-numeric:tabular-nums;margin-bottom:18px}
+.dtable span{display:flex;justify-content:space-between;gap:8px}
+.dtable em{font-style:normal;color:var(--muted)}
+.strip{position:relative;height:64px;border-radius:14px;background:var(--soft);margin:0 0 6px}
+.strip .axis{position:absolute;left:18px;right:18px;top:40px;height:2px;background:var(--line)}
+.strip .pt{position:absolute;top:33px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--ink);opacity:.75;transition:left .4s cubic-bezier(.2,.8,.2,1)}
+.strip .pt.outl{background:var(--rust);opacity:1;box-shadow:0 0 0 3px color-mix(in srgb,var(--rust) 30%,transparent)}
+.strip .pt.off{opacity:.2}
+.strip .mk{position:absolute;top:8px;bottom:8px;width:2px;margin-left:-1px;transition:left .4s cubic-bezier(.2,.8,.2,1)}
+.strip .mk.mean{background:var(--rust)}
+.strip .mk.med{background:var(--lime-ink);background:color-mix(in srgb,var(--ink) 70%,var(--lime))}
+.strip .mk i{position:absolute;top:-2px;left:6px;font-family:var(--mono);font-style:normal;font-size:11px;color:var(--muted);white-space:nowrap}
+.strip .mk.med i{left:auto;right:6px}
+.vlegend{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec button:focus-visible{outline:3px solid var(--rust);outline-offset:-3px;border-radius:18px}
+.lec .n{font-weight:800;font-size:30px;color:var(--rust);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--lime);border-color:var(--lime);color:var(--lime-ink)}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--rust)}
+.lec ul li.tk{font-weight:700}
+.lec ul li.tk:before{background:var(--lime);border-radius:2px}
+.lec button:hover .t{color:var(--rust)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+.out2{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out2 h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--rust);color:var(--rust-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D2206' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 45s linear infinite}
+.jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--rust)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:28px;background:var(--rust);color:var(--rust-ink);position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:220px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:42px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:26px;margin:22px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:44px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:14px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.path{list-style:none;padding:0;margin:24px 0}
+.path li{display:grid;grid-template-columns:190px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:1100px){
+.vresults{grid-template-columns:1fr 1fr}
+.dtable{grid-template-columns:1fr 1fr}
+}
+@media (max-width:960px){
+.hero-grid,.plan,.out2,.lect,.final{grid-template-columns:1fr}
+.path li{grid-template-columns:1fr;gap:2px}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+h1{font-size:38px}
+.wrap{padding:0 16px}
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.sched{grid-template-columns:1fr}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+.cell{grid-template-columns:40px 1fr;padding-right:8px}
+.owi{grid-template-columns:40px 1fr}
+.src{font-size:10px;padding-right:8px}
+.df{font-size:9.6px}
+.df th,.df td{padding:3px 4px}
+.desc{grid-template-columns:repeat(2,1fr);font-size:10px}
+.bubble{font-size:12px;padding:7px 10px}
+.dtable{font-size:13px;gap:4px 12px}
+.vstat b{font-size:21px}
+.panel{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span{transform:none}
+.reveal{opacity:1;transform:none}
+.ow{grid-template-rows:1fr;opacity:1}
+.chart .dot{transform:none}
+.chart .trend{stroke-dashoffset:0}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://data-python.kursi.edu.ge/#course",
+      "name": "DATA ANALYTICS WITH PYTHON",
+      "description": "ისწავლე მონაცემთა ანალიზი Python-ით: Python-ის საფუძვლები, pandas DataFrame-ები, ფილტრაცია და დაჯგუფება, მონაცემთა ბაზებთან მუშაობა, ETL და Matplotlib ვიზუალიზაცია. კურსს უძღვება Report/BI Developer, Paysera-დან.",
+      "url": "https://data-python.kursi.edu.ge/",
+      "inLanguage": "ka",
+      "provider": {
+        "@type": "Organization",
+        "name": "Smart Academy",
+        "sameAs": "https://smartacademy.ge"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "PT36H",
+        "instructor": [
+          {
+            "@type": "Person",
+            "name": "გეგა ჯღარკავა",
+            "jobTitle": "Report/BI Developer",
+            "worksFor": {"@type": "Organization", "name": "Paysera"}
+          }
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/435-DATA-ANALYTICS-WITH-PYTHON",
+        "price": "2000",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock",
+        "category": "Paid"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://data-python.kursi.edu.ge/#product",
+      "name": "DATA ANALYTICS WITH PYTHON",
+      "description": "ისწავლე მონაცემთა ანალიზი Python-ით: pandas, Matplotlib ვიზუალიზაცია, მონაცემთა ბაზები და ETL. 18 შეხვედრა, 36 საათი, ონლაინ.",
+      "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
+      "brand": {
+        "@type": "Brand",
+        "name": "Smart Academy"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/435-DATA-ANALYTICS-WITH-PYTHON",
+        "price": "2000",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Smart Academy კურსები",
+          "item": "https://kursi.edu.ge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "DATA ANALYTICS WITH PYTHON",
+          "item": "https://data-python.kursi.edu.ge/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#planner">describe() ტრენაჟორი</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturers">ლექტორი</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/435-DATA-ANALYTICS-WITH-PYTHON" target="_blank" rel="noopener">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5</span></p>
+<h1><span class="ln"><span>DATA ANALYTICS</span></span><span class="ln"><span>WITH</span></span><span class="ln"><span>PYTHON</span></span></h1>
+<p class="lead">ისწავლე Python მონაცემთა ანალიზისთვის: Python-ის საფუძვლებიდან pandas-ით მონაცემთა ფილტრაციამდე, დაჯგუფებამდე და გაერთიანებამდე, მონაცემთა ბაზებთან მუშაობამდე, ETL-მდე და Matplotlib ვიზუალიზაციამდე. კურსს უძღვება Report/BI Developer, Paysera-დან.</p>
+<dl class="facts">
+<div><dt>ლექტორი</dt><dd>Report/BI Developer, Paysera</dd></div>
+<div><dt>ფორმატი</dt><dd>ონლაინ</dd></div>
+<div><dt>დაწყება</dt><dd>16 ნოემბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>2.5 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>18 შეხვედრა, 36 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>ორშ, ხუთ 20:00</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">2000 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/435-DATA-ANALYTICS-WITH-PYTHON" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
+</div>
+</div>
+<div class="nb-stage">
+<div class="bubble b1" aria-hidden="true">DataFrame <b id="bRows">1,240 rows</b></div>
+<div class="bubble b2" aria-hidden="true">Kernel <b>Python 3</b></div>
+<div class="bubble b3" aria-hidden="true">Matplotlib <b>report.png</b></div>
+<div class="nb" id="nb" role="img" aria-label="Jupyter notebook-ის მაკეტი: სამი უჯრა სრულდება რიგრიგობით, pandas ცხრილით, სტატისტიკური შეჯამებით და გრაფიკით">
+<div class="nb-top" aria-hidden="true"><span class="fn"><i></i>sales_analysis.ipynb</span><span class="kern"><span class="kdot"></span>Python 3</span></div>
+<div class="nb-menu" aria-hidden="true"><span>File</span><span>Edit</span><span>View</span><span>Run</span><span>Kernel</span><b id="nbState">idle</b></div>
+<div class="cells" aria-hidden="true">
+<div class="cell" id="c1">
+<span class="pr">In [<i> </i>]:</span>
+<div class="src">df = pd.<span class="k">read_csv</span>(<span class="s">"sales.csv"</span>)
+df.<span class="k">head</span>(<span class="n">3</span>)<span class="st"></span></div>
+<div class="ow"><div class="owi"><span class="pr o">Out[1]:</span><div class="out">
+<table class="df"><thead><tr><th class="ix"></th><th>region</th><th>ads</th><th>revenue</th></tr></thead>
+<tbody><tr><td class="ix">0</td><td>Tbilisi</td><td>12.5</td><td>96.4</td></tr><tr><td class="ix">1</td><td>Batumi</td><td>8.0</td><td>71.2</td></tr><tr><td class="ix">2</td><td>Kutaisi</td><td>6.5</td><td>64.8</td></tr></tbody></table>
+</div></div></div>
+</div>
+<div class="cell" id="c2">
+<span class="pr">In [<i> </i>]:</span>
+<div class="src">df[<span class="s">"revenue"</span>].<span class="k">describe</span>()<span class="st"></span></div>
+<div class="ow"><div class="owi"><span class="pr o">Out[2]:</span><div class="out">
+<div class="desc"><span><em>count</em>1240</span><span><em>mean</em>86.4</span><span><em>std</em>12.1</span><span><em>min</em>41.0</span><span><em>50%</em>85.9</span><span><em>max</em>131.0</span></div>
+</div></div></div>
+</div>
+<div class="cell" id="c3">
+<span class="pr">In [<i> </i>]:</span>
+<div class="src">df.plot.<span class="k">scatter</span>(x=<span class="s">"ads"</span>, y=<span class="s">"revenue"</span>)
+plt.<span class="k">plot</span>(x, trend); plt.<span class="k">show</span>()<span class="st"></span></div>
+<div class="ow"><div class="owi"><span class="pr o"></span><div class="out">
+<svg class="chart" viewBox="0 0 300 118" id="chart">
+<line class="gr" x1="26" y1="18" x2="292" y2="18"/><line class="gr" x1="26" y1="50" x2="292" y2="50"/><line class="gr" x1="26" y1="82" x2="292" y2="82"/>
+<line class="ax" x1="26" y1="8" x2="26" y2="102"/><line class="ax" x1="26" y1="102" x2="292" y2="102"/>
+<text x="4" y="21">120</text><text x="8" y="53">90</text><text x="8" y="85">60</text>
+<text x="30" y="114">0</text><text x="150" y="114">ads</text><text x="276" y="114">15</text>
+<g id="dots"></g>
+<path class="trend" d="M34 92 L288 22"/>
+</svg>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="plat"><p>ინსტრუმენტები, რომლებიც ისწავლება:</p><span>Python</span><span>pandas</span><span>Matplotlib</span><span>SQLAlchemy</span><span>psycopg2</span></div>
+<p class="diff">ეს კურსი Python-ს <b>ანალიტიკისთვის</b> იყენებს: pandas DataFrame-ები, ფილტრაცია, დაჯგუფება, ETL და Matplotlib გრაფიკები. SQL-სა და Power BI-ზე ორიენტირებული კურსი არის <a href="https://data-analytics-bi.kursi.edu.ge/">Data Analytics &amp; BI Development</a>, ხოლო ბექენდ პროგრამირება ისწავლება <a href="https://python-development.kursi.edu.ge/">Python დეველოპმენტის</a> კურსზე.</p>
+</div>
+</section>
+<section id="planner">
+<div class="wrap">
+<h2 class="reveal">შენი პირველი describe()</h2>
+<p class="sub reveal">df.describe() ანალიტიკოსის პირველი ნაბიჯია ნებისმიერ მონაცემთა ნაკრებზე (ლექცია 11), ხოლო ამოვარდნილი მნიშვნელობების გაფილტვრა ლექცია 12-ის თემაა. შეცვალე ციფრები და ნახე, როგორ იცვლება mean, median, std და IQR წესით აღმოჩენილი ამოვარდნილები.</p>
+<div class="plan reveal">
+<div class="panel">
+<h3>მონაცემები</h3>
+<p class="cap">s = pd.Series([...])  # დღიური გაყიდვები, ათასი ₾</p>
+<div class="series" id="series"></div>
+<div class="ctrls">
+<label class="chk"><input type="checkbox" id="dropOut"> ამოვარდნილების გამორიცხვა</label>
+<button class="btn btn-ghost btn-sm" id="resetS" type="button">საწყისი მონაცემები</button>
+</div>
+<p class="hint">ცარიელ ველს pandas-ის მსგავსად გამოვტოვებთ (NaN).</p>
+</div>
+<div class="panel" aria-live="polite">
+<h3>შედეგი</h3>
+<p class="cap" id="dCode">s.describe()</p>
+<div class="vresults">
+<div class="vstat"><span>mean</span><b id="sMean">0</b></div>
+<div class="vstat"><span>median (50%)</span><b id="sMed">0</b></div>
+<div class="vstat"><span>std</span><b id="sStd">0</b></div>
+<div class="vstat" id="sOutBox"><span>ამოვარდნილი</span><b id="sOut">0</b></div>
+</div>
+<div class="dtable" id="dtable"></div>
+<div class="strip" id="strip" aria-hidden="true"><div class="axis"></div></div>
+<div class="vlegend" aria-hidden="true"><span id="sLo">min</span><span id="sHi">max</span></div>
+<p class="hint" id="sNote">გამოთვლა საგანმანათლებლო მიზნით: std გამოითვლება pandas-ის ნაგულისხმევი წესით (ddof=1), კვარტილები წრფივი ინტერპოლაციით, ამოვარდნილია მნიშვნელობა Q1 - 1.5·IQR-ზე ნაკლები ან Q3 + 1.5·IQR-ზე მეტი.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">18 შეხვედრა, სამი ეტაპი</h2>
+<p class="sub reveal">36 საათი: Python-ის საფუძვლებიდან pandas-ით მონაცემთა ანალიზამდე, მონაცემთა ბაზებამდე, ETL-მდე, Matplotlib რეპორტამდე და ფინალურ პროექტამდე.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll" type="button">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">კურსი განკუთვნილია Junior ან Middle დონის მონაცემთა ანალიტიკოსებისთვის, ვისაც სურს დიდ და კომპლექსურ მონაცემებთან Python-ით, ბევრად მარტივი ინსტრუმენტებით გამკლავება.</p>
+<div class="out2">
+<div class="reveal">
+<h3>გეცოდინება</h3>
+<ul class="pill-list">
+<li>Python-ის მონაცემთა ტიპები, ცვლადები და ციკლები</li>
+<li>ფუნქციები, ფაილები და OOP-ის საფუძვლები</li>
+<li>pandas DataFrame და Series</li>
+<li>Matplotlib ვიზუალიზაციის პრინციპები</li>
+<li>psycopg2 და SQLAlchemy</li>
+<li>Data Engineering-ისა და ETL-ის საწყისები</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>Python-ის გამოყენებას მონაცემთა ანალიზისთვის</li>
+<li>მონაცემების შექმნას, ანალიზს და მოდიფიცირებას pandas-ით: ფილტრაცია, სახელის შეცვლა, დაჯგუფება</li>
+<li>ვიზუალიზაციების და სრული რეპორტის აგებას Matplotlib-ით</li>
+<li>მონაცემთა ბაზებთან მუშაობას Python-იდან</li>
+<li>სტრუქტურირებულ და არასტრუქტურირებულ მონაცემებთან მუშაობას</li>
+<li>პროექტების აღებას Upwork-ზე და სხვა პლატფორმებზე</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="დაკავშირებული პროფესიები">
+<div class="track">
+<span>მონაცემთა ანალიტიკოსი</span><span>მონაცემთა მეცნიერი</span><span>Python დეველოპერი</span><span>Data Analyst</span>
+<span aria-hidden="true">მონაცემთა ანალიტიკოსი</span><span aria-hidden="true">მონაცემთა მეცნიერი</span><span aria-hidden="true">Python დეველოპერი</span><span aria-hidden="true">Data Analyst</span>
+<span aria-hidden="true">მონაცემთა ანალიტიკოსი</span><span aria-hidden="true">მონაცემთა მეცნიერი</span><span aria-hidden="true">Python დეველოპერი</span><span aria-hidden="true">Data Analyst</span>
+</div>
+</div>
+</section>
+<section id="lecturers" style="padding-top:20px">
+<div class="wrap lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">გჯ</span>
+<h2>გეგა<br>ჯღარკავა</h2>
+<p>Report/BI Developer, Paysera</p>
+<div class="stat">
+<div><b data-count="4">0</b><span>+ წლის გამოცდილება მონაცემთა ანალიტიკასა და BI რეპორტინგში</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<h2>ლექტორი</h2>
+<p>გეგამ გაიარა გზა Data Analyst-იდან Senior Data Analyst-სა და Reporting/BI Developer-ის პოზიციამდე. მუშაობდა ქართულ კომერციულ ბანკებსა და საერთაშორისო ფინანსურ ინსტიტუტებში.</p>
+<p>მისი ძირითადი პასუხისმგებლობა იყო მსხვილი და კომპლექსური ბიზნეს ამოცანების გადაჭრა, საინტერესო ვიზუალიზაციებისა და ინსტრუმენტების შექმნა.</p>
+<ol class="path">
+<li><b>ქართული კომერციული ბანკი</b><span>უმცროსი რეპორტინგ დეველოპერი, კარიერის საწყისი ეტაპი</span></li>
+<li><b>TBI Bank</b><span>Bulgaria, მონაცემთა ანალიტიკა</span></li>
+<li><b>Paysera</b><span>Lithuania, Report/BI Developer. ევროპული საერთაშორისო ფინანსური ინსტიტუტი, რომელიც SWIFT, SEPA და Target გადარიცხვებს მსოფლიოს 180 ქვეყანაში უზრუნველყოფს</span></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ადგილის დაჯავშნა</h2>
+<p class="sub">ონლაინ, 2.5 თვის განმავლობაში, 18 შეხვედრა (36 სთ). დაწყება 16 ნოემბერს.<br>ადგილები შეზღუდულია.</p>
+<div class="sched">
+<div><b>ორშაბათი</b>20:00-22:00</div>
+<div><b>ხუთშაბათი</b>20:00-22:00</div>
+</div>
+<p class="req"><strong>მოთხოვნები:</strong> Windows ოპერაციული სისტემის მქონე კომპიუტერი/ლეპტოპი, აუცილებლად ლოკალური ადმინისტრატორის უფლებებით.</p>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">2000 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/435-DATA-ANALYTICS-WITH-PYTHON" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/435-DATA-ANALYTICS-WITH-PYTHON" target="_blank" rel="noopener">სრული პროგრამის ნახვა</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="tel:+995322121025">0322 12 10 25</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>2000 ₾</b><a class="btn btn-lime btn-sm" href="https://smartacademy.ge/trainings/435-DATA-ANALYTICS-WITH-PYTHON" target="_blank" rel="noopener">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(id){return document.getElementById(id);};
+var root=document.documentElement;
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
+function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+syncLogo();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!root.getAttribute('data-theme'))syncLogo();});}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}syncLogo();});
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* hero notebook: scatter points + sequential cell execution */
+var PTS=[[1.5,58],[2.5,66],[3,61],[4,72],[5,69],[5.5,78],[6.5,74],[7,83],[8,80],[8.5,90],[9.5,86],[10.5,97],[11,92],[12.5,104],[13.5,99],[14,112]];
+var dh='';
+PTS.forEach(function(p,i){var x=26+p[0]/15*266,y=102-(p[1]-40)/90*96;dh+='<circle class="dot" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.6" style="transition-delay:'+(i*.04).toFixed(2)+'s"/>';});
+$('dots').innerHTML=dh;
+var nb=$('nb'),cells=[$('c1'),$('c2'),$('c3')],state=$('nbState'),timers=[];
+function setNum(c,v){c.querySelector('.pr i').textContent=v;}
+function resetNb(){cells.forEach(function(c){c.classList.remove('run','done');setNum(c,' ');});nb.classList.remove('busy');state.textContent='idle';}
+function later(fn,ms){timers.push(setTimeout(fn,ms));}
+function runNb(){
+timers.forEach(clearTimeout);timers=[];resetNb();
+var t=350;
+cells.forEach(function(c,i){
+later(function(){c.classList.add('run');setNum(c,'*');nb.classList.add('busy');state.textContent='busy';},t);
+t+=560;
+later(function(){c.classList.remove('run');c.classList.add('done');setNum(c,String(i+1));if(i===cells.length-1){nb.classList.remove('busy');state.textContent='idle';}},t);
+t+=160;
+});
+later(runNb,t+8200);
+}
+if(reduce){cells.forEach(function(c,i){c.classList.add('done');setNum(c,String(i+1));});}
+else runNb();
+var rows=1240;
+if(!reduce)setInterval(function(){rows+=Math.random()>.5?8:0;$('bRows').textContent=rows.toLocaleString('en-US')+' rows';},2800);
+
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* planner: mini df.describe() explorer */
+var DEF=[42,45,39,48,51,44,47,43,96,46];
+var ser=$('series'),sh='';
+DEF.forEach(function(v,i){sh+='<div><label for="v'+i+'">['+i+']</label><input type="number" id="v'+i+'" step="1" value="'+v+'" inputmode="decimal"></div>';});
+ser.innerHTML=sh;
+var ins=ser.querySelectorAll('input'),drop=$('dropOut');
+function q(s,p){var pos=(s.length-1)*p,lo=Math.floor(pos),hi=Math.ceil(pos);return s[lo]+(s[hi]-s[lo])*(pos-lo);}
+function stats(a){
+var s=a.slice().sort(function(x,y){return x-y;}),n=s.length;
+if(!n)return null;
+var mean=s.reduce(function(x,y){return x+y;},0)/n;
+var sd=n>1?Math.sqrt(s.reduce(function(x,y){return x+(y-mean)*(y-mean);},0)/(n-1)):NaN;
+return {n:n,mean:mean,std:sd,min:s[0],q1:q(s,.25),med:q(s,.5),q3:q(s,.75),max:s[n-1]};
+}
+function f2(v){return isNaN(v)?'NaN':(Math.round(v*100)/100).toLocaleString('en-US',{maximumFractionDigits:2});}
+function calc(){
+var vals=[];
+ins.forEach(function(el,i){var v=parseFloat(el.value);if(el.value!==''&&isFinite(v))vals.push({i:i,v:v});});
+var all=stats(vals.map(function(o){return o.v;}));
+var box=$('sOutBox');
+if(!all){['sMean','sMed','sStd','sOut'].forEach(function(id){$(id).textContent='NaN';});$('dtable').innerHTML='<span><em>count</em>0</span>';box.classList.remove('hot');return;}
+var iqr=all.q3-all.q1,lo=all.q1-1.5*iqr,hi=all.q3+1.5*iqr;
+var outl={};vals.forEach(function(o){if(o.v<lo||o.v>hi)outl[o.i]=1;});
+var nOut=Object.keys(outl).length;
+ins.forEach(function(el,i){el.classList.toggle('outl',!!outl[i]);});
+var used=drop.checked?vals.filter(function(o){return !outl[o.i];}):vals;
+var s=stats(used.map(function(o){return o.v;}))||all;
+$('dCode').textContent=drop.checked?'s[s.between(lo, hi)].describe()':'s.describe()';
+$('sMean').textContent=f2(s.mean);
+$('sMed').textContent=f2(s.med);
+$('sStd').textContent=f2(s.std);
+$('sOut').textContent=nOut;
+box.classList.toggle('hot',nOut>0);
+var rowsD=[['count',s.n],['mean',s.mean],['std',s.std],['min',s.min],['25%',s.q1],['50%',s.med],['75%',s.q3],['max',s.max]];
+$('dtable').innerHTML=rowsD.map(function(r){return '<span><em>'+r[0]+'</em>'+(r[0]==='count'?r[1]:f2(r[1]))+'</span>';}).join('');
+var st=$('strip'),w=st.clientWidth-36,mn=all.min,mx=all.max,rg=mx-mn||1;
+function px(v){return 18+(v-mn)/rg*w;}
+var ph='<div class="axis"></div>';
+vals.forEach(function(o){var off=drop.checked&&outl[o.i];ph+='<span class="pt'+(outl[o.i]?' outl':'')+(off?' off':'')+'" style="left:'+px(o.v).toFixed(1)+'px"></span>';});
+ph+='<span class="mk mean" style="left:'+px(s.mean).toFixed(1)+'px"><i>mean</i></span>';
+ph+='<span class="mk med" style="left:'+px(s.med).toFixed(1)+'px"><i>median</i></span>';
+st.innerHTML=ph;
+$('sLo').textContent='min '+f2(mn);$('sHi').textContent='max '+f2(mx);
+}
+ins.forEach(function(el){el.addEventListener('input',calc);});
+drop.addEventListener('change',calc);
+$('resetS').addEventListener('click',function(){ins.forEach(function(el,i){el.value=DEF[i];});drop.checked=false;calc();});
+addEventListener('resize',calc);
+calc();
+
+/* syllabus */
+var P=[{n:'Python-ის საფუძვლები',r:[1,8]},{n:'pandas და მონაცემთა ანალიზი',r:[9,15]},{n:'ბაზები, ვიზუალიზაცია, პროექტი',r:[16,18]}];
+var L=[
+['მონაცემთა ტიპები და ცვლადები',['საბაზისო ტიპები: Integers, Floats, Strings, Booleans, Lists, Tuples, Dictionaries, Sets','ცვლადის გამოძახება და ინიციალიზაცია','Keywords: Python-ის დარეზერვებული სიტყვები','ცვლადი და უცვლადი (mutable/immutable) მონაცემის ტიპები']],
+['ოპერაციები და პირობითი ლოგიკა',['არითმეტიკული და ლოგიკური ოპერაციები','If სინტაქსი','Elif და Else სინტაქსი','*პრაქტიკული ამოცანები']],
+['ციკლები',['While და For','Break, Continue, Else','ჩაშენებული ციკლი','*პრაქტიკული პროგრამის დაწერა']],
+['ფუნქციები',['Built-in Functions','ფუნქციის შექმნა','Parameters and Arguments','Return კონცეპტი','*პრაქტიკული პროგრამის დაწერა']],
+['სტრიქონები და ფორმატირება',['სტრიქონის მეთოდები: strip(), split(), join(), replace(), upper(), lower()','ფორმატირების ტიპები','*პრაქტიკული პროგრამის დაწერა']],
+['ფაილებთან მუშაობა',['open(), read(), write(), close()','Context Manager: with ბრძანება','ფაილის რეჟიმები: r, w, a, rb/wb']],
+['მონაცემთა სტრუქტურები',['Lists: შექმნა, append(), extend(), insert(), pop(), remove(), sort(), reverse(), იტერაცია','Dictionaries: key-value წყვილები, keys(), values(), items(), get(), update()','Sets: Union, intersection, difference, symmetric difference']],
+['კლასები და OOP-ის შესავალი',['ობიექტზე ორიენტირებული პროგრამირების შესავალი','კლასების განსაზღვრა და ობიექტების შექმნა','ატრიბუტები, მეთოდები და __init__','*მაგალითები და გამოყენების შემთხვევები']],
+['მონაცემთა ანალიტიკა დღეს',['რატომ ვიყენებთ Python-ს ანალიტიკაში და რა გამოწვევებს უმკლავდება','Advanced თემები ბიზნესში','საჭირო პროგრამების ინსტალაცია']],
+['pandas: მონაცემთა წაკითხვა და დათვალიერება',['pandas-ის ინსტალაცია და import','Excel, CSV, HTML და მონაცემთა ბაზებიდან წაკითხვა','DataFrame და Dataset','head(), tail(), info(), shape, size, len, columns','სვეტების არჩევა და Series']],
+['pandas: საბაზისო ანალიზი',['Sum, Min, Max, Median, Mean, Mode, Count, Describe','unique და nunique, nlargest და nsmallest','value_counts და დალაგება','loc და iloc, index (set_index, index_col)','საბაზისო მათემატიკური ოპერაციები']],
+['DataFrame-ების ფილტრაცია',['ფილტრაცია Boolean მნიშვნელობებით და შედარების ოპერატორებით','between() და isin() მეთოდები','AND (&) და OR (|) ოპერატორები','isna(), notna() და fillna()','დინამიკური ფილტრაცია']],
+['მონაცემთა ტრანსფორმაცია და დაჯგუფება',['Combining','ტექსტთან მუშაობა: upper, lower, capitalize, strip, split','სტატიკური სვეტების დამატება','სვეტებისა და ინდექსის სახელის შეცვლა','group_by']],
+['მონაცემთა გაწმენდა და ექსპორტი',['სვეტებისა და სტრიქონების წაშლა','replace და ტიპების გარდაქმნა (casting)','get_level_values()','მონაცემთა chunking','to_csv, to_pdf და სხვა ექსპორტი']],
+['DataFrame-ების გაერთიანება',['Concatenation','Merge: Inner, Left და Right','Append','წესებისა და ფუნქციების გამოყენება: apply, map, applymap']],
+['Python და მონაცემთა ბაზები, ETL',['psycopg2','SQLAlchemy','მონაცემთა მოპოვება და მიგრაცია','ETL პროცესი']],
+['Matplotlib ვიზუალიზაცია',['Matplotlib-ის ინსტალაცია და import','Line Plots, ხაზის სტილები და ფერები, რამდენიმე ხაზი','ლეგენდა, სათაური, grid და ticks','Subplots, Bar Charts, Pie Charts','ფიგურების შენახვა']],
+['რეპორტი და ფინალური პროექტი',['Matplotlib-ის ინტეგრაცია pandas-თან','*სრული რეპორტის აგება სხვადასხვა ვიზუალით','*ფინალური პროექტის შაბლონი','Advanced DA ანალიზის კითხვები და თემები','კურსის საკითხების გამეორება']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+var lec=$('lec'),h='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n;
+h+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+String(n).padStart(2,'0')+'</span><span class="t">'+esc(x[0])+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+x[1].forEach(function(t){var tk=t.charAt(0)==='*';h+='<li'+(tk?' class="tk"':'')+'>'+esc(tk?t.slice(1):t)+'</li>';});
+h+='</ul></div></div></li>';
+});
+lec.innerHTML=h;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var ph=$('phases');
+function setPhase(k){
+ph.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?L.length+' შეხვედრა':c+' შეხვედრა ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button type="button" data-k="-1">ყველა<b>'+L.length+'</b></button>';
+P.forEach(function(p,i){hb+='<button type="button" data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+ph.innerHTML=hb;
+ph.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+
+/* payment tabs */
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>2000 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(2000/4).toFixed(0)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(2000/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>

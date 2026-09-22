@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion Design - After Effects | Smart Academy</title>
+<meta name="description" content="Motion Design - After Effects კურსი: ისწავლე ანიმაციის პრინციპები, keyframe-ები და 2D ანიმაციური რგოლის შექმნა. 8 შეხვედრა, ლექტორი Adjarabet-ის მოუშენ დიზაინერი.">
+<link rel="canonical" href="https://motion-design.kursi.edu.ge/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Academy">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="Motion Design - After Effects | Smart Academy">
+<meta property="og:description" content="Motion Design - After Effects კურსი: ისწავლე ანიმაციის პრინციპები, keyframe-ები და 2D ანიმაციური რგოლის შექმნა. 8 შეხვედრა, ლექტორი Adjarabet-ის მოუშენ დიზაინერი.">
+<meta property="og:url" content="https://motion-design.kursi.edu.ge/">
+<meta property="og:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Motion Design - After Effects | Smart Academy">
+<meta name="twitter:description" content="Motion Design - After Effects კურსი: ისწავლე ანიმაციის პრინციპები, keyframe-ები და 2D ანიმაციური რგოლის შექმნა. 8 შეხვედრა, ლექტორი Adjarabet-ის მოუშენ დიზაინერი.">
+<meta name="twitter:image" content="https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/neuecaps.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/firago-400.woff2" crossorigin>
+<style>
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:400;src:url('assets/fonts/firago-400.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:600;src:url('assets/fonts/firago-600.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:700;src:url('assets/fonts/firago-700.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:FiraGO;font-style:normal;font-weight:800;src:url('assets/fonts/firago-800.woff2') format('woff2')}
+@font-face{font-display:swap;font-family:NeueCaps;src:url('assets/fonts/neuecaps.woff2') format('woff2');font-weight:400;font-style:normal}
+:root{
+--paper:#F3F2EE;--card:#FFFFFF;--ink:#17181C;--muted:#5A5D65;--line:#DADAD3;--soft:#E8E8E0;
+--purple:#8A2BC2;--purple-ink:#FFFFFF;--lime:#B5E02A;--lime-ink:#16200A;
+--comp:#16171C;
+--font:"FiraGO",system-ui,sans-serif;
+--geo:"FiraGO",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#121315;--card:#1B1C20;--ink:#EEEFEA;--muted:#A7AAB1;--line:#2F3137;--soft:#25272C;
+--purple:#D08CFF;--purple-ink:#1A0C08;--lime:#C8F04A;--lime-ink:#16200A;--comp:#0C0D10;}}
+:root[data-theme="dark"]{
+--paper:#121315;--card:#1B1C20;--ink:#EEEFEA;--muted:#A7AAB1;--line:#2F3137;--soft:#25272C;
+--purple:#D08CFF;--purple-ink:#1A0C08;--lime:#C8F04A;--lime-ink:#16200A;--comp:#0C0D10;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+#progress{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--purple);transform-origin:0 50%;transform:scaleX(0);z-index:50}
+header.bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{display:flex;align-items:center;text-decoration:none;line-height:1}
+.logo img{height:28px;width:auto;display:block}
+nav.links{display:flex;gap:22px;font-family:var(--geo);font-size:15px}
+nav.links a{text-decoration:none;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:14px;font-family:var(--geo);font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--purple);color:var(--purple-ink)}
+.btn-main:hover{background:var(--ink);color:var(--paper)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-lime{background:var(--lime);color:var(--lime-ink)}
+.btn-lime:hover{background:var(--paper);color:var(--ink)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.theme-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+/* hero */
+.hero{padding:60px 0 20px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .95fr;gap:48px;align-items:center}
+.rating{display:inline-flex;align-items:center;gap:10px;font-family:var(--geo);font-size:15px;color:var(--muted);margin:0 0 20px}
+.rating .stars{color:#E8A400;letter-spacing:2px;font-size:18px}
+.rating b{color:var(--ink)}
+h1{font-family:"NeueCaps",var(--geo);font-stretch:68%;font-weight:900;font-size:clamp(42px,6.6vw,92px);line-height:.94;margin:0 0 26px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:.12s}
+h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--purple)}
+@keyframes rise{to{transform:none}}
+.lead{font-family:var(--geo);font-size:19px;color:var(--muted);max-width:56ch;margin:0 0 30px}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 34px;margin:0 0 32px;justify-content:start}
+.facts div{display:flex;flex-direction:column}
+.facts dt{font-family:var(--geo);font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-family:var(--geo);font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
+.price small{font-size:20px}
+/* graph editor mockup */
+.ae-stage{position:relative;display:flex;justify-content:center}
+.ae{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:0 40px 70px -35px rgba(20,15,10,.5);position:relative;z-index:2}
+.ae-head{display:flex;align-items:center;gap:8px;padding:2px 4px 12px}
+.ae-head .dots{display:flex;gap:5px}
+.ae-head .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.ae-head span{margin-left:auto;font-family:var(--geo);font-size:12px;color:var(--muted)}
+.comp{position:relative;aspect-ratio:16/9;border-radius:12px;background-color:var(--comp);background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px;overflow:hidden}
+.comp .cl{position:absolute;top:9px;left:10px;font-family:var(--geo);font-size:11px;font-weight:600;color:rgba(255,255,255,.7)}
+.comp .tc{position:absolute;top:8px;right:9px;font-family:var(--font);font-weight:700;font-size:11px;font-variant-numeric:tabular-nums;background:rgba(255,255,255,.12);color:#fff;padding:3px 8px;border-radius:999px}
+.comp .path{position:absolute;left:40px;right:40px;top:50%;border-top:1px dashed rgba(255,255,255,.18)}
+.ghost,.shape{position:absolute;left:0;top:50%;will-change:transform}
+.ghost{width:40px;height:40px;margin-top:-20px;border:2px dashed rgba(255,255,255,.4);border-radius:11px}
+.shape{width:48px;height:48px;margin-top:-24px;border-radius:14px;background:#FF5A36;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(255,90,54,.7)}
+.shape i{width:18px;height:18px;border-radius:50%;background:#C8F04A;box-shadow:12px -10px 0 -5px #fff}
+.comp .leg{position:absolute;left:10px;bottom:8px;display:flex;gap:12px;font-family:var(--geo);font-size:10.5px;color:rgba(255,255,255,.72)}
+.comp .leg span{display:flex;align-items:center;gap:5px}
+.comp .leg i{width:14px;height:0;border-top:3px solid #FF5A36;border-radius:2px}
+.comp .leg i.d{border-top:2px dashed rgba(255,255,255,.6)}
+.graph{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:8px 10px 4px}
+.graph-top{display:flex;align-items:center;gap:6px;font-family:var(--geo);font-size:11.5px;font-weight:700;margin-bottom:2px}
+.graph-top em{font-style:normal;margin-left:auto;font-weight:600;font-size:10.5px;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--muted)}
+.graph-top em.on{background:var(--ink);color:var(--paper)}
+.graph svg{display:block;width:100%;height:auto;overflow:visible}
+.g-grid{stroke:var(--line);stroke-width:1}
+.g-lin{stroke:var(--muted);stroke-width:1.6;stroke-dasharray:5 5;fill:none;opacity:.8}
+.g-ease{stroke:var(--purple);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.6s .3s cubic-bezier(.33,0,.67,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.g-hdl{stroke:var(--ink);stroke-width:1.2;opacity:.55}
+.g-hc{fill:var(--card);stroke:var(--ink);stroke-width:1.4}
+.g-kf{fill:var(--lime);stroke:var(--ink);stroke-width:1.4}
+.g-txt{font-family:var(--geo);font-size:9.5px;fill:var(--muted)}
+.g-lbl{font-family:var(--geo);font-size:9.5px;font-weight:700;fill:var(--ink)}
+.g-ph{stroke:var(--ink);stroke-width:1.5}
+.g-phh{fill:var(--ink)}
+.g-de{fill:var(--purple);stroke:var(--card);stroke-width:2}
+.g-dl{fill:var(--muted);stroke:var(--card);stroke-width:2}
+.g-row{fill:var(--soft)}
+.bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-family:var(--geo);font-size:14px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:9px;animation:bob 5s ease-in-out infinite}
+.bubble b{font-family:var(--font);font-variant-numeric:tabular-nums}
+.bubble svg{flex:none}
+.bubble.b1{left:-22px;top:-20px}
+.bubble.b2{right:-18px;top:176px;animation-delay:-1.6s;background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+.bubble.b3{left:-18px;bottom:-30px;animation-delay:-3.2s;background:var(--purple);color:var(--purple-ink);border-color:var(--purple)}
+@keyframes bob{50%{transform:translateY(-10px)}}
+/* tools strip */
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);align-items:center}
+.plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
+.plat span{font-weight:700;padding:8px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+section{padding:90px 0}
+h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:clamp(34px,4.6vw,58px);line-height:1;margin:0 0 16px}
+.sub{font-family:var(--geo);color:var(--muted);max-width:62ch;margin:0 0 40px;font-size:18px}
+/* planner */
+.plan{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.panel h3{font-family:var(--geo);font-size:19px;margin:0 0 14px}
+.inputs{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:6px}
+.inputs label{font-family:var(--geo);font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.inputs input[type=number],.inputs select{min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);padding:0 14px;font:600 16px var(--font);width:100%}
+.inputs .rng{display:flex;align-items:center;gap:12px}
+.inputs input[type=range]{flex:1;accent-color:var(--purple);min-height:32px}
+.inputs output{font:800 18px var(--font);color:var(--ink);min-width:28px;text-align:right}
+.hint{font-family:var(--geo);font-size:13px;color:var(--muted);margin:12px 0 0}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.rescard{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--paper)}
+.rescard span{display:block;font-family:var(--geo);font-size:13px;color:var(--muted);margin-bottom:2px}
+.rescard b{font-size:26px;font-variant-numeric:tabular-nums;line-height:1.2}
+.rescard small{display:block;font-family:var(--geo);font-size:12px;color:var(--muted)}
+.rescard.hot{background:var(--purple);border-color:var(--purple);color:var(--purple-ink)}
+.rescard.hot span,.rescard.hot small{color:inherit;opacity:.85}
+.eases{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.eases button{min-height:40px;padding:0 13px;border-radius:10px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:600 14px var(--geo);cursor:pointer}
+.eases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pv{display:grid;grid-template-columns:128px 1fr;gap:16px;align-items:center}
+.pv svg{width:128px;height:auto;display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px}
+.pv .c-ax{stroke:var(--line);stroke-width:1}
+.pv .c-cv{stroke:var(--purple);stroke-width:2.6;fill:none;stroke-linecap:round}
+.pv .c-dot{fill:var(--purple)}
+.lane{position:relative;height:58px;border-radius:14px;background:var(--paper);border:1px solid var(--line)}
+.lane .dot{position:absolute;top:50%;left:12px;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--purple);box-shadow:0 6px 16px -6px var(--purple)}
+.ticks{position:relative;height:30px;margin:8px 27px 0}
+.ticks i{position:absolute;top:0;width:1px;height:8px;background:var(--line)}
+.ticks b{position:absolute;top:10px;width:12px;height:12px;margin-left:-6px;transform:rotate(45deg);background:var(--lime);border:1.5px solid var(--ink);border-radius:2px}
+.pv-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px;font-family:var(--geo);font-size:13px;color:var(--muted);flex-wrap:wrap}
+.pv-meta b{font-family:var(--font);color:var(--ink);font-variant-numeric:tabular-nums}
+/* syllabus */
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.phases button{min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-family:var(--geo);font-weight:600;font-size:15px;cursor:pointer}
+.phases button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.phases button b{font-family:var(--font);margin-left:6px;opacity:.6}
+.lec{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lec li{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:opacity .3s,transform .3s}
+.lec li.dim{opacity:.28}
+.lec button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:64px 1fr auto 28px;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 20px;cursor:pointer}
+.lec button:focus-visible{outline:3px solid var(--lime);outline-offset:-3px;border-radius:18px}
+.lec .n{font-weight:800;font-size:30px;color:var(--purple);font-variant-numeric:tabular-nums}
+.lec .t{font-family:var(--geo);font-weight:700;font-size:18px;line-height:1.25}
+.lec .ph{font-family:var(--geo);font-size:13px;color:var(--muted);white-space:nowrap}
+.lec .pl{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;transition:transform .3s,background .3s}
+.lec button[aria-expanded=true] .pl{transform:rotate(45deg);background:var(--lime);border-color:var(--lime);color:#16200A}
+.lec .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.lec .body>div{overflow:hidden}
+.lec button[aria-expanded=true]+.body{grid-template-rows:1fr}
+.lec ul{margin:0;padding:0 20px 20px 100px;list-style:none;display:grid;gap:6px}
+.lec ul li{border:0;background:none;border-radius:0;font-family:var(--geo);display:flex;gap:10px;overflow:visible}
+.lec ul li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--purple)}
+.lec ul li.tk{font-weight:700}
+.lec ul li.tk:before{background:var(--lime);border-radius:2px;transform:rotate(45deg);outline:1.5px solid var(--ink)}
+.lec button:hover .t{color:var(--purple)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
+/* outcomes */
+.out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
+.out h3{font-family:var(--geo);font-size:22px;margin:0 0 14px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.pill-list li{font-family:var(--geo);padding:10px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.can{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.can li{font-family:var(--geo);padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);display:flex;gap:12px;transition:background .25s,color .25s}
+.can li:hover{background:var(--purple);color:var(--purple-ink)}
+.can li:before{content:"";flex:none;width:22px;height:22px;border-radius:7px;background:var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316200A' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/14px no-repeat}
+.jobs{margin-top:40px;overflow:hidden;border-block:1px solid var(--line);padding:16px 0}
+.jobs .track{display:flex;gap:40px;width:max-content;animation:scroll 40s linear infinite}
+.jobs span{font-family:var(--geo);font-weight:700;font-size:22px;white-space:nowrap}
+.jobs span:nth-child(even){color:var(--purple)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* lecturer */
+.lect{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.portrait{border-radius:28px;background:var(--purple);color:var(--purple-ink);position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px}
+.portrait .ini{position:absolute;top:0;right:12px;font-family:var(--geo);font-weight:900;font-stretch:62.5%;font-size:220px;line-height:1;opacity:.16}
+.portrait h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-size:42px;line-height:1;font-weight:900}
+.portrait p{margin:8px 0 0;font-family:var(--geo);opacity:.9}
+.stat{display:flex;gap:26px;margin:22px 0 0;flex-wrap:wrap}
+.stat b{display:block;font-size:44px;font-weight:800;line-height:1}
+.stat span{font-family:var(--geo);font-size:14px;opacity:.85}
+.bio2 p{font-family:var(--geo);margin:0 0 16px;max-width:62ch}
+.bio2 a{color:var(--purple);font-weight:700}
+.path{list-style:none;padding:0;margin:24px 0}
+.path li{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--geo)}
+.path li b{font-family:var(--font)}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:14px;font-weight:600;padding:6px 12px;border-radius:8px;background:var(--soft)}
+/* final */
+.final{background:var(--ink);color:var(--paper);border-radius:32px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+.final h2{color:var(--paper)}
+.final .sub{color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
+.sched div{border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:14px 16px;font-family:var(--geo)}
+.sched b{display:block;font-family:var(--font);font-size:22px}
+.req{font-family:var(--geo);border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);border-radius:16px;padding:16px 20px;margin:0}
+.req ul{margin:8px 0 0;padding-left:20px}
+.pay{background:var(--paper);color:var(--ink);border-radius:24px;padding:26px}
+.pay .price{font-size:54px;display:block;margin:0 0 4px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:4px;border-radius:14px;margin:18px 0}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;font-family:var(--geo);font-weight:600;color:var(--muted);cursor:pointer;font-size:15px}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.monthly{font-family:var(--geo);margin:0 0 18px;min-height:52px}
+.monthly b{font-family:var(--font);font-size:30px}
+.pay .btn{width:100%}
+.contact{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:15px}
+.contact a{text-decoration:none;font-weight:600}
+footer{padding:40px 0 60px;color:var(--muted);font-family:var(--geo);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.mobile-cta{display:none}
+@media (max-width:960px){
+.hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
+nav.links{display:none}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
+.lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
+.lec .ph{display:none}
+.lec .n{font-size:24px}
+.lec ul{padding:0 16px 18px 72px}
+.final{padding:32px 22px;border-radius:24px}
+section{padding:64px 0}
+.mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:45;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:18px;padding:6px 6px 6px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .35s}
+.mobile-cta.show{transform:none}
+.mobile-cta b{font-size:20px}
+}
+@media (max-width:560px){
+h1{font-size:55px}
+.wrap{padding:0 16px}
+.facts{grid-template-columns:1fr 1fr}
+.can{grid-template-columns:1fr}
+.path li{grid-template-columns:1fr;gap:2px}
+.sched{grid-template-columns:1fr}
+.res{grid-template-columns:1fr 1fr}
+.rescard b{font-size:21px}
+.panel{padding:20px}
+header .btn-sm{display:none}
+.lec ul{padding-left:20px}
+.pv{grid-template-columns:1fr}
+.pv svg{width:110px}
+.bubble{font-size:12.5px;padding:8px 11px}
+.bubble.b1{top:-22px}
+.bubble.b2{top:-22px}
+.bubble.b3{bottom:-28px}
+.ae{padding:10px}
+}
+@media (prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+h1 .ln span{transform:none;opacity:1}
+.g-ease{stroke-dashoffset:0}
+.reveal{opacity:1;transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "@id": "https://motion-design.kursi.edu.ge/#course",
+      "name": "Motion Design - After Effects",
+      "description": "Motion Design - After Effects-ის კურსი: ანიმაციის ძირითადი პრინციპები, ანიმირების ტექნიკები, განსხვავებული სტილის გრაფიკა და მისი ინტეგრირება გადაღებულ ვიდეოში, 2D ანიმაციური ვიდეო რგოლის დამოუკიდებლად დაგეგმვა და ანიმირება.",
+      "url": "https://motion-design.kursi.edu.ge/",
+      "inLanguage": "ka",
+      "provider": {
+        "@type": "Organization",
+        "name": "Smart Academy",
+        "sameAs": "https://smartacademy.ge"
+      },
+      "instructor": [
+        {
+          "@type": "Person",
+          "name": "ლევან ზაზარაშვილი",
+          "jobTitle": "Motion Designer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Adjarabet.com"
+          }
+        }
+      ],
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Blended",
+        "courseWorkload": "PT16H",
+        "instructor": [
+          {
+            "@type": "Person",
+            "name": "ლევან ზაზარაშვილი"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "reviewCount": "7"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/17-After-Effects-Motion-Design-Course",
+        "price": "990",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock",
+        "category": "Paid"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://motion-design.kursi.edu.ge/#product",
+      "name": "Motion Design - After Effects",
+      "description": "Motion Design - After Effects-ის კურსი: ანიმაციის ძირითადი პრინციპები, ანიმირების ტექნიკები, განსხვავებული სტილის გრაფიკა და მისი ინტეგრირება გადაღებულ ვიდეოში, 2D ანიმაციური ვიდეო რგოლის დამოუკიდებლად დაგეგმვა და ანიმირება.",
+      "image": "https://smartacademy.ge/assets/client/assets/images/coverfbacademy.png?v=2",
+      "brand": {
+        "@type": "Brand",
+        "name": "Smart Academy"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "reviewCount": "7"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://smartacademy.ge/trainings/17-After-Effects-Motion-Design-Course",
+        "price": "990",
+        "priceCurrency": "GEL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Smart Academy კურსები",
+          "item": "https://kursi.edu.ge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Motion Design - After Effects",
+          "item": "https://motion-design.kursi.edu.ge/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header class="bar">
+<div class="wrap">
+<a class="logo" href="https://smartacademy.ge" target="_blank" rel="noopener" aria-label="Smart Academy"><img src="assets/images/logo-bl.svg" alt="Smart Academy" width="117" height="28"></a>
+<nav class="links" aria-label="სექციები">
+<a href="#planner">ანიმაციის კალკულატორი</a>
+<a href="#syllabus">სილაბუსი</a>
+<a href="#outcomes">შედეგები</a>
+<a href="#lecturers">ლექტორი</a>
+<a href="#join">რეგისტრაცია</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<button class="theme-btn" id="themeBtn" aria-label="თემის შეცვლა"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+<a class="btn btn-main btn-sm" href="https://smartacademy.ge/trainings/17-After-Effects-Motion-Design-Course" target="_blank" rel="noopener">რეგისტრაცია</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.9</b> / 5, 7 შეფასება</span></p>
+<h1><span class="ln"><span>Motion</span></span><span class="ln"><span>Design</span></span><span class="ln"><span>After Effects</span></span></h1>
+<p class="lead">ისწავლე 2D ანიმაციური ვიდეო რგოლის დამოუკიდებლად დაგეგმვა და ანიმირება After Effects-ში: ანიმაციის პრინციპებიდან და ტექნიკებიდან გრაფიკის გადაღებულ ვიდეოში ინტეგრირებამდე.</p>
+<dl class="facts">
+<div><dt>ლექტორი</dt><dd>ლევან ზაზარაშვილი</dd></div>
+<div><dt>ფორმატი</dt><dd>ფიზიკურად + ონლაინ</dd></div>
+<div><dt>დაწყება</dt><dd>7 ოქტომბერი</dd></div>
+<div><dt>ხანგრძლივობა</dt><dd>2 თვე</dd></div>
+<div><dt>შეხვედრები</dt><dd>8 შეხვედრა, 16 სთ</dd></div>
+<div><dt>განრიგი</dt><dd>ოთხშაბათი</dd></div>
+</dl>
+<div class="cta-row">
+<span class="price">990 <small>₾</small></span>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/17-After-Effects-Motion-Design-Course" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
+</div>
+</div>
+<div class="ae-stage">
+<div class="bubble b1" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1L15 8L8 15L1 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 4.5L11.5 8L8 11.5L4.5 8Z" fill="currentColor"/></svg><b>Easy Ease</b></div>
+<div class="bubble b2" aria-hidden="true"><b>24 fps</b></div>
+<div class="bubble b3" aria-hidden="true">Keyframes <b>6</b></div>
+<div class="ae" role="img" aria-label="After Effects-ის Graph Editor-ის მაკეტი: ლოგო მოძრაობს, იზრდება და ბრუნავს Easy Ease მრუდის მიხედვით, წყვეტილი კონტური კი წრფივად მოძრაობს">
+<div class="ae-head" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span>logo_reveal.aep</span></div>
+<div class="comp" aria-hidden="true">
+<span class="cl">Comp 1, 1920x1080</span>
+<span class="tc" id="aeTc">0:00:00:00</span>
+<span class="path"></span>
+<span class="ghost" id="aeGhost"></span>
+<span class="shape" id="aeShape"><i></i></span>
+<span class="leg"><span><i></i>Easy Ease</span><span><i class="d"></i>Linear</span></span>
+</div>
+<div class="graph" aria-hidden="true">
+<div class="graph-top">Graph Editor<em class="on">Value</em><em style="margin-left:0">Speed</em></div>
+<svg viewBox="0 0 360 172" id="aeGraph">
+<g>
+<line class="g-grid" x1="24" y1="16" x2="344" y2="16"/><line class="g-grid" x1="24" y1="40" x2="344" y2="40"/><line class="g-grid" x1="24" y1="64" x2="344" y2="64"/><line class="g-grid" x1="24" y1="88" x2="344" y2="88"/><line class="g-grid" x1="24" y1="112" x2="344" y2="112"/>
+<line class="g-grid" x1="24" y1="10" x2="24" y2="118"/><line class="g-grid" x1="104" y1="10" x2="104" y2="118"/><line class="g-grid" x1="184" y1="10" x2="184" y2="118"/><line class="g-grid" x1="264" y1="10" x2="264" y2="118"/><line class="g-grid" x1="344" y1="10" x2="344" y2="118"/>
+</g>
+<path class="g-lin" d="M24 112L344 16"/>
+<line class="g-hdl" x1="24" y1="112" x2="129.6" y2="112"/><line class="g-hdl" x1="344" y1="16" x2="238.4" y2="16"/>
+<circle class="g-hc" cx="129.6" cy="112" r="3.5"/><circle class="g-hc" cx="238.4" cy="16" r="3.5"/>
+<path class="g-ease" d="M24 112C129.6 112 238.4 16 344 16"/>
+<rect class="g-row" x="24" y="146" width="320" height="18" rx="4"/>
+<text class="g-txt" x="24" y="136" text-anchor="middle">0f</text><text class="g-txt" x="104" y="136" text-anchor="middle">12f</text><text class="g-txt" x="184" y="136" text-anchor="middle">24f</text><text class="g-txt" x="264" y="136" text-anchor="middle">36f</text><text class="g-txt" x="344" y="136" text-anchor="middle">48f</text>
+<text class="g-lbl" x="184" y="158.5" text-anchor="middle">Position, Scale, Rotation</text>
+<rect class="g-kf" x="-5" y="-5" width="10" height="10" rx="1.5" transform="translate(24 112) rotate(45)"/>
+<rect class="g-kf" x="-5" y="-5" width="10" height="10" rx="1.5" transform="translate(344 16) rotate(45)"/>
+<rect class="g-kf" x="-5" y="-5" width="10" height="10" rx="1.5" transform="translate(24 155) rotate(45)"/>
+<rect class="g-kf" x="-5" y="-5" width="10" height="10" rx="1.5" transform="translate(344 155) rotate(45)"/>
+<g id="aePh" transform="translate(24 0)"><line class="g-ph" x1="0" y1="4" x2="0" y2="168"/><path class="g-phh" d="M-5 0H5V5L0 9L-5 5Z"/></g>
+<circle class="g-dl" id="aeDl" cx="24" cy="112" r="4.5"/>
+<circle class="g-de" id="aeDe" cx="24" cy="112" r="6"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<div class="plat"><p>ინსტრუმენტი და ფოკუსი:</p><span>Adobe After Effects</span><span>2D ანიმაცია</span><span>Motion Graphics</span><span>ვიდეოში ინტეგრაცია</span></div>
+</div>
+</section>
+<section id="planner">
+<div class="wrap">
+<h2 class="reveal">გამოთვალე ანიმაციის კადრები და ტაიმინგი</h2>
+<p class="sub reveal">მოუშენ დიზაინერი ანიმაციას წამებით კი არა, კადრებით ფიქრობს. შეიყვანე რგოლის ხანგრძლივობა, fps და keyframe-ების რაოდენობა, აირჩიე easing და ნახე, როგორ იცვლება მოძრაობის ხასიათი. ეს პირდაპირ უკავშირდება კურსის პირველ თემებს: ანიმაციის ძირითად პრინციპებსა და ანიმირების ტექნიკებს.</p>
+<div class="plan reveal">
+<div class="panel">
+<h3>პარამეტრები</h3>
+<div class="inputs">
+<label>რგოლის ხანგრძლივობა (წამი)<input type="number" id="tDur" min="0.5" max="120" step="0.5" value="5"></label>
+<label>კადრების სიხშირე (fps)
+<select id="tFps">
+<option value="12">12 fps (ხელით ნახატი სტილი)</option>
+<option value="24" selected>24 fps (კინო)</option>
+<option value="25">25 fps (PAL ვიდეო)</option>
+<option value="30">30 fps (ვებ, სოციალური ქსელები)</option>
+<option value="60">60 fps (UI, გლუვი მოძრაობა)</option>
+</select>
+</label>
+<label for="tKf">Keyframe-ების რაოდენობა
+<span class="rng"><input type="range" id="tKf" min="2" max="12" value="4"><output id="tKfOut" for="tKf">4</output></span>
+</label>
+<label>რენდერის რეზოლუცია
+<select id="tRes">
+<option value="720">1280x720 (HD)</option>
+<option value="1080" selected>1920x1080 (Full HD)</option>
+<option value="1350">1080x1350 (Instagram 4:5)</option>
+<option value="4k">3840x2160 (4K)</option>
+</select>
+</label>
+</div>
+<p class="hint">გამარტივებული მოდელი საგანმანათლებლო მიზნებისთვის. რეალური რენდერის დრო დამოკიდებულია ეფექტებზე, ფენების რაოდენობასა და კომპიუტერის სიმძლავრეზე.</p>
+</div>
+<div class="panel">
+<div class="res">
+<div class="rescard hot"><span>კადრების რაოდენობა</span><b id="rFrames">120</b><small id="rTc">0:00:05:00</small></div>
+<div class="rescard"><span>Keyframe-ებს შორის</span><b id="rGap">40 კადრი</b><small id="rGapS">1.67 წმ</small></div>
+<div class="rescard"><span>სავარაუდო რენდერი</span><b id="rRender">42 წმ</b><small id="rRenderS">მარტივი 2D კომპოზიცია</small></div>
+<div class="rescard"><span>1 კადრის ხანგრძლივობა</span><b id="rMs">41.7 მწმ</b><small>1000 / fps</small></div>
+</div>
+<h3>Easing პრევიუ</h3>
+<div class="eases" id="eases" role="group" aria-label="Easing-ის ტიპი">
+<button data-e="linear" aria-pressed="false">Linear</button>
+<button data-e="in" aria-pressed="false">Ease In</button>
+<button data-e="out" aria-pressed="false">Ease Out</button>
+<button data-e="easy" aria-pressed="true">Easy Ease</button>
+<button data-e="bounce" aria-pressed="false">Bounce</button>
+</div>
+<div class="pv">
+<svg viewBox="0 0 100 80" aria-hidden="true"><line class="c-ax" x1="10" y1="70" x2="92" y2="70"/><line class="c-ax" x1="10" y1="8" x2="10" y2="70"/><path class="c-cv" id="cCurve" d=""/><circle class="c-dot" id="cDot" cx="10" cy="70" r="3.5"/></svg>
+<div>
+<div class="lane" aria-hidden="true"><span class="dot" id="pvDot"></span></div>
+<div class="ticks" id="ticks" aria-hidden="true"></div>
+</div>
+</div>
+<div class="pv-meta"><span>კადრი <b id="pvFrame">0</b> / <b id="pvTotal">120</b></span><button class="btn btn-ghost btn-sm" id="pvPlay" type="button">თავიდან გაშვება</button></div>
+<p class="hint" id="pvNote">რომბები keyframe-ებს აჩვენებს, თანაბრად განაწილებულს რგოლის ხანგრძლივობაზე. პრევიუ მაქსიმუმ 4 წამს გრძელდება.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
+<div class="wrap">
+<h2 class="reveal">8 შეხვედრა, ოთხი თემა</h2>
+<p class="sub reveal">კურსის ძირითადი თემატიკა Smart Academy-ის ოფიციალური აღწერის მიხედვით: ანიმაციის პრინციპებიდან საკუთარი 2D ანიმაციური რგოლის დაგეგმვასა და ანიმირებამდე. დეტალური განრიგი შეგიძლია დააზუსტო რეგისტრაციისას.</p>
+<div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<ol class="lec reveal" id="lec"></ol>
+</div>
+</section>
+<section id="outcomes">
+<div class="wrap">
+<h2 class="reveal">კურსის ბოლოს</h2>
+<p class="sub reveal">ცოდნა და უნარები, რომლებსაც კურსის ოფიციალური აღწერის მიხედვით მიიღებ.</p>
+<div class="out">
+<div class="reveal">
+<h3>გეცოდინება</h3>
+<ul class="pill-list">
+<li>ანიმაციის ძირითადი პრინციპები</li>
+<li>ანიმირებისთვის საჭირო სხვადასხვა ტექნიკა</li>
+<li>განსხვავებული სტილის გრაფიკული ელემენტები</li>
+<li>გრაფიკის გადაღებულ ვიდეოში ინტეგრირების გზები</li>
+<li>2D ანიმაციური რგოლის დაგეგმვის ეტაპები</li>
+</ul>
+</div>
+<div class="reveal">
+<h3>შეძლებ</h3>
+<ol class="can">
+<li>ანიმაციის ძირითადი პრინციპების პრაქტიკაში გამოყენებას</li>
+<li>ანიმირების სხვადასხვა ტექნიკის გამოყენებას After Effects-ში</li>
+<li>განსხვავებული სტილის გრაფიკულ ელემენტებზე მუშაობას</li>
+<li>გრაფიკის გადაღებულ ვიდეოში ინტეგრირებას</li>
+<li>2D ანიმაციური ვიდეო რგოლის დამოუკიდებლად დაგეგმვასა და ანიმირებას</li>
+<li>ეფექტური და თანამედროვე ანიმაციური რგოლების შექმნას კომპანიისთვის ან სარეკლამო სააგენტოსთვის</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="jobs" aria-label="დაკავშირებული პროფესია">
+<div class="track">
+<span>მოუშენ გრაფიკის დიზაინერი</span><span>Motion Graphics Designer</span><span>მოუშენ გრაფიკის დიზაინერი</span><span>Motion Graphics Designer</span>
+<span aria-hidden="true">მოუშენ გრაფიკის დიზაინერი</span><span aria-hidden="true">Motion Graphics Designer</span><span aria-hidden="true">მოუშენ გრაფიკის დიზაინერი</span><span aria-hidden="true">Motion Graphics Designer</span>
+</div>
+</div>
+</section>
+<section id="lecturers" style="padding-top:20px">
+<div class="wrap lect">
+<div class="portrait reveal">
+<span class="ini" aria-hidden="true">ლზ</span>
+<h2>ლევან<br>ზაზარაშვილი</h2>
+<p>Motion Designer, Adjarabet.com</p>
+<div class="stat">
+<div><b data-count="6">0</b><span>წელი სფეროში</span></div>
+<div><b data-count="8">0</b><span>შეხვედრა კურსში</span></div>
+</div>
+</div>
+<div class="bio2 reveal">
+<h2>ლექტორი</h2>
+<p>ლევან ზაზარაშვილი Adjarabet.com-ში მოუშენ დიზაინერია. სფეროში 6 წლიანი მუშაობის განმავლობაში უმუშავია და უთანამშრომლია Bank Of Georgia-სთან, Crediton.ge-სთან, Leavingstone-თან, Watergunz-თან და სხვა კომპანიებთან თუ სააგენტოებთან.</p>
+<ol class="path">
+<li><b>Adjarabet.com</b><span>მოუშენ დიზაინერი</span></li>
+<li><b>Bank Of Georgia, Crediton.ge</b><span>მუშაობა და თანამშრომლობა კომპანიებთან</span></li>
+<li><b>Leavingstone, Watergunz</b><span>მუშაობა და თანამშრომლობა სააგენტოებთან</span></li>
+<li><b>2018, GIPA</b><span>Portfolio Review-ს გამარჯვებული</span></li>
+<li><b>2018, ფრანკფურტი</b><span>მისი პროექტი, ანიმირებული ქართული ანბანი, ფრანკფურტის წიგნის ბაზრობაზე იყო წარმოდგენილი</span></li>
+</ol>
+<p>ლევანის ნამუშევრები: <a href="http://bit.ly/LevanZazarashvili" target="_blank" rel="noopener">პორტფოლიო</a></p>
+<p style="color:var(--muted);margin-bottom:10px">კომპანიები და სააგენტოები, რომლებთანაც უმუშავია:</p>
+<div class="brands">
+<span>Adjarabet.com</span><span>Bank Of Georgia</span><span>Crediton.ge</span><span>Leavingstone</span><span>Watergunz</span>
+</div>
+</div>
+</div>
+</section>
+<section id="join" style="padding-top:30px">
+<div class="wrap">
+<div class="final reveal">
+<div>
+<h2>ადგილის დაჯავშნა</h2>
+<p class="sub">ფიზიკურად ან ონლაინ, კვირაში ერთხელ, 2 თვის განმავლობაში. შემდეგი ჯგუფი 7 ოქტომბერს იწყება.<br>ადგილები შეზღუდულია.</p>
+<div class="sched">
+<div><b>ოთხშაბათი</b>20:00-22:00</div>
+<div><b>7 ოქტომბერი</b>ჯგუფის დაწყება</div>
+</div>
+<div class="req"><strong>მოთხოვნები:</strong>
+<ul>
+<li>ინგლისურის საბაზისო ცოდნა</li>
+<li>კომპიუტერთან მუშაობის ზოგადი გამოცდილება</li>
+<li>დაკვირვებულობა, კონცენტრირებულობა, დამოუკიდებლად მუშაობის უნარი</li>
+</ul>
+</div>
+<p class="sub" style="margin:22px 0 0;font-size:16px">კურსის შემდეგ შეგიძლია ჩაერთო Smart Academy-ის კარიერის განვითარების პროგრამაში: რეზიუმე, გასაუბრებისთვის მომზადება და პარტნიორ კომპანიებთან დაკავშირება.</p>
+</div>
+<div class="pay">
+<span class="price">990 <small>₾</small></span>
+<span style="font-family:var(--geo);color:var(--muted)">ერთიანი გადახდა ან 0% განვადება</span>
+<div class="tabs" role="tablist" aria-label="გადახდის ვარიანტი">
+<button role="tab" aria-selected="true" data-m="1">ერთიანად</button>
+<button role="tab" aria-selected="false" data-m="4">4 თვე</button>
+<button role="tab" aria-selected="false" data-m="12">12 თვე</button>
+</div>
+<p class="monthly" id="monthly"></p>
+<a class="btn btn-main" href="https://smartacademy.ge/trainings/17-After-Effects-Motion-Design-Course" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
+<a class="btn btn-ghost" style="width:100%;margin-top:10px" href="https://smartacademy.ge/trainings/17-After-Effects-Motion-Design-Course" target="_blank" rel="noopener">კურსის დეტალები</a>
+<div class="contact"><a href="tel:+995591670067">591 67 00 67</a><a href="mailto:info@smartacademy.ge">info@smartacademy.ge</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><span>© Smart Academy, smartacademy.ge</span><span>კორპორატიული შეთავაზებისთვის: info@smartacademy.ge</span></div></footer>
+<div class="mobile-cta" id="mcta"><b>990 ₾</b><a class="btn btn-lime btn-sm" href="https://smartacademy.ge/trainings/17-After-Effects-Motion-Design-Course" target="_blank" rel="noopener">რეგისტრაცია</a></div>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var fmt=function(n,d){return Number(n).toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});};
+var $=function(id){return document.getElementById(id);};
+/* theme */
+var root=document.documentElement;
+var LOGO_LIGHT='assets/images/logo-bl.svg',LOGO_DARK='assets/images/logo-wt.svg';
+function syncLogo(){var t=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.querySelectorAll('.logo img').forEach(function(im){im.src=t==='dark'?LOGO_DARK:LOGO_LIGHT;});}
+try{var st=localStorage.getItem('sa-theme');if(st)root.setAttribute('data-theme',st);}catch(e){}
+syncLogo();
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!root.getAttribute('data-theme'))syncLogo();});}catch(e){}
+$('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');var nx=cur==='dark'?'light':'dark';root.setAttribute('data-theme',nx);try{localStorage.setItem('sa-theme',nx);}catch(e){}syncLogo();});
+/* progress + mobile cta */
+var bar=$('progress'),mcta=$('mcta'),join=$('join');
+function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+/* easing functions */
+function bez(x1,y1,x2,y2){
+function cx(t){return 3*x1*t*(1-t)*(1-t)+3*x2*t*t*(1-t)+t*t*t;}
+function cy(t){return 3*y1*t*(1-t)*(1-t)+3*y2*t*t*(1-t)+t*t*t;}
+return function(x){if(x<=0)return 0;if(x>=1)return 1;var lo=0,hi=1,t=x;for(var i=0;i<24;i++){t=(lo+hi)/2;if(cx(t)<x)lo=t;else hi=t;}return cy(t);};
+}
+function bounce(x){var n=7.5625,d=2.75;if(x<1/d)return n*x*x;if(x<2/d){x-=1.5/d;return n*x*x+.75;}if(x<2.5/d){x-=2.25/d;return n*x*x+.9375;}x-=2.625/d;return n*x*x+.984375;}
+var EASE={linear:function(x){return x;},'in':bez(.42,0,1,1),out:bez(0,0,.58,1),easy:bez(.33,0,.67,1),bounce:bounce};
+function pad(n){return String(n).padStart(2,'0');}
+function tc(f,fps){var s=Math.floor(f/fps),fr=f%fps,m=Math.floor(s/60);return '0:'+pad(m)+':'+pad(s%60)+':'+pad(fr);}
+/* hero graph editor */
+var shape=$('aeShape'),ghost=$('aeGhost'),comp=shape.parentNode,ph=$('aePh'),dE=$('aeDe'),dL=$('aeDl'),aeTc=$('aeTc');
+var GX0=24,GW=320,GY0=112,GH=96,FR=48;
+function heroFrame(p){
+var e=EASE.easy(p),W=comp.clientWidth,x0=14,x1=W-14-48;
+shape.style.transform='translateX('+(x0+(x1-x0)*e)+'px) scale('+(.7+.45*e)+') rotate('+(e*180)+'deg)';
+ghost.style.transform='translateX('+(x0+4+(x1-x0)*p)+'px)';
+var gx=GX0+GW*p;
+ph.setAttribute('transform','translate('+gx.toFixed(1)+' 0)');
+dE.setAttribute('cx',gx.toFixed(1));dE.setAttribute('cy',(GY0-GH*e).toFixed(1));
+dL.setAttribute('cx',gx.toFixed(1));dL.setAttribute('cy',(GY0-GH*p).toFixed(1));
+aeTc.textContent=tc(Math.round(p*FR),24);
+}
+if(reduce){heroFrame(.3);}
+else{
+var T0=null,CYC=5200;
+var heroLoop=function(t){if(!T0)T0=t;var c=(t-T0)%CYC,p;
+if(c<2000)p=c/2000;else if(c<2600)p=1;else if(c<4600)p=1-(c-2600)/2000;else p=0;
+heroFrame(p);requestAnimationFrame(heroLoop);};
+heroFrame(0);requestAnimationFrame(heroLoop);
+}
+/* reveal + counters */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+/* timing planner */
+var SPF={720:.18,1080:.35,1350:.3,'4k':1.4};
+var tDur=$('tDur'),tFps=$('tFps'),tKf=$('tKf'),tRes=$('tRes'),ticks=$('ticks'),pvDot=$('pvDot'),lane=pvDot.parentNode;
+var ease='easy',frames=120,fps=24,pvStart=null;
+function durTxt(s){return s<60?fmt(s,s<10?1:0)+' წმ':fmt(s/60,1)+' წთ';}
+function calc(){
+var d=Math.min(120,Math.max(.5,+tDur.value||.5));fps=+tFps.value;var k=+tKf.value;
+$('tKfOut').textContent=k;
+frames=Math.round(d*fps);
+var gap=frames/(k-1);
+$('rFrames').textContent=fmt(frames);
+$('rTc').textContent=tc(frames,fps);
+$('rGap').textContent=fmt(gap,gap%1?1:0)+' კადრი';
+$('rGapS').textContent=fmt(gap/fps,2)+' წმ';
+$('rRender').textContent=durTxt(frames*SPF[tRes.value]);
+$('rMs').textContent=fmt(1000/fps,1)+' მწმ';
+$('pvTotal').textContent=fmt(frames);
+var h='';for(var i=0;i<=20;i++)h+='<i style="left:'+(i*5)+'%"></i>';
+for(var j=0;j<k;j++)h+='<b style="left:'+(j/(k-1)*100).toFixed(2)+'%"></b>';
+ticks.innerHTML=h;
+pvStart=null;
+}
+function drawCurve(){
+var f=EASE[ease],d='';
+for(var i=0;i<=60;i++){var x=i/60,y=f(x);d+=(i?'L':'M')+(10+82*x).toFixed(1)+' '+(70-62*y).toFixed(1);}
+$('cCurve').setAttribute('d',d);
+}
+function pvFrame(p){
+var y=EASE[ease](p),W=lane.clientWidth-24-30;
+pvDot.style.transform='translateX('+(W*y).toFixed(1)+'px)';
+$('cDot').setAttribute('cx',(10+82*p).toFixed(1));$('cDot').setAttribute('cy',(70-62*y).toFixed(1));
+$('pvFrame').textContent=fmt(Math.round(p*frames));
+}
+function pvLoop(t){
+if(pvStart===null)pvStart=t;
+var len=Math.min(4000,Math.max(600,(+tDur.value||1)*1000)),c=(t-pvStart)%(len+700);
+pvFrame(Math.min(1,c/len));
+requestAnimationFrame(pvLoop);
+}
+document.querySelectorAll('#eases button').forEach(function(b){b.addEventListener('click',function(){
+ease=b.dataset.e;document.querySelectorAll('#eases button').forEach(function(o){o.setAttribute('aria-pressed',o===b);});
+drawCurve();pvStart=null;if(reduce)pvFrame(1);});});
+[tDur,tFps,tKf,tRes].forEach(function(el){el.addEventListener('input',calc);});
+$('pvPlay').addEventListener('click',function(){pvStart=null;if(reduce)pvFrame(1);});
+calc();drawCurve();
+if(reduce){pvFrame(1);$('pvPlay').hidden=true;}else requestAnimationFrame(pvLoop);
+/* syllabus */
+var P=[{n:'საფუძვლები და ტექნიკა',r:[1,2]},{n:'სტილი და საკუთარი რგოლი',r:[3,4]}];
+var L=[
+['ანიმაციის ძირითადი პრინციპები',['ანიმაციის ძირითადი პრინციპები და მათი როლი მოუშენ დიზაინში','ტაიმინგი: როგორ განსაზღვრავს დრო მოძრაობის ხასიათს','აჩქარება და შენელება (easing) ბუნებრივი მოძრაობისთვის']],
+['ანიმირების ტექნიკები After Effects-ში',['ანიმირებისთვის საჭირო სხვადასხვა ტექნიკა','Keyframe-ებით მუშაობა და მოძრაობის აწყობა','ანიმაციის დახვეწა After Effects-ის ინსტრუმენტებით']],
+['განსხვავებული სტილის გრაფიკა და ვიდეოში ინტეგრირება',['განსხვავებული სტილის გრაფიკულ ელემენტებზე მუშაობა','გრაფიკული ელემენტების გადაღებულ ვიდეოში ინტეგრირება']],
+['2D ანიმაციური რგოლის დაგეგმვა და ანიმირება',['ანიმაციური ვიდეო რგოლის დამოუკიდებლად დაგეგმვა','*საკუთარი 2D ანიმაციური ვიდეო რგოლის ანიმირება']]
+];
+function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+var lec=$('lec'),h='';
+L.forEach(function(x,i){
+var n=i+1,id='l'+n;
+h+='<li data-ph="'+phaseOf(n)+'"><button aria-expanded="'+(i===0)+'" aria-controls="'+id+'"><span class="n">'+pad(n)+'</span><span class="t">'+esc(x[0])+'</span><span class="ph">'+P[phaseOf(n)].n+'</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="body" id="'+id+'"><div><ul>';
+x[1].forEach(function(t){var tk=t.charAt(0)==='*';h+='<li'+(tk?' class="tk"':'')+'>'+esc(tk?t.slice(1):t)+'</li>';});
+h+='</ul></div></div></li>';
+});
+lec.innerHTML=h;
+var lbtns=lec.querySelectorAll(':scope>li>button');
+lbtns.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')!=='true');syncAll();});});
+var allOpen=false;
+function syncAll(){allOpen=[].every.call(lbtns,function(b){return b.getAttribute('aria-expanded')==='true';});$('toggleAll').textContent=allOpen?'ყველას დახურვა':'ყველას გახსნა';}
+$('toggleAll').addEventListener('click',function(){var v=!allOpen;lbtns.forEach(function(b){b.setAttribute('aria-expanded',v);});syncAll();});
+var phs=$('phases');
+function setPhase(k){
+phs.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.k===k);});
+var c=0;
+lec.querySelectorAll(':scope>li').forEach(function(li){var on=k<0||+li.dataset.ph===k;li.classList.toggle('dim',!on);if(on)c++;var b=li.querySelector('button');if(k>=0)b.setAttribute('aria-expanded',on);});
+syncAll();
+$('cnt').textContent=k<0?L.length+' თემა, 8 შეხვედრა':c+' თემა ეტაპზე "'+P[k].n+'"';
+}
+var hb='<button data-k="-1">ყველა<b>'+L.length+'</b></button>';
+P.forEach(function(p,i){hb+='<button data-k="'+i+'">'+p.n+'<b>'+(p.r[1]-p.r[0]+1)+'</b></button>';});
+phs.innerHTML=hb;
+phs.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setPhase(+b.dataset.k);});});
+setPhase(-1);
+/* payment */
+var tabs=document.querySelectorAll('.tabs button'),mo=$('monthly');
+var txt={1:'<b>990 ₾</b><br>Visa, MasterCard, Amex; ქართული და უცხოური ბარათები',4:'<b>'+(990/4).toFixed(1)+' ₾</b> / თვე<br>TBC განაწილება, BOG ნაწილ-ნაწილ, Credo, 0%',12:'<b>'+(990/12).toFixed(1)+' ₾</b> / თვე<br>TopCard ან Silk მერე, 0%'};
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(o){o.setAttribute('aria-selected',o===t);});mo.innerHTML=txt[t.dataset.m];});});
+mo.innerHTML=txt[1];
+})();
+</script>
+</body>
+</html>
