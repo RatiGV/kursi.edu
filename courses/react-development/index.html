@@ -253,7 +253,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
         "courseWorkload": "PT26H",
         "instructor": {
           "@type": "Person",
-          "name": "ლუკა ბაბუნაშვილი"
+          "name": "ლუკა ბაბუნაძე"
         }
       },
       "offers": {
@@ -356,13 +356,13 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 </div>
 </div>
 </div>
-<div class="plat"><p>ინსტრუმენტები, რომლებიც ისწავლება:</p><span>React</span><span>Bootstrap</span><span>REST API</span><span>Git</span></div>
+<div class="plat"><p>ინსტრუმენტები, რომლებიც ისწავლება:</p><span>React</span><span>Next.js</span><span>Tailwind</span><span>Git</span><span>Redux</span><span>Yup</span></div>
 </div>
 </section>
 <section id="planner">
 <div class="wrap">
 <h2 class="reveal">გამოთვალე გვერდის წონა და სიჩქარე</h2>
-<p class="sub reveal">Performance budget დეველოპერის ყოველდღიური ინსტრუმენტია (ლექცია 13, დეპლოი). შეიყვანე გამოსახულებების, npm პაკეტებისა და მათი საშუალო ზომები, კალკულატორი დაგითვლის საერთო წონას და ჩატვირთვის სავარაუდო დროს.</p>
+<p class="sub reveal">Performance budget დეველოპერის ყოველდღიური ინსტრუმენტია (ლექცია 11, Build და Deploy). შეიყვანე გამოსახულებების, npm პაკეტებისა და მათი საშუალო ზომები, კალკულატორი დაგითვლის საერთო წონას და ჩატვირთვის სავარაუდო დროს.</p>
 <div class="plan reveal">
 <div class="panel">
 <h3>გვერდის შემადგენლობა</h3>
@@ -417,7 +417,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 <ul class="pill-list">
 <li>React-ის კომპონენტური არქიტექტურა და JSX სინტაქსი</li>
 <li>State და props-ის მართვა, hooks (useState, useEffect)</li>
-<li>ფორმებთან და კონტროლირებად კომპონენტებთან მუშაობა</li>
+<li>ფორმები და ვალიდაცია (React Hook Form, Yup), Redux Toolkit</li>
 <li>Bootstrap-ის ინტეგრაცია React პროექტში</li>
 <li>REST API-სთან კომუნიკაცია (fetch, async/await)</li>
 </ul>
@@ -426,9 +426,9 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 <h3>შეძლებ</h3>
 <ol class="can">
 <li>სტატიკური და დინამიური ვებ გვერდების აგებას</li>
-<li>React Router-ით მრავალგვერდიანი აპლიკაციის შექმნას</li>
+<li>Next.js როუტინგით მრავალგვერდიანი აპლიკაციის შექმნას</li>
 <li>გარე API-დან მონაცემების წამოღება-ჩვენებას</li>
-<li>აპლიკაციის დეპლოის (Netlify/Vercel)</li>
+<li>აპლიკაციის build-ს და დეპლოის</li>
 <li>Git-ში ვერსიების კონტროლს</li>
 <li>Junior React დეველოპერის პოზიციაზე განაცხადის შეტანას</li>
 </ol>
@@ -447,7 +447,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 <div class="wrap lect">
 <div class="portrait reveal">
 <span class="ini" aria-hidden="true">ლბ</span>
-<h2>ლუკა<br>ბაბუნაშვილი</h2>
+<h2>ლუკა<br>ბაბუნაძე</h2>
 <p>Front-end Mobile Developer, EPAM</p>
 <div class="stat">
 <div><b data-count="4">0</b><span>წლის React JS/RN გამოცდილება</span></div>
@@ -555,21 +555,21 @@ $('pNote').textContent=total<500?'შესანიშნავი შედე
 }
 [pImgs,pImgSize,pPkgs,pPkgSize].forEach(function(i){i.addEventListener('input',calcPerf);});
 calcPerf();
-var P=[{n:'საფუძვლები',r:[1,5]},{n:'State, ფორმები და როუტინგი',r:[6,9]},{n:'API და დეპლოი',r:[10,13]}];
+var P=[{n:'საფუძვლები და სტილები',r:[1,4]},{n:'Hooks, როუტინგი და გამოცდა',r:[5,7]},{n:'მონაცემები, ფორმები და დეპლოი',r:[8,13]}];
 var L=[
-['JavaScript-დან React-მდე: SPA და React-ის ეკოსისტემა',['რატომ React: SPA vs მრავალგვერდიანი საიტები','React-ის ეკოსისტემის მიმოხილვა','დეველოპმენტის გარემოს მომზადება (Node, npm, VS Code)','პირველი React პროექტის შექმნა','საზოგადოება და დოკუმენტაციასთან მუშაობა']],
-['JSX სინტაქსი და ვირტუალური DOM',['JSX-ის საფუძვლები და გამონათქვამები','ვირტუალური DOM-ის მუშაობის პრინციპი','JSX vs HTML: განსხვავებები','ინლაინ სტილები და className','*პრაქტიკული დავალება #1']],
-['კომპონენტები, Props და კომპოზიცია',['ფუნქციური კომპონენტების შექმნა','Props-ის გადაცემა და ვალიდაცია','კომპონენტების კომპოზიცია და გამოყენების თავიდან აცილება','Children prop და layout კომპონენტები','*ქვიზი #1']],
-['State და useState hook',['useState hook-ის საფუძვლები','ივენთების დამუშავება (onClick, onChange)','State-ის განახლების წესები და immutability','*პრაქტიკული სემინარი: ინტერაქტიული კომპონენტი']],
-['კონდიციური და სიების რენდერი',['კონდიციური რენდერი (ternary, &&)','სიების რენდერი და key prop-ის მნიშვნელობა','სიის ფილტრაცია და დახარისხება','*ქვიზი #2']],
-['useEffect და კომპონენტის სასიცოცხლო ციკლი',['useEffect hook-ის საფუძვლები','დამოკიდებულებების მასივი (dependency array)','Cleanup ფუნქციები','*პრაქტიკული დავალება #2']],
-['ფორმების მართვა',['კონტროლირებადი კომპონენტები','ფორმის ვალიდაცია','მრავალველიანი ფორმების მართვა','*პრაქტიკული სემინარი: რეგისტრაციის ფორმა']],
-['React Router',['მრავალგვერდიანი აპლიკაციების არქიტექტურა','Route-ების კონფიგურაცია','ნავიგაცია და დინამიური პარამეტრები','*ქვიზი #3']],
-['Bootstrap საფუძვლები და React-თან ინტეგრაცია',['Bootstrap grid სისტემა და კომპონენტები','React-Bootstrap ბიბლიოთეკა','რესპონსიული ლეიაუთების აგება','*პრაქტიკული დავალება #3']],
-['*პრაქტიკული სემინარი: დინამიური გვერდის აგება',['*სრული გვერდის აგება React + Bootstrap-ით','*Performance budget-ის გამოყენება პრაქტიკაში']],
-['REST API-სთან მუშაობა',['REST API-ის საფუძვლები','fetch და axios','async/await სინტაქსი','შეცდომების დამუშავება (error handling)','*ქვიზი #4']],
-['მონაცემების ჩვენება და loading states',['Loading და error states-ის მართვა','მონაცემების paginაცია','*პრაქტიკული დავალება #4']],
-['აპლიკაციის დეპლოი და კარიერა',['Production build-ის მომზადება','დეპლოი Netlify/Vercel-ზე','Git-ში ვერსიების კონტროლი','Junior React დეველოპერის ვაკანსიები და პორტფოლიო']]
+['რა არის React.js',['რა არის React.js','რატომ Framework და არა pure JS','React-ის ალტერნატივები (Vue და Angular)','რა გეცოდინება კურსის ბოლოს','Dev გარემოს გამართვა']],
+['პროექტის სტრუქტურა, კომპონენტები და JSX',['Next.js პროექტის სტრუქტურის მიმოხილვა','React კომპონენტები და მათი მნიშვნელობა','JavaScript DOM','JSX-ის სინტაქსი','npm პაკეტები']],
+['Props, State და ივენთები',['React Props / State','Lists and Keys','Component lifecycle','Event Handling']],
+['სტილები React-ში და Git',['CSS-ის გამოყენება React JS-ში','Styled components','Tailwind CSS','Git & GitHub']],
+['CSR vs SSR და React hooks',['CSR vs SSR','React hooks (useState, useEffect)','Conditional Rendering','Parent/child კომპონენტებს შორის კომუნიკაცია']],
+['Routing და ნავიგაცია',['Routing და ნავიგაცია','Dynamic Routes with params','usePathname და useParams ჰუკები','Loading და 404 გვერდი']],
+['*შუალედური გამოცდა',['*ცოდნის შემოწმება']],
+['CRUD და მონაცემების მიღება',['CRUD operations','ასინქრონული Request (async / await)','Server Side Fetching','Client Side Fetching']],
+['ფორმები და ვალიდაცია',['Forms','Validations','React Hook Form','Yup','useRef']],
+['Redux',['Redux','Redux Toolkit']],
+['*ფინალური დავალება',['AsyncStorage-ის გამოყენება','Authorization','Deploy React App','Build და Publish project']],
+['კონსულტაცია და კითხვები',['ფინალურ პროექტზე მუშაობა ლექტორთან ერთად']],
+['*პრეზენტაცია',['*ფინალური პროექტის წარდგენა']]
 ];
 function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
