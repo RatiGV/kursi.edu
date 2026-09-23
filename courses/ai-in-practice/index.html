@@ -357,7 +357,7 @@ h1 .ln span,.msg,.typing{transform:none;opacity:1}
 <section id="planner">
 <div class="wrap">
 <h2 class="reveal">გამოთვალე დაზოგილი დრო და თანხა</h2>
-<p class="sub reveal">AI ავტომატიზაციის ROI-ის შეფასება პრაქტიკული უნარია (ლექცია 8, workflow ავტომატიზაცია). შეიყვანე კვირეული ამოცანების რაოდენობა და AI-ით ავტომატიზაციადი წილი, კალკულატორი დაგითვლის ყოველთვიურ დაზოგვას.</p>
+<p class="sub reveal">AI ავტომატიზაციის ROI-ის შეფასება პრაქტიკული უნარია (ლექცია 7, workflow ავტომატიზაცია). შეიყვანე კვირეული ამოცანების რაოდენობა და AI-ით ავტომატიზაციადი წილი, კალკულატორი დაგითვლის ყოველთვიურ დაზოგვას.</p>
 <div class="plan reveal">
 <div class="panel">
 <h3>შენი სამუშაო რუტინა</h3>
@@ -395,7 +395,7 @@ h1 .ln span,.msg,.typing{transform:none;opacity:1}
 <section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
 <div class="wrap">
 <h2 class="reveal">10 შეხვედრა, სამი ეტაპი</h2>
-<p class="sub reveal">26 საათი, გენერაციული AI-ის საფუძვლებიდან მულტიმედია გენერაციასა და სამუშაო პროცესების ავტომატიზაციამდე.</p>
+<p class="sub reveal">26 საათი, გენერაციული AI-ის საფუძვლებიდან და პრომპტებიდან მულტიმედია გენერაციამდე, ავტომატიზაციამდე, No-Code აპლიკაციებამდე და AI Playbook-მდე.</p>
 <div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
 <div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
 <ol class="lec reveal" id="lec"></ol>
@@ -526,18 +526,18 @@ $('aScaleTxt').textContent=cap.toFixed(0)+' სთ';
 }
 [aTasks,aMin,aAuto,aRate].forEach(function(i){i.addEventListener('input',calcAI);});
 calcAI();
-var P=[{n:'გენერაციული AI საფუძვლები',r:[1,4]},{n:'კონტენტის გენერაცია',r:[5,7]},{n:'ავტომატიზაცია და პრაქტიკა',r:[8,10]}];
+var P=[{n:'AI საფუძვლები და პრომპტები',r:[1,4]},{n:'კონტენტის გენერაცია',r:[5,6]},{n:'ავტომატიზაცია, აპები და პრაქტიკა',r:[7,10]}];
 var L=[
-['გენერაციული AI vs ტრადიციული AI',['AI-ის განვითარების ისტორია','გენერაციული მოდელების პრინციპები']],
-['დიდი ენობრივი მოდელები',['ChatGPT, Claude, Gemini, Grok-ის შედარება','ძლიერი და სუსტი მხარეები']],
-['Prompt Engineering ტექნიკები',['ეფექტური prompt-ის სტრუქტურა','Chain-of-thought და few-shot მეთოდები','*პრაქტიკული დავალება #1']],
-['მოდელის შერჩევის სტრატეგია',['ამოცანის მიხედვით მოდელის არჩევა','ღირებულება vs ხარისხი']],
-['სურათების გენერაცია',['Midjourney, GPT Image, Nano Banana','სტილისა და კომპოზიციის კონტროლი']],
-['ვიდეოსა და აუდიოს გენერაცია',['Kling, Google Flow, HeyGen','Suno და ElevenLabs','*ქვიზი #1']],
-['*პრაქტიკული დავალება: მულტიმედია კონტენტი',['*საკუთარი მულტიმედია პროექტის შექმნა']],
-['სამუშაო პროცესების ავტომატიზაცია',['Make.com-ის საფუძვლები','n8n workflow-ების აგება','*პრაქტიკული სემინარი']],
-['ვებ აპლიკაციები და Custom GPT',['Lovable.dev-ით აპლიკაციის შექმნა','Custom GPT და Claude Projects']],
-['*ფინალური პროექტი',['*მონაცემთა უსაფრთხოება და AI ეთიკა','*საკუთარი AI workflow-ის პრეზენტაცია']]
+['გენერაციული AI-ს შესავალი, ChatGPT და AI-ს შეზღუდვები (3 საათი)',['AI-ის ისტორია, ევოლუცია და 2026 წლის ლანდშაფტი','ChatGPT, Claude, Gemini, Grok: შედარება და პირველი ნაბიჯები','AI-ის შეზღუდვები და ჰალუცინაციები: როგორ ამოვიცნოთ','კრიტიკული აზროვნება AI-ის გამოყენებისას']],
+['Prompt Engineering: მითითებების ინჟინერია',['CLEAR ჩარჩო და სტრუქტურირებული მითითებები','Few-shot, Zero-shot და Chain-of-Thought ტექნიკები','როლზე დაფუძნებული პრომპტები','საუკეთესო პრაქტიკები და პრომპტ-ბიბლიოთეკა']],
+['ტექსტის გენერაცია, კრეატიული იდეაცია და სოციალური მედია',['ტექსტის გენერაცია სხვადასხვა ფორმატსა და სტილში','კრეატიული იდეაციის ტექნიკები (SCAMPER, TRIZ, Brainstorming)','სოციალური მედიის კონტენტი: LinkedIn, Instagram, TikTok','კეპშენები, სკრიპტები, ჰეშთეგები და კონტენტ-კალენდარი']],
+['ინფორმაციის მოძიება, კვლევა და პირადი ცოდნის ბაზა',['Perplexity AI: Google-ის ჩანაცვლება AI ძიებით','AI-ზე დაფუძნებული კვლევის ტექნიკები','NotebookLM: „ისაუბრე შენს დოკუმენტებთან“','Notion AI: ცოდნის ბაზის მართვა და ავტომატიზაცია']],
+['ვიზუალური კონტენტი და პრეზენტაციები',['სურათების გენერაცია: Nano Banana 2, GPT Image 2, Midjourney V8.1','ვიზუალური კონსისტენტურობა: SREF და CREF პარამეტრები','AI პრეზენტაციები: Gamma AI, Canva Visual Suite 2.0','ქართული ტიპოგრაფიის ინტეგრაცია AI ვიზუალებში']],
+['აუდიო, ხმა და ვიდეო გენერაცია',['მუსიკის გენერაცია: Suno AI, Udio','ხმის გენერაცია და კლონირება: ElevenLabs','ვიდეო AI: RunwayML, Pika, HeyGen (AI ავატარები), Google Flow (Veo 3.1 + Gemini), Kling','YouTube, TikTok და Shorts კონტენტის ოპტიმიზაცია']],
+['ავტომატიზაცია, No-Code ხელსაწყოები, AI Agents და Notion AI',['Make.com: სამუშაო პროცესების ავტომატიზაცია','Zapier: მიმოხილვა და შედარება','AI Agents: ავტონომიური ამოცანების შესრულება','Notion AI: სამუშაო სივრცის ავტომატიზაცია','Zapier და n8n: შედარება, self-hosted აგენტული ავტომატიზაცია','Model Context Protocol (MCP): 2026 წლის ინტეგრაციის სტანდარტი']],
+['No-Code Development: ვებ-აპლიკაციების შექმნა',['Lovable.dev: ვებ-აპის შექმნა ტექსტური მითითებებით','Cursor: AI-ზე დაფუძნებული კოდ-ედიტორი','Bolt.new, Replit Agent','Google Antigravity: AI-პირველი IDE (5 პარალელური აგენტი)','Claude Code','*პრაქტიკული პროექტი: AI დეტექტივი ან AI თამაშის გენერატორი']],
+['Custom AI ასისტენტები და უსაფრთხოება',['ChatGPT Custom GPTs: შექმნა და კონფიგურაცია','Claude Projects: პერსონალური AI სამუშაო გარემო','AI უსაფრთხოება, Data Privacy და ეთიკა','Reasoning Models: GPT-5.6 (Sol/Terra/Luna), Claude Opus 5/Sonnet 5, Gemini Deep Research','AI ბრაუზერების ომი: Perplexity Comet, Claude in Chrome, Claude Cowork','AI Security 2026: PII დაცვა, Red Teaming, AI კონტენტის ნიშანდება (C2PA), EU AI Act-ის რეალური აღსრულება']],
+['Summary, AI Playbook და პროექტების პრეზენტაცია (3 საათი)',['კურსის შეჯამება და ძირითადი გზამკვლევი','*AI Playbook: პირადი AI სტრატეგიის დოკუმენტი','*სტუდენტების პრეზენტაციები']]
 ];
 function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
