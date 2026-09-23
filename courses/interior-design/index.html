@@ -87,32 +87,84 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--terra)}
 .price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
 .price small{font-size:20px}
 .phone-stage{position:relative;display:flex;justify-content:center}
-.swatch{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px 18px 22px;box-shadow:0 40px 70px -35px rgba(37,30,23,.5);position:relative;z-index:2}
-.sw-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.sw-head b{font-family:var(--geo);font-size:15px}
-.sw-head span{font-family:var(--geo);font-size:12px;color:var(--muted)}
-.palette{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:14px}
-.palette i{aspect-ratio:1;border-radius:9px;opacity:0;transform:scale(.7);animation:popc .4s cubic-bezier(.3,1.4,.5,1) forwards}
-@keyframes popc{to{opacity:1;transform:none}}
-.room{border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:14px}
-.room-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;aspect-ratio:16/9;margin-bottom:8px}
-.room-grid i{background:var(--soft);border-radius:3px}
-.room-grid i.wall{background:var(--terra);opacity:.7}
-.room-grid i.floor{background:var(--sage);opacity:.4}
-.room span{font-family:var(--geo);font-size:11px;color:var(--muted)}
-.sw-row2{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;align-items:center}
-.ring-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
-.ring-wrap svg{width:84px;height:84px;transform:rotate(-90deg);display:block}
-.ring-wrap circle{fill:none;stroke-width:9}
-.ring-wrap .bg{stroke:var(--soft)}
-.ring-wrap .fg{stroke:var(--terra);stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
-.ring-wrap b{position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:84px;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--font);font-size:18px;font-variant-numeric:tabular-nums}
-.ring-wrap span{font-family:var(--geo);font-size:10.5px;color:var(--muted);text-align:center;max-width:90px}
+.id{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px 16px 18px;box-shadow:0 40px 70px -35px rgba(37,30,23,.5);position:relative;z-index:2}
+.rst,.rst *{transition:none!important}
+.id-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--geo)}
+.id-top b{font-size:15px}
+.id-top span{font-size:12px;color:var(--muted)}
+.id-apps{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:10px}
+.id-apps span{font-family:var(--geo);font-size:11px;font-weight:600;text-align:center;padding:5px 0;border-radius:8px;background:var(--soft);color:var(--muted);transition:background .3s,color .3s}
+.id-apps span.on{background:var(--terra);color:var(--terra-ink)}
+.id-apps span.ok{color:var(--ink)}
+.id-apps span.ok:after{content:" ✓";color:var(--sage)}
+.id-view{position:relative;border-radius:16px;overflow:hidden;background:var(--soft);transition:opacity .4s}
+.id.s-out .id-view{opacity:0}
+.idv{display:block;width:100%;height:auto}
+.idv polygon,.idv circle{stroke:rgba(0,0,0,.1);stroke-width:.5;stroke-linejoin:round}
+.idv .fl{fill:#E4DED4;fill-opacity:0;stroke:var(--terra);stroke-width:1.8;stroke-dasharray:540;stroke-dashoffset:540;transition:stroke-dashoffset 1.2s ease,fill-opacity .5s,fill .6s,stroke-opacity .5s}
+.s-plan .idv .fl{stroke-dashoffset:0}
+.s-walls .idv .fl{fill-opacity:1;stroke-opacity:0}
+.s-m2 .idv .fl{fill:#C9A27A}
+.idv .pl{stroke:rgba(80,50,25,.28);stroke-width:.8;opacity:0;transition:opacity .6s}
+.s-m2 .idv .pl{opacity:1}
+.idv .wl{fill:#CFC9C0;transition:fill .6s}
+.idv .wr{fill:#BDB6AC;transition:fill .6s}
+.s-m1 .idv .wl{fill:#EEDCC8}
+.s-m1 .idv .wr{fill:#E0C8AF}
+.idv .win{opacity:0;transition:opacity .5s}
+.s-deco .idv .win{opacity:1}
+.idv .glass{fill:#CFE3EE}
+.idv .win line{stroke:#fff;stroke-width:1.6}
+.idv .beam{fill:#FFE3A0;opacity:0;stroke:none;transition:opacity 1.2s}
+.s-light .idv .beam{opacity:.6}
+.idv .glow{opacity:0;stroke:none;transition:opacity 1.2s}
+.s-light .idv .glow{opacity:1}
+.idv .dim{font:600 10px var(--geo);fill:var(--terra);opacity:0;transition:opacity .4s}
+.s-plan .idv .dim{opacity:1}
+.s-furn .idv .dim{opacity:0}
+.idv .it{--k:#D3CCC1;transform:translateY(-60px);opacity:0;transition:transform .6s cubic-bezier(.3,1.5,.5,1),opacity .3s}
+.s-furn .idv .it{transform:none;opacity:1}
+.idv .it .t{fill:var(--k);transition:fill .6s}
+.idv .it .r{fill:color-mix(in srgb,var(--k) 84%,#000);transition:fill .6s}
+.idv .it .f{fill:color-mix(in srgb,var(--k) 70%,#000);transition:fill .6s}
+.s-m2 .idv .wood{--k:#9A6A43}
+.s-m3 .idv .tex{--k:#7C9070}
+.s-m3 .idv .rug{--k:#E6D3B3}
+.s-m4 .idv .acc{--k:#B5592F}
+.s-m4 .idv .leaf{--k:#5E8A55}
+.s-m4 .idv .pole{--k:#3A2F25}
+.s-m4 .idv .shade{--k:#F3E3C4}
+.s-light .idv .shade{--k:#FFF3D6}
+.id-noise{position:absolute;inset:0;opacity:0;pointer-events:none;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.s-rend .id-noise{opacity:.8}
+.s-clean .id-noise{opacity:0;transition:opacity 2.6s cubic-bezier(.4,0,.8,.6)}
+.id-grade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(160deg,rgba(255,190,120,.45),rgba(181,89,47,.2));mix-blend-mode:soft-light;clip-path:inset(0 100% 0 0);transition:clip-path 1.3s ease}
+.s-grade .id-grade{clip-path:inset(0 0 0 0)}
+.id-wipe{position:absolute;top:0;bottom:0;left:0;width:2px;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:left 1.3s ease,opacity .2s}
+.s-grade .id-wipe{left:calc(100% - 2px);opacity:1}
+.s-done .id-wipe{opacity:0}
+.id-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.s-done .id-flash{animation:idflash .7s ease-out}
+@keyframes idflash{15%{opacity:.85}}
+.id-stamp{position:absolute;right:10px;top:10px;font:600 11px var(--geo);background:rgba(25,20,16,.78);color:#fff;padding:5px 9px;border-radius:8px;opacity:0;transform:scale(.7);transition:opacity .3s,transform .4s cubic-bezier(.3,1.6,.5,1)}
+.s-done .id-stamp{opacity:1;transform:none}
+.id-mats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.id-mats div{display:flex;align-items:center;gap:6px;font:600 11px var(--geo);color:var(--muted);padding:5px;border-radius:10px;border:1.5px solid transparent;opacity:.5;transition:opacity .3s,border-color .3s,color .3s,transform .25s}
+.id-mats i{width:18px;height:18px;border-radius:6px;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.id-mats div.pick{border-color:var(--terra);opacity:1;color:var(--ink);transform:scale(1.06)}
+.id-mats div.set{opacity:1;color:var(--ink)}
+.id-cur{position:absolute;left:0;top:0;width:18px;height:18px;opacity:0;pointer-events:none;z-index:2;color:var(--ink);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.id-cur.on{opacity:1}
+.id-foot{display:flex;align-items:center;gap:10px;margin-top:12px;font:12px var(--geo);color:var(--muted)}
+.id-foot span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.id-trk{width:80px;height:6px;border-radius:9px;background:var(--soft);overflow:hidden;flex:none}
+.id-trk i{display:block;height:100%;width:0;background:var(--terra);transition:width .4s}
+.id-foot b{font-family:var(--font);color:var(--ink);font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-10px;top:50px}
-.bubble.b2{right:-14px;top:220px;animation-delay:-1.6s;background:var(--terra);color:var(--terra-ink);border-color:var(--terra)}
-.bubble.b3{left:2px;bottom:16px;animation-delay:-3.2s;background:var(--sage);color:var(--sage-ink);border-color:var(--sage)}
+.bubble.b1{left:-22px;top:120px}
+.bubble.b2{right:-22px;top:300px;animation-delay:-1.6s;background:var(--terra);color:var(--terra-ink);border-color:var(--terra)}
+.bubble.b3{left:-18px;bottom:92px;animation-delay:-3.2s;background:var(--sage);color:var(--sage-ink);border-color:var(--sage)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -216,7 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media (max-width:960px){
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -236,12 +288,14 @@ h1{font-size:52px}
 .sched{grid-template-columns:1fr}
 header .btn-sm{display:none}
 .lec ul{padding-left:20px}
-.sw-row2{grid-template-columns:1fr;justify-items:center}
+.bubble.b1{top:110px}.bubble.b2{top:290px}.bubble.b3{bottom:84px}
+.id-mats div{font-size:10.5px;gap:4px;padding:4px}
+.id-mats i{width:15px;height:15px}
 .inputs{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.palette i{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -352,24 +406,22 @@ h1 .ln span,.palette i{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">რენდერი <b id="bRender">73%</b></div>
-<div class="bubble b2">მასალა <b>Corona</b></div>
-<div class="bubble b3">პროექტი <b>4/6</b></div>
-<div class="swatch" aria-label="ინტერიერის დიზაინის მაკეტი">
-<div class="sw-head"><b>ოთახის გეგმა</b><span>3ds Max + Corona</span></div>
-<div class="room">
-<div class="room-grid" id="roomGrid"></div>
-<span>იატაკი: მუხის პარკეტი · კედელი: ცარცისფერი</span>
+<div class="bubble b1">ფართობი <b id="bArea">0 მ²</b></div>
+<div class="bubble b2">Corona <b id="bPass">0</b> pass</div>
+<div class="bubble b3">კლიენტი <b id="bOk">ელოდება</b></div>
+<div class="id" id="idBox" role="img" aria-label="ინტერიერის პროექტი: გეგმიდან საბოლოო რენდერამდე">
+<div class="id-top" aria-hidden="true"><b>მისაღები ოთახი</b><span>5 × 4 მ · 2.8 მ</span></div>
+<div class="id-apps" id="idApps" aria-hidden="true"><span>Archicad</span><span>3ds Max</span><span>Corona</span><span>Photoshop</span></div>
+<div class="id-view" aria-hidden="true">
+<svg class="idv" id="idSvg" viewBox="0 0 300 240"></svg>
+<div class="id-noise"></div><div class="id-grade"></div><div class="id-wipe"></div><div class="id-flash"></div>
+<div class="id-stamp">render_final.jpg ✓</div>
 </div>
-<div class="palette" id="palette"></div>
-<div class="sw-row2">
-<div><p class="hint" style="margin:0">ფერთა პალიტრა და მასალები</p></div>
-<div class="ring-wrap">
-<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="40"/><circle class="fg" id="ringFg" cx="50" cy="50" r="40"/></svg>
-<b id="ringVal">0%</b>
-<span>რენდერის პროგრესი</span>
+<div class="id-mats" id="idMats" aria-hidden="true">
+<div><i style="background:#EEDCC8"></i>კედელი</div><div><i style="background:#C9A27A"></i>იატაკი</div><div><i style="background:#7C9070"></i>ქსოვილი</div><div><i style="background:#B5592F"></i>აქცენტი</div>
+<svg class="id-cur" id="idCur" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z" fill="currentColor" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
 </div>
-</div>
+<div class="id-foot" aria-hidden="true"><span id="idStat">გეგმა Archicad-ში</span><div class="id-trk"><i id="idTrk"></i></div><b id="idPct">0%</b></div>
 </div>
 </div>
 </div>
@@ -554,23 +606,65 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-var grid=$('roomGrid'),pattern='wwwwwwww'+'f.......f'.repeat(0)+'ffffffff'.repeat(4)+'wwwwwwww';
-var cells='wwwwwwwwffffffffffffffffffffffffffffffffwwwwwwww';
-for(var i=0;i<cells.length;i++){var s=document.createElement('i');s.className=cells[i]==='w'?'wall':'floor';grid.appendChild(s);}
-var colors=['#B5592F','#E1D9CC','#7C9070','#251E17','#D9C7A8','#4F6158'];
-var pal=$('palette'),ph='';
-colors.forEach(function(c,i){ph+='<i style="background:'+c+';animation-delay:'+(.2+i*.07)+'s"></i>';});
-pal.innerHTML=ph;
-var C=2*Math.PI*40,ringFg=$('ringFg');ringFg.style.strokeDasharray=C;ringFg.style.strokeDashoffset=C;
-var ringPct=0,ringTarget=73;
-function ringTick(){
-if(reduce){ringPct=ringTarget;}else if(ringPct<ringTarget){ringPct+=2;}
-$('ringVal').textContent=Math.min(ringPct,ringTarget)+'%';
-$('bRender').textContent=Math.min(ringPct,ringTarget)+'%';
-ringFg.style.strokeDashoffset=C*(1-Math.min(ringPct,ringTarget)/100);
-if(ringPct<ringTarget&&!reduce)requestAnimationFrame(ringTick);
+(function(){
+var box=$('idBox'),svg=$('idSvg'),K=25.98,CX=137,CY=96,H=2.8;
+function p(x,y,z){return (CX+(x-y)*K).toFixed(1)+','+(CY+(x+y)*15-z*30).toFixed(1);}
+function pts(a){return a.map(function(q){return p(q[0],q[1],q[2]);}).join(' ');}
+function pg(a,c,id){return '<polygon'+(id?' id="'+id+'"':'')+' class="'+c+'" points="'+pts(a)+'"/>';}
+function bx(x0,x1,y0,y1,z0,z1){return pg([[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]],'t')+pg([[x1,y0,z0],[x1,y1,z0],[x1,y1,z1],[x1,y0,z1]],'r')+pg([[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]],'f');}
+function it(c,d,inner){return '<g class="it '+c+'" style="transition-delay:'+d+'s">'+inner+'</g>';}
+function ln(a,b){var u=p(a[0],a[1],a[2]).split(','),v=p(b[0],b[1],b[2]).split(',');return '<line x1="'+u[0]+'" y1="'+u[1]+'" x2="'+v[0]+'" y2="'+v[1]+'"/>';}
+function circ(x,y,z,r,c,f){var u=p(x,y,z).split(',');return '<circle class="'+c+'" cx="'+u[0]+'" cy="'+u[1]+'" r="'+r+'"'+(f?' fill="'+f+'"':'')+'/>';}
+function wl(h){return [[0,0,0],[0,4,0],[0,4,h],[0,0,h]];}
+function wr(h){return [[0,0,0],[5,0,0],[5,0,h],[0,0,h]];}
+var g='<defs><radialGradient id="idGl"><stop offset="0" stop-color="#FFD98A" stop-opacity=".95"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient></defs>';
+g+=pg([[0,0,0],[5,0,0],[5,4,0],[0,4,0]],'fl');
+var pl='';for(var y=1;y<10;y++)pl+=ln([0,y*.4,0],[5,y*.4,0]);
+g+='<g class="pl">'+pl+'</g>'+pg([[2,.1,0],[3.6,.1,0],[4.3,2.3,0],[2.7,2.3,0]],'beam');
+g+=pg(wl(0),'wl','idWl')+pg(wr(0),'wr','idWr');
+g+='<g class="win">'+pg([[2,0,1],[3.6,0,1],[3.6,0,2.2],[2,0,2.2]],'glass')+ln([2.8,0,1],[2.8,0,2.2])+ln([2,0,1.6],[3.6,0,1.6])+'</g>';
+var u=p(2.5,4.45,0).split(','),v=p(5.45,2,0).split(',');
+g+='<text class="dim" x="'+u[0]+'" y="'+u[1]+'" text-anchor="middle">5.0 მ</text><text class="dim" x="'+v[0]+'" y="'+v[1]+'" text-anchor="middle">4.0 მ</text>';
+g+=it('acc',0,pg([[0,1.3,1.3],[0,2.5,1.3],[0,2.5,2.05],[0,1.3,2.05]],'t')+pg([[0,1.5,1.45],[0,2,1.45],[0,2,1.9],[0,1.5,1.9]],'f'));
+g+=it('rug',.12,bx(1.3,3.8,1,3.1,0,.03));
+g+=it('tex',.24,bx(.15,1.05,.5,3.3,0,.42)+bx(.15,.4,.5,3.3,.42,.9)+bx(.15,1.05,3.05,3.3,.42,.62));
+g+=it('wood',.36,bx(1.8,2.8,1.5,2.4,0,.4));
+g+=it('acc',.48,bx(2.2,2.36,1.8,1.96,.4,.68));
+g+=it('lamp',.6,'<g class="pole">'+bx(4.28,4.34,.42,.48,0,1.55)+'</g><g class="shade">'+bx(4.1,4.52,.24,.66,1.5,1.85)+'</g>');
+g+=it('plant',.72,'<g class="acc">'+bx(4.2,4.6,3.2,3.6,0,.42)+'</g><g class="leaf">'+circ(4.4,3.4,.85,15,'t')+circ(4.25,3.55,1.15,11,'t')+circ(4.6,3.3,1.1,10,'r')+'</g>');
+g+=circ(4.31,.45,1.7,48,'glow','url(#idGl)');
+svg.innerHTML=g;
+var Wl=$('idWl'),Wr=$('idWr');
+function walls(h){Wl.setAttribute('points',pts(wl(h)));Wr.setAttribute('points',pts(wr(h)));}
+var apps=[].slice.call($('idApps').children),mats=[].slice.call($('idMats').querySelectorAll('div')),cur=$('idCur');
+var st=$('idStat'),trk=$('idTrk'),pct=$('idPct'),area=$('bArea'),pass=$('bPass'),ok=$('bOk');
+var T=[],gen=0;
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function app(i){apps.forEach(function(a,k){a.classList.toggle('on',k===i);a.classList.toggle('ok',k<i);});}
+function stat(t,n){st.textContent=t;trk.style.width=n+'%';pct.textContent=n+'%';}
+function tw(ms,fn){var my=gen,t0=null;function f(t){if(my!==gen)return;if(!t0)t0=t;var q=Math.min((t-t0)/ms,1);fn(1-Math.pow(1-q,3));if(q<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+function pick(i){var d=mats[i];cur.classList.add('on');cur.style.transform='translate('+(d.offsetLeft+12)+'px,'+(d.offsetTop+12)+'px)';at(380,function(){mats.forEach(function(m,k){m.classList.toggle('pick',k===i);if(k<i)m.classList.add('set');});add('s-m'+(i+1));});}
+function reset(){T.forEach(clearTimeout);T=[];gen++;box.className='id rst';walls(0);area.textContent='0 მ²';pass.textContent='0';ok.textContent='ელოდება';mats.forEach(function(m){m.className='';});cur.className.baseVal='id-cur';cur.style.transform='translate(0,0)';app(-1);stat('გეგმა Archicad-ში',0);void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();app(0);
+at(80,function(){add('s-plan');stat('გეგმა Archicad-ში',12);tw(1100,function(e){area.textContent=Math.round(20*e)+' მ²';});});
+at(1500,function(){add('s-walls');stat('კედლების აწევა',25);tw(900,function(e){walls(H*e);});});
+at(2400,function(){add('s-deco');});
+at(2800,function(){app(1);add('s-furn');stat('ავეჯი 3ds Max-ში (clay)',40);});
+at(4600,function(){stat('მასალების მინიჭება',55);pick(0);});
+at(5300,function(){pick(1);});
+at(6000,function(){pick(2);});
+at(6700,function(){pick(3);});
+at(7400,function(){cur.classList.remove('on');mats.forEach(function(m){m.className='set';});app(2);add('s-light');add('s-rend');stat('Corona რენდერი',70);});
+at(7500,function(){add('s-clean');tw(2600,function(e){var n=Math.round(500*e);pass.textContent=n;st.textContent='Corona რენდერი · pass '+n;});});
+at(10300,function(){app(3);add('s-grade');stat('ფერის კორექცია Photoshop-ში',90);});
+at(11800,function(){app(4);add('s-done');stat('რენდერი მზადაა',100);ok.textContent='მოწონებულია ✓';});
+at(15200,function(){add('s-out');});
+at(15700,run);
 }
-requestAnimationFrame(ringTick);
+if(reduce){box.className='id s-plan s-walls s-deco s-furn s-m1 s-m2 s-m3 s-m4 s-light s-grade s-done';walls(H);app(4);mats.forEach(function(m){m.className='set';});area.textContent='20 მ²';pass.textContent='500';ok.textContent='მოწონებულია ✓';stat('რენდერი მზადაა',100);}else{run();}
+})();
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
