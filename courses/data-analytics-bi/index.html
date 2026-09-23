@@ -351,7 +351,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 <section id="planner">
 <div class="wrap">
 <h2 class="reveal">გამოთვალე დაზოგილი დრო</h2>
-<p class="sub reveal">ხელით შედგენილი Excel რეპორტების ავტომატიზაცია Power BI დაშბორდებით BI დეველოპერის ძირითადი ღირებულებაა (ლექცია 14). შეიყვანე რეპორტების რაოდენობა და დრო თითოზე, კალკულატორი დაგითვლის ყოველთვიურ დაზოგვას.</p>
+<p class="sub reveal">ხელით შედგენილი Excel რეპორტების ავტომატიზაცია Power BI დაშბორდებით BI დეველოპერის ძირითადი ღირებულებაა (Power BI, ლექციები 11-16). შეიყვანე რეპორტების რაოდენობა და დრო თითოზე, კალკულატორი დაგითვლის ყოველთვიურ დაზოგვას.</p>
 <div class="plan reveal">
 <div class="panel">
 <h3>რეპორტინგის რუტინა</h3>
@@ -385,7 +385,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 <section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
 <div class="wrap">
 <h2 class="reveal">17 შეხვედრა, სამი ეტაპი</h2>
-<p class="sub reveal">42.5 საათი, SQL საფუძვლებიდან მონაცემთა დამუშავებამდე და Power BI დაშბორდების აგებამდე.</p>
+<p class="sub reveal">42.5 საათი: 8 ლექცია MSSQL-ზე (JOIN-ები, Window Functions, ETL), შუალედური გამოცდა, 6 ლექცია Power BI-ზე (DAX, Slicers, Bookmarks, RLS) და ფინალური საპორტფოლიო ნაშრომი.</p>
 <div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
 <div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
 <ol class="lec reveal" id="lec"></ol>
@@ -525,25 +525,25 @@ $('bFill').style.transform='scaleX('+pct+')';
 }
 [bReports,bManual,bAuto].forEach(function(i){i.addEventListener('input',calcBI);});
 calcBI();
-var P=[{n:'SQL საფუძვლები',r:[1,7]},{n:'მონაცემთა ბაზები და დამუშავება',r:[8,12]},{n:'Power BI და ვიზუალიზაცია',r:[13,17]}];
+var P=[{n:'შესავალი და SQL',r:[1,9]},{n:'შუალედური გამოცდა',r:[10,10]},{n:'Power BI და ფინალი',r:[11,17]}];
 var L=[
-['Data Analytics-ის შესავალი და BI-ის როლი',['BI-ის მნიშვნელობა ბიზნეს გადაწყვეტილებებში']],
-['SQL საფუძვლები',['SELECT, WHERE, ORDER BY']],
-['SQL: JOIN-ები',['INNER, LEFT, RIGHT JOIN-ების გამოყენება']],
-['SQL: აგრეგაცია და GROUP BY',['SUM, COUNT, AVG ფუნქციები']],
-['SQL: ქვემოთხოვნები და CTE',['რთული მოთხოვნების სტრუქტურირება']],
-['*პრაქტიკული დავალება #1',['*SQL მოთხოვნების წერა რეალურ მონაცემებზე']],
-['*ქვიზი #1',['*ცოდნის შემოწმება']],
-['მონაცემთა ბაზის პრინციპები',['ცხრილების სტრუქტურა და ურთიერთკავშირები']],
-['მონაცემთა გაწმენდა და ტრანსფორმაცია',['Data Cleaning ტექნიკები']],
-['მონაცემთა მოდელირება ანალიტიკისთვის',['Star Schema და Fact/Dimension ცხრილები']],
-['*პრაქტიკული სემინარი: მონაცემთა მომზადება',['*რეპორტინგისთვის მზა მონაცემთა ნაკრები']],
-['*ქვიზი #2',['*ცოდნის შემოწმება']],
-['Power BI შესავალი',['მონაცემთა იმპორტი და კავშირები']],
-['Power BI: ვიზუალიზაციები და დაშბორდები',['გრაფიკების და დაშბორდის ელემენტების შექმნა']],
-['Power BI: DAX ფორმულები',['გამოთვლადი სვეტები და ზომები']],
-['*პრაქტიკული დავალება #2',['*სრული დაშბორდის აგება']],
-['*ფინალური პროექტი',['*ბიზნეს რეპორტის პრეზენტაცია','უკუკავშირი ლექტორისგან']]
+['შესავალი მონაცემთა ანალიტიკაში',['რა არის მონაცემთა ანალიტიკა','რომელ ინდუსტრიებშია ყველაზე მეტად მოთხოვნადი','რა ტექნიკურ ინსტრუმენტებს იყენებს','მონაცემთა ანალიტიკის როლი ბიზნესში','ბიზნეს ამოცანის/პრობლემის გადაჭრის ციკლი']],
+['SQL Fundamentals #1',['მონაცემთა საცავი','სერვერის და ბაზის სტრუქტურა','რელაციის ტიპები: One-To-One, One-To-Many, Many-To-Many','Primary Key (Natural Key & Surrogate Key), Foreign Key','ბაზის შექმნა და მონაცემების შეტვირთვა']],
+['SQL Fundamentals #2',['WHERE: =, >, <, >=, <=, !=, <>, LIKE, BETWEEN, IN, NOT IN, IS NULL, AND, OR','სვეტების გამოძახება','ORDER BY','*დავალება #1']],
+['SQL Fundamentals #3',['Alias','JOIN: LEFT, INNER, RIGHT, FULL, CROSS','*დავალება #2']],
+['SQL Fundamentals #4',['SUB/Nested Query','CTE Table','Aggregations: SUM, COUNT, AVG, MAX, MIN, GROUP BY, HAVING','*დავალება #3']],
+['SQL Fundamentals #5',['Single Row Functions: String, Math/Numeric, Date და Advanced ფუნქციები']],
+['SQL Fundamentals #6',['Window Functions: PARTITION BY, ORDER BY, ROW_NUMBER, LEAD, LAG, RANK, DENSE_RANK','*დავალება #4']],
+['SQL Fundamentals #7',['Data Definition Language & Data Manipulation Language','Create, Drop, Alter, Update, Insert, Set, Delete','*დავალება #5']],
+['SQL Fundamentals #8',['ETL Process: Create Procedure','დიდი ბიზნეს პროცედურის დაწერა']],
+['*შუალედური გამოცდა',['*შუალედური გამოცდა']],
+['Power BI #1',['Power BI ინსტალაცია და ინტერფეისის გაცნობა','Data Source types, Query Editor','Connecting to SQL Server, Connect to Data Source']],
+['Power BI #2',['Measure და Measure Table','DAX functions: Calculated Column, Aggregation, Date and time, Information, Logical, Text და სხვა ფუნქციები']],
+['Power BI #3',['Filters, Page Filters','Slicers, Slicer New','Filter Interactions']],
+['Power BI #4',['Model View: Relationships, Crossfiltering','Tooltips','Conditional formatting']],
+['Power BI #5',['Bookmark','Buttons, Navigation','Clear All filters','Selection']],
+['Power BI #6',['VAR','ALL, ALLSELECTED, SELECTEDVALUE','RLS: Row Level Security']],
+['*ფინალური გამოცდა: საპორტფოლიო ნაშრომის პრეზენტირება',['*საპორტფოლიო ნაშრომის პრეზენტირება']]
 ];
 function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}

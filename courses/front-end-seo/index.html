@@ -399,7 +399,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 </div>
 </div>
 </div>
-<div class="plat"><p>ინსტრუმენტები, რომლებიც ისწავლება:</p><span>HTML5</span><span>CSS</span><span>Git</span><span>React</span><span>Bootstrap</span><span>SEO</span></div>
+<div class="plat"><p>ინსტრუმენტები, რომლებიც ისწავლება:</p><span>HTML5</span><span>CSS</span><span>Git</span><span>JavaScript</span><span>Bootstrap</span><span>Tailwind</span><span>React</span><span>Next.js</span><span>React Native</span><span>SEO</span></div>
 </div>
 </section>
 <section id="planner">
@@ -444,7 +444,7 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 <section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
 <div class="wrap">
 <h2 class="reveal">42 შეხვედრა, ხუთი ეტაპი</h2>
-<p class="sub reveal">84 საათი, HTML5-ისა და on-page SEO-ს საფუძვლებიდან React.js აპლიკაციებამდე, REST API-სთან მუშაობამდე და დეპლოიმდე. კურსი მოიცავს პრაქტიკულ დავალებებსა და სემინარებს.</p>
+<p class="sub reveal">84 საათი: HTML, CSS, Git, JavaScript და SEO (22 ლექცია), შემდეგ React.js და Next.js (13 ლექცია), React Native მობაილ აპლიკაციები (6 ლექცია) და კარიერული შეხვედრა. თითქმის ყველა ლექციას ახლავს ქვიზი და დავალება.</p>
 <div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
 <div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
 <ol class="lec reveal" id="lec"></ol>
@@ -667,50 +667,50 @@ $('pNote').textContent=total<500?'შესანიშნავი შედე
 }
 [pImgs,pImgSize,pPkgs,pPkgSize].forEach(function(i){i.addEventListener('input',calcPerf);});
 calcPerf();
-var P=[{n:'HTML5, CSS & SEO საფუძვლები',r:[1,12]},{n:'Git, GitHub & Responsive Design',r:[13,18]},{n:'JavaScript & React.js საფუძვლები',r:[19,30]},{n:'React Router, Bootstrap & REST API',r:[31,38]},{n:'დეპლოი და კარიერა',r:[39,42]}];
+var P=[{n:'HTML, CSS და Git',r:[1,12]},{n:'JavaScript',r:[13,20]},{n:'SEO და საბოლოო პროექტი',r:[21,22]},{n:'React.js',r:[23,35]},{n:'React Native და კარიერა',r:[36,42]}];
 var L=[
-['შესავალი ვებ დეველოპმენტში და HTML5 საფუძვლები',['ვებ დეველოპმენტის მიმოხილვა და front-end vs back-end','HTML5 დოკუმენტის სტრუქტურა','ტეგები, ატრიბუტები და ელემენტები','დეველოპმენტის გარემოს მომზადება (VS Code, browser devtools)']],
-['სემანტიკური HTML და გვერდის სტრუქტურა',['სემანტიკური ტეგები (header, nav, main, article, section)','გვერდის სტრუქტურის დაგეგმვა','წვდომადობის (accessibility) საფუძვლები','*პრაქტიკული დავალება #1']],
-['HTML ფორმები და მედია ელემენტები',['ფორმის ელემენტები და ვალიდაცია','სურათები, ვიდეო და აუდიო ტეგები','ბმულები და ნავიგაცია','iframe და embed კონტენტი']],
-['On-page SEO საფუძვლები: meta ტეგები და სათაურები',['title და meta description-ის ოპტიმიზაცია','სათაურების იერარქია (h1-h6) და SEO','Open Graph და social preview ტეგები','semantic HTML-ის გავლენა SEO-ზე','*ქვიზი #1']],
-['CSS საფუძვლები: სელექტორები და box model',['CSS სინტაქსი და სელექტორები','box model: margin, border, padding','ერთეულები (px, %, em, rem)','*პრაქტიკული დავალება #2']],
-['CSS Flexbox',['flex კონტეინერი და flex ელემენტები','align/justify თვისებები','პრაქტიკული ლეიაუთები Flexbox-ით']],
-['CSS Grid',['grid კონტეინერისა და ტემპლეიტების საფუძვლები','grid-template-columns/rows','რთული ლეიაუთების აგება Grid-ით','*პრაქტიკული სემინარი: ლენდინგ გვერდის ლეიაუთი']],
-['CSS ანიმაციები და გადასვლები',['transition და transform თვისებები','@keyframes ანიმაციები','hover ეფექტები და მიკროინტერაქციები']],
-['Responsive დიზაინის პრინციპები და media queries',['mobile-first მიდგომა','media queries და breakpoint-ები','responsive images და units','*ქვიზი #2']],
-['Technical SEO საფუძვლები: page speed, sitemap, robots.txt',['page speed-ის მნიშვნელობა რანჟირებისთვის','sitemap.xml და robots.txt','URL სტრუქტურა და canonical ტეგები','Google Search Console-ის მიმოხილვა']],
-['სურათების ოპტიმიზაცია და SEO',['სურათის ფორმატები და შეკუმშვა','alt ტექსტი და SEO','lazy loading','*პრაქტიკული დავალება #3']],
-['*პრაქტიკული სემინარი: სტატიკური ვებ საიტის აგება SEO-ს გათვალისწინებით',['*სრული სტატიკური საიტის აგება HTML/CSS-ით','*on-page SEO checklist-ის გამოყენება პრაქტიკაში']],
-['Git საფუძვლები: ვერსიების კონტროლი',['რატომ გვჭირდება ვერსიების კონტროლი','git init, add, commit','commit ისტორია და .gitignore']],
-['GitHub workflow: branch, commit, pull request',['branch-ების შექმნა და მართვა','GitHub-ზე რეპოზიტორიის შექმნა','pull request და code review','*ქვიზი #3']],
-['Responsive layouts: mobile-first მიდგომა',['mobile-first დაგეგმვა','ტესტირება სხვადასხვა მოწყობილობაზე','*პრაქტიკული დავალება #4']],
-['CSS ფრეიმვორკები: შესავალი Bootstrap-ში',['Bootstrap-ის დაკავშირება პროექტში','grid სისტემის საფუძვლები','utility კლასები']],
-['Bootstrap grid სისტემა და კომპონენტები',['container, row, col სისტემა','მზა კომპონენტები (navbar, card, modal)','რესპონსიული utility კლასები']],
-['*პრაქტიკული დავალება: რესპონსიული საიტის აგება Git-ითა და Bootstrap-ით',['*Bootstrap-ზე დაფუძნებული საიტის აგება','*GitHub-ზე პროექტის განთავსება']],
-['JavaScript საფუძვლები: ცვლადები, ფუნქციები, ციკლები',['ცვლადები და მონაცემთა ტიპები','ფუნქციები და scope','პირობითი ოპერატორები და ციკლები','*ქვიზი #4']],
-['DOM მანიპულაცია და ივენთები',['DOM ხის სტრუქტურა','ელემენტების არჩევა და შეცვლა','ივენთების დამუშავება (addEventListener)']],
-['JavaScript ES6+ სინტაქსი',['arrow ფუნქციები და template literals','destructuring და spread/rest','მოდულები (import/export)','*პრაქტიკული დავალება #5']],
-['SPA vs მრავალგვერდიანი საიტები, React-ის ეკოსისტემა',['რატომ React: SPA-ის უპირატესობები','React-ის ეკოსისტემის მიმოხილვა','საზოგადოება და დოკუმენტაციასთან მუშაობა']],
-['დეველოპმენტის გარემოს მომზადება და პირველი React პროექტი',['Node.js და npm-ის ინსტალაცია','React პროექტის შექმნა (Vite)','პროექტის სტრუქტურა']],
-['JSX სინტაქსი და ვირტუალური DOM',['JSX-ის საფუძვლები და გამონათქვამები','ვირტუალური DOM-ის მუშაობის პრინციპი','JSX vs HTML: განსხვავებები','*ქვიზი #5']],
-['ფუნქციური კომპონენტები და Props',['ფუნქციური კომპონენტების შექმნა','Props-ის გადაცემა და ვალიდაცია','კომპონენტების კომპოზიცია','*პრაქტიკული დავალება #6']],
-['State და useState hook',['useState hook-ის საფუძვლები','state-ის განახლების წესები და immutability','ლოკალური vs გაზიარებული state']],
-['ივენთების დამუშავება React-ში',['onClick, onChange, onSubmit','event handler ფუნქციები','*პრაქტიკული სემინარი: ინტერაქტიული კომპონენტი']],
-['კონდიციური და სიების რენდერი',['კონდიციური რენდერი (ternary, &&)','სიების რენდერი და key prop-ის მნიშვნელობა','სიის ფილტრაცია და დახარისხება','*ქვიზი #6']],
-['useEffect და კომპონენტის სასიცოცხლო ციკლი',['useEffect hook-ის საფუძვლები','დამოკიდებულებების მასივი (dependency array)','cleanup ფუნქციები','*პრაქტიკული დავალება #7']],
-['*ქვიზი: JavaScript & React საფუძვლების შემაჯამებელი ტესტი',['*თეორიული ტესტი','*პრაქტიკული სავარჯიშოები']],
-['ფორმების მართვა React-ში',['კონტროლირებადი კომპონენტები','ფორმის ვალიდაცია','მრავალველიანი ფორმების მართვა']],
-['React Router და მრავალგვერდიანი აპლიკაციები',['route-ების კონფიგურაცია','ნავიგაცია და დინამიური პარამეტრები','*პრაქტიკული დავალება #8']],
-['React-Bootstrap ინტეგრაცია და რესპონსიული UI',['React-Bootstrap ბიბლიოთეკა','კომპონენტების სტილიზაცია','რესპონსიული ლეიაუთების აგება']],
-['REST API-ის საფუძვლები',['REST არქიტექტურის პრინციპები','HTTP მეთოდები და სტატუს კოდები','*ქვიზი #7']],
-['fetch და axios, async/await',['fetch API და axios ბიბლიოთეკა','async/await სინტაქსი','შეცდომების დამუშავება (error handling)']],
-['მონაცემების ჩვენება, loading და error states',['loading და error states-ის მართვა','მონაცემების paginაცია','*პრაქტიკული დავალება #9']],
-['*პრაქტიკული სემინარი: React აპლიკაცია REST API-სთან დაკავშირებით',['*API-დან მონაცემების წამოღება და ჩვენება','*Performance budget-ის გამოყენება პრაქტიკაში']],
-['On-page SEO React SPA-ებში',['meta ტეგების დინამიური მართვა React-ში','semantic markup React კომპონენტებში','page speed ოპტიმიზაცია React აპლიკაციაში','*ქვიზი #8']],
-['Production build-ის მომზადება და ოპტიმიზაცია',['build პროცესი და ოპტიმიზაცია','code splitting და lazy loading','environment ცვლადები']],
-['დეპლოი Netlify/Vercel-ზე',['დეპლოის პროცესი','დომენის დაკავშირება','CI/CD-ის საფუძვლები']],
-['Google Search Console და საიტის ინდექსაცია',['საიტის დამატება Search Console-ში','ინდექსაციის მონიტორინგი','ტექნიკური შეცდომების გამოსწორება']],
-['Junior Front-end დეველოპერის ვაკანსიები, პორტფოლიო და კარიერული კონსულტაცია',['პორტფოლიოს აგება','რეზიუმისა და LinkedIn-ის მომზადება','გასაუბრებისთვის მომზადება','Junior Front-end დეველოპერის ვაკანსიების ძებნა']]
+['შესავალი ფრონტ-ენდ დეველოპმენტში',['ფრონტ-ენდ დეველოპმენტი და მისი ძირითადი კომპონენტები','ბრაუზერის დეველოპერული ინსტრუმენტი','სამუშაო გარემოს მოწყობა, ედიტორები','HTML-ის საწყისები, დოკუმენტის სტრუქტურა, ტეგები','*დავალება']],
+['HTML-ის დეტალური განხილვა',['*ქვიზი','Advanced HTML Concepts','სემანტიკური და არასემანტიკური ტეგები','Self Closing Tags','დიზაინის გარჩევა (Adobe XD, Figma), გვერდის აწყობის საფუძვლები','*დავალება']],
+['CSS-ის საწყისები',['*ქვიზი','Inline Style, Style Tag, CSS ფაილის შექმნა','CSS სელექტორები და მათი მნიშვნელობა','Sizes, Font sizes, colors, margin, padding, box-sizing','*დავალება']],
+['Git და GitHub',['*ქვიზი','ვერსიის კონტროლის საწყისები','GitHub: რეპოზიტორია, პროექტის ატვირთვა/ჩამოტვირთვა, ცვლილებები','PR-ებისა და branch-ების შექმნა, კონფლიქტების გადაჭრა','გუნდური Git workflow: branch naming, code review, commit messages','*დავალება']],
+['Display, ფონტები და ფსევდო კლასები',['*ქვიზი','CSS Display Property (block, inline, inline-block)','ფონტები: მოძიება, სტილები, ზომები','ფსევდო კლასები (:nth-child(), :first-child) და ფსევდო ელემენტები (::after, ::before)','*დავალება']],
+['Normal flow და Position',['*ქვიზი','დოკუმენტის ნორმალური დინება (document normal flow)','ბლოკების განლაგება და გასტილვა','Position Property (Static, Absolute, Fixed, Sticky)','*ჯგუფური დავალება']],
+['Background, ანიმაციები და ეფექტები',['*ქვიზი','Background properties','ანიმაციები: Hover, keyframes, animation-duration, animation-iteration-count','Transition, Translate, Rotate, Skew, Scale, Perspective','Box Shadow, Border Radius','*დავალება']],
+['CSS Flexbox',['*ქვიზი','Flexbox-ის საფუძვლები, გამოყენება, მახასიათებლები','*დავალება']],
+['CSS Grid',['*ქვიზი','Grid-ის საფუძვლები, გამოყენება, მახასიათებლები','*დავალება']],
+['HTML ფორმები და Meta Tags',['*ქვიზი','Form Elements: form, input, select, textarea, label, ატრიბუტები და ვალიდაცია','Meta Tags','*დავალება']],
+['რესპონსივობა',['*ქვიზი','ვებ გვერდის რესპონსივობა','მედია ქუერები (width, max-width, min-width, height, print, orientation), ბრეიქფოინთები','*დავალება']],
+['Bootstrap და Tailwind',['*ქვიზი','რა არის Bootstrap, Tailwind, გამოყენების მეთოდები','Bootstrap Grid, Components, Responsive','*შუალედური დავალება']],
+['JavaScript-ის საფუძვლები',['რა არის JavaScript და რა შესაძლებლობები აქვს ბრაუზერში','ძირითადი სინტაქსი, ცვლადები, მარტივი ტიპები','Developer Console','*დავალება']],
+['რთული ტიპები JavaScript-ში',['*ქვიზი','მასივები და მასივის მეთოდები (pop, push, shift, unshift)','ობიექტები და თვისებებზე წვდომა','რთული ტიპების კოპირება','*დავალება']],
+['ოპერატორები და ციკლები',['*ქვიზი','არითმეტიკული, შედარების და ლოგიკური ოპერატორები','if / else, switch','ციკლები: for, while, do/while, break, continue','ოპერაციები მასივებსა და ობიექტებზე','*დავალება']],
+['ფუნქციები',['*ქვიზი','ფუნქციები და ფუნქციონალური დაპროგრამება','forEach, find, filter, map','*დავალება']],
+['JavaScript და DOM',['*ქვიზი','რა არის DOM, Selector-ები','DOM-ის მანიპულაციები','Events: click, Bubbling, Capturing, preventDefault, stopPropagation','*დავალება']],
+['ასინქრონულობა',['*ქვიზი','setTimeout, setInterval, callback ფუნქციები','სლაიდერის აწყობა','კლავიატურის ივენთები (keyup, keydown)','*დავალება']],
+['ფორმები და შეცდომების მართვა',['*ქვიზი','ფორმის ვალიდაცია (validity ობიექტი, regex)','Error handling','Popup-ები (dialog ტეგი)','*დავალება']],
+['AJAX და fetch',['*ქვიზი','AJAX და მისი როლი ვებ-აპლიკაციებში','fetch API: ინფორმაციის წამოღება და გაგზავნა','Promises (then, catch, finally), async/await','*საბოლოო პროექტი']],
+['SEO 1',['რა არის SEO, SEO-ს ისტორია','SEM vs SEO','SEO და Google','On-site & Off-Site']],
+['SEO 2',['ლაივ რეჟიმში რეალური საიტის დიაგნოსტიკა','გამოსწორების გზების განხილვა','*საბოლოო პროექტი']],
+['React.js: შესავალი',['რა არის React.js და რატომ Framework და არა pure JS','ალტერნატივები: Vue და Angular','რა გვეცოდინება კურსის ბოლოს','Dev გარემოს გამართვა']],
+['React.js: კომპონენტები და JSX',['Next.js პროექტის სტრუქტურა','React კომპონენტები და მათი მნიშვნელობა','JavaScript DOM, JSX-ის სინტაქსი','npm პაკეტები']],
+['React.js: Props, State, Events',['React Props / State','Lists and Keys','Component lifecycle','Event Handling']],
+['React.js: სტილები',['CSS React-ში','Styled components','Tailwind CSS','Git & GitHub']],
+['React.js: Hooks',['CSR vs SSR','React hooks (useState, useEffect)','Conditional Rendering','Parent/child კომპონენტებს შორის კომუნიკაცია']],
+['React.js: Routing',['Routing და ნავიგაცია','Dynamic Routes with params','usePathname & useParams ჰუკები','Loading & 404 page']],
+['*React.js: შუალედური გამოცდა',['*შუალედური გამოცდა']],
+['React.js: Data fetching',['CRUD operations','ასინქრონული Request (async / await)','Server Side და Client Side Fetching']],
+['React.js: ფორმები',['Forms, Validations','React Hook Form, Yup','useRef']],
+['React.js: Redux',['Redux','Redux Toolkit']],
+['*React.js: ფინალური დავალება',['AsyncStorage-ის გამოყენება','Authorization','Deploy React App: Build და Publish']],
+['React.js: კონსულტაცია და კითხვები',['კონსულტაცია და კითხვები']],
+['*React.js: პრეზენტაცია',['*პრეზენტაცია']],
+['React Native: შესავალი',['რა არის და როგორ მუშაობს React Native','Dev გარემოს გამართვა']],
+['React Native: კომპონენტები და სტილები',['View, Text, Button, Image, TextInput, ScrollView, FlatList','Layouts, Styles (Styled components / CSS)']],
+['React Native: ნავიგაცია',['Routing, Tab Navigation, Stack Navigation','AsyncStorage React Native-ში','*დავალება #1']],
+['React Native: Requests და ავტორიზაცია',['Components management','Requests React Native-ში','User Authentication Flow','*დავალება #2']],
+['React Native: მოწყობილობის API-ები',['Geolocation','React Native Device info','Permissions']],
+['React Native: Build & Deploy',['Bringing it All Together','Build & Deploy (iOS/Android)','*ფინალური დავალება']],
+['რეზიუმე, LinkedIn და გასაუბრება',['რეზიუმე & CV: როგორ შევადგინოთ და რას გავუსვათ ხაზი','LinkedIn-ის შექმნა და keywords სორსინგისთვის','პორტფოლიო: Behance, GitHub','გასაუბრებისთვის მომზადება და პოზიციონირება','*გასაუბრების სიმულაცია']]
 ];
 function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
