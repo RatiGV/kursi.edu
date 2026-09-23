@@ -442,7 +442,7 @@ h1 .ln span,.chip,.pt .pr,.bars i{transform:none;opacity:1}
 <section id="planner">
 <div class="wrap">
 <h2 class="reveal">ფორმულის სავარჯიშო: VLOOKUP + IF</h2>
-<p class="sub reveal">საძიებო და ლოგიკური ფუნქციების ერთად გამოყენება კურსის პირველივე ეტაპზე ისწავლება (ლექციები 4 და 7). შეიყვანე პროდუქტის კოდი და რაოდენობა: VLOOKUP იპოვის ფასს ცხრილში, IFERROR დაიჭერს არარსებულ კოდს, ხოლო IF გადაწყვეტს, ეკუთვნის თუ არა შეკვეთას ფასდაკლება.</p>
+<p class="sub reveal">საძიებო და ლოგიკური ფუნქციების ერთად გამოყენება კურსის პირველივე ეტაპზე ისწავლება (ლექციები 2, 3 და 5). შეიყვანე პროდუქტის კოდი და რაოდენობა: VLOOKUP იპოვის ფასს ცხრილში, IFERROR დაიჭერს არარსებულ კოდს, ხოლო IF გადაწყვეტს, ეკუთვნის თუ არა შეკვეთას ფასდაკლება.</p>
 <div class="plan reveal">
 <div class="panel">
 <h3>შემავალი უჯრედები</h3>
@@ -489,7 +489,7 @@ h1 .ln span,.chip,.pt .pr,.bars i{transform:none;opacity:1}
 <section id="syllabus" style="background:var(--card);border-block:1px solid var(--line)">
 <div class="wrap">
 <h2 class="reveal">17 შეხვედრა, ოთხი ეტაპი</h2>
-<p class="sub reveal">34 საათი: საბაზისო ფორმულებიდან საძიებო და პირობით ფუნქციებამდე, შემდეგ ფინანსურ და What-if ანალიზამდე, ბოლოს Pivot Tables-ამდე, Solver-ამდე და სტატისტიკამდე.</p>
+<p class="sub reveal">34 საათი: MS Excel ექსპრესი (8 შეხვედრა) და Advanced Excel (9 შეხვედრა), ორივე ფინალური გამოცდით. ფორმულებიდან, საძიებო და ლოგიკური ფუნქციებიდან Pivot-მდე, ფინანსურ და What-if ანალიზამდე, Solver-ამდე და სტატისტიკამდე.</p>
 <div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
 <div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
 <ol class="lec reveal" id="lec"></ol>
@@ -664,25 +664,25 @@ $('xNote').textContent=note;
 [xCode,xQty,xMin,xDisc].forEach(function(i){i.addEventListener('input',calcLookup);});
 calcLookup();
 /* syllabus */
-var P=[{n:'საფუძვლები',r:[1,5]},{n:'ფუნქციები და Pivot',r:[6,9]},{n:'ანალიზი და ფინანსები',r:[10,13]},{n:'ოპტიმიზაცია და სტატისტიკა',r:[14,17]}];
+var P=[{n:'MS Excel ექსპრესი: საფუძვლები',r:[1,4]},{n:'MS Excel ექსპრესი: ფუნქციები, Pivot და გამოცდა',r:[5,8]},{n:'Advanced: ანალიზი და ფინანსები',r:[9,12]},{n:'Advanced: Pivot, Solver და გამოცდა',r:[13,17]}];
 var L=[
-['Excel-ის ინტერფეისი და მონაცემების შეყვანა',['ინტერფეისის მიმოხილვა, შედარება Office-ის სხვა პროგრამებთან','მონაცემების შეყვანა და ფორმატირება (Format Cells)']],
-['ფორმულები და ადრესაცია',['ფორმულები და ფუნქციები კატეგორიების მიხედვით','ადრესაცია და მისი თავისებურებები','მონაცემების გავრცობა, Paste Special ბრძანება']],
-['საბაზისო ფუნქციები',['Sum, Average, Count, Max, Min','თარიღის ფუნქციები: Date, Now, Today','შემთხვევითი რიცხვები: Rand, Randbetween','დამრგვალება: Round, Roundup, Rounddown, Trunc']],
-['ლოგიკური და საძიებო ფუნქციები',['IF, AND, OR, IFERROR, IFNA','VLOOKUP და HLOOKUP','ნასწავლი ფუნქციების გაერთიანება ლოგიკურ ფუნქციებთან']],
-['პირობითი დაფორმატება და ცხრილები',['Conditional Formatting ფორმულების დახმარებით','ცხრილთან მუშაობა: გაფილტვრა, ზრდადობა-კლებადობით დალაგება, სორტირება']],
-['ტექსტური ფუნქციები',['Find, Right, Left, Mid','CONCATENATE, Upper, Lower']],
-['Lookup & Reference ფუნქციები',['Lookup, HLookup, VLookup','Match და Index','პრაქტიკული მაგალითები ფუნქციათა კომბინაციით']],
-['პირობითი გამოთვლები და მონაცემთა კონტროლი',['Sumif, Sumifs, Averageif, Averageifs','Countif, Countifs','Data Validation']],
-['დიაგრამები და Pivot Tables',['ცხრილებსა და დიაგრამებზე მუშაობა','Pivot Tables და Pivot Charts, ველების სორტირება და ფილტრი','Slicers და Timeline','PivotTable რამდენიმე წყაროს მონაცემებზე']],
-['მონაცემთა ანალიზის შესავალი',['მონაცემთა ანალიზის საწყისები','მონაცემების შეყვანისა და ფორმატირების დამუშავების ხერხები','Go To Special: უჯრედების მონიშვნა კრიტერიუმებით']],
-['საძიებო და თარიღის ფუნქციები ანალიზისთვის',['Lookup, Index, Match','Today, Now, Date, Day, Month, Year, Hour, Minute','EDATE, EOMONTH, NETWORKDAYS, WEEKNUM, WORKDAY','Sequence ფორმულა']],
-['ფინანსური ანალიზი',['FV, PV, Rate, Nper, Pmt','IPMT და PPMT: სარგებელი და ძირი კონკრეტული გადახდისას','ამორტიზაციის სქემა (Personal Finance)']],
-['What-if ანალიზი',['IF, AND, OR, IFERROR, IFNA, IFS','Data Tables','Goal Seek: ერთი პარამეტრის გადათვლა','Scenario Manager']],
-['Tables და Database ფუნქციები',['Tables ბრძანება','Database ფუნქციების შედარება Sumifs, Averageifs, Countifs-თან','Conditional Formatting და დახარისხება ფორმატით']],
-['OFFSET, INDIRECT და მართვის ელემენტები',['OFFSET, INDIRECT და შედარება VLOOKUP, INDEX, MATCH-თან','Spin Buttons, Scroll Bars, Option Buttons, Check Boxes','Combo Boxes და List Boxes','Data Validation']],
-['Pivot Tables სიღრმისეულად და კონსოლიდაცია',['Group Items, GetPivotData, PivotTable რამდენიმე დიაპაზონიდან','ფილტრაცია ფორმულით და მონაცემთა კონსოლიდაცია','Subtotal ბრძანება და ფუნქცია','Advanced Filter და ცხრილის ფილტრთან შედარება']],
-['Solver, სტატისტიკა და დინამიური ფორმულები',['Solver: მოგების მაქსიმიზაცია, ხარჯების მინიმიზაცია, ფინანსური დაგეგმვა','Solver და Goal Seek-ის შედარება','სიხშირული ცხრილი და ჰისტოგრამა, აღწერითი სტატისტიკა','Sort, Sortby, Unique, TextJoin და OFFSET-ის კომბინაციები']]
+['ინტერფეისი, ფორმულები და საბაზისო ფუნქციები',['Excel-ის ინტერფეისი: მიმოხილვა, შედარება Office-ის სხვა პროგრამებთან','მონაცემების შეყვანა და ფორმატირება (Format Cells)','ფორმულები, ფუნქციები კატეგორიების მიხედვით','ადრესაცია და მისი თავისებურებები','მათემატიკური: SUM, AVERAGE, COUNT, MAX, MIN','თარიღის ფუნქციები: DATE, NOW, TODAY','შემთხვევითი რიცხვი: RAND, RANDBETWEEN']],
+['გავრცობა, საძიებო და დამრგვალების ფუნქციები',['მონაცემების გავრცობა, სპეციალური ჩასმა (Paste Special)','საძიებო ფუნქციები: VLOOKUP, HLOOKUP','დამრგვალების ფუნქციები: ROUND, ROUNDUP, ROUNDDOWN, TRUNC']],
+['ლოგიკური ფუნქციები',['IF, AND, OR, IFERROR, IFNA','განვლილი ფუნქციების გაერთიანება ლოგიკურ ფუნქციებთან','*ქვიზი','*საშინაო დავალება']],
+['პირობითი ფორმატირება და ცხრილები',['პირობითი დაფორმატება ფორმულების დახმარებით (Conditional Formatting)','ცხრილთან მუშაობა, გაფილტვრა, სორტირება','*ქვიზი','*საშინაო დავალება']],
+['ტექსტური და Lookup & Reference ფუნქციები',['FIND, RIGHT, LEFT, MID, CONCATENATE, UPPER, LOWER','LOOKUP, HLOOKUP, VLOOKUP, MATCH, INDEX: მაგალითები','*საშინაო დავალება']],
+['პირობითი ფუნქციები და Data Validation',['SUMIF, SUMIFS, AVERAGEIF, AVERAGEIFS, COUNTIF, COUNTIFS','მონაცემთა კონტროლი (Data Validation)','*ქვიზი']],
+['დიაგრამები და Pivot ცხრილები',['ცხრილებსა და დიაგრამებზე მუშაობა','Pivot Tables, Pivot Charts, Sort and Filter PivotTable Fields','Pivot Slicers, Timeline','PivotTable რამდენიმე ადგილას განთავსებული მონაცემებით','*ქვიზი','*საშინაო დავალება']],
+['*ფინალური გამოცდა',['*ფინალური გამოცდა']],
+['მონაცემთა ანალიზის შესავალი და ძირითადი ფუნქციები',['მონაცემთა ანალიზის შესავალი','მონაცემების შეყვანა და ფორმატირება (Format Cells)','Go To Special: უჯრედების მონიშვნა კრიტერიუმების მიხედვით','საძიებო ფუნქციები: Lookup, INDEX, MATCH','თარიღის ფუნქციები: TODAY, NOW, DATE, EDATE, EOMONTH, NETWORKDAYS, WEEKNUM, WORKDAY','SEQUENCE ფორმულა']],
+['ფინანსური ანალიზი და ფინანსური ფუნქციები',['ფინანსური ანალიზი (Financial Analysis)','FV, PV, RATE, NPER, PMT: სამომავლო და საწყისი ღირებულება, განაკვეთი, პერიოდები, პერიოდული გადახდა','IPMT და PPMT: სარგებელი და ძირი თანხა კონკრეტული გადახდისას','ამორტიზაციის სქემა (Personal Finance)','*დავალება']],
+['ლოგიკური ფუნქციები და What-if ანალიზი',['ლოგიკური ფუნქციები: IF, AND, OR, IFERROR, IFNA, IFS','მონაცემთა ცხრილები (Data Tables)','ერთი პარამეტრის გადათვლა (Goal Seek)','სცენარების მენეჯერი (Scenario Manager)','*ქვიზი']],
+['Tables, Database ფუნქციები და პირობითი ფორმატირება',['ბრძანება Tables','Database ფუნქციების შედარება SUMIF, SUMIFS, AVERAGEIF, AVERAGEIFS, COUNTIF, COUNTIFS-თან','პირობითი ფორმატირება ფორმულების დახმარებით (Conditional Formatting)','დახარისხება პირობითი ფორმატის მიხედვით','*ქვიზი','*დავალება']],
+['საძიებო ფუნქციები, მართვის ელემენტები და Data Validation',['OFFSET, INDIRECT, Lookup და შედარება VLOOKUP, HLOOKUP, INDEX, MATCH-თან','მართვის ღილაკები: Spin Buttons, Scroll Bars, Option Buttons, Check Boxes, Combo Boxes, Group List Boxes','მონაცემთა კონტროლი (Data Validation)','*ქვიზი']],
+['Pivot Tables, ფილტრაცია და კონსოლიდაცია',['Pivot Tables და Pivot Charts','Sort და Filter PivotTable ველებში, Slicers, Timeline','ელემენტების დაჯგუფება, GETPIVOTDATA, PivotTable რამდენიმე წყაროდან','ფილტრაცია ფორმულით, მონაცემთა კონსოლიდაცია','Subtotal ბრძანება და SUBTOTAL ფუნქცია']],
+['ოპტიმიზაცია Solver-ით და Advanced Filter',['Solver: მოგების მაქსიმიზაცია (Maximizing Profit)','Solver: ხარჯების მინიმიზაცია (Minimizing Cost)','Solver ფინანსური დაგეგმვისთვის','Solver-ისა და Goal Seek-ის შედარება','Advanced Filter და შედარება ცხრილების ფილტრაციასთან','*ქვიზი','*დავალება']],
+['აღწერითი სტატისტიკა და დინამიური მასივები',['სიხშირული ცხრილი და ჰისტოგრამა (Histograms)','აღწერითი სტატისტიკა: Mean, Median, Standard Deviation','მათემატიკური ფორმულების კომბინაცია OFFSET-ით','SORT, SORTBY, UNIQUE, TEXTJOIN','*ქვიზი','*დავალება']],
+['*ფინალური გამოცდა',['*ფინალური გამოცდა: კურსის სრული მასალის შეჯამება']]
 ];
 function phaseOf(n){for(var i=0;i<P.length;i++)if(n>=P[i].r[0]&&n<=P[i].r[1])return i;}
 var lec=$('lec'),h='';
