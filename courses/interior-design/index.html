@@ -163,8 +163,8 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--terra)}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
 .bubble.b1{left:-22px;top:120px}
-.bubble.b2{right:-22px;top:300px;animation-delay:-1.6s;background:var(--terra);color:var(--terra-ink);border-color:var(--terra)}
-.bubble.b3{left:-18px;bottom:92px;animation-delay:-3.2s;background:var(--sage);color:var(--sage-ink);border-color:var(--sage)}
+.bubble.b2{right:-52px;top:300px;animation-delay:-1.6s;background:var(--terra);color:var(--terra-ink);border-color:var(--terra)}
+.bubble.b3{left:-48px;bottom:92px;animation-delay:-3.2s;background:var(--sage);color:var(--sage-ink);border-color:var(--sage)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -410,7 +410,7 @@ h1 .ln span{transform:none;opacity:1}
 <div class="phone-stage" id="phoneStage">
 <div class="bubble b1">ფართობი <b id="bArea">0 მ²</b></div>
 <div class="bubble b2">Corona <b id="bPass">0</b> pass</div>
-<div class="bubble b3">კლიენტი <b id="bOk">ელოდება</b></div>
+<div class="bubble b3"><span id="bWho">დამკვეთი</span> <b id="bOk">მოლოდინშია</b></div>
 <div class="id" id="idBox" role="img" aria-label="ინტერიერის პროექტი: გეგმიდან საბოლოო რენდერამდე">
 <div class="id-top" aria-hidden="true"><b>მისაღები ოთახი</b><span>5 × 4 მ · 2.8 მ</span></div>
 <div class="id-apps" id="idApps" aria-hidden="true"><span>Archicad</span><span>3ds Max</span><span>Corona</span><span>Photoshop</span></div>
@@ -683,7 +683,7 @@ svg.innerHTML=g;
 var Wl=$('idWl'),Wr=$('idWr');
 function walls(h){Wl.setAttribute('points',pts(wl(h)));Wr.setAttribute('points',pts(wr(h)));}
 var apps=[].slice.call($('idApps').children),mats=[].slice.call($('idMats').querySelectorAll('div')),cur=$('idCur');
-var st=$('idStat'),trk=$('idTrk'),pct=$('idPct'),area=$('bArea'),pass=$('bPass'),ok=$('bOk');
+var st=$('idStat'),trk=$('idTrk'),pct=$('idPct'),area=$('bArea'),pass=$('bPass'),ok=$('bOk'),who=$('bWho');
 var T=[],gen=0;
 function at(ms,fn){T.push(setTimeout(fn,ms));}
 function add(c){box.classList.add(c);}
@@ -691,7 +691,7 @@ function app(i){apps.forEach(function(a,k){a.classList.toggle('on',k===i);a.clas
 function stat(t,n){st.textContent=t;trk.style.width=n+'%';pct.textContent=n+'%';}
 function tw(ms,fn){var my=gen,t0=null;function f(t){if(my!==gen)return;if(!t0)t0=t;var q=Math.min((t-t0)/ms,1);fn(1-Math.pow(1-q,3));if(q<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 function pick(i){var d=mats[i];cur.classList.add('on');cur.style.transform='translate('+(d.offsetLeft+12)+'px,'+(d.offsetTop+12)+'px)';at(380,function(){mats.forEach(function(m,k){m.classList.toggle('pick',k===i);if(k<i)m.classList.add('set');});add('s-m'+(i+1));});}
-function reset(){T.forEach(clearTimeout);T=[];gen++;box.className='id rst';walls(0);area.textContent='0 მ²';pass.textContent='0';ok.textContent='ელოდება';mats.forEach(function(m){m.className='';});cur.className.baseVal='id-cur';cur.style.transform='translate(0,0)';app(-1);stat('გეგმა Archicad-ში',0);void box.offsetWidth;box.classList.remove('rst');}
+function reset(){T.forEach(clearTimeout);T=[];gen++;box.className='id rst';walls(0);area.textContent='0 მ²';pass.textContent='0';who.textContent='დამკვეთი';ok.textContent='მოლოდინშია';mats.forEach(function(m){m.className='';});cur.className.baseVal='id-cur';cur.style.transform='translate(0,0)';app(-1);stat('გეგმა Archicad-ში',0);void box.offsetWidth;box.classList.remove('rst');}
 function run(){
 reset();app(0);
 at(80,function(){add('s-plan');stat('გეგმა Archicad-ში',12);tw(1100,function(e){area.textContent=Math.round(20*e)+' მ²';});});
@@ -705,11 +705,11 @@ at(6700,function(){pick(3);});
 at(7400,function(){cur.classList.remove('on');mats.forEach(function(m){m.className='set';});app(2);add('s-light');add('s-rend');stat('Corona რენდერი',70);});
 at(7500,function(){add('s-clean');tw(2600,function(e){var n=Math.round(500*e);pass.textContent=n;st.textContent='Corona რენდერი · pass '+n;});});
 at(10300,function(){app(3);add('s-grade');stat('ფერის კორექცია Photoshop-ში',90);});
-at(11800,function(){app(4);add('s-done');stat('რენდერი მზადაა',100);ok.textContent='მოწონებულია ✓';});
+at(11800,function(){app(4);add('s-done');stat('რენდერი მზადაა',100);who.textContent='დამკვეთმა';ok.textContent='დაადასტურა ✓';});
 at(15200,function(){add('s-out');});
 at(15700,run);
 }
-if(reduce){box.className='id s-plan s-walls s-deco s-furn s-m1 s-m2 s-m3 s-m4 s-light s-grade s-done';walls(H);app(4);mats.forEach(function(m){m.className='set';});area.textContent='20 მ²';pass.textContent='500';ok.textContent='მოწონებულია ✓';stat('რენდერი მზადაა',100);}else{run();}
+if(reduce){box.className='id s-plan s-walls s-deco s-furn s-m1 s-m2 s-m3 s-m4 s-light s-grade s-done';walls(H);app(4);mats.forEach(function(m){m.className='set';});area.textContent='20 მ²';pass.textContent='500';who.textContent='დამკვეთმა';ok.textContent='დაადასტურა ✓';stat('რენდერი მზადაა',100);}else{run();}
 })();
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
