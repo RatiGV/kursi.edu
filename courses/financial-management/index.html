@@ -87,28 +87,51 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--navy3)}
 .price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
 .price small{font-size:20px}
 .phone-stage{position:relative;display:flex;justify-content:center}
-.ledger{width:min(360px,100%);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:20px 18px 22px;box-shadow:0 40px 70px -35px rgba(19,32,41,.5);position:relative;z-index:2}
-.lg-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.lg-head b{font-family:var(--geo);font-size:15px}
-.lg-head span{font-family:var(--geo);font-size:12px;color:var(--muted)}
-.lg-nums{display:flex;gap:12px;justify-content:space-around;text-align:center;font-family:var(--geo);font-size:11px;color:var(--muted);margin-bottom:14px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.lg-nums b{display:block;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums;font-family:var(--font)}
-.growth{display:flex;align-items:end;gap:6px;height:70px;padding:8px 4px;margin-bottom:14px}
-.growth i{flex:1;background:var(--navy3);border-radius:5px 5px 0 0;transform:scaleY(0);transform-origin:100% 100%;animation:growbar .7s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes growbar{to{transform:scaleY(1)}}
-.lg-row2{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;align-items:center}
-.ring-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
-.ring-wrap svg{width:84px;height:84px;transform:rotate(-90deg);display:block}
-.ring-wrap circle{fill:none;stroke-width:9}
-.ring-wrap .bg{stroke:var(--soft)}
-.ring-wrap .fg{stroke:var(--navy3);stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
-.ring-wrap b{position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:84px;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--font);font-size:18px;font-variant-numeric:tabular-nums}
-.ring-wrap span{font-family:var(--geo);font-size:10.5px;color:var(--muted);text-align:center;max-width:90px}
+.fm{width:min(390px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px 16px 18px;box-shadow:0 40px 70px -35px rgba(19,32,41,.5);position:relative;z-index:2}
+.rst,.rst *{transition:none!important;animation:none!important}
+.fm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--geo)}
+.fm-top b{font-size:15px}
+.fm-top span{font-size:12px;color:var(--muted)}
+.fm-view{position:relative;border-radius:16px;background:var(--paper);overflow:hidden;transition:opacity .4s}
+.s-out .fm-view,.s-out .fm-foot{opacity:0}
+.fmv{display:block;width:100%;height:auto}
+.fmv .ax{stroke:var(--ink);stroke-width:1.2;opacity:.5}
+.fmv .yr{font:700 8.5px var(--geo);fill:var(--muted);text-anchor:middle}
+.fmv .bar{transform-box:fill-box;transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
+.fmv .bar.up{fill:var(--navy3);transform-origin:50% 100%;transform:scaleY(0)}
+.fmv .bar.dn{fill:#C8553D;transform-origin:50% 0;transform:scaleY(0)}
+.fmv .bar.on{transform:none}
+.fmv .bv{font:800 8px var(--geo);text-anchor:middle;opacity:0;transition:opacity .3s}
+.fmv .bv.on{opacity:1}
+.fmv .bv.up{fill:var(--navy3)}.fmv .bv.dn{fill:#C8553D}
+.fmv .cum{fill:none;stroke:var(--gold2);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease-in-out}
+.s-cum .fmv .cum{stroke-dashoffset:0}
+.s-disc .fmv .cum,.s-disc .fmv .be{opacity:.25;transition:opacity .4s}
+.fmv .be{opacity:0;transform:translateY(-10px) scale(.6);transform-box:fill-box;transform-origin:50% 100%;transition:opacity .25s,transform .45s cubic-bezier(.3,1.8,.5,1)}
+.s-be .fmv .be{opacity:1;transform:none}
+.fmv .be rect{fill:var(--gold2)}
+.fmv .be text{font:800 8.5px var(--geo);fill:var(--gold2-ink);text-anchor:middle}
+.fmv .be line{stroke:var(--gold2);stroke-width:1.4;stroke-dasharray:3 3}
+.fmv .coin circle{fill:var(--gold2);stroke:#fff;stroke-width:1.5}
+.fmv .coin text{font:800 7.5px var(--font);fill:var(--gold2-ink);text-anchor:middle}
+.fmv .pile{opacity:0;transition:opacity .3s}
+.s-disc .fmv .pile{opacity:1}
+.fmv .pile rect{fill:var(--gold2)}
+.fmv .pile text{font:800 8.5px var(--geo);fill:var(--ink);text-anchor:middle}
+.fm-rate{position:absolute;left:10px;top:10px;font:700 10.5px var(--geo);padding:3px 8px;border-radius:8px;background:var(--navy3);color:var(--navy3-ink);opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .4s}
+.s-disc .fm-rate{opacity:1;transform:none}
+.fm-stamp{position:absolute;right:12px;bottom:34px;font:800 11px var(--geo);color:#1F8A5B;border:2px solid #1F8A5B;border-radius:7px;padding:3px 7px;background:var(--card);transform:rotate(-10deg) scale(2.4);opacity:0;transition:transform .3s cubic-bezier(.5,1.8,.5,1),opacity .12s}
+.s-ok .fm-stamp{transform:rotate(-6deg) scale(1);opacity:1}
+.fm-foot{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;transition:opacity .4s}
+.fm-foot div{border:1px solid var(--line);border-radius:12px;padding:7px 8px;text-align:center;font:10.5px var(--geo);color:var(--muted)}
+.fm-foot b{display:block;font:800 15px var(--font);color:var(--ink);font-variant-numeric:tabular-nums}
+.bubble b.pop{display:inline-block;animation:fmPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes fmPop{40%{transform:scale(1.35)}}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-10px;top:60px}
-.bubble.b2{right:-14px;top:220px;animation-delay:-1.6s;background:var(--navy3);color:var(--navy3-ink);border-color:var(--navy3)}
-.bubble.b3{left:2px;bottom:16px;animation-delay:-3.2s;background:var(--gold2);color:var(--gold2-ink);border-color:var(--gold2)}
+.bubble.b1{left:-40px;top:-14px}
+.bubble.b2{right:-44px;top:-14px;animation-delay:-1.6s;background:var(--navy3);color:var(--navy3-ink);border-color:var(--navy3)}
+.bubble.b3{left:-30px;bottom:-34px;animation-delay:-3.2s;background:var(--gold2);color:var(--gold2-ink);border-color:var(--gold2)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -207,7 +230,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 .path li{grid-template-columns:1fr;gap:2px}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -230,7 +253,7 @@ header .btn-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.growth i{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -338,25 +361,17 @@ h1 .ln span,.growth i{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">NPV <b id="bNpv">8,240 ₾</b></div>
-<div class="bubble b2">Break-even <b>4.2 თვე</b></div>
-<div class="bubble b3">რეიტინგი <b>4.8/5</b></div>
-<div class="ledger" aria-label="ფინანსური დაშბორდის მაკეტი">
-<div class="lg-head"><b>ფულადი ნაკადების პროგნოზი</b><span>12 თვე</span></div>
-<div class="lg-nums">
-<div><b>8,240 ₾</b>NPV</div>
-<div><b>12%</b>დისკ. განაკვეთი</div>
-<div><b>4.2</b>თვე Break-even</div>
+<div class="bubble b1">NPV <b id="bNpv">...</b></div>
+<div class="bubble b2">Break-even <b id="fmBe">...</b></div>
+<div class="bubble b3">IRR <b id="fmIrr">...</b></div>
+<div class="fm" id="fmBox" role="img" aria-label="ინვესტიციის ანალიზი: ფულადი ნაკადები, უკუგების წერტილი, დისკონტირება და NPV">
+<div class="fm-top" aria-hidden="true"><b>ინვესტიციის ანალიზი</b><span id="fmPh">ფულადი ნაკადები</span></div>
+<div class="fm-view" aria-hidden="true">
+<svg class="fmv" id="fmSvg" viewBox="0 0 300 172"></svg>
+<div class="fm-rate">დისკონტი 12%</div>
+<div class="fm-stamp">NPV &gt; 0 ✓</div>
 </div>
-<div class="growth" id="growth"></div>
-<div class="lg-row2">
-<div><p class="hint" style="margin:0">კვარტალური ფულადი ნაკადი</p></div>
-<div class="ring-wrap">
-<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="40"/><circle class="fg" id="ringFg" cx="50" cy="50" r="40"/></svg>
-<b id="ringVal">0%</b>
-<span>წლიური მიზნის შესრულება</span>
-</div>
-</div>
+<div class="fm-foot" aria-hidden="true"><div><b id="fmPv">0 ₾</b>PV შემოსავალი</div><div><b>10,000 ₾</b>ინვესტიცია</div><div><b id="fmNpv">-</b>NPV</div></div>
 </div>
 </div>
 </div>
@@ -511,19 +526,44 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-var heights=[32,44,38,56,50,68,74];
-var gr=$('growth'),grh='';
-heights.forEach(function(h,i){grh+='<i style="height:'+h+'%;animation-delay:'+(.2+i*.08)+'s"></i>';});
-gr.innerHTML=grh;
-var C=2*Math.PI*40,ringFg=$('ringFg');ringFg.style.strokeDasharray=C;ringFg.style.strokeDashoffset=C;
-var ringPct=0,ringTarget=69;
-function ringTick(){
-if(reduce){ringPct=ringTarget;}else if(ringPct<ringTarget){ringPct+=2;}
-$('ringVal').textContent=Math.min(ringPct,ringTarget)+'%';
-ringFg.style.strokeDashoffset=C*(1-Math.min(ringPct,ringTarget)/100);
-if(ringPct<ringTarget&&!reduce)requestAnimationFrame(ringTick);
+/* hero: cash flows, break-even, discounting to NPV */
+(function(){
+var box=$('fmBox'),svg=$('fmSvg'),CF=[-10000,2800,3200,3400,3600,3800],B=70,K=.0085;
+function X(t){return 62+t*44;}
+function Y(v){return B-v*K;}
+var g='<line class="ax" x1="18" y1="'+B+'" x2="292" y2="'+B+'"/>',cum=0,pts=[];
+CF.forEach(function(v,t){var up=v>0,h=Math.abs(v)*K;g+='<rect class="bar '+(up?'up':'dn')+'" x="'+(X(t)-11)+'" y="'+(up?B-h:B)+'" width="22" height="'+h.toFixed(1)+'" rx="3"/>';g+=up?'<text class="bv up" x="'+X(t)+'" y="'+(B-h-4).toFixed(1)+'">+'+fmt(v)+'</text>':'<text class="bv dn" x="'+(X(t)-14)+'" y="'+(B+h/2).toFixed(1)+'" text-anchor="end" style="text-anchor:end">'+fmt(v)+'</text>';g+='<text class="yr" x="'+X(t)+'" y="168">'+t+' წ.</text>';cum+=v;pts.push(X(t)+','+Y(cum).toFixed(1));});
+var bx=X(3+600/3600);
+g+='<polyline class="cum" pathLength="1" points="'+pts.join(' ')+'"/>';
+g+='<g class="be"><line x1="'+bx+'" y1="'+B+'" x2="'+bx+'" y2="30"/><rect x="'+(bx-34)+'" y="14" width="68" height="16" rx="6"/><text x="'+bx+'" y="25">Break-even 3.2</text></g>';
+g+='<g class="pile"><rect id="fmPile" x="'+(X(0)-11)+'" y="'+B+'" width="22" height="0" rx="3"/><text id="fmPileT" x="'+X(0)+'" y="'+(B-6)+'"></text></g><g id="fmCoins"></g>';
+svg.innerHTML=g;
+var bars=[].slice.call(svg.querySelectorAll('.bar')),bvs=[].slice.call(svg.querySelectorAll('.bv')),coins=$('fmCoins'),pile=$('fmPile'),pileT=$('fmPileT');
+var bN=$('bNpv'),bE=$('fmBe'),bI=$('fmIrr'),ph=$('fmPh'),fPv=$('fmPv'),fN=$('fmNpv');
+var T=[],gen=0,pv=0;
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function pop(el,t){el.textContent=t;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}
+function tw(ms,fn){var my=gen,t0=null;function f(t){if(my!==gen)return;if(!t0)t0=t;var q=Math.min((t-t0)/ms,1);fn(q<.5?2*q*q:1-Math.pow(-2*q+2,2)/2);if(q<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+function setPile(v){var h=v*K*.42;pile.setAttribute('y',(B-h).toFixed(1));pile.setAttribute('height',h.toFixed(1));pileT.setAttribute('y',(B-h-4).toFixed(1));pileT.textContent=v?fmt(v):'';}
+function coin(t){var v=CF[t],p=Math.round(v/Math.pow(1.12,t)),c=document.createElementNS('http://www.w3.org/2000/svg','g');c.setAttribute('class','coin');c.innerHTML='<circle r="13"/><text y="2.6">'+fmt(v)+'</text>';coins.appendChild(c);var x0=X(t),y0=Y(v)-16,tx=c.querySelector('text'),ci=c.firstChild;
+tw(1000,function(e){var x=x0+(X(0)-x0)*e,y=y0-Math.sin(e*Math.PI)*22+(B-24-y0)*e,s=1-(1-p/v)*e*2.2;ci.setAttribute('r',(13*Math.max(.55,s)).toFixed(1));c.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+')');tx.textContent=fmt(Math.round(v-(v-p)*e));});
+at(1020,function(){coins.removeChild(c);pv+=p;setPile(pv);fPv.textContent=fmt(pv)+' ₾';var n=pv-10000;fN.textContent=fmt(n)+' ₾';pop(bN,fmt(n)+' ₾');});}
+function reset(){T.forEach(clearTimeout);T=[];gen++;pv=0;box.className='fm rst';bars.forEach(function(b){b.classList.remove('on');});bvs.forEach(function(b){b.classList.remove('on');});coins.innerHTML='';setPile(0);bN.textContent='...';bE.textContent='...';bI.textContent='...';ph.textContent='ფულადი ნაკადები';fPv.textContent='0 ₾';fN.textContent='-';void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();
+at(30,function(){bN.textContent='...';});
+CF.forEach(function(v,t){at(300+t*380,function(){bars[t].classList.add('on');bvs[t].classList.add('on');});});
+at(2700,function(){add('s-cum');ph.textContent='კუმულაციური ნაკადი';});
+at(3700,function(){add('s-be');pop(bE,'3.2 წელი');});
+at(5000,function(){add('s-disc');ph.textContent='PV = CF / (1+r)ᵗ';bvs.forEach(function(b,t){if(t)b.classList.remove('on');});});
+[1,2,3,4,5].forEach(function(t,i){at(5300+i*520,function(){coin(t);});});
+at(8700,function(){add('s-ok');pop(bI,'19.1%');ph.textContent='ინვესტიცია მომგებიანია';});
+at(12200,function(){add('s-out');});
+at(12700,run);
 }
-requestAnimationFrame(ringTick);
+if(reduce){box.classList.add('s-cum','s-be','s-ok');bars.forEach(function(b){b.classList.add('on');});bvs.forEach(function(b){b.classList.add('on');});bN.textContent='1,915 ₾';bE.textContent='3.2 წელი';bI.textContent='19.1%';fPv.textContent='11,915 ₾';fN.textContent='1,915 ₾';ph.textContent='ინვესტიცია მომგებიანია';}else{run();}
+})();
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
