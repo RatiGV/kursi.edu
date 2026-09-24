@@ -85,28 +85,46 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--plum)}
 .price small{font-size:20px}
 /* dashboard mockup */
 .phone-stage{position:relative;display:flex;justify-content:center}
-.dashcard{width:min(360px,100%);background:var(--card);border:1px solid var(--line);border-radius:32px;padding:22px 20px 24px;box-shadow:0 40px 70px -35px rgba(28,20,50,.55);position:relative;z-index:2}
-.dash-head{display:flex;align-items:center;justify-content:space-between;padding:0 2px 14px}
-.dash-head strong{font-size:16px;font-weight:800}
-.dash-head .live2{display:inline-flex;align-items:center;gap:6px;font-family:var(--geo);font-size:12px;color:var(--muted)}
-.dash-head .live2 i{width:7px;height:7px;border-radius:50%;background:var(--mint);animation:blink2 1.4s infinite}
-@keyframes blink2{50%{opacity:.25}}
-.kpis{display:flex;justify-content:space-between;gap:8px;padding:0 2px 16px}
-.kpis div{text-align:left}
-.kpis b{display:block;font-size:21px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
-.kpis span{font-family:var(--geo);font-size:11px;color:var(--muted)}
-.bars{position:relative;display:flex;align-items:flex-end;gap:7px;height:120px;margin:0 2px;padding-top:6px}
-.bars .bar{flex:1;border-radius:6px 6px 2px 2px;min-height:6px;transform:scaleY(0);transform-origin:bottom;animation:barup .7s cubic-bezier(.3,1.3,.5,1) forwards}
-@keyframes barup{to{transform:scaleY(1)}}
-.bars svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.bars polyline{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
-.trend{display:flex;align-items:center;gap:8px;padding:12px 2px 0;margin-top:10px;border-top:1px solid var(--line);font-family:var(--geo);font-size:13px;color:var(--muted)}
-.trend b{color:var(--mint);font-family:var(--font);font-weight:800}
+.mm{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:28px;padding:16px 16px 18px;box-shadow:0 40px 70px -35px rgba(28,20,50,.55);position:relative;z-index:2}
+.rst,.rst *{transition:none!important;animation:none!important}
+.mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--geo)}
+.mm-top b{font-size:15px}
+.mm-top span{font-size:12px;color:var(--muted)}
+.mm-body{transition:opacity .4s}
+.s-out .mm-body{opacity:0}
+.mm-per{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:14px;background:var(--soft);transform:translateY(-12px);opacity:0;transition:opacity .3s,transform .45s cubic-bezier(.3,1.5,.5,1)}
+.s-per .mm-per{opacity:1;transform:none}
+.mm-per>i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--plum);color:var(--plum-ink);display:grid;place-items:center;font:800 12px var(--geo);font-style:normal}
+.mm-per b{display:block;font:700 12px var(--geo)}
+.mm-per span{display:inline-block;margin:4px 4px 0 0;font:600 10px var(--geo);padding:2px 7px;border-radius:99px;background:var(--card);opacity:0;transform:scale(.5);transition:opacity .2s,transform .35s cubic-bezier(.3,1.8,.5,1)}
+.mm-per span.on{opacity:1;transform:none}
+.mm-mix{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;margin:12px 0}
+.mm-don{position:relative;width:132px;height:132px}
+.mm-don svg{width:100%;height:100%;transform:rotate(-90deg)}
+.mm-don circle{fill:none;stroke-width:20;transition:stroke-dasharray .8s cubic-bezier(.3,1.2,.5,1),stroke-dashoffset .8s cubic-bezier(.3,1.2,.5,1),stroke .5s}
+.mm-don .bg{stroke:var(--soft)}
+.mm-don div{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:10.5px/1.25 var(--geo);color:var(--muted)}
+.mm-don div b{display:block;font:800 17px var(--font);color:var(--ink)}
+.s-live .mm-don svg{animation:mmSpin .9s cubic-bezier(.3,1.3,.5,1)}
+@keyframes mmSpin{from{transform:rotate(-450deg)}}
+.mm-leg{display:grid;gap:6px}
+.mm-leg div{display:flex;align-items:center;gap:7px;font:600 11.5px var(--geo);opacity:0;transform:translateX(10px);transition:opacity .3s,transform .4s cubic-bezier(.3,1.5,.5,1)}
+.mm-leg div.on{opacity:1;transform:none}
+.mm-leg i{width:12px;height:12px;border-radius:4px;flex:none}
+.mm-leg em{margin-left:auto;font-style:normal;font-family:var(--font);font-weight:800;font-variant-numeric:tabular-nums}
+.mm-go{display:flex;align-items:center;gap:10px}
+.mm-go button{flex:none;border:0;border-radius:12px;padding:9px 14px;background:var(--ink);color:var(--paper);font:700 12px var(--geo);cursor:default;transition:transform .15s,background .3s}
+.s-press .mm-go button{transform:scale(.9)}
+.s-live .mm-go button{background:var(--plum);color:var(--plum-ink)}
+.mm-kpi{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;text-align:center;font:10px var(--geo);color:var(--muted)}
+.mm-kpi b{display:block;font:800 14px var(--font);color:var(--ink);font-variant-numeric:tabular-nums}
+.bubble b.pop{display:inline-block;animation:mmPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes mmPop{40%{transform:scale(1.35)}}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-family:var(--geo);font-size:14px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:10px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-10px;top:70px}
-.bubble.b2{right:-16px;top:230px;animation-delay:-1.6s}
-.bubble.b3{left:-4px;bottom:20px;animation-delay:-3.2s;background:var(--mint);color:var(--mint-ink);border-color:var(--mint)}
+.bubble.b1{left:-30px;bottom:-30px}
+.bubble.b2{right:-44px;top:-30px;animation-delay:-1.6s;background:var(--plum);color:var(--plum-ink);border-color:var(--plum)}
+.bubble.b3{right:-40px;bottom:-30px;animation-delay:-3.2s;background:var(--mint);color:var(--mint-ink);border-color:var(--mint)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 /* tools strip */
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);align-items:center}
@@ -219,7 +237,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media (max-width:960px){
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{right:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -242,7 +260,7 @@ header .btn-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.bars .bar{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -372,18 +390,19 @@ h1 .ln span,.bars .bar{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage">
-<div class="bubble b1">ROI <b id="roiVal">+34%</b></div>
-<div class="bubble b2">Budget <b id="budgetVal">₾45K</b></div>
-<div class="bubble b3">Reach <b id="reachVal">210K</b></div>
-<div class="dashcard" aria-label="მარკეტინგული დეშბორდის მაკეტი">
-<div class="dash-head"><strong>Campaign Performance</strong><span class="live2"><i aria-hidden="true"></i>Live</span></div>
-<div class="kpis">
-<div><b id="kpiSpent">₾38.2K</b><span>დახარჯული</span></div>
-<div><b id="kpiRoas">4.1x</b><span>ROAS</span></div>
-<div><b id="kpiLeads">612</b><span>ლიდი</span></div>
+<div class="bubble b1">ROI <b id="roiVal">+0%</b></div>
+<div class="bubble b2">Budget <b id="budgetVal">₾0</b></div>
+<div class="bubble b3">Reach <b id="reachVal">0</b></div>
+<div class="mm" id="mmBox" role="img" aria-label="მარკეტინგული კამპანია: აუდიტორიის კვლევა, მარკეტინგული მიქსი, ბიუჯეტის განაწილება და შედეგები">
+<div class="mm-top" aria-hidden="true"><b>კამპანიის გეგმა</b><span id="mmPh">ბაზრის კვლევა</span></div>
+<div class="mm-body" aria-hidden="true">
+<div class="mm-per"><i>ნბ</i><div><b>პერსონა: ნინო, 28, თბილისი</b><span>Instagram</span><span>ფასზე მგრძნობიარე</span><span>მობილური</span></div></div>
+<div class="mm-mix">
+<div class="mm-don"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="38"/><circle id="mmS0" cx="50" cy="50" r="38"/><circle id="mmS1" cx="50" cy="50" r="38"/><circle id="mmS2" cx="50" cy="50" r="38"/><circle id="mmS3" cx="50" cy="50" r="38"/></svg><div><span><b id="mmCt">4P</b><span id="mmCs">მიქსი</span></span></div></div>
+<div class="mm-leg" id="mmLeg"></div>
 </div>
-<div class="bars" id="bars"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline id="trendLine" points=""/></svg></div>
-<div class="trend">კვირეული ზრდა <b>+12%</b></div>
+<div class="mm-go"><button>▶ გაშვება</button><div class="mm-kpi"><div><b id="mmR">0</b>Reach</div><div><b id="mmL">0</b>ლიდი</div><div><b id="mmO">0x</b>ROAS</div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -538,20 +557,37 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-/* hero dashboard */
-var barColors=['var(--plum)','var(--mint)','var(--sun)','var(--ink)','var(--plum)','var(--mint)','var(--sun)','var(--ink)'];
-var vals=[42,58,50,66,60,74,70,88];
-var barsEl=$('bars'),svg=barsEl.querySelector('svg');
-vals.forEach(function(v,i){var d=document.createElement('div');d.className='bar';d.style.height=v+'%';d.style.background=barColors[i];d.style.animationDelay=(.15+i*.07)+'s';barsEl.appendChild(d);});
-var pts=vals.map(function(v,i){return (i/(vals.length-1)*100)+','+(100-v);}).join(' ');
-$('trendLine').setAttribute('points',pts);
-var roi=34,budget=45,reach=210;
-if(!reduce)setInterval(function(){
-roi+=(Math.random()*.8-.3);budget+=(Math.random()*.6-.2);reach+=Math.round(Math.random()*6-2);
-$('roiVal').textContent='+'+roi.toFixed(0)+'%';
-$('budgetVal').textContent='₾'+Math.max(1,budget).toFixed(0)+'K';
-$('reachVal').textContent=Math.max(1,Math.round(reach))+'K';
-},1800);
+/* hero: persona, 4P mix, budget split, launch */
+(function(){
+var box=$('mmBox'),leg=$('mmLeg'),tags=[].slice.call(box.querySelectorAll('.mm-per span')),seg=[0,1,2,3].map(function(i){return $('mmS'+i);});
+var C=2*Math.PI*38,P4=[['Product','კურსი + სერტიფიკატი'],['Price','1500 ₾ · განვადება'],['Place','ონლაინ + ოფისი'],['Promotion','Social · Search']];
+var CH=[['Social',40,'var(--plum)'],['Search',25,'var(--sun)'],['Outdoor',20,'var(--mint)'],['Email',15,'var(--ink)']],PC=['var(--plum)','var(--sun)','var(--mint)','var(--ink)'];
+var bR=$('roiVal'),bB=$('budgetVal'),bX=$('reachVal'),ph=$('mmPh');
+var T=[],gen=0;
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function pop(el,t){el.textContent=t;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}
+function tw(ms,fn){var my=gen,t0=null;function f(t){if(my!==gen)return;if(!t0)t0=t;var q=Math.min((t-t0)/ms,1);fn(1-Math.pow(1-q,3));if(q<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+function arc(i,start,pct,col){var s=seg[i],l=Math.max(0,pct/100*C-2);s.style.strokeDasharray=l.toFixed(1)+' '+C.toFixed(1);s.style.strokeDashoffset=(-start/100*C).toFixed(1);s.style.stroke=col;}
+function legend(rows){leg.innerHTML=rows.map(function(r){return '<div><i style="background:'+r[2]+'"></i>'+r[0]+'<em>'+r[1]+'</em></div>';}).join('');return [].slice.call(leg.children);}
+function center(a,b){$('mmCt').textContent=a;$('mmCs').textContent=b;}
+function reset(){T.forEach(clearTimeout);T=[];gen++;box.className='mm rst';tags.forEach(function(t){t.classList.remove('on');});seg.forEach(function(s,i){arc(i,i*25,0,PC[i]);});leg.innerHTML='';center('4P','მიქსი');ph.textContent='ბაზრის კვლევა';$('mmR').textContent='0';$('mmL').textContent='0';$('mmO').textContent='0x';bR.textContent='+0%';bB.textContent='₾0';bX.textContent='0';void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();
+at(200,function(){add('s-per');});
+tags.forEach(function(t,i){at(700+i*260,function(){t.classList.add('on');});});
+var L4;
+at(1700,function(){ph.textContent='მარკეტინგული მიქსი';L4=legend(P4.map(function(p,i){return [p[0],'',PC[i]];}));});
+[0,1,2,3].forEach(function(i){at(1800+i*380,function(){arc(i,i*25,25,PC[i]);L4[i].classList.add('on');});});
+at(4000,function(){ph.textContent='ბიუჯეტის განაწილება';center('₾45K','ბიუჯეტი');pop(bB,'₾45K');var L=legend(CH.map(function(c){return [c[0],'0%',c[2]];}));var st=0;CH.forEach(function(c,i){arc(i,st,c[1],c[2]);st+=c[1];at(80+i*120,function(){L[i].classList.add('on');});});tw(900,function(e){L.forEach(function(r,i){r.querySelector('em').textContent=Math.round(CH[i][1]*e)+'%';});});});
+at(6300,function(){add('s-press');});
+at(6500,function(){box.classList.remove('s-press');add('s-live');ph.textContent='კამპანია აქტიურია';center('Live','კამპანია');tw(2200,function(e){$('mmR').textContent=Math.round(210*e)+'K';$('mmL').textContent=Math.round(612*e);$('mmO').textContent=(4.1*e).toFixed(1)+'x';bX.textContent=Math.round(210*e)+'K';bR.textContent='+'+Math.round(34*e)+'%';});});
+at(8800,function(){pop(bR,'+34%');});
+at(12200,function(){add('s-out');});
+at(12700,run);
+}
+if(reduce){box.classList.add('s-per','s-live');tags.forEach(function(t){t.classList.add('on');});var st=0;var L=legend(CH.map(function(c){return [c[0],c[1]+'%',c[2]];}));CH.forEach(function(c,i){arc(i,st,c[1],c[2]);st+=c[1];L[i].classList.add('on');});center('Live','კამპანია');ph.textContent='კამპანია აქტიურია';$('mmR').textContent='210K';$('mmL').textContent='612';$('mmO').textContent='4.1x';bR.textContent='+34%';bB.textContent='₾45K';bX.textContent='210K';}else{run();}
+})();
 /* reveal + counters */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});

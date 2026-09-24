@@ -89,35 +89,63 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--teal)}
 .price small{font-size:20px}
 /* hiring funnel mockup */
 .phone-stage{position:relative;display:flex;justify-content:center}
-.funnel-card{width:min(360px,100%);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:20px 18px 22px;box-shadow:0 40px 70px -35px rgba(18,36,32,.5);position:relative;z-index:2}
-.funnel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.funnel-head b{font-family:var(--geo);font-size:15px}
-.funnel-head span{font-family:var(--geo);font-size:12px;color:var(--muted)}
-.stagebar{display:grid;gap:10px;margin-bottom:16px}
-.stage-row{display:grid;grid-template-columns:78px 1fr 30px;align-items:center;gap:10px;font-family:var(--geo);font-size:12px;opacity:0;transform:translateX(-12px);animation:slidein .5s cubic-bezier(.3,1.2,.5,1) forwards}
-.stage-row .lbl{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.stage-row .val{font-weight:700;text-align:right;font-variant-numeric:tabular-nums;font-family:var(--font)}
-.stage-row .track{position:relative;height:14px;border-radius:999px;background:var(--soft);overflow:hidden}
-.stage-row .track i{position:absolute;inset:0;display:block;border-radius:999px;background:var(--teal);transform-origin:0 50%;transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
-.stage-row.st-offer .track i{background:var(--amber)}
-.stage-row.st-hired .track i{background:var(--ink)}
-@keyframes slidein{to{opacity:1;transform:none}}
-.funnel-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:14px;border-top:1px solid var(--line)}
-.funnel-nums{display:grid;gap:10px;text-align:right}
-.funnel-nums div{font-family:var(--geo);font-size:11px;color:var(--muted)}
-.funnel-nums b{display:block;font-size:19px;color:var(--ink);font-variant-numeric:tabular-nums;font-family:var(--font)}
-.ring-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
-.ring-wrap svg{width:84px;height:84px;transform:rotate(-90deg);display:block}
-.ring-wrap circle{fill:none;stroke-width:9}
-.ring-wrap .bg{stroke:var(--soft)}
-.ring-wrap .fg{stroke:var(--teal);stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
-.ring-wrap b{position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:84px;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--font);font-size:18px;font-variant-numeric:tabular-nums}
-.ring-wrap span{font-family:var(--geo);font-size:10.5px;color:var(--muted);text-align:center;max-width:90px}
+.rc{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px 16px 18px;box-shadow:0 40px 70px -35px rgba(18,36,32,.5);position:relative;z-index:2}
+.rst,.rst *{transition:none!important;animation:none!important}
+.rc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--geo)}
+.rc-top b{font-size:15px}
+.rc-top span{font-size:12px;color:var(--muted)}
+.rc-deck{position:relative;height:200px;border-radius:16px;background:var(--paper);overflow:hidden;transition:opacity .4s}
+.s-out .rc-deck,.s-out .rc-sl{opacity:0}
+.rc-c{position:absolute;left:50%;top:18px;width:230px;margin-left:-115px;padding:12px;border-radius:16px;background:var(--card);border:1px solid var(--line);box-shadow:0 12px 24px -16px rgba(0,0,0,.45);transform:translateY(calc(var(--k)*10px)) scale(calc(1 - var(--k)*.06));z-index:calc(10 - var(--k));transition:transform .5s cubic-bezier(.3,1.3,.5,1),opacity .4s}
+.rc-c.hid{opacity:0}
+.rc-c.lr{transform:translateX(16px) rotate(5deg)}
+.rc-c.ll{transform:translateX(-16px) rotate(-5deg)}
+.rc-c.yes{transform:translate(280px,-10px) rotate(26deg);opacity:0;transition:transform .55s cubic-bezier(.5,0,.8,.6),opacity .5s .1s}
+.rc-c.no{transform:translate(-280px,-10px) rotate(-26deg);opacity:0;transition:transform .55s cubic-bezier(.5,0,.8,.6),opacity .5s .1s}
+.rc-h{display:flex;align-items:center;gap:10px}
+.rc-h>i{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:800 13px var(--geo);font-style:normal;color:#fff}
+.rc-h b{display:block;font:700 13px var(--geo)}
+.rc-h span{font:11.5px var(--geo);color:var(--muted)}
+.rc-sk{display:flex;gap:4px;flex-wrap:wrap;margin:9px 0}
+.rc-sk em{font:600 10px var(--geo);font-style:normal;padding:2px 7px;border-radius:99px;background:var(--soft)}
+.rc-m{display:flex;align-items:center;gap:8px;font:600 10.5px var(--geo);color:var(--muted)}
+.rc-m div{flex:1;height:7px;border-radius:9px;background:var(--soft);overflow:hidden}
+.rc-m div i{display:block;height:100%;width:0;border-radius:9px;background:var(--teal);transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.rc-m.lo div i{background:#D94B3D}
+.rc-m b{font-family:var(--font);color:var(--ink);min-width:32px;text-align:right}
+.rc-st{position:absolute;top:12px;right:10px;font:800 11px var(--geo);padding:3px 8px;border-radius:7px;border:2px solid;transform:rotate(12deg) scale(.4);opacity:0;transition:opacity .2s,transform .3s cubic-bezier(.3,1.8,.5,1)}
+.rc-c.lr .rc-st.y,.rc-c.yes .rc-st.y{opacity:1;transform:rotate(12deg)}
+.rc-c.ll .rc-st.n,.rc-c.no .rc-st.n{opacity:1;transform:rotate(-12deg)}
+.rc-st.y{color:var(--teal);border-color:var(--teal)}
+.rc-st.n{color:#D94B3D;border-color:#D94B3D;right:auto;left:10px}
+.rc-iv{position:absolute;inset:14px;padding:12px;border-radius:14px;background:var(--card);box-shadow:0 12px 24px -16px rgba(0,0,0,.45);transform:translateY(230px);transition:transform .5s cubic-bezier(.3,1.3,.5,1)}
+.s-iv .rc-iv{transform:none}
+.s-out .rc-iv{transform:translateY(230px)}
+.rc-iv p{margin:0 0 8px;display:flex;justify-content:space-between;font:700 12px var(--geo)}
+.rc-iv p span{color:var(--muted);font-weight:600}
+.rc-cr{display:grid;grid-template-columns:86px 1fr;align-items:center;gap:8px;font:11px var(--geo);color:var(--muted);margin-bottom:6px}
+.rc-cr span{letter-spacing:2px;font-size:13px}
+.rc-cr span i{font-style:normal;color:var(--line);display:inline-block}
+.rc-cr span i.on{color:var(--amber);animation:rcStar .35s cubic-bezier(.3,1.8,.5,1)}
+@keyframes rcStar{from{transform:scale(1.8)}}
+.rc-of{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding:8px 10px;border-radius:10px;background:var(--soft);font:700 11.5px var(--geo);opacity:0;transform:scale(.8);transition:opacity .3s,transform .4s cubic-bezier(.3,1.6,.5,1)}
+.s-offer .rc-of{opacity:1;transform:none}
+.rc-of b{padding:3px 8px;border-radius:7px;background:var(--amber);color:var(--amber-ink);font-size:10.5px;transition:background .3s,color .3s}
+.s-yes .rc-of b{background:var(--teal);color:var(--teal-ink)}
+.s-yes .rc-of{animation:rcJoy .5s cubic-bezier(.3,1.8,.5,1)}
+@keyframes rcJoy{40%{transform:scale(1.06) rotate(-1deg)}}
+.rc-sl{display:flex;align-items:center;gap:6px;margin-top:10px;font:12px var(--geo);color:var(--muted);transition:opacity .4s}
+.rc-sl i{width:28px;height:28px;border-radius:50%;border:1.5px dashed var(--line);display:grid;place-items:center;font:800 10px var(--geo);font-style:normal;color:#fff;transition:background .3s,border-color .3s,transform .4s cubic-bezier(.3,1.8,.5,1)}
+.rc-sl i.on{border-color:transparent;transform:scale(1.1)}
+.rc-sl i.best{box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--amber)}
+.rc-sl span{margin-left:auto;font-weight:700;color:var(--ink)}
+.bubble b.pop{display:inline-block;animation:rcPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes rcPop{40%{transform:scale(1.35)}}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-10px;top:70px}
-.bubble.b2{right:-14px;top:230px;animation-delay:-1.6s;background:var(--teal);color:var(--teal-ink);border-color:var(--teal)}
-.bubble.b3{left:2px;bottom:20px;animation-delay:-3.2s;background:var(--amber);color:var(--amber-ink);border-color:var(--amber)}
+.bubble.b1{left:-40px;top:-14px}
+.bubble.b2{right:-44px;top:130px;animation-delay:-1.6s;background:var(--teal);color:var(--teal-ink);border-color:var(--teal)}
+.bubble.b3{left:-30px;bottom:-34px;animation-delay:-3.2s;background:var(--amber);color:var(--amber-ink);border-color:var(--amber)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -231,7 +259,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media (max-width:960px){
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -257,7 +285,7 @@ header .btn-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.stage-row{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -381,23 +409,20 @@ h1 .ln span,.stage-row{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">საშუალო დრო <b id="bCases">21 დღე</b></div>
-<div class="bubble b2">ATS <b>✓ სინქრონი</b></div>
-<div class="bubble b3">შეთავაზების მიღება <b>82%</b></div>
-<div class="funnel-card" aria-label="დაქირავების ფანელის მაკეტი">
-<div class="funnel-head"><b>დაქირავების ფანელი</b><span>სექტემბერი</span></div>
-<div class="stagebar" id="stagebar"></div>
-<div class="funnel-foot">
-<div class="ring-wrap">
-<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="40"/><circle class="fg" id="ringFg" cx="50" cy="50" r="40"/></svg>
-<b id="ringVal">0%</b>
-<span>დამუშავებული განაცხადები</span>
-</div>
-<div class="funnel-nums">
-<div><b>240</b>წყარო</div>
-<div><b>4</b>დასაქმებული</div>
+<div class="bubble b1">CV <b id="bCv">0/5</b></div>
+<div class="bubble b2">შორტლისტი <b id="bSl">0</b></div>
+<div class="bubble b3">დაქირავების დრო <b id="bTth">...</b></div>
+<div class="rc" id="rcBox" role="img" aria-label="რეკრუტმენტი: CV-ების სკრინინგი, შორტლისტი, გასაუბრება და შეთავაზების მიღება">
+<div class="rc-top" aria-hidden="true"><b>ვაკანსია: Sales Manager</b><span id="rcPh">სკრინინგი</span></div>
+<div class="rc-deck" id="rcDeck" aria-hidden="true">
+<div class="rc-iv"><p>გასაუბრება · ანა კ.<span>Scorecard</span></p>
+<div class="rc-cr">კომუნიკაცია<span><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span></div>
+<div class="rc-cr">გამოცდილება<span><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span></div>
+<div class="rc-cr">DISC: D/I<span><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span></div>
+<div class="rc-of">შეთავაზება · 3,200 ₾<b id="rcOf">გაგზავნილია</b></div>
 </div>
 </div>
+<div class="rc-sl" aria-hidden="true">შორტლისტი:<i></i><i></i><i></i><span id="rcSt">0 / 5 CV</span></div>
 </div>
 </div>
 </div>
@@ -579,28 +604,35 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-/* hero: hiring funnel mockup */
-var stages=[['წყარო',240,''],['სქრინინგი',86,''],['გასაუბრება',24,''],['შეთავაზება',6,'st-offer'],['დასაქმებული',4,'st-hired']];
-var sb=$('stagebar'),maxV=stages[0][1];
-stages.forEach(function(s,i){
-var row=document.createElement('div');row.className='stage-row'+(s[2]?' '+s[2]:'');row.style.animationDelay=(.25+i*.12)+'s';
-row.innerHTML='<span class="lbl">'+s[0]+'</span><span class="track"><i></i></span><span class="val">'+s[1]+'</span>';
-sb.appendChild(row);
-var ratio=s[1]/maxV,fillEl=row.querySelector('i');
-if(reduce){fillEl.style.transform='scaleX('+ratio+')';}
-else{setTimeout(function(){fillEl.style.transform='scaleX('+ratio+')';},350+i*160);}
-});
-var C=2*Math.PI*40,ringFg=$('ringFg');ringFg.style.strokeDasharray=C;ringFg.style.strokeDashoffset=C;
-var ringPct=0,ringTarget=76;
-function ringTick(){
-if(reduce){ringPct=ringTarget;}else if(ringPct<ringTarget){ringPct+=2;}
-$('ringVal').textContent=Math.min(ringPct,ringTarget)+'%';
-ringFg.style.strokeDashoffset=C*(1-Math.min(ringPct,ringTarget)/100);
-if(ringPct<ringTarget&&!reduce)requestAnimationFrame(ringTick);
+/* hero: cv screening swipe, interview, offer */
+(function(){
+var box=$('rcBox'),deck=$('rcDeck'),iv=deck.querySelector('.rc-iv'),slots=[].slice.call(box.querySelectorAll('.rc-sl i')),stars=[].slice.call(box.querySelectorAll('.rc-cr span'));
+var P=[['გიორგი მ.','B2B გაყიდვები · 2 წ.',['CRM','ცივი ზარი'],58,'#6C7A89','გმ'],['ანა კ.','Sales Lead · 5 წ.',['CRM','მოლაპარაკება','გუნდი'],92,'#0E7A5F','აკ'],['ლევან ბ.','Account Manager · 4 წ.',['B2B','Excel'],74,'#3D6EB4','ლბ'],['მარიამ ტ.','სტაჟიორი · 1 წ.',['Excel'],41,'#8A6FB0','მტ'],['თამარ გ.','Key Account · 6 წ.',['KPI','მოლაპარაკება'],86,'#C77C2E','თგ']];
+var SC=[5,4,5],bC=$('bCv'),bS=$('bSl'),bT=$('bTth'),ph=$('rcPh'),st=$('rcSt'),cards=[];
+P.forEach(function(p){var c=document.createElement('div');c.className='rc-c';c.innerHTML='<div class="rc-h"><i style="background:'+p[4]+'">'+p[5]+'</i><div><b>'+p[0]+'</b><span>'+p[1]+'</span></div></div><div class="rc-sk">'+p[2].map(function(s){return '<em>'+s+'</em>';}).join('')+'</div><div class="rc-m'+(p[3]<60?' lo':'')+'">AI match<div><i></i></div><b>0%</b></div><span class="rc-st y">შორტლისტი</span><span class="rc-st n">უარი</span>';deck.insertBefore(c,iv);cards.push(c);});
+var T=[],gen=0,nS=0;
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function pop(el,t){el.textContent=t;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}
+function tw(ms,fn){var my=gen,t0=null;function f(t){if(my!==gen)return;if(!t0)t0=t;var q=Math.min((t-t0)/ms,1);fn(1-Math.pow(1-q,3));if(q<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+function stack(from){cards.forEach(function(c,i){var k=i-from;c.style.setProperty('--k',Math.max(0,k));c.classList.toggle('hid',k>2);});}
+function screen(i,t){var c=cards[i],p=P[i],ok=p[3]>=70;
+at(t,function(){c.querySelector('.rc-m i').style.width=p[3]+'%';tw(700,function(e){c.querySelector('.rc-m b').textContent=Math.round(p[3]*e)+'%';});pop(bC,(i+1)+'/5');st.textContent=(i+1)+' / 5 CV';});
+at(t+900,function(){c.classList.add(ok?'lr':'ll');});
+at(t+1350,function(){c.classList.remove('lr','ll');c.classList.add(ok?'yes':'no');stack(i+1);if(ok){var s=slots[nS];s.style.background=p[4];s.textContent=p[5];s.classList.add('on');nS++;pop(bS,String(nS));}});}
+function reset(){T.forEach(clearTimeout);T=[];gen++;nS=0;box.className='rc rst';cards.forEach(function(c){c.className='rc-c';c.querySelector('.rc-m i').style.width='0';c.querySelector('.rc-m b').textContent='0%';});stack(0);slots.forEach(function(s){s.className='';s.style.background='';s.textContent='';});stars.forEach(function(s){[].forEach.call(s.children,function(x){x.classList.remove('on');});});$('rcOf').textContent='გაგზავნილია';bC.textContent='0/5';bS.textContent='0';bT.textContent='...';ph.textContent='სკრინინგი';st.textContent='0 / 5 CV';void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();
+P.forEach(function(p,i){screen(i,300+i*1500);});
+at(7900,function(){add('s-iv');ph.textContent='გასაუბრება';slots[0].classList.add('best');st.textContent='ფინალისტი: ანა კ.';});
+stars.forEach(function(s,r){[].forEach.call(s.children,function(x,k){if(k<SC[r])at(8400+r*450+k*90,function(){x.classList.add('on');});});});
+at(10000,function(){add('s-offer');ph.textContent='შეთავაზება';});
+at(10900,function(){add('s-yes');$('rcOf').textContent='მიღებულია ✓';pop(bT,'18 დღე');});
+at(13600,function(){add('s-out');});
+at(14100,run);
 }
-requestAnimationFrame(ringTick);
-var avgDays=21;
-if(!reduce)setInterval(function(){avgDays=20+Math.round(Math.random());$('bCases').textContent=avgDays+' დღე';},2600);
+if(reduce){cards.forEach(function(c){c.classList.add('hid');});box.classList.add('s-iv','s-offer','s-yes');[1,2,4].forEach(function(p,k){slots[k].style.background=P[p][4];slots[k].textContent=P[p][5];slots[k].classList.add('on');});slots[0].classList.add('best');stars.forEach(function(s,r){[].forEach.call(s.children,function(x,k){if(k<SC[r])x.classList.add('on');});});$('rcOf').textContent='მიღებულია ✓';bC.textContent='5/5';bS.textContent='3';bT.textContent='18 დღე';ph.textContent='შეთავაზება';st.textContent='ფინალისტი: ანა კ.';}else{run();}
+})();
 /* reveal + counters */
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});

@@ -87,23 +87,36 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--pyblue)}
 .price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
 .price small{font-size:20px}
 .phone-stage{position:relative;display:flex;justify-content:center}
-.ide{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:0;box-shadow:0 40px 70px -35px rgba(21,27,46,.5);position:relative;z-index:2;overflow:hidden}
-.ide-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--paper)}
-.ide-bar span{width:11px;height:11px;border-radius:50%;background:var(--line)}
-.ide-tabs{display:flex;gap:6px;padding:10px 12px 0}
-.ide-tabs b{font-family:var(--geo);font-size:11.5px;font-weight:600;color:var(--muted);padding:7px 12px;border-radius:9px 9px 0 0;background:var(--paper)}
-.ide-tabs b.on{color:var(--ink);background:var(--card);border:1px solid var(--line);border-bottom:1px solid var(--card);margin-bottom:-1px}
-.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.75;padding:16px 18px;white-space:pre;overflow:hidden}
-.code .k{color:#2E5A9C}.code .t{color:#B5592F}.code .s{color:#0E7A5F}.code .c{color:var(--muted)}
-.code .ln{opacity:0;transform:translateX(-8px);animation:codein .4s ease forwards}
-@keyframes codein{to{opacity:1;transform:none}}
-.termbar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--line);background:var(--paper);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
-.termbar .ok{color:var(--pyblue);font-weight:700}
+.pyx{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 40px 70px -35px rgba(21,27,46,.5);position:relative;z-index:2;overflow:hidden}
+.rst,.rst *{transition:none!important;animation:none!important}
+.px-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--paper)}
+.px-bar>i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.px-bar b{margin-left:8px;font:600 11.5px var(--geo);padding:4px 10px;border-radius:8px;background:var(--card);border:1px solid var(--line)}
+.px-bar span{margin-left:auto;font:600 11px var(--geo);color:var(--muted);display:flex;align-items:center;gap:6px}
+.px-bar span:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--muted);transition:background .3s}
+.s-run .px-bar span:before{background:var(--pyyellow);animation:pxBlink .6s steps(1) infinite}
+.s-done .px-bar span:before{background:#1FB36B;animation:none}
+@keyframes pxBlink{50%{opacity:.2}}
+.px-code{font:12px/1.8 ui-monospace,Menlo,Consolas,monospace;padding:12px 14px 10px 0;min-height:140px;counter-reset:ln;transition:opacity .4s}
+.px-code div{white-space:pre;overflow:hidden;padding-left:40px;position:relative;border-left:3px solid transparent;transition:background .3s}
+.px-code div:before{counter-increment:ln;content:counter(ln);position:absolute;left:10px;width:18px;text-align:right;color:var(--muted);opacity:.6}
+.px-code div.cur{background:color-mix(in srgb,var(--pyblue) 9%,transparent);border-left-color:var(--pyblue)}
+.px-code div.cur:after{content:"";display:inline-block;width:7px;height:13px;background:var(--pyblue);vertical-align:-2px;animation:pxBlink .7s steps(1) infinite}
+.px-code .k{color:#2E5A9C;font-weight:700}.px-code .s{color:#0E7A5F}.px-code .f{color:#B5592F}.px-code .c{color:var(--muted)}
+.s-out .px-code,.s-out .px-term{opacity:0}
+.px-term{background:#11162A;color:#D6DCEF;font:11.5px/1.75 ui-monospace,Menlo,Consolas,monospace;padding:10px 14px;height:132px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;transition:opacity .4s}
+.px-term div{white-space:pre;overflow:hidden;text-overflow:ellipsis;animation:pxIn .3s ease-out}
+@keyframes pxIn{from{opacity:0;transform:translateY(8px)}}
+.px-term .p{color:#8FA3D8}.px-term .ok{color:#5BD69A}.px-term .y{color:#F2CB63}.px-term .dim{color:#7C86A6}
+.px-term .dots i{font-style:normal;color:#5BD69A;display:inline-block;animation:pxDot .3s cubic-bezier(.3,1.8,.5,1)}
+@keyframes pxDot{from{transform:scale(0)}}
+.bubble b.pop{display:inline-block;animation:pxPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes pxPop{40%{transform:scale(1.35)}}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-14px;top:36px}
-.bubble.b2{right:-16px;top:210px;animation-delay:-1.6s;background:var(--pyblue);color:var(--pyblue-ink);border-color:var(--pyblue)}
-.bubble.b3{left:-4px;bottom:10px;animation-delay:-3.2s;background:var(--pyyellow);color:var(--pyyellow-ink);border-color:var(--pyyellow)}
+.bubble.b1{left:-40px;top:-16px}
+.bubble.b2{right:-44px;bottom:-18px;animation-delay:-1.6s;background:var(--pyblue);color:var(--pyblue-ink);border-color:var(--pyblue)}
+.bubble.b3{right:-40px;top:-16px;animation-delay:-3.2s;background:var(--pyyellow);color:var(--pyyellow-ink);border-color:var(--pyyellow)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -203,7 +216,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 .path li{grid-template-columns:1fr;gap:2px}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{right:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -226,7 +239,7 @@ header .btn-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.code .ln{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -324,14 +337,13 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">ტესტი <b id="bTests">18/20</b></div>
-<div class="bubble b2">Commit <b>successful</b></div>
-<div class="bubble b3">SQLite <b>დაკავშირებული</b></div>
-<div class="ide" aria-label="Python კოდის რედაქტორის მაკეტი">
-<div class="ide-bar"><span></span><span></span><span></span></div>
-<div class="ide-tabs"><b class="on">student.py</b><b>db.py</b></div>
-<div class="code" id="codeBlock"></div>
-<div class="termbar"><span>▸ python student.py</span><span class="ok">✓ all tests passed</span></div>
+<div class="bubble b1">ტესტები <b id="bTests">0/10</b></div>
+<div class="bubble b2">requests <b id="bReq">...</b></div>
+<div class="bubble b3">SQLite <b id="bDb">0 ჩანაწერი</b></div>
+<div class="pyx" id="pxBox" role="img" aria-label="Python სკრიპტის წერა, გაშვება, ტესტირება და GitHub-ზე ატვირთვა">
+<div class="px-bar" aria-hidden="true"><i></i><i></i><i></i><b>scraper.py</b><span id="pxSt">რედაქტირება</span></div>
+<div class="px-code" id="pxCode" aria-hidden="true"></div>
+<div class="px-term" id="pxTerm" aria-hidden="true"></div>
 </div>
 </div>
 </div>
@@ -489,23 +501,41 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-var codeLines=[
-'<span class="k">class</span> <span class="t">Student</span>:',
-'  <span class="k">def</span> __init__(self, name, gpa):',
-'    self.name = name',
-'    self.gpa = gpa',
-'',
-'  <span class="k">def</span> is_honor(self):',
-'    <span class="k">return</span> self.gpa &gt;= <span class="s">3.5</span>',
-'',
-'s = <span class="t">Student</span>(<span class="s">"ლუკა"</span>, <span class="s">3.8</span>)',
-'<span class="k">print</span>(s.is_honor())'
-];
-var cb=$('codeBlock'),ch='';
-codeLines.forEach(function(l,i){ch+='<div class="ln" style="animation-delay:'+(.25+i*.09)+'s">'+(l||'&nbsp;')+'</div>';});
-cb.innerHTML=ch;
-var tests=18;
-if(!reduce)setInterval(function(){tests=tests>=20?18:tests+1;$('bTests').textContent=tests+'/20';},2800);
+/* hero: python script typed, run, tested, pushed */
+(function(){
+var box=$('pxBox'),code=$('pxCode'),term=$('pxTerm'),st=$('pxSt'),bT=$('bTests'),bR=$('bReq'),bD=$('bDb');
+var C=[
+['import requests','<span class="k">import</span> requests'],
+['from bs4 import BeautifulSoup','<span class="k">from</span> bs4 <span class="k">import</span> BeautifulSoup'],
+['html = requests.get(URL).text','html = requests.<span class="f">get</span>(URL).text'],
+['soup = BeautifulSoup(html, "lxml")','soup = <span class="f">BeautifulSoup</span>(html, <span class="s">"lxml"</span>)'],
+['for c in soup.select(".course"):','<span class="k">for</span> c <span class="k">in</span> soup.<span class="f">select</span>(<span class="s">".course"</span>):'],
+['    db.save(c.h3.text)','    db.<span class="f">save</span>(c.h3.text)  <span class="c"># SQLite</span>']];
+var T=[],gen=0;
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function pop(el,t){el.textContent=t;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}
+function out(h){var d=document.createElement('div');d.innerHTML=h;term.appendChild(d);while(term.children.length>7)term.removeChild(term.firstChild);return d;}
+function typeLine(i,t0){var d=document.createElement('div');d.className='cur';code.appendChild(d);var s=C[i][0],n=0;(function k(){d.textContent=s.slice(0,++n);if(n<s.length)at(28,k);else{d.innerHTML=C[i][1];d.className='';}})();}
+function cmd(c,t){var d=out('<span class="p">$ </span>');var n=0;(function k(){d.innerHTML='<span class="p">$ </span>'+c.slice(0,++n);if(n<c.length)at(40,k);})();}
+function reset(){T.forEach(clearTimeout);T=[];gen++;box.className='pyx rst';code.innerHTML='';term.innerHTML='<div class="dim"># ტერმინალი</div>';st.textContent='რედაქტირება';bT.textContent='0/10';bR.textContent='...';bD.textContent='0 ჩანაწერი';void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();
+var t=200;C.forEach(function(c,i){at(t,function(){typeLine(i);});t+=c[0].length*28+180;});
+at(t+200,function(){add('s-run');st.textContent='გაშვება';cmd('python scraper.py');});
+at(t+1200,function(){out('<span class="dim">GET smartacademy.ge ...</span>');});
+at(t+1800,function(){out('<span class="ok">200 OK</span> · 24 კურსი ნაპოვნია');pop(bR,'200 OK');});
+at(t+2400,function(){out('<span class="ok">✓</span> courses.db ← 24 ჩანაწერი');pop(bD,'24 ჩანაწერი');});
+at(t+3100,function(){st.textContent='ტესტირება';cmd('pytest -q');});
+at(t+3900,function(){var d=out('<span class="dots"></span>'),s=d.firstChild;for(var k=0;k<10;k++)(function(k){at(k*140,function(){var i=document.createElement('i');i.textContent='.';s.appendChild(i);bT.textContent=(k+1)+'/10';});})(k);});
+at(t+5500,function(){out('<span class="ok">10 passed</span> <span class="dim">in 0.42s</span>');pop(bT,'10/10');});
+at(t+6100,function(){cmd('git push origin main');});
+at(t+7000,function(){out('<span class="y">main</span> → GitHub <span class="ok">✓</span>');add('s-done');st.textContent='GitHub-ზეა';});
+at(t+10000,function(){add('s-out');});
+at(t+10500,run);
+}
+if(reduce){code.innerHTML=C.map(function(c){return '<div>'+c[1]+'</div>';}).join('');term.innerHTML='<div><span class="p">$ </span>python scraper.py</div><div><span class="ok">✓</span> courses.db ← 24 ჩანაწერი</div><div><span class="p">$ </span>pytest -q</div><div><span class="ok">10 passed</span></div><div><span class="y">main</span> → GitHub <span class="ok">✓</span></div>';box.classList.add('s-done');st.textContent='GitHub-ზეა';bT.textContent='10/10';bR.textContent='200 OK';bD.textContent='24 ჩანაწერი';}else{run();}
+})();
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});

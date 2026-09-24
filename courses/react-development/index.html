@@ -87,23 +87,53 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--blue)}
 .price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
 .price small{font-size:20px}
 .phone-stage{position:relative;display:flex;justify-content:center}
-.ide{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:0;box-shadow:0 40px 70px -35px rgba(14,27,44,.5);position:relative;z-index:2;overflow:hidden}
-.ide-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--paper)}
-.ide-bar span{width:11px;height:11px;border-radius:50%;background:var(--line)}
-.ide-tabs{display:flex;gap:6px;padding:10px 12px 0}
-.ide-tabs b{font-family:var(--geo);font-size:11.5px;font-weight:600;color:var(--muted);padding:7px 12px;border-radius:9px 9px 0 0;background:var(--paper)}
-.ide-tabs b.on{color:var(--ink);background:var(--card);border:1px solid var(--line);border-bottom:1px solid var(--card);margin-bottom:-1px}
-.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.75;padding:16px 18px;white-space:pre;overflow:hidden}
-.code .k{color:#C2185B}.code .t{color:var(--blue)}.code .s{color:#0E7A5F}.code .c{color:var(--muted)}
-.code .ln{opacity:0;transform:translateX(-8px);animation:codein .4s ease forwards}
-@keyframes codein{to{opacity:1;transform:none}}
-.termbar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:1px solid var(--line);background:var(--paper);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
-.termbar .ok{color:var(--blue);font-weight:700}
+.rx{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 40px 70px -35px rgba(14,27,44,.5);position:relative;z-index:2;overflow:hidden}
+.rst,.rst *{transition:none!important;animation:none!important}
+.rx-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--paper)}
+.rx-bar>i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.rx-bar b{flex:1;margin-left:8px;font:600 11px var(--geo);padding:4px 10px;border-radius:8px;background:var(--card);border:1px solid var(--line);color:var(--muted)}
+.rx-panes{display:grid;grid-template-columns:.95fr 1.05fr;min-height:236px;transition:opacity .4s}
+.s-out .rx-panes{opacity:0}
+.rx-tree{border-right:1px solid var(--line);padding:10px 8px;font:11px/1 ui-monospace,Menlo,Consolas,monospace}
+.rx-tree p{margin:0 0 8px;font:700 10px var(--geo);color:var(--muted);letter-spacing:.3px}
+.rx-tree div{display:flex;align-items:center;gap:5px;padding:4px 6px;border-radius:6px;margin-bottom:2px;opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .35s cubic-bezier(.3,1.5,.5,1)}
+.rx-tree div.m{opacity:1;transform:none}
+.rx-tree div:before{content:"";width:6px;height:6px;border-radius:2px;background:var(--blue);flex:none}
+.rx-tree div.l1{margin-left:12px}.rx-tree div.l2{margin-left:24px}
+.rx-tree div.l2:before{background:var(--cyan)}
+.rx-tree div.fl{animation:rxFlash .7s ease-out}
+@keyframes rxFlash{0%,40%{background:#FFE066;color:#241B03}}
+.rx-tree em{font-style:normal;color:var(--muted);font-size:10px}
+.rx-view{position:relative;padding:10px;background:var(--paper)}
+.rx-head{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-radius:9px;background:var(--card);margin-bottom:8px;font:700 10.5px var(--geo);opacity:0;transform:scale(.8);transition:opacity .3s,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.rx-head.m,.rx-card.m{opacity:1;transform:none}
+.rx-cart{position:relative;display:inline-flex;width:22px;height:18px;border-radius:5px;background:var(--soft);align-items:center;justify-content:center;font-size:10px}
+.rx-cart sup{position:absolute;right:-7px;top:-7px;min-width:15px;height:15px;border-radius:9px;background:var(--blue);color:var(--blue-ink);font:700 9px/15px var(--geo);text-align:center;padding:0 3px}
+.rx-cart.bump{animation:rxBump .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes rxBump{40%{transform:scale(1.4) rotate(-8deg)}}
+.rx-card{display:flex;align-items:center;gap:8px;padding:7px;border-radius:9px;background:var(--card);margin-bottom:6px;opacity:0;transform:scale(.8);transition:opacity .3s,transform .35s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.rx-card i{width:26px;height:26px;border-radius:7px;flex:none}
+.rx-card div{flex:1;min-width:0}
+.rx-card div b{display:block;font:700 10px var(--geo);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rx-card div span{display:block;height:5px;width:60%;border-radius:3px;background:var(--soft);margin-top:4px}
+.rx-card button{flex:none;border:0;width:24px;height:22px;border-radius:7px;background:var(--blue);color:var(--blue-ink);font:700 13px/1 var(--geo);padding:0;cursor:default;transition:background .3s}
+.rx-card.in button{background:var(--cyan);color:var(--cyan-ink)}
+.rx-card.fl{animation:rxRing .9s ease-out}
+@keyframes rxRing{0%,45%{box-shadow:0 0 0 2px #FFD23F}}
+.rx-cur{position:absolute;left:0;top:0;width:18px;height:18px;opacity:0;pointer-events:none;z-index:3;color:var(--ink);transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.rx-cur.on{opacity:1}
+.rx-cur.tap{animation:rxTap .25s}
+@keyframes rxTap{50%{scale:.8}}
+.rx-foot{display:flex;align-items:center;gap:10px;padding:9px 14px;border-top:1px solid var(--line);font:11.5px ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.rx-foot span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rx-foot b{font-family:var(--geo);color:var(--blue);white-space:nowrap}
+.bubble b.pop{display:inline-block;animation:rxPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes rxPop{40%{transform:scale(1.35)}}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-14px;top:36px}
-.bubble.b2{right:-16px;top:210px;animation-delay:-1.6s;background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
-.bubble.b3{left:-4px;bottom:10px;animation-delay:-3.2s;background:var(--cyan);color:var(--cyan-ink);border-color:var(--cyan)}
+.bubble.b1{left:-40px;top:-16px}
+.bubble.b2{right:-44px;top:-16px;animation-delay:-1.6s;background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.bubble.b3{right:-40px;bottom:-22px;animation-delay:-3.2s;background:var(--cyan);color:var(--cyan-ink);border-color:var(--cyan)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -204,7 +234,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 .path li{grid-template-columns:1fr;gap:2px}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{right:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -227,7 +257,7 @@ header .btn-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.code .ln{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -345,14 +375,30 @@ h1 .ln span,.code .ln{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">კომპონენტი <b id="bComp">24</b></div>
-<div class="bubble b2">Build <b>წარმატებული</b></div>
-<div class="bubble b3">Lighthouse <b>96</b></div>
-<div class="ide" aria-label="React კოდის რედაქტორის მაკეტი">
-<div class="ide-bar"><span></span><span></span><span></span></div>
-<div class="ide-tabs"><b class="on">CourseCard.jsx</b><b>App.jsx</b></div>
-<div class="code" id="codeBlock"></div>
-<div class="termbar"><span>▸ npm run build</span><span class="ok">✓ compiled</span></div>
+<div class="bubble b1">კომპონენტი <b id="bComp">0</b></div>
+<div class="bubble b2">state <b id="bState">cart: 0</b></div>
+<div class="bubble b3">Lighthouse <b id="bLh">-</b></div>
+<div class="rx" id="rxBox" role="img" aria-label="React აპლიკაცია: კომპონენტების ხე, state-ის ცვლილება და ხელახალი რენდერი">
+<div class="rx-bar" aria-hidden="true"><i></i><i></i><i></i><b>localhost:3000</b></div>
+<div class="rx-panes" aria-hidden="true">
+<div class="rx-tree" id="rxTree"><p>COMPONENTS</p>
+<div>App</div>
+<div class="l1">Header</div>
+<div class="l2">Cart <em id="rxProp">{0}</em></div>
+<div class="l1">CourseList</div>
+<div class="l2">CourseCard</div>
+<div class="l2">CourseCard</div>
+<div class="l2">CourseCard</div>
+</div>
+<div class="rx-view" id="rxView">
+<div class="rx-head">Smart Academy <span class="rx-cart" id="rxCart"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h10.2L20 8H7"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><sup id="rxN">0</sup></span></div>
+<div class="rx-card"><i style="background:#1857D6"></i><div><b>React</b><span></span></div><button>+</button></div>
+<div class="rx-card"><i style="background:#20C9C0"></i><div><b>Next.js</b><span></span></div><button>+</button></div>
+<div class="rx-card"><i style="background:#F2A73B"></i><div><b>Redux</b><span></span></div><button>+</button></div>
+<svg class="rx-cur" id="rxCur" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z" fill="currentColor" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+</div>
+</div>
+<div class="rx-foot" aria-hidden="true"><span id="rxSt">npm run dev</span><b id="rxOk">● compiling</b></div>
 </div>
 </div>
 </div>
@@ -516,23 +562,35 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-var codeLines=[
-'<span class="k">function</span> <span class="t">CourseCard</span>({ name, hours }) {',
-'  <span class="k">const</span> [open, setOpen] = <span class="t">useState</span>(<span class="k">false</span>);',
-'',
-'  <span class="k">return</span> (',
-'    &lt;<span class="t">div</span> <span class="c">className</span>=<span class="s">"card"</span>&gt;',
-'      &lt;<span class="t">h3</span>&gt;{name}&lt;/<span class="t">h3</span>&gt;',
-'      &lt;<span class="t">span</span>&gt;{hours} <span class="s">"სთ"</span>&lt;/<span class="t">span</span>&gt;',
-'    &lt;/<span class="t">div</span>&gt;',
-'  );',
-'}'
-];
-var cb=$('codeBlock'),ch='';
-codeLines.forEach(function(l,i){ch+='<div class="ln" style="animation-delay:'+(.25+i*.09)+'s">'+(l||'&nbsp;')+'</div>';});
-cb.innerHTML=ch;
-var comp=24;
-if(!reduce)setInterval(function(){comp+=Math.random()>.6?1:0;$('bComp').textContent=fmt(comp);},2800);
+/* hero: react tree mount, state update, re-render */
+(function(){
+var box=$('rxBox'),view=$('rxView'),cur=$('rxCur'),cart=$('rxCart'),n=$('rxN'),prop=$('rxProp');
+var nodes=[].slice.call($('rxTree').querySelectorAll('div')),head=view.querySelector('.rx-head'),cards=[].slice.call(view.querySelectorAll('.rx-card'));
+var link=[head,head,head,null,cards[0],cards[1],cards[2]],bC=$('bComp'),bS=$('bState'),bL=$('bLh');
+var T=[],gen=0,cnt=0;
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function pop(el,t){el.textContent=t;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}
+function tw(ms,fn){var my=gen,t0=null;function f(t){if(my!==gen)return;if(!t0)t0=t;var q=Math.min((t-t0)/ms,1);fn(1-Math.pow(1-q,3));if(q<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+function fl(el){el.classList.remove('fl');void el.offsetWidth;el.classList.add('fl');}
+function st(a,b){$('rxSt').textContent=a;$('rxOk').textContent=b;}
+function click(i){var b=cards[i].querySelector('button');cur.classList.add('on');cur.style.transform='translate('+(b.offsetLeft+b.offsetWidth/2-4)+'px,'+(b.offsetTop+b.offsetHeight/2-2)+'px)';
+at(560,function(){cur.classList.remove('tap');void cur.offsetWidth;cur.classList.add('tap');cnt++;cards[i].classList.add('in');cards[i].querySelector('button').textContent='✓';n.textContent=cnt;prop.textContent='{'+cnt+'}';pop(bS,'cart: '+cnt);cart.classList.remove('bump');void cart.offsetWidth;cart.classList.add('bump');
+fl(nodes[0]);fl(nodes[2]);fl(nodes[4+i]);fl(cards[i]);st('setCart(c => c + 1)','↻ re-render');});}
+function reset(){T.forEach(clearTimeout);T=[];gen++;cnt=0;box.className='rx rst';nodes.forEach(function(x){x.className=x.className.replace(/\s*(m|fl)\b/g,'');});cards.forEach(function(c){c.className='rx-card';c.querySelector('button').textContent='+';});head.className='rx-head';cart.className='rx-cart';n.textContent='0';prop.textContent='{0}';cur.className.baseVal='rx-cur';cur.style.transform='translate(150px,200px)';bC.textContent='0';bS.textContent='cart: 0';bL.textContent='-';st('npm run dev','● compiling');void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();
+nodes.forEach(function(x,i){at(300+i*330,function(){x.classList.add('m');if(link[i])link[i].classList.add('m');pop(bC,String(i+1));});});
+at(2800,function(){st('ready on :3000','✓ mounted');});
+at(3500,function(){click(1);});
+at(5200,function(){click(2);});
+at(7000,function(){cur.classList.remove('on');st('npm run build','⏳ building');});
+at(8200,function(){st('next build · 212 kB','✓ Lighthouse');tw(1200,function(e){bL.textContent=Math.round(96*e);});});
+at(12000,function(){add('s-out');});
+at(12500,run);
+}
+if(reduce){nodes.forEach(function(x){x.classList.add('m');});head.classList.add('m');cards.forEach(function(c,i){c.classList.add('m');if(i>0){c.classList.add('in');c.querySelector('button').textContent='✓';}});n.textContent='2';prop.textContent='{2}';bC.textContent='7';bS.textContent='cart: 2';bL.textContent='96';st('next build · 212 kB','✓ Lighthouse');}else{run();}
+})();
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});

@@ -87,31 +87,53 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--teal2)}
 .price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
 .price small{font-size:20px}
 .phone-stage{position:relative;display:flex;justify-content:center}
-.kanban{width:min(400px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px 18px 22px;box-shadow:0 40px 70px -35px rgba(15,32,35,.5);position:relative;z-index:2}
-.kb-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.kb-head b{font-family:var(--geo);font-size:15px}
-.kb-head span{font-family:var(--geo);font-size:12px;color:var(--muted)}
-.kb-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
-.kb-col{background:var(--paper);border-radius:12px;padding:8px}
-.kb-col span{font-family:var(--geo);font-size:10px;color:var(--muted);font-weight:700;display:block;margin-bottom:6px}
-.kb-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-family:var(--geo);font-size:10px;margin-bottom:5px;opacity:0;transform:translateY(6px);animation:cardin .4s ease forwards}
-@keyframes cardin{to{opacity:1;transform:none}}
-.velo{display:flex;align-items:end;gap:6px;height:70px;padding:8px 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:14px}
-.velo i{flex:1;background:var(--teal2);border-radius:5px 5px 0 0;transform:scaleY(0);transform-origin:100% 100%;animation:growbar .7s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes growbar{to{transform:scaleY(1)}}
-.kb-row2{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;align-items:center}
-.ring-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
-.ring-wrap svg{width:84px;height:84px;transform:rotate(-90deg);display:block}
-.ring-wrap circle{fill:none;stroke-width:9}
-.ring-wrap .bg{stroke:var(--soft)}
-.ring-wrap .fg{stroke:var(--teal2);stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
-.ring-wrap b{position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:84px;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--font);font-size:18px;font-variant-numeric:tabular-nums}
-.ring-wrap span{font-family:var(--geo);font-size:10.5px;color:var(--muted);text-align:center;max-width:90px}
+.ip{width:min(390px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px 16px 18px;box-shadow:0 40px 70px -35px rgba(15,32,35,.5);position:relative;z-index:2}
+.rst,.rst *{transition:none!important;animation:none!important}
+.ip-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--geo)}
+.ip-top b{font-size:15px}
+.ip-top span{font-size:12px;color:var(--muted)}
+.ip-days{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin-bottom:10px}
+.ip-days i{font:600 9.5px/20px var(--geo);font-style:normal;text-align:center;border-radius:6px;background:var(--soft);color:var(--muted);transition:background .25s,color .25s,transform .3s cubic-bezier(.3,1.6,.5,1)}
+.ip-days i.ok{background:color-mix(in srgb,var(--teal2) 25%,var(--soft));color:var(--ink)}
+.ip-days i.on{background:var(--teal2);color:var(--teal2-ink);transform:translateY(-2px)}
+.ip-days i.bl{background:#D94B3D;color:#fff}
+.ip-chart{position:relative;border-radius:16px;background:var(--paper);overflow:hidden;transition:opacity .4s}
+.ip.s-out .ip-chart{opacity:0}
+.ipv{display:block;width:100%;height:auto}
+.ipv .ax{stroke:var(--line);stroke-width:1}
+.ipv .lb{font:600 8px var(--geo);fill:var(--muted)}
+.ipv .ideal{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 4;opacity:.6}
+.ipv .act{fill:none;stroke:var(--teal2);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ipv .dot{fill:var(--card);stroke:var(--teal2);stroke-width:3}
+.ipv .flag{opacity:0;transform:translateY(-8px);transition:opacity .25s,transform .4s cubic-bezier(.3,1.8,.5,1)}
+.s-block .ipv .flag{opacity:1;transform:none}
+.s-block:not(.s-fix) .ipv .flag .fl{animation:ipWave .5s ease-in-out infinite alternate}
+@keyframes ipWave{to{transform:skewY(-8deg)}}
+.ipv .flag .fl{fill:#D94B3D;transition:fill .3s;transform-box:fill-box;transform-origin:0 50%}
+.s-fix .ipv .flag .fl{fill:var(--teal2)}
+.ipv .flag line{stroke:var(--ink);stroke-width:1.4}
+.s-block:not(.s-fix) .ipv .act{stroke:#D94B3D;transition:stroke .3s}
+.ipv .chatb{opacity:0;transform:scale(.6);transform-box:fill-box;transform-origin:0 100%;transition:opacity .25s,transform .4s cubic-bezier(.3,1.8,.5,1)}
+.s-talk .ipv .chatb{opacity:1;transform:none}
+.s-fix2 .ipv .chatb{opacity:0}
+.ipv .chatb rect{fill:var(--ink)}
+.ipv .chatb text{font:700 8px var(--geo);fill:var(--paper)}
+.ip-goal{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%) scale(.4) rotate(-8deg);opacity:0;background:var(--amber2);color:var(--amber2-ink);font:800 14px var(--geo);padding:8px 14px;border-radius:12px;box-shadow:0 12px 24px -12px rgba(0,0,0,.45);transition:transform .45s cubic-bezier(.3,1.8,.5,1),opacity .2s;white-space:nowrap}
+.s-goal .ip-goal{transform:translate(-50%,-50%) rotate(-4deg);opacity:1}
+.ip-row{display:flex;align-items:flex-end;gap:12px;margin-top:10px}
+.ip-velo{display:flex;align-items:flex-end;gap:4px;height:40px;flex:none}
+.ip-velo i{width:12px;border-radius:4px 4px 0 0;background:var(--soft);transform-origin:50% 100%}
+.ip-velo i:last-child{background:var(--teal2);transform:scaleY(0);transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
+.s-velo .ip-velo i:last-child{transform:none}
+.ip-stat{flex:1;min-width:0;font:12px var(--geo);color:var(--muted)}
+.ip-stat b{display:block;font:700 13px var(--geo);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bubble b.pop{display:inline-block;animation:ipPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes ipPop{40%{transform:scale(1.35)}}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-10px;top:50px}
-.bubble.b2{right:-14px;top:220px;animation-delay:-1.6s;background:var(--teal2);color:var(--teal2-ink);border-color:var(--teal2)}
-.bubble.b3{left:2px;bottom:16px;animation-delay:-3.2s;background:var(--amber2);color:var(--amber2-ink);border-color:var(--amber2)}
+.bubble.b1{left:-40px;top:130px}
+.bubble.b2{right:-44px;top:-14px;animation-delay:-1.6s;background:var(--teal2);color:var(--teal2-ink);border-color:var(--teal2)}
+.bubble.b3{right:-40px;bottom:30px;animation-delay:-3.2s;background:var(--amber2);color:var(--amber2-ink);border-color:var(--amber2)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -211,7 +233,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 .path li{grid-template-columns:1fr;gap:2px}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{right:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -235,7 +257,7 @@ header .btn-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.kb-card,.velo i{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -343,24 +365,27 @@ h1 .ln span,.kb-card,.velo i{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">Velocity <b id="bVelo">32</b></div>
-<div class="bubble b2">Sprint <b>3/8</b></div>
-<div class="bubble b3">PSM <b>I & II</b></div>
-<div class="kanban" aria-label="Kanban დაფის მაკეტი">
-<div class="kb-head"><b>Sprint Board</b><span>Sprint 3</span></div>
-<div class="kb-cols">
-<div class="kb-col"><span>TO DO</span><div class="kb-card" style="animation-delay:.3s">API ინტეგრაცია</div><div class="kb-card" style="animation-delay:.4s">UI ტესტირება</div></div>
-<div class="kb-col"><span>IN PROGRESS</span><div class="kb-card" style="animation-delay:.5s">Backlog refine</div></div>
-<div class="kb-col"><span>DONE</span><div class="kb-card" style="animation-delay:.6s">Sprint Planning</div><div class="kb-card" style="animation-delay:.7s">Daily Standup</div></div>
+<div class="bubble b1">დარჩა <b id="bSp">40 SP</b></div>
+<div class="bubble b2">Blocker <b id="bBlk">0</b></div>
+<div class="bubble b3">Velocity <b id="bVel">38</b></div>
+<div class="ip" id="ipBox" role="img" aria-label="სპრინტის burndown გრაფიკი: blocker-ის მოგვარება და სპრინტის მიზნის მიღწევა">
+<div class="ip-top" aria-hidden="true"><b>Sprint 7 · Burndown</b><span>Jira</span></div>
+<div class="ip-days" id="ipDays" aria-hidden="true"></div>
+<div class="ip-chart" aria-hidden="true">
+<svg class="ipv" viewBox="0 0 300 150">
+<line class="ax" x1="30" y1="14" x2="30" y2="132"/><line class="ax" x1="30" y1="132" x2="292" y2="132"/>
+<text class="lb" x="24" y="23" text-anchor="end">40</text><text class="lb" x="24" y="78" text-anchor="end">20</text><text class="lb" x="24" y="134" text-anchor="end">0</text>
+<line class="ideal" x1="30" y1="20" x2="288" y2="130"/>
+<polyline class="act" id="ipLine" points="30,20"/>
+<g id="ipFlag"><g class="flag"><line x1="0" y1="0" x2="0" y2="-24"/><path class="fl" d="M0-24h16l-4 5 4 5H0z"/></g></g>
+<g id="ipChat"><g class="chatb"><rect x="0" y="-18" width="104" height="18" rx="7"/><text x="8" y="-6">Standup: მოგვარდა ✓</text></g></g>
+<circle class="dot" id="ipDot" cx="30" cy="20" r="4.5"/>
+</svg>
+<div class="ip-goal">Sprint Goal ✓</div>
 </div>
-<div class="velo" id="velo"></div>
-<div class="kb-row2">
-<div><p class="hint" style="margin:0">Velocity ბოლო 6 სპრინტში</p></div>
-<div class="ring-wrap">
-<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="40"/><circle class="fg" id="ringFg" cx="50" cy="50" r="40"/></svg>
-<b id="ringVal">0%</b>
-<span>Sprint შესრულება</span>
-</div>
+<div class="ip-row" aria-hidden="true">
+<div class="ip-velo"><i style="height:26px"></i><i style="height:29px"></i><i style="height:31px"></i><i style="height:33px"></i><i style="height:36px"></i><i style="height:40px"></i></div>
+<div class="ip-stat"><b id="ipT">Sprint Planning</b><span id="ipD">40 story point · 10 დღე</span></div>
 </div>
 </div>
 </div>
@@ -515,19 +540,40 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-var heights=[46,58,52,70,64,80];
-var velo=$('velo'),vh='';
-heights.forEach(function(h,i){vh+='<i style="height:'+h+'%;animation-delay:'+(.2+i*.08)+'s"></i>';});
-velo.innerHTML=vh;
-var C=2*Math.PI*40,ringFg=$('ringFg');ringFg.style.strokeDasharray=C;ringFg.style.strokeDashoffset=C;
-var ringPct=0,ringTarget=85;
-function ringTick(){
-if(reduce){ringPct=ringTarget;}else if(ringPct<ringTarget){ringPct+=2;}
-$('ringVal').textContent=Math.min(ringPct,ringTarget)+'%';
-ringFg.style.strokeDashoffset=C*(1-Math.min(ringPct,ringTarget)/100);
-if(ringPct<ringTarget&&!reduce)requestAnimationFrame(ringTick);
+/* hero: sprint burndown */
+(function(){
+var box=$('ipBox'),line=$('ipLine'),dot=$('ipDot'),flag=$('ipFlag'),chat=$('ipChat'),dd=$('ipDays');
+var SP=[40,36,31,27,27,27,19,13,7,3,0],h='';
+for(var i=1;i<=10;i++)h+='<i>დ'+i+'</i>';
+dd.innerHTML=h;
+var days=[].slice.call(dd.children),bSp=$('bSp'),bB=$('bBlk'),bV=$('bVel');
+function X(d){return 30+d*25.8;}
+function Y(s){return 20+(1-s/40)*110;}
+flag.setAttribute('transform','translate('+X(3)+','+(Y(27)-4)+')');
+chat.setAttribute('transform','translate('+(X(5)+6)+','+(Y(27)-8)+')');
+var T=[],gen=0,pts=[];
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function pop(el,t){el.textContent=t;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}
+function tw(ms,fn){var my=gen,t0=null;function f(t){if(my!==gen)return;if(!t0)t0=t;var q=Math.min((t-t0)/ms,1);fn(1-Math.pow(1-q,3));if(q<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+function draw(extra){line.setAttribute('points',pts.concat(extra?[extra]:[]).join(' '));}
+function stat(a,b){$('ipT').textContent=a;$('ipD').textContent=b;}
+function day(d){days.forEach(function(x,k){x.classList.toggle('on',k===d-1);x.classList.toggle('ok',k<d-1);});var x0=X(d-1),y0=Y(SP[d-1]),x1=X(d),y1=Y(SP[d]);tw(600,function(e){var x=x0+(x1-x0)*e,y=y0+(y1-y0)*e;draw(x.toFixed(1)+','+y.toFixed(1));dot.setAttribute('cx',x);dot.setAttribute('cy',y);});at(620,function(){pts.push(x1.toFixed(1)+','+y1.toFixed(1));});if(SP[d]!==SP[d-1])pop(bSp,SP[d]+' SP');}
+function reset(){T.forEach(clearTimeout);T=[];gen++;box.className='ip rst';pts=['30,20'];draw();dot.setAttribute('cx',30);dot.setAttribute('cy',20);days.forEach(function(x){x.className='';});bSp.textContent='40 SP';bB.textContent='0';bV.textContent='38';stat('Sprint Planning','40 story point · 10 დღე');void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();
+for(var d=1;d<=10;d++)(function(d){at(400+d*820,function(){day(d);if(d<4||d>6)stat('Daily Standup · დღე '+d,'დარჩა '+SP[d]+' story point');});})(d);
+at(400+4*820,function(){add('s-block');days[3].classList.add('bl');pop(bB,'1');stat('Blocker: API წვდომა','ტასკი გაჩერდა · დღე 4');});
+at(400+5*820,function(){days[4].classList.add('bl');stat('Blocker ჯერ აქტიურია','Scrum Master ესკალაციას აკეთებს');});
+at(400+6*820-300,function(){add('s-talk');add('s-fix');pop(bB,'მოგვარდა ✓');stat('Daily Standup · დღე 6','blocker მოგვარდა, გუნდი აჩქარდა');});
+at(400+8*820,function(){add('s-fix2');});
+at(400+10*820+700,function(){days[9].classList.remove('on');days[9].classList.add('ok');add('s-goal');stat('Sprint Review','40/40 SP · მიზანი მიღწეულია');});
+at(400+10*820+1500,function(){add('s-velo');pop(bV,'40');});
+at(13400,function(){add('s-out');});
+at(13900,run);
 }
-requestAnimationFrame(ringTick);
+if(reduce){pts=SP.map(function(s,d){return X(d).toFixed(1)+','+Y(s).toFixed(1);});draw();dot.setAttribute('cx',X(10));dot.setAttribute('cy',Y(0));days.forEach(function(x){x.className='ok';});box.classList.add('s-block','s-fix','s-fix2','s-goal','s-velo');bSp.textContent='0 SP';bB.textContent='მოგვარდა ✓';bV.textContent='40';stat('Sprint Review','40/40 SP · მიზანი მიღწეულია');}else{run();}
+})();
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});

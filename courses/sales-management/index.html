@@ -87,30 +87,46 @@ h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--navy)}
 .price{font-weight:800;font-size:34px;margin-right:10px;line-height:1}
 .price small{font-size:20px}
 .phone-stage{position:relative;display:flex;justify-content:center}
-.dash{width:min(380px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px 18px 22px;box-shadow:0 40px 70px -35px rgba(22,27,46,.5);position:relative;z-index:2}
-.dash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.dash-head b{font-family:var(--geo);font-size:15px}
-.dash-head span{font-family:var(--geo);font-size:12px;color:var(--muted)}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
-.kpi{border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
-.kpi b{display:block;font-family:var(--font);font-size:18px}
-.kpi span{font-family:var(--geo);font-size:10.5px;color:var(--muted)}
-.bars{display:flex;align-items:end;gap:8px;height:92px;padding:8px 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:14px}
-.bars i{flex:1;background:linear-gradient(180deg,var(--navy),var(--orange));border-radius:6px 6px 0 0;transform:scaleY(0);transform-origin:100% 100%;animation:growbar .7s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes growbar{to{transform:scaleY(1)}}
-.dash-row2{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;align-items:center}
-.ring-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
-.ring-wrap svg{width:84px;height:84px;transform:rotate(-90deg);display:block}
-.ring-wrap circle{fill:none;stroke-width:9}
-.ring-wrap .bg{stroke:var(--soft)}
-.ring-wrap .fg{stroke:var(--navy);stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
-.ring-wrap b{position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:84px;display:flex;align-items:center;justify-content:center;margin:0;font-family:var(--font);font-size:18px;font-variant-numeric:tabular-nums}
-.ring-wrap span{font-family:var(--geo);font-size:10.5px;color:var(--muted);text-align:center;max-width:90px}
+.sm{width:min(390px,100%);background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px 16px 18px;box-shadow:0 40px 70px -35px rgba(22,27,46,.5);position:relative;z-index:2}
+.rst,.rst *{transition:none!important;animation:none!important}
+.sm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-family:var(--geo)}
+.sm-top b{font-size:15px}
+.sm-top span{font-size:12px;color:var(--muted)}
+.sm-view{position:relative;border-radius:16px;background:var(--paper);overflow:hidden;transition:opacity .4s}
+.s-out .sm-view{opacity:0}
+.smv{display:block;width:100%;height:auto}
+.smv .ly{transition:fill .3s}
+.smv .ly0{fill:color-mix(in srgb,var(--navy) 16%,var(--card))}
+.smv .ly1{fill:color-mix(in srgb,var(--navy) 28%,var(--card))}
+.smv .ly2{fill:color-mix(in srgb,var(--navy) 42%,var(--card))}
+.smv .ly3{fill:color-mix(in srgb,var(--navy) 58%,var(--card))}
+.smv .ly.hit{fill:var(--orange)}
+.smv .lt{font:700 8.5px var(--geo);fill:var(--muted)}
+.smv .lt tspan{fill:var(--ink);font-weight:800}
+.smv .deal{fill:var(--navy);stroke:var(--card);stroke-width:1.5}
+.smv .deal.lost{fill:#D94B3D}
+.smv .deal.won{fill:var(--orange)}
+.smv .jar{fill:var(--card);stroke:var(--line);stroke-width:1.5}
+.smv .fill{fill:var(--orange)}
+.smv .jl{font:800 9px var(--geo);fill:var(--ink);text-anchor:middle}
+.smv .jv{font:800 11px var(--geo);fill:var(--ink);text-anchor:middle}
+.smv .goal{opacity:0;transform:translateY(8px) scale(.6);transform-box:fill-box;transform-origin:50% 100%;transition:opacity .25s,transform .45s cubic-bezier(.3,1.8,.5,1)}
+.s-goal .smv .goal{opacity:1;transform:none}
+.smv .goal rect{fill:var(--navy)}
+.smv .goal text{font:800 9px var(--geo);fill:var(--navy-ink);text-anchor:middle}
+.smv .cf{opacity:0}
+.s-goal .smv .cf{animation:smConf 1.2s ease-out forwards}
+@keyframes smConf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(220deg)}}
+.sm-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.sm-kpi div{border:1px solid var(--line);border-radius:12px;padding:7px 8px;text-align:center;font:10.5px var(--geo);color:var(--muted)}
+.sm-kpi b{display:block;font:800 15px var(--font);color:var(--ink);font-variant-numeric:tabular-nums}
+.bubble b.pop{display:inline-block;animation:smPop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes smPop{40%{transform:scale(1.35)}}
 .bubble{position:absolute;z-index:3;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:9px 13px;font-family:var(--geo);font-size:13px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .bubble b{font-family:var(--font)}
-.bubble.b1{left:-10px;top:60px}
-.bubble.b2{right:-14px;top:220px;animation-delay:-1.6s;background:var(--navy);color:var(--navy-ink);border-color:var(--navy)}
-.bubble.b3{left:2px;bottom:16px;animation-delay:-3.2s;background:var(--orange);color:var(--orange-ink);border-color:var(--orange)}
+.bubble.b1{left:-40px;top:-14px}
+.bubble.b2{right:-44px;top:-14px;animation-delay:-1.6s;background:var(--navy);color:var(--navy-ink);border-color:var(--navy)}
+.bubble.b3{left:-30px;bottom:-34px;animation-delay:-3.2s;background:var(--orange);color:var(--orange-ink);border-color:var(--orange)}
 @keyframes bob{50%{transform:translateY(-10px)}}
 .plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);align-items:center}
 .plat p{margin:0 12px 0 0;font-family:var(--geo);color:var(--muted);font-size:15px}
@@ -209,7 +225,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .hero-grid,.plan,.out,.lect,.final{grid-template-columns:1fr}
 .path li{grid-template-columns:1fr;gap:2px}
 nav.links{display:none}
-.bubble.b1{left:0}.bubble.b2{right:0}
+.bubble.b1{left:0}.bubble.b2{right:0}.bubble.b3{left:0}
 .lec button{grid-template-columns:44px 1fr 28px;gap:12px;padding:12px 16px}
 .lec .ph{display:none}
 .lec .n{font-size:24px}
@@ -232,7 +248,7 @@ header .btn-sm{display:none}
 }
 @media (prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-h1 .ln span,.bars i{transform:none;opacity:1}
+h1 .ln span{transform:none;opacity:1}
 .reveal{opacity:1;transform:none}
 }
 </style>
@@ -340,25 +356,31 @@ h1 .ln span,.bars i{transform:none;opacity:1}
 </div>
 </div>
 <div class="phone-stage" id="phoneStage">
-<div class="bubble b1">გაყიდვები <b id="bRev">142K ₾</b></div>
-<div class="bubble b2">ROI <b>+18%</b></div>
-<div class="bubble b3">გეგმის შესრულება <b>0%</b></div>
-<div class="dash" aria-label="მენეჯმენტის დაშბორდის მაკეტი">
-<div class="dash-head"><b>გაყიდვების დაშბორდი</b><span>Q3 2026</span></div>
-<div class="kpis">
-<div class="kpi"><b>142K ₾</b><span>შემოსავალი</span></div>
-<div class="kpi"><b>+18%</b><span>ROI</span></div>
-<div class="kpi"><b>4.2x</b><span>Break-even</span></div>
+<div class="bubble b1">შემოსავალი <b id="bRev">0K ₾</b></div>
+<div class="bubble b2">კონვერსია <b id="bConv">0%</b></div>
+<div class="bubble b3">გეგმის შესრულება <b id="bPlan">0%</b></div>
+<div class="sm" id="smBox" role="img" aria-label="გაყიდვების ძაბრი: გარიგებები ეტაპებზე გადის და კვარტალური გეგმა სრულდება">
+<div class="sm-top" aria-hidden="true"><b>გაყიდვების ძაბრი</b><span>Q3 · გეგმა 150K ₾</span></div>
+<div class="sm-view" aria-hidden="true">
+<svg class="smv" id="smSvg" viewBox="0 0 300 196">
+<path class="ly ly0" d="M14 16H186L170 52H30Z"/>
+<path class="ly ly1" d="M31 55H169L154 91H46Z"/>
+<path class="ly ly2" d="M47 94H153L138 130H62Z"/>
+<path class="ly ly3" d="M63 133H137L124 169H76Z"/>
+<text class="lt" x="194" y="37">ლიდი <tspan id="smC0">0</tspan></text>
+<text class="lt" x="177" y="76">შეხვედრა <tspan id="smC1">0</tspan></text>
+<text class="lt" x="161" y="115">შეთავაზება <tspan id="smC2">0</tspan></text>
+<text class="lt" x="145" y="154">დახურვა <tspan id="smC3">0</tspan></text>
+<text class="jl" x="266" y="14">გეგმა</text>
+<rect class="jar" x="252" y="20" width="28" height="160" rx="8"/>
+<rect class="fill" id="smFill" x="255" y="177" width="22" height="0" rx="5"/>
+<text class="jv" id="smJv" x="266" y="193">0K</text>
+<g id="smDeals"></g>
+<g class="goal"><rect x="241" y="84" width="50" height="20" rx="8"/><text x="266" y="97.5">გეგმა ✓</text></g>
+<g id="smCf" transform="translate(266 94)"></g>
+</svg>
 </div>
-<div class="bars" id="bars"></div>
-<div class="dash-row2">
-<div><p class="hint" style="margin:0">კვარტალური გეგმის დინამიკა</p></div>
-<div class="ring-wrap">
-<svg viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="40"/><circle class="fg" id="ringFg" cx="50" cy="50" r="40"/></svg>
-<b id="ringVal">0%</b>
-<span>გეგმის შესრულება</span>
-</div>
-</div>
+<div class="sm-kpi" aria-hidden="true"><div><b id="smWon">0</b>მოგებული</div><div><b id="smLost">0</b>დაკარგული</div><div><b id="smAvg">0K</b>საშ. გარიგება</div></div>
 </div>
 </div>
 </div>
@@ -514,21 +536,49 @@ $('themeBtn').addEventListener('click',function(){var cur=root.getAttribute('dat
 var bar=$('progress'),mcta=$('mcta'),join=$('join');
 function onScroll(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';mcta.classList.toggle('show',scrollY>500&&join.getBoundingClientRect().top>innerHeight*.6);}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
-var heights=[38,52,44,68,58,80,92];
-var bars=$('bars'),bh='';
-heights.forEach(function(h,i){bh+='<i style="height:'+h+'%;animation-delay:'+(.2+i*.08)+'s"></i>';});
-bars.innerHTML=bh;
-var C=2*Math.PI*40,ringFg=$('ringFg');ringFg.style.strokeDasharray=C;ringFg.style.strokeDashoffset=C;
-var ringPct=0,ringTarget=71;
-function ringTick(){
-if(reduce){ringPct=ringTarget;}else if(ringPct<ringTarget){ringPct+=2;}
-$('ringVal').textContent=Math.min(ringPct,ringTarget)+'%';
-ringFg.style.strokeDashoffset=C*(1-Math.min(ringPct,ringTarget)/100);
-if(ringPct<ringTarget&&!reduce)requestAnimationFrame(ringTick);
+/* hero: sales funnel, deals drop in, target fills */
+(function(){
+var box=$('smBox'),g=$('smDeals'),fillR=$('smFill'),jv=$('smJv'),ly=[].slice.call(box.querySelectorAll('.smv .ly')),C=[0,1,2,3].map(function(i){return $('smC'+i);});
+var bR=$('bRev'),bC=$('bConv'),bP=$('bPlan'),won=$('smWon'),lost=$('smLost'),avg=$('smAvg');
+var FATE=[4,1,4,0,4,2,4,1,4,3,4,4],TOP=[16,55,94,133],BOT=[52,91,130,169],VAL=[18,24,21,26,19,22,20];
+var cf='',cols=['var(--navy)','var(--orange)','var(--ink)'];
+for(var k=0;k<12;k++){var a=k/12*Math.PI*2;cf+='<rect class="cf" x="-2" y="-2" width="4" height="4" fill="'+cols[k%3]+'" style="--x:'+(Math.cos(a)*34).toFixed(0)+'px;--y:'+(Math.sin(a)*30).toFixed(0)+'px"/>';}
+$('smCf').innerHTML=cf;
+var T=[],gen=0,D=[],nW=0,nL=0,rev=0,cnt=[0,0,0,0],raf=0,last=0;
+function at(ms,fn){T.push(setTimeout(fn,ms));}
+function add(c){box.classList.add(c);}
+function pop(el,t){el.textContent=t;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}
+function hw(y){return 86-(y-16)/153*62;}
+function setFill(v){var h=Math.min(1,v/150)*154;fillR.setAttribute('y',(177-h).toFixed(1));fillR.setAttribute('height',h.toFixed(1));jv.textContent=Math.round(v)+'K';}
+function flash(i){ly[i].classList.add('hit');setTimeout(function(){ly[i].classList.remove('hit');},180);}
+function spawn(i){var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('r',5);c.setAttribute('class','deal');g.appendChild(c);D.push({el:c,f:FATE[i],off:(Math.random()*1.3-.65),y:4,ph:0,ts:0,lay:-1,dir:Math.random()<.5?-1:1});}
+function frame(now){
+var my=gen,dt=Math.min(50,now-last);last=now;D.forEach(function(d){
+if(d.ph===0){d.y+=dt*.093;var x=100+d.off*hw(Math.min(d.y,169));
+for(var l=0;l<4;l++)if(d.lay<l&&d.y>=TOP[l]){d.lay=l;cnt[l]++;C[l].textContent=cnt[l];flash(l);}
+if(d.f<4&&d.y>=BOT[d.f]){d.ph=1;d.ts=now;d.x=x;d.el.setAttribute('class','deal lost');nL++;lost.textContent=nL;}
+else if(d.f===4&&d.y>=172){d.ph=2;d.ts=now;d.x=x;d.el.setAttribute('class','deal won');}
+d.el.setAttribute('cx',x.toFixed(1));d.el.setAttribute('cy',d.y.toFixed(1));}
+else if(d.ph===1){var q=Math.min((now-d.ts)/450,1);d.el.setAttribute('cx',(d.x+d.dir*46*q).toFixed(1));d.el.setAttribute('cy',(d.y+18*q*q).toFixed(1));d.el.style.opacity=1-q;if(q>=1)d.ph=9;}
+else if(d.ph===2){var q2=Math.min((now-d.ts)/650,1),e=1-Math.pow(1-q2,2),ty=177-Math.min(1,rev/150)*154,x0=d.x,y0=172,cx=200,cy=110,x1=266,y1=ty-4;
+var bx=(1-e)*(1-e)*x0+2*(1-e)*e*cx+e*e*x1,by=(1-e)*(1-e)*y0+2*(1-e)*e*cy+e*e*y1;d.el.setAttribute('cx',bx.toFixed(1));d.el.setAttribute('cy',by.toFixed(1));
+if(q2>=1){d.ph=9;d.el.style.opacity=0;var v=VAL[nW%VAL.length];nW++;var from=rev;rev=Math.min(150,rev+v);(function(from,to){var t0=null,gg=gen;(function f(t){if(gg!==gen)return;if(!t0)t0=t;var p=Math.min((t-t0)/400,1);setFill(from+(to-from)*p);if(p<1)requestAnimationFrame(f);})(performance.now());})(from,rev);
+won.textContent=nW;pop(bR,Math.round(rev)+'K ₾');pop(bP,Math.round(rev/150*100)+'%');avg.textContent=Math.round(rev/nW)+'K';}}
+});
+bC.textContent=(nW+nL?Math.round(nW/(nW+nL)*100):0)+'%';
+if(my===gen&&D.some(function(d){return d.ph!==9;}))raf=requestAnimationFrame(frame);else raf=0;
 }
-requestAnimationFrame(ringTick);
-var rev=142;
-if(!reduce)setInterval(function(){rev+=Math.random()>.5?1:0;$('bRev').textContent=fmt(rev)+'K ₾';},2600);
+function kick(){if(!raf){last=performance.now();raf=requestAnimationFrame(frame);}}
+function reset(){T.forEach(clearTimeout);T=[];gen++;cancelAnimationFrame(raf);raf=0;D=[];g.innerHTML='';nW=0;nL=0;rev=0;cnt=[0,0,0,0];C.forEach(function(c){c.textContent='0';});setFill(0);box.className='sm rst';won.textContent='0';lost.textContent='0';avg.textContent='0K';bR.textContent='0K ₾';bC.textContent='0%';bP.textContent='0%';void box.offsetWidth;box.classList.remove('rst');}
+function run(){
+reset();
+FATE.forEach(function(f,i){at(300+i*560,function(){spawn(i);kick();});});
+at(9800,function(){rev=150;setFill(150);pop(bR,'150K ₾');pop(bP,'100%');add('s-goal');});
+at(13200,function(){add('s-out');});
+at(13700,run);
+}
+if(reduce){setFill(150);box.classList.add('s-goal');[12,9,7,6].forEach(function(n,i){C[i].textContent=n;});won.textContent='7';lost.textContent='5';avg.textContent='21K';bR.textContent='150K ₾';bC.textContent='58%';bP.textContent='100%';}else{run();}
+})();
 function countUp(el){var to=+el.dataset.count;if(reduce){el.textContent=to;return;}var t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);e.target.querySelectorAll('[data-count]').forEach(countUp);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
