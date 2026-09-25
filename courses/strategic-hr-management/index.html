@@ -189,6 +189,9 @@ h2{font-family:"NeueCaps",var(--geo);font-stretch:74%;font-weight:900;font-size:
 .lec ul li.tk:before{background:var(--amber);border-radius:2px}
 .lec button:hover .t{color:var(--teal)}
 .tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tools-r{display:flex;gap:10px;flex-wrap:wrap}
+.btn-pdf{padding:0 14px;gap:6px}
+.btn svg{flex:none}
 .tools .cnt{font-family:var(--geo);color:var(--muted);font-size:15px}
 /* outcomes */
 .out{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
@@ -411,6 +414,7 @@ h1 .ln span{transform:none;opacity:1}
 <span class="price">1800 <small>₾</small></span>
 <a class="btn btn-main" href="https://smartacademy.ge/trainings/377-Strategic-Human-Resource-Management" target="_blank" rel="noopener">რეგისტრაცია კურსზე</a>
 <a class="btn btn-ghost" href="#syllabus">სილაბუსი</a>
+<a class="btn btn-ghost btn-pdf" href="syllabus.pdf" download="Strategic-HR-Management-Syllabus.pdf" title="სილაბუსის ჩამოტვირთვა (PDF)" aria-label="სილაბუსის ჩამოტვირთვა (PDF)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>PDF</span></a>
 </div>
 </div>
 <div class="dash-stage" id="shStage">
@@ -466,7 +470,7 @@ h1 .ln span{transform:none;opacity:1}
 <h2 class="reveal">18 შეხვედრა, ოთხი ეტაპი</h2>
 <p class="sub reveal">24 საათი თეორია და 14 საათი პრაქტიკა, ჯამში 38 საათი. შესრულების მართვის საფუძვლებიდან მიზნებისა და KPI-ების დანერგვამდე, განვითარებისა და მოტივაციის სისტემებამდე და საკუთარი ორგანიზაციისთვის მზა პროექტამდე.</p>
 <div class="phases reveal" id="phases" role="group" aria-label="ეტაპის ფილტრი"></div>
-<div class="tools reveal"><span class="cnt" id="cnt"></span><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></div>
+<div class="tools reveal"><span class="cnt" id="cnt"></span><span class="tools-r"><a class="btn btn-main btn-sm" href="syllabus.pdf" download="Strategic-HR-Management-Syllabus.pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>PDF-ად ჩამოტვირთვა</a><button class="btn btn-ghost btn-sm" id="toggleAll">ყველას გახსნა</button></span></div>
 <ol class="lec reveal" id="lec"></ol>
 </div>
 </section>
